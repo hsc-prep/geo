@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q17: Geographical Investigation — Wenona Year 12 Geography</title>
+<style>:root {
+  --ink:#18312f;
+  --muted:#64746f;
+  --bg:#f7fbf7;
+  --card:#ffffff;
+  --line:#d7e5df;
+  --navy:#15314b;
+  --deep:#0f766e;
+  --blue:#0f766e;
+  --blue2:#22c55e;
+  --sky:#5eead4;
+  --aqua:#ccfbf1;
+  --pale:#ecfdf5;
+  --pale2:#f0fdfa;
+  --white:#ffffff;
+  --success:#ecfdf5;
+  --warn:#fff7ed;
+  --shadow:0 14px 35px rgba(15,49,75,.12);
+  --radius:20px;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; padding:0; min-height:100%; color:var(--ink); background:linear-gradient(180deg,#eefbf5 0%,#f7fbf7 45%,#fff 100%); font-family:'Arial Narrow',Arial,sans-serif; font-stretch:condensed; }
+button, input, textarea, select { font:inherit; }
+button { cursor:pointer; }
+p { line-height:1.52; }
+.small { font-size:.92rem; color:var(--muted); }
+ul.tight { margin:8px 0 0 20px; padding:0; }
+ul.tight li { margin:6px 0; line-height:1.42; }
+hr.sep { border:0; border-top:1px solid var(--line); margin:20px 0; }
+
+.app-header { background:linear-gradient(135deg,#15314b 0%,#0f766e 55%,#22c55e 100%); color:#fff; padding:28px 22px 24px; border-bottom:0; position:relative; overflow:hidden; }
+.app-header::after { content:""; position:absolute; right:-90px; top:-70px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.12); }
+.wrap { max-width:1220px; margin:0 auto; position:relative; z-index:1; }
+.app-header h1 { margin:0 0 8px; font-size:clamp(28px,4vw,48px); letter-spacing:-.04em; line-height:1.05; }
+.app-header .subtitle { margin:0; max-width:900px; line-height:1.55; color:#ecfdf5; font-size:1rem; }
+.badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.badges .badge { padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; font-weight:800; font-size:13px; }
+.credit { margin-top:14px; font-size:12px; color:#dcfce7; }
+
+.nav-wrap { position:sticky; top:0; z-index:30; background:rgba(255,255,255,.97); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.tabs { display:flex; gap:8px; overflow-x:auto; padding:10px 16px; max-width:1220px; margin:0 auto; }
+.tab-btn { border:1px solid var(--line); background:#fff; color:var(--ink); padding:10px 14px; border-radius:14px; font-weight:800; white-space:nowrap; cursor:pointer; }
+.tab-btn.active { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border-color:transparent; }
+
+.subnav { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 18px; }
+.subnav button { border:1px solid var(--line); background:#fff; color:var(--deep); padding:8px 12px; border-radius:999px; font-weight:800; font-size:.85rem; }
+.subnav button.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+
+main { max-width:1220px; margin:24px auto; padding:0 18px 60px; }
+.tab-panel { display:none; animation:fade .18s ease; }
+.tab-panel.active { display:block; }
+@keyframes fade { from { opacity:.2; transform:translateY(4px); } to { opacity:1; transform:none; } }
+.sub-panel { display:none; }
+.sub-panel.active { display:block; }
+
+.card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-bottom:18px; }
+.card.soft { background:linear-gradient(135deg,#fff,#f0fdf4); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.grid.two { grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); }
+.grid.three, .grid.four { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+
+.section-title { margin:0 0 14px; border-left:0; padding:0; background:none; color:var(--blue); font-size:1.2rem; }
+.sub-title { margin:0 0 10px; color:var(--blue); font-size:1.25rem; }
+.mini-title { margin:0 0 7px; text-transform:uppercase; letter-spacing:.08em; color:var(--deep); font-size:.82rem; font-weight:900; }
+
+.callout { padding:14px 16px; border-radius:16px; background:var(--pale); border:1px solid #a7f3d0; margin:12px 0; }
+.callout.warn { background:#fff7ed; border-color:#fed7aa; }
+.callout.good, .callout.green { background:#ecfdf5; border-color:#99f6e4; }
+.callout.purple { background:#f5f3ff; border-color:#ddd6fe; }
+.callout.blue { background:#eff6ff; border-color:#bfdbfe; }
+
+.badge-row { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.badge-row .badge { display:inline-flex; align-items:center; gap:6px; border:1px solid #bae6fd; background:#e0f2fe; color:#075985; border-radius:999px; padding:7px 10px; font-size:.86rem; font-weight:900; }
+.badge-row .badge.dark { background:var(--navy); color:#fff; border-color:var(--navy); }
+.badge-row .badge.sky { background:#ecfdf5; color:#0f766e; border-color:#a7f3d0; }
+.badge-row .badge.num { background:var(--navy); color:#fff; border-radius:8px; min-width:26px; text-align:center; }
+
+.btn, button.action { border:0; border-radius:14px; background:var(--blue); color:#fff; padding:10px 14px; font-weight:900; cursor:pointer; box-shadow:none; }
+.btn:hover, button.action:hover { filter:brightness(.96); transform:translateY(-1px); }
+.btn.secondary, button.secondary { background:#e2e8f0; color:#0f172a; border:0; }
+.btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+
+select, input[type="text"] { border:1px solid var(--line); border-radius:999px; padding:10px 12px; background:white; color:var(--ink); }
+textarea { width:100%; min-height:120px; border:1px solid var(--line); border-radius:14px; padding:12px; resize:vertical; background:#fbfdff; color:var(--ink); }
+textarea:focus, select:focus, input:focus { outline:3px solid rgba(94,234,212,.35); border-color:var(--blue); }
+
+.workbook-table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:16px; border:1px solid var(--line); background:white; }
+.workbook-table th { background:#ecfdf5; color:#14532d; text-align:left; padding:11px; font-size:.92rem; }
+.workbook-table td { border-top:1px solid var(--line); padding:11px; vertical-align:top; line-height:1.42; }
+.workbook-table tr:nth-child(even) td { background:#f8fcfa; }
+.workbook-table .section-row td { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; font-weight:900; }
+
+.progress { height:10px; background:#d1fae5; border-radius:999px; overflow:hidden; }
+.progress > span { display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--blue2)); transition:.2s; }
+
+.flip-card { perspective:1000px; min-height:300px; margin-top:16px; }
+.flip-inner { position:relative; width:100%; min-height:300px; transition:transform .55s ease; transform-style:preserve-3d; }
+.flip-card.flipped .flip-inner { transform:rotateY(180deg); }
+.flip-face { position:absolute; inset:0; backface-visibility:hidden; border:2px dashed #86efac; border-radius:22px; padding:26px; background:linear-gradient(135deg,#fff,#ecfdf5); box-shadow:var(--shadow); display:flex; flex-direction:column; justify-content:center; cursor:pointer; }
+.flip-back { transform:rotateY(180deg); border-style:solid; background:linear-gradient(135deg,#f0fdfa,#fff); }
+.flash-term { font-size:clamp(1.5rem, 3.2vw, 2.5rem); color:var(--navy); margin:.35rem 0; line-height:1.15; }
+.flash-meta { text-transform:uppercase; letter-spacing:.14em; color:var(--deep); font-weight:900; font-size:.78rem; margin-bottom:8px; }
+.flash-answer { font-size:1.03rem; line-height:1.55; color:var(--ink); }
+.flash-answer strong { color:var(--navy); }
+.flash-controls { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center; }
+.deck-counter { font-weight:900; color:var(--navy); font-size:.9rem; }
+
+.question-card { border:1px solid var(--line); background:white; border-radius:16px; padding:16px; margin:14px 0; }
+.option { display:block; border:1px solid var(--line); background:#fbfdff; border-radius:12px; padding:10px 12px; margin:8px 0; width:100%; text-align:left; }
+.option.correct { border-color:#1c9960; background:#e8f8ef; }
+.option.wrong { border-color:#c44040; background:#fff0f0; }
+.answer-box { margin-top:10px; display:none; }
+.answer-box.visible { display:block; }
+.mark-pill { display:inline-flex; align-items:center; background:var(--navy); color:white; border-radius:999px; padding:5px 9px; font-weight:900; font-size:.83rem; }
+.directive { font-weight:900; color:var(--deep); }
+
+.app-footer { border-top:1px solid var(--line); padding:24px 18px; text-align:center; color:var(--muted); background:#f7fbf7; font-weight:800; }
+
+/* syllabus accordion */
+.syllabus-section { background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; margin-bottom:20px; }
+.syllabus-section-title { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; padding:16px 18px; }
+.syllabus-section-title h2, .syllabus-section-title h3 { margin:0 0 5px; color:#fff; }
+.syllabus-section-title p { margin:0; color:#d1fae5; font-size:13px; }
+.syllabus-accordion-stack { display:grid; gap:12px; padding:16px; background:#f8fcfa; }
+details.syllabus-accordion { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 8px 22px rgba(15,23,42,.06); }
+details.syllabus-accordion summary { display:grid; grid-template-columns:auto 1fr auto; gap:11px; align-items:center; cursor:pointer; list-style:none; padding:15px 17px; color:#0f172a; font-weight:950; background:linear-gradient(90deg,#ecfdf5,#fff); }
+details.syllabus-accordion summary::-webkit-details-marker { display:none; }
+.dotpoint-number { display:grid; place-items:center; width:30px; height:30px; border-radius:10px; background:var(--navy); color:#fff; font-size:12px; flex-shrink:0; }
+.dotpoint-text { line-height:1.35; }
+.accordion-toggle { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#dcfce7; color:#0f766e; font-size:18px; font-weight:950; }
+details.syllabus-accordion .accordion-toggle::before { content:'+'; }
+details.syllabus-accordion[open] .accordion-toggle::before { content:'\2013'; }
+details.syllabus-accordion[open] summary { background:linear-gradient(90deg,#d1fae5,#f0fdfa); border-bottom:1px solid var(--line); }
+.accordion-body { padding:17px; }
+.accordion-body > :first-child { margin-top:0; }
+.accordion-body > :last-child { margin-bottom:0; }
+.accordion-body .card { box-shadow:none; margin-bottom:14px; padding:14px; }
+.accordion-body .card:last-child { margin-bottom:0; }
+.dp-casestudy { border:1px solid #a7f3d0; border-radius:14px; padding:12px 14px; background:#f0fdf4; margin:8px 0; }
+.dp-casestudy .cs-name { color:#0f4f46; font-weight:950; margin-bottom:6px; display:block; }
+.dp-flashcount { font-size:.78rem; color:var(--muted); margin-top:6px; }
+
+/* syllabus map checklist */
+.check-row { display:grid; grid-template-columns:1fr auto auto; gap:10px; align-items:center; padding:9px 4px; border-top:1px solid var(--line); }
+.check-row:first-child { border-top:0; }
+.check-row .dp-num { font-weight:900; color:var(--navy); margin-right:6px; }
+.check-cell { display:flex; align-items:center; gap:6px; font-size:.78rem; color:var(--muted); font-weight:800; }
+.check-cell input { width:20px; height:20px; accent-color:var(--deep); }
+
+/* glossary / directive terms */
+.term-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.term-card { border:1px solid var(--line); border-radius:18px; padding:15px; background:#fff; box-shadow:0 8px 20px rgba(15,49,75,.07); }
+.term-card h4 { margin:0 0 6px; color:var(--navy); font-size:1.15rem; }
+.term-card .term-meaning { color:var(--deep); font-weight:800; margin:0 0 8px; }
+.term-card .term-example { font-size:.88rem; color:var(--muted); margin:0; }
+
+/* strategy evidence */
+.strategy-tabs { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; }
+.strategy-tab { border:1px solid var(--line); background:#fff; color:var(--ink); padding:10px 14px; border-radius:999px; font-weight:900; cursor:pointer; }
+.strategy-tab.active { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border-color:transparent; }
+.strategy-panel { display:none; }
+.strategy-panel.active { display:block; }
+.strategy-banner { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; border-radius:20px; padding:18px; margin-bottom:14px; }
+.strategy-banner h3 { margin:0 0 5px; color:#fff; }
+.strategy-banner p { margin:0; color:#d1fae5; }
+.evidence-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
+.evidence-tile { background:#fff; border:1px solid var(--line); border-radius:16px; padding:13px; }
+.evidence-tile strong { display:block; color:var(--blue); margin-bottom:5px; }
+
+/* pattern builder */
+.builder-shell { border:1px solid #a7f3d0; border-radius:22px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
+.builder-head { padding:18px 20px; background:linear-gradient(135deg,var(--navy),var(--blue) 55%,var(--blue2)); color:#fff; }
+.builder-head h3 { margin:0 0 6px; font-size:1.45rem; color: #fff;}
+.builder-head p { margin:0; color:#d1fae5; }
+.builder-layout { display:grid; grid-template-columns:minmax(280px,370px) 1fr; }
+.builder-controls { padding:18px; background:#f8fcfa; border-right:1px solid var(--line); }
+.builder-output { padding:18px; min-width:0; }
+.builder-control { margin-bottom:14px; }
+.builder-control label { display:block; margin-bottom:6px; color:#0f4f46; font-weight:900; }
+.builder-control select { width:100%; border-radius:12px; }
+.metric-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(135px,1fr)); gap:10px; margin-bottom:14px; }
+.metric { background:#f8fcfa; border:1px solid var(--line); border-radius:15px; padding:12px; text-align:center; }
+.metric b { display:block; font-size:1.3rem; color:var(--blue); }
+.metric span { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+.model-response { background:#f0fdf4; border:1px solid #a7f3d0; border-radius:18px; padding:16px; }
+.model-response h4 { margin:0 0 8px; color:#0f4f46; }
+.model-response p { margin:.45rem 0; }
+.causal-chain { display:flex; align-items:stretch; gap:7px; overflow-x:auto; margin:14px 0; padding-bottom:4px; }
+.causal-node { min-width:130px; flex:1; padding:10px; border-radius:12px; background:#ecfdf5; color:#0f4f46; border:1px solid #a7f3d0; font-size:12px; font-weight:800; }
+.causal-arrow { display:flex; align-items:center; color:var(--blue); font-size:18px; font-weight:900; }
+
+.where-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.where-item { background:#fff; border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:0 8px 22px rgba(15,23,42,.06); }
+.where-item label { display:block; font-weight:900; color:#0f4f46; margin-bottom:6px; }
+.where-desc { min-height:38px; font-size:13px; color:var(--muted); margin-bottom:8px; line-height:1.35; }
+.where-scale { display:flex; gap:7px; align-items:center; }
+.where-scale span { font-size:12px; color:var(--muted); font-weight:800; }
+.where-scale input[type="range"] { flex:1; accent-color:var(--blue); }
+.where-score { display:inline-grid; place-items:center; min-width:32px; height:32px; border-radius:999px; background:#e9f4f0; color:#0f4f46; font-weight:950; border:1px solid #cfe3da; }
+.recommendation-box { border:1px solid #cfe3da; border-radius:20px; background:linear-gradient(135deg,#f8fcfb,#fff); padding:16px; margin-top:16px; }
+.recommendation-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px; }
+.recommendation-step { background:#fff; border:1px solid var(--line); border-radius:16px; padding:12px; }
+.recommendation-step h4 { margin:0 0 6px; color:#0f4f46; }
+.where-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+
+.timer { font-size:3.2rem; font-weight:900; color:var(--navy); letter-spacing:.04em; text-align:center; }
+
+/* site-wide nav bar (cross-file, canonical order, current page as disabled span) */
+.site-nav-wrap { background:var(--navy); }
+.site-nav-inner { max-width:1220px; margin:0 auto; padding:10px 18px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:.85rem; }
+.site-nav-inner a { color:#cfe8e2; text-decoration:none; font-weight:800; padding:5px 9px; border-radius:8px; }
+.site-nav-inner a:hover { background:rgba(255,255,255,.14); color:#fff; }
+.site-nav-inner .current { color:#fff; font-weight:900; padding:5px 9px; border-radius:8px; background:rgba(255,255,255,.18); }
+.site-nav-inner .sep { color:rgba(255,255,255,.3); }
+.hub-link { display:inline-block; margin-bottom:10px; color:#ecfdf5; font-weight:800; text-decoration:none; font-size:.9rem; }
+.hub-link:hover { text-decoration:underline; }
+
+/* Q11-style / MC-bank-style practice toolbars */
+.qp-toolbar { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.qp-stats { display:flex; gap:10px; flex-wrap:wrap; }
+.qp-stat { background:#fff; border:1px solid var(--line); border-radius:14px; padding:8px 14px; font-weight:900; color:var(--navy); font-size:.85rem; text-align:center; }
+.qp-stat b { display:block; font-size:1.2rem; color:var(--blue); }
+.qp-timerbox { display:flex; align-items:center; gap:10px; background:#f8fcfa; border:1px solid var(--line); border-radius:16px; padding:10px 16px; margin:12px 0; flex-wrap:wrap; }
+.qp-timerbox .timer { font-size:1.8rem; min-width:90px; }
+.timer.warn { color:#c44040; }
+.qp-archived-note { font-size:.85rem; color:var(--deep); font-weight:800; margin-top:6px; min-height:1.2em; }
+.mc-groupbar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.mc-group-chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 11px; font-size:.76rem; font-weight:800; color:var(--muted); }
+.mc-group-chip.archived { background:#dcfce7; color:#0f4f46; border-color:#a7f3d0; }
+
+/* clickable header badges + tile grid (hub) */
+.badges a.badge, .badges a.badge:visited { text-decoration:none; cursor:pointer; }
+.badges a.badge:hover { background:rgba(255,255,255,.28); }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:18px 0; }
+.tile { display:block; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:18px; text-decoration:none; color:var(--ink); transition:.15s; }
+.tile:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(15,49,75,.16); }
+.tile .tile-icon { font-size:1.6rem; margin-bottom:8px; }
+.tile h3 { margin:0 0 6px; color:var(--navy); font-size:1.1rem; }
+.tile p { margin:0; color:var(--muted); font-size:.88rem; line-height:1.4; }
+
+/* header profile (name + start date) */
+.header-profile { margin-top:14px; }
+.profile-form { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.profile-form input { border-radius:999px; border:1px solid rgba(255,255,255,.4); padding:8px 12px; background:rgba(255,255,255,.15); color:#fff; }
+.profile-form input::placeholder { color:#e6fff5; }
+.profile-display { color:#ecfdf5; font-size:.9rem; font-weight:800; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.profile-display .btn.secondary { padding:5px 10px; font-size:.78rem; }
+
+/* revision tier panel (hub) */
+.tier-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+.tier-card h4 { margin:0 0 8px; }
+.tier-card.low { border-top:5px solid #94a3b8; }
+.tier-card.high { border-top:5px solid #38bdf8; }
+.tier-card.highest { border-top:5px solid #22c55e; }
+
+@media (max-width:900px) { .header-grid, .grid.two, .grid.three, .grid.four { grid-template-columns:1fr; } }
+@media (max-width:850px) { .builder-layout { grid-template-columns:1fr; } .builder-controls { border-right:0; border-bottom:1px solid var(--line); } }
+/* printing */
+.print-area { display:none; }
+body.printing > *:not(#printArea) { display:none!important; }
+body.printing #printArea { display:block!important; max-width:900px; margin:0 auto; padding:20px; }
+.print-item { margin-bottom:22px; page-break-inside:avoid; }
+.write-line { overflow:hidden; white-space:nowrap; letter-spacing:2px; color:#94a3b8; font-size:1.1rem; line-height:2.2; height:1.6em; }
+.exam-page { page-break-after:always; padding:10px 0; }
+.exam-page:last-child { page-break-after:auto; }
+.exam-title-page { text-align:center; padding-top:15%; }
+.exam-title-page h1 { font-size:2.2rem; color:var(--navy); }
+@media print {
+  nav, .btn-row, .where-actions, .strategy-tabs, .site-nav-wrap, .header-profile, footer.app-footer { display:none!important; }
+  .tab-panel { display:block!important; }
+  body.printing .app-header { display:none!important; }
+  .exam-page { page-break-after:always; }
+}
+</style>
+</head>
+<body>
+<div class="site-nav-wrap"><nav id="siteNav"></nav></div>
+<header class="app-header">
+  <div class="wrap">
+    
+<a class="hub-link" href="Geo12_Revision_Hub.html">&larr; Back to Hub</a>
+<h1>Q17: Geographical Investigation</h1>
+<p class="subtitle">Not every paper has a question on fieldwork and investigation skills, but we're calling it "Q17" to keep prep simple. This page covers evaluating your own fieldwork, and where these skills lead &mdash; vocations and Environmental Impact Studies. More detail will be added here as further material comes in.</p>
+
+    <div class="header-profile" id="headerProfile"></div>
+  </div>
+</header>
+<main class="wrap">
+  
+<div id="localTabs" class="tabs" style="padding:0 0 16px;"></div>
+
+<div class="tab-panel" id="evaluate">
+  <div class="card">
+    <h2 class="section-title">Evaluating a fieldwork activity: usefulness, validity, reliability</h2>
+    <p>After any fieldwork investigation, you should be able to evaluate your own methodology against three criteria:</p>
+    <div class="grid three">
+      <div class="card soft"><h4 style="margin-top:0;color:var(--navy);">Usefulness</h4><p class="small">Did the data actually help answer the geographical question? Was enough relevant data collected, and was it the right kind of data for the question asked?</p></div>
+      <div class="card soft"><h4 style="margin-top:0;color:var(--navy);">Validity</h4><p class="small">Did the method actually measure what it was meant to measure? Were instruments appropriate and correctly used, and were other variables controlled as far as possible?</p></div>
+      <div class="card soft"><h4 style="margin-top:0;color:var(--navy);">Reliability</h4><p class="small">Would repeating the method, in similar conditions, produce similar results? This depends on sample size, standardised/repeated procedures, and calibrated instruments.</p></div>
+    </div>
+    <div class="callout warn"><strong>Exam tip:</strong> A strong evaluation names a specific limitation for each criterion (e.g. "only 5 water samples were taken, limiting reliability") and suggests a specific improvement (e.g. "a larger sample size, taken at the same time of day across several weeks, would improve reliability").</div>
+  </div>
+</div>
+
+<div class="tab-panel" id="vocations">
+  <div class="card">
+    <h2 class="section-title">Vocations</h2>
+    <p>The skills used in a geographical investigation are directly used in real careers, including:</p>
+    <ul class="tight">
+      <li><strong>Regional and urban/town planning</strong> &mdash; using spatial data and community consultation to guide land use and development decisions.</li>
+      <li><strong>Environmental management</strong> &mdash; monitoring and managing natural resources, ecosystems and pollution using fieldwork and spatial technologies.</li>
+      <li>Other geography-related vocations include GIS analysis and cartography, environmental consultancy and impact assessment, natural resource and conservation management, emergency and disaster management, surveying, and climate and water resource science.</li>
+    </ul>
+    <p>Syllabus-listed vocational activities connect directly to the skills practised on this page: designing a survey methodology, collecting and mapping spatial data, and evaluating and reporting on findings, are all core tasks in these careers.</p>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Environmental Impact Study (EIS)</h2>
+    <p>An Environmental Impact Study (or Statement) is a formal report required before many major developments can be approved. It uses geographical investigation skills at a professional scale:</p>
+    <ul class="tight">
+      <li><strong>Baseline data collection</strong> &mdash; establishing existing environmental, social and economic conditions before development (often using the same fieldwork techniques covered on this page, at a larger scale).</li>
+      <li><strong>Impact prediction</strong> &mdash; assessing likely physical, biological, social and economic impacts of the proposed development.</li>
+      <li><strong>Mitigation measures</strong> &mdash; proposing ways to avoid, reduce or offset negative impacts.</li>
+      <li><strong>Public consultation</strong> &mdash; gathering community input and concerns.</li>
+      <li><strong>Monitoring plan</strong> &mdash; ongoing data collection after approval to check real impacts against predictions.</li>
+    </ul>
+    <p>Planning authorities use the EIS to decide whether a development proceeds, and under what conditions.</p>
+  </div>
+</div>
+
+<div class="tab-panel" id="flash">
+  <div class="card"><h2 class="section-title">Key terms flashcards</h2><div id="q17Flash"></div></div>
+</div>
+
+</main>
+<footer class="app-footer">Built for Wenona Year 12 Geography</footer>
+<div id="printArea" class="print-area"></div>
+<script type="application/json" id="q17TermsData">[{"term": "Usefulness (evaluation criterion)", "definition": "Whether the data collected actually helped answer the geographical question.", "category": "Evaluation"}, {"term": "Validity (evaluation criterion)", "definition": "Whether the method actually measured what it was intended to measure.", "category": "Evaluation"}, {"term": "Reliability (evaluation criterion)", "definition": "Whether repeating the method would produce consistent, similar results.", "category": "Evaluation"}, {"term": "Environmental Impact Study (EIS)", "definition": "A formal report assessing the likely environmental, social and economic impacts of a proposed development, including baseline data, predicted impacts, mitigation measures, consultation and a monitoring plan.", "category": "Vocations"}, {"term": "Regional/urban planning", "definition": "A vocation that uses spatial data and community consultation to guide land use and development decisions.", "category": "Vocations"}, {"term": "Environmental management", "definition": "A vocation focused on monitoring and managing natural resources, ecosystems and pollution.", "category": "Vocations"}]</script>
+<script>// ============================================================================
+// Geo12 Revision Suite — shared engine (embedded identically on every page)
+// ============================================================================
+
+// ===== Utilities =====
+function $(id){ return document.getElementById(id); }
+function save(key,val){ try{ localStorage.setItem('geo12hub_'+key, val); }catch(e){} }
+function load(key,fallback){ try{ const v=localStorage.getItem('geo12hub_'+key); return v===null?fallback:v; }catch(e){ return fallback; } }
+function saveJSON(key,obj){ save(key, JSON.stringify(obj)); }
+function loadJSON(key,fallback){ try{ const v=load(key,null); return v===null?fallback:JSON.parse(v); }catch(e){ return fallback; } }
+function shuffleArr(a){ const arr=a.slice(); for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function esc(s){ return (s===undefined||s===null) ? '' : String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function readData(id){ const el=$(id); if(!el) return null; try{ return JSON.parse(el.textContent); }catch(e){ console.error('Bad JSON in',id,e); return null; } }
+
+// ===== Site-wide nav bar (canonical order across all 7 pages) =====
+const SITE_NAV = [
+  ['Geo12_Revision_Hub.html','Hub'],
+  ['Geo12_DirectiveTerms.html','Directive Terms'],
+  ['Geo12_Topic1_Sustainability.html','Topic 1: Sustainability'],
+  ['Geo12_Topic2_Ecosystems.html','Topic 2: Ecosystems'],
+  ['Geo12_Topic3_RuralUrban.html','Topic 3: Rural &amp; Urban'],
+  ['Geo12_Q16_Skills.html','Q16: Skills Practice'],
+  ['Geo12_Q17_GeographicalInvestigation.html','Q17: Geog. Investigation'],
+  ['Geo12_ExamBuilder.html','Exam Builder']
+];
+function renderSiteNav(current){
+  const mount = $('siteNav');
+  if(!mount) return;
+  mount.innerHTML = `<div class="site-nav-inner">` + SITE_NAV.map(([file,label]) =>
+    file===current ? `<span class="current">${label}</span>` : `<a href="${file}">${label}</a>`
+  ).join('<span class="sep">/</span>') + `</div>`;
+}
+
+// ===== Local in-page tabs (Notes / Flashcards / Practice, per page) =====
+function initLocalTabs(tabDefs, mountId){
+  const mount = $(mountId||'localTabs');
+  if(!mount) return;
+  mount.innerHTML = tabDefs.map(([id,label],i) => `<button class="tab-btn${i===0?' active':''}" data-tab="${id}" type="button">${label}</button>`).join('');
+  mount.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => showLocalTab(btn.dataset.tab)));
+  const hash = (location.hash||'').replace('#','');
+  const firstId = tabDefs[0][0];
+  const wanted = tabDefs.some(([id])=>id===hash) ? hash : firstId;
+  showLocalTab(wanted);
+}
+function showLocalTab(id){
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab===id));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id===id));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+// ===== Generic content-notes accordion renderer (per-topic dot point notes) =====
+function renderTopicNotes(mountId, topicData){
+  const mount = $(mountId);
+  if(!mount || !topicData) return;
+  mount.innerHTML = topicData.sections.map(section => {
+    const dpHtml = section.dotpoints.map(dp => {
+      const notesHtml = (dp.notes&&dp.notes.length) ? `<ul class="tight">${dp.notes.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>` : '<p class="small">No notes yet for this dot point.</p>';
+      const csHtml = (dp.caseStudies&&dp.caseStudies.length) ? dp.caseStudies.map(cs => `<div class="dp-casestudy"><span class="cs-name">${esc(cs.name)}</span><ul class="tight">${(cs.facts||[]).map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>`).join('') : '';
+      const dataHtml = (dp.data&&dp.data.length) ? `<div class="badge-row">${dp.data.map(d=>`<span class="badge sky">${esc(d)}</span>`).join('')}</div>` : '';
+      const fcCount = dp.flashcards ? dp.flashcards.length : 0;
+      return `<details class="syllabus-accordion" data-accordion-group="${mountId}">
+        <summary><span class="dotpoint-number">${dp.number}</span><span class="dotpoint-text">${esc(dp.text)}</span><span class="accordion-toggle"></span></summary>
+        <div class="accordion-body">
+          <div class="card">
+            <div class="mini-title">Key content</div>
+            ${notesHtml}
+            ${dataHtml}
+          </div>
+          ${csHtml ? `<div class="card"><div class="mini-title">Case studies &amp; examples</div>${csHtml}</div>` : ''}
+          <div class="dp-flashcount">${fcCount} flashcard${fcCount===1?'':'s'} for this dot point &mdash; see the Flashcards tab.</div>
+        </div>
+      </details>`;
+    }).join('');
+    return `<section class="syllabus-section">
+      <div class="syllabus-section-title"><h3>${esc(section.sectionTitle)}</h3></div>
+      <div class="syllabus-accordion-stack">${dpHtml}</div>
+    </section>`;
+  }).join('');
+}
+function initContentAccordions(){
+  document.querySelectorAll('details.syllabus-accordion').forEach(item => item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    const group = item.dataset.accordionGroup;
+    document.querySelectorAll(`details.syllabus-accordion[data-accordion-group="${group}"]`).forEach(other => { if (other !== item) other.open = false; });
+  }));
+}
+
+// ===== Generic flashcard deck =====
+function initFlashDeck(mountId, allCards, categories){
+  const mount = $(mountId);
+  if(!mount) return;
+  mount.innerHTML = `
+    <div class="controls">
+      <select id="${mountId}_cat"><option value="all">All sections</option>${categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+      <span class="deck-counter" id="${mountId}_counter"></span>
+    </div>
+    <div class="flip-card" id="${mountId}_card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front"><div><div class="flash-meta" id="${mountId}_frontmeta">Term</div><div class="flash-term" id="${mountId}_front"></div><p class="small">Click to flip</p></div></div>
+        <div class="flip-face flip-back"><div><div class="flash-meta">Answer</div><div class="flash-answer" id="${mountId}_back"></div></div></div>
+      </div>
+    </div>
+    <div class="progress"><span id="${mountId}_progress"></span></div>
+    <div class="flash-controls">
+      <button class="btn secondary" id="${mountId}_prev" type="button">&larr; Previous</button>
+      <button class="btn" id="${mountId}_flip" type="button">Flip card</button>
+      <button class="btn secondary" id="${mountId}_next" type="button">Next &rarr;</button>
+      <button class="btn secondary" id="${mountId}_shuffle" type="button">Shuffle</button>
+      <button class="btn secondary" id="${mountId}_print" type="button">Print these flashcards</button>
+    </div>`;
+  let deck = allCards.slice();
+  let idx = 0;
+  function renderCard(){
+    const card = deck[idx];
+    if(!card){ $(mountId+'_front').textContent='No cards in this section yet.'; $(mountId+'_back').textContent=''; return; }
+    $(mountId+'_front').textContent = card.term;
+    $(mountId+'_back').innerHTML = esc(card.definition);
+    $(mountId+'_frontmeta').textContent = card.category || 'Term';
+    $(mountId+'_counter').textContent = `${idx+1} of ${deck.length}`;
+    $(mountId+'_progress').style.width = deck.length ? `${((idx+1)/deck.length)*100}%` : '0%';
+    $(mountId+'_card').classList.remove('flipped');
+  }
+  $(mountId+'_cat').addEventListener('change', () => {
+    const v = $(mountId+'_cat').value;
+    deck = (v==='all') ? allCards.slice() : allCards.filter(c => c.category===v);
+    idx = 0; renderCard();
+  });
+  $(mountId+'_card').addEventListener('click', () => $(mountId+'_card').classList.toggle('flipped'));
+  $(mountId+'_flip').addEventListener('click', () => $(mountId+'_card').classList.toggle('flipped'));
+  $(mountId+'_next').addEventListener('click', () => { if(!deck.length) return; idx=(idx+1)%deck.length; renderCard(); });
+  $(mountId+'_prev').addEventListener('click', () => { if(!deck.length) return; idx=(idx-1+deck.length)%deck.length; renderCard(); });
+  $(mountId+'_shuffle').addEventListener('click', () => { deck = shuffleArr(deck); idx=0; renderCard(); });
+  $(mountId+'_print').addEventListener('click', () => {
+    const name = load('studentName','');
+    const html = `<table class="workbook-table"><tr><th>Term</th><th>Answer</th></tr>${deck.map(c=>`<tr><td>${esc(c.term)}</td><td>${c.definition}</td></tr>`).join('')}</table>`;
+    printContent((name?esc(name)+' — ':'')+'Flashcards', html);
+  });
+  renderCard();
+}
+function flatCardsFromTopic(topicData){
+  const out = [];
+  topicData.sections.forEach(section => {
+    section.dotpoints.forEach(dp => {
+      (dp.flashcards||[]).forEach(fc => out.push({term:`DP${dp.number} — ${fc.term}`, definition:fc.definition, category:section.sectionTitle}));
+    });
+  });
+  return out;
+}
+function sectionTitlesFromTopic(topicData){ return topicData.sections.map(s=>s.sectionTitle); }
+
+// ===== Directive terms: glossary + practice quiz =====
+function renderDirectiveGlossary(terms){
+  $('directiveGlossary').innerHTML = `<div class="term-grid">${terms.map(t => `
+    <div class="term-card">
+      <h4>${esc(t.term)}</h4>
+      <p class="term-meaning">${esc(t.meaning)}</p>
+      <p class="term-example"><strong>Example:</strong> ${esc(t.example)}</p>
+      <p class="term-example"><strong>Tip:</strong> ${esc(t.tip)}</p>
+    </div>`).join('')}</div>`;
+}
+function initDirectiveQuiz(mountId, questions){
+  const mount = $(mountId);
+  mount.innerHTML = questions.map((q,i) => `
+    <div class="question-card" data-qi="${i}">
+      <p><strong>Q${i+1}.</strong> ${esc(q.q)}</p>
+      ${q.options.map((opt,oi) => `<button class="option" type="button" data-oi="${oi}">${esc(opt)}</button>`).join('')}
+      <div class="answer-box"><div class="callout good"><strong>Explanation:</strong> ${esc(q.explanation)}</div></div>
+    </div>`).join('') + `<div class="btn-row"><button class="btn" id="${mountId}_check" type="button">Check all answers</button><button class="btn secondary" id="${mountId}_reset" type="button">Reset</button></div><p class="small" id="${mountId}_score"></p>`;
+  const selections = {};
+  mount.querySelectorAll('.question-card').forEach(card => {
+    const qi = Number(card.dataset.qi);
+    card.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => {
+      selections[qi] = Number(btn.dataset.oi);
+      card.querySelectorAll('.option').forEach(b => b.style.outline='');
+      btn.style.outline = '3px solid rgba(15,118,110,.35)';
+    }));
+  });
+  $(mountId+'_check').addEventListener('click', () => {
+    let score = 0;
+    questions.forEach((q,i) => {
+      const card = mount.querySelector(`.question-card[data-qi="${i}"]`);
+      const box = card.querySelector('.answer-box');
+      box.classList.add('visible');
+      const opts = card.querySelectorAll('.option');
+      opts.forEach((btn,oi) => {
+        btn.style.outline='';
+        if(oi===q.correct) btn.classList.add('correct');
+        else if(selections[i]===oi) btn.classList.add('wrong');
+      });
+      if(selections[i]===q.correct) score++;
+    });
+    $(mountId+'_score').textContent = `Score: ${score} / ${questions.length}`;
+  });
+  $(mountId+'_reset').addEventListener('click', () => {
+    Object.keys(selections).forEach(k => delete selections[k]);
+    mount.querySelectorAll('.option').forEach(b => { b.classList.remove('correct','wrong'); b.style.outline=''; });
+    mount.querySelectorAll('.answer-box').forEach(b => b.classList.remove('visible'));
+    $(mountId+'_score').textContent = '';
+  });
+}
+
+// ===== Syllabus map checklist (used on the hub) =====
+function renderSyllabusMap(topics){
+  const mount = $('syllabusChecklist');
+  if(!mount) return;
+  mount.innerHTML = topics.map(topicData => {
+    const rows = topicData.sections.map(section => {
+      const dpRows = section.dotpoints.map(dp => `
+        <div class="check-row">
+          <div><span class="dp-num">DP${dp.number}.</span>${esc(dp.text)}</div>
+          <label class="check-cell"><input type="checkbox" data-check="dp${dp.number}_reviewed"> Reviewed</label>
+          <label class="check-cell"><input type="checkbox" data-check="dp${dp.number}_practised"> Practised</label>
+        </div>`).join('');
+      return `<div class="syllabus-section-title" style="border-radius:12px;margin:14px 0 6px;"><h3 style="font-size:1rem;">${esc(section.sectionTitle)}</h3></div>${dpRows}`;
+    }).join('');
+    return `<div class="card"><h2 class="section-title">Topic ${topicData.topicNumber}: ${esc(topicData.topicName)}</h2>${rows}</div>`;
+  }).join('');
+  mount.querySelectorAll('[data-check]').forEach(cb => {
+    const key = 'chk_'+cb.dataset.check;
+    cb.checked = load(key,'0')==='1';
+    cb.addEventListener('change', () => save(key, cb.checked?'1':'0'));
+  });
+}
+
+// ===== Header profile: name + first-use date, shown in every page header =====
+function initHeaderProfile(){
+  const mount = $('headerProfile');
+  if(!mount) return;
+  function render(){
+    const name = load('studentName','');
+    const started = load('studentStartDate','');
+    if(name){
+      mount.innerHTML = `<div class="profile-display">Hi, <strong>${esc(name)}</strong> &mdash; revising since ${esc(started)} <button class="btn secondary" id="hp_edit" type="button">Edit</button></div>`;
+      $('hp_edit').addEventListener('click', () => { save('studentName',''); render(); applyPersonalization(); });
+    } else {
+      mount.innerHTML = `<div class="profile-form"><input type="text" id="hp_name" placeholder="Type your name" maxlength="40"><button class="btn" id="hp_save" type="button">Save</button></div>`;
+      $('hp_save').addEventListener('click', () => {
+        const v = $('hp_name').value.trim();
+        if(!v) return;
+        save('studentName', v);
+        if(!load('studentStartDate','')) save('studentStartDate', new Date().toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric'}));
+        render();
+        applyPersonalization();
+      });
+      $('hp_name').addEventListener('keydown', e => { if(e.key==='Enter') $('hp_save').click(); });
+    }
+  }
+  render();
+}
+
+// ===== Personalization: fills {name} templates in with the saved student name =====
+function applyPersonalization(){
+  const name = load('studentName','').trim();
+  document.querySelectorAll('[data-personalize]').forEach(el => {
+    const tpl = el.dataset.personalize;
+    el.textContent = name ? tpl.replace(/\{name\}/g, name) : tpl.replace(/\{name\}, /g, '').replace(/\{name\}/g, 'You');
+  });
+}
+
+// ===== Named case-study learning boxes (e.g. Topic 1 Sustainability) =====
+function renderCaseStudyBoxes(mountId, items){
+  const mount = $(mountId);
+  if(!mount || !items.length) return;
+  const cats = Array.from(new Set(items.map(i=>i.category)));
+  mount.innerHTML = cats.map(cat => {
+    const inCat = items.filter(i=>i.category===cat);
+    return `<div class="syllabus-section-title" style="border-radius:12px;margin:14px 0 6px;"><h3 style="font-size:1rem;">${esc(cat)}</h3></div>
+    <div class="evidence-grid">${inCat.map(cs => `
+      <div class="evidence-tile">
+        <strong>${esc(cs.name)}</strong>
+        <div class="badge-row">${(cs.relatedDotPoints||[]).map(dp=>`<span class="badge num">DP${dp}</span>`).join('')}</div>
+        <ul class="tight">${cs.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+      </div>`).join('')}</div>`;
+  }).join('');
+}
+
+// ===== Real exemplar-answer cards (collapsible), from genuine high-scoring scripts =====
+function renderExemplarCards(mountId, items){
+  const mount = $(mountId);
+  if(!mount || !items.length) return;
+  mount.innerHTML = items.map((ex,i) => `
+    <details class="syllabus-accordion" data-accordion-group="${mountId}">
+      <summary><span class="dotpoint-number">${i+1}</span><span class="dotpoint-text">${esc(ex.question)}${ex.marks?` (${ex.marks} marks${ex.score?', scored '+esc(ex.score):''})`:''}</span><span class="accordion-toggle"></span></summary>
+      <div class="accordion-body">
+        <div class="callout good"><strong>Examiner said:</strong> ${esc(ex.examinerComment)}</div>
+        <div class="card"><div class="mini-title">Real student response${ex.caseStudy?' &mdash; '+esc(ex.caseStudy):''}</div>${ex.text.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}</div>
+      </div>
+    </details>`).join('');
+}
+
+// ===== Printing =====
+function printContent(title, bodyHtml){
+  let area = $('printArea');
+  if(!area){ area = document.createElement('div'); area.id = 'printArea'; document.body.appendChild(area); }
+  area.innerHTML = `<h1>${esc(title)}</h1>${bodyHtml}`;
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(() => document.body.classList.remove('printing'), 300);
+}
+function writingLine(){
+  return '<div class="write-line">' + '.'.repeat(400) + '</div>';
+}
+function printWrittenAnswers(questions, storageKeyPrefix, title){
+  const name = load('studentName','');
+  const parts = questions.map(q => {
+    const ans = load('written_'+storageKeyPrefix+'_'+q.id, '');
+    if(!ans.trim()) return '';
+    return `<div class="print-item"><p><strong>${esc(q.question)}</strong> (${q.marks} mark${q.marks===1?'':'s'}, ${esc(q.source)})</p><p style="white-space:pre-wrap;">${esc(ans)}</p></div>`;
+  }).filter(Boolean).join('');
+  if(!parts){ alert('No answers written yet in this set — write something first, then print.'); return; }
+  const heading = (name ? esc(name) + ' — ' : '') + title;
+  printContent(heading, parts);
+}
+
+// ===== Clipboard copy (AI marking prompt) =====
+function copyToClipboard(text, btn){
+  const done = () => { const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = orig; }, 1600); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){}
+  document.body.removeChild(ta);
+}
+
+// ============================================================================
+// Q11-style written-practice engine (SOR pattern): one question at a time,
+// countdown timer, textarea answer, show/hide marking guideline, self-score
+// archive (full marks -> archived out of rotation), AI-marking clipboard copy.
+// storageKeyPrefix should be unique per page (e.g. 'topic1written').
+// ============================================================================
+function initQ11Style(mountId, questions, storageKeyPrefix){
+  const mount = $(mountId);
+  if(!mount) return;
+  if(!questions.length){ mount.innerHTML = '<p class="small">No practice questions loaded here yet.</p>'; return; }
+
+  const statKey = 'qp_'+storageKeyPrefix;
+  let stats = loadJSON(statKey, {});
+  questions.forEach(q => { if(!stats[q.id]) stats[q.id] = {attempts:0, best:0, archived:false}; });
+  saveJSON(statKey, stats);
+
+  let timerSecs = 0, timerTotal = 0, timerHandle = null, timerRunning = false;
+  let current = null;
+
+  function durationFor(marks){
+    if(marks>=20) return 35*60; // essay-length responses get a flat 35 minutes
+    return Math.round(marks*1.8)*60; // 1.8 minutes per mark otherwise
+  }
+  function fmt(s){ const m=Math.floor(s/60), ss=s%60; return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); }
+  function stopTimer(){ if(timerHandle) clearInterval(timerHandle); timerHandle=null; timerRunning=false; }
+  function tickTimer(){
+    if(timerSecs<=0){ stopTimer(); return; }
+    timerSecs--;
+    const el = $(mountId+'_timerval');
+    if(el){ el.textContent = fmt(timerSecs); el.classList.toggle('warn', timerSecs<60); }
+  }
+
+  function pickQuestion(){
+    const active = questions.filter(q => !stats[q.id].archived);
+    if(!active.length) return null;
+    return active[Math.floor(Math.random()*active.length)];
+  }
+
+  function renderStats(){
+    const archivedCount = questions.filter(q=>stats[q.id].archived).length;
+    $(mountId+'_stats').innerHTML = `
+      <span class="qp-stat"><b>${questions.length}</b>Total questions</span>
+      <span class="qp-stat"><b>${archivedCount}</b>Mastered &amp; archived</span>
+      <span class="qp-stat"><b>${questions.length-archivedCount}</b>Still in rotation</span>`;
+  }
+
+  function renderQuestion(){
+    stopTimer();
+    current = pickQuestion();
+    renderStats();
+    if(!current){
+      $(mountId+'_qzone').innerHTML = `<div class="callout good"><strong>All questions in this set are mastered and archived!</strong> Click "Reset progress" below to practise them all again.</div>`;
+      return;
+    }
+    timerTotal = durationFor(current.marks); timerSecs = timerTotal;
+    $(mountId+'_qzone').innerHTML = `
+      <div class="question-card">
+        <div class="badge-row">
+          <span class="badge dark">${esc(current.source)}</span>
+          <span class="mark-pill">${current.marks} mark${current.marks===1?'':'s'}</span>
+          <span class="badge sky directive">${esc(current.directive)}</span>
+          ${(current.dotPoints||[]).map(dp=>`<span class="badge num">DP${dp}</span>`).join('')}
+        </div>
+        <p><strong>${esc(current.question)}</strong></p>
+        <div class="qp-timerbox">
+          <span class="timer" id="${mountId}_timerval">${fmt(timerSecs)}</span>
+          <button class="btn secondary" type="button" id="${mountId}_start">Start</button>
+          <button class="btn secondary" type="button" id="${mountId}_pause">Pause</button>
+          <button class="btn secondary" type="button" id="${mountId}_reset_timer">Reset timer</button>
+        </div>
+        <textarea id="${mountId}_ans" placeholder="Write your answer here..."></textarea>
+        <div class="btn-row">
+          <button class="btn secondary" type="button" id="${mountId}_showmg">Show marking guideline</button>
+          <button class="btn" type="button" id="${mountId}_copyai">Copy question + answer + marking guideline for AI marking</button>
+        </div>
+        <div class="callout good" id="${mountId}_mg" style="display:none;"><strong>Marking guideline / sample answer:</strong><br>${esc(current.markingGuideline).replace(/\n/g,'<br>')}</div>
+        <div class="btn-row">
+          <span class="small" style="align-self:center;">Either from an AI, a buddy, or yourself, rate your answer above against the criteria/model answer provided:</span>
+          <button class="btn" type="button" id="${mountId}_fullmarks">I scored full marks — archive this one</button>
+          <button class="btn secondary" type="button" id="${mountId}_notyet">Not quite — keep it in rotation</button>
+        </div>
+        <p class="qp-archived-note" id="${mountId}_note"></p>
+        <div class="btn-row"><button class="btn secondary" type="button" id="${mountId}_printall">Print my answers so far</button></div>
+      </div>`;
+
+    const ansKey = 'written_'+storageKeyPrefix+'_'+current.id;
+    const ta = $(mountId+'_ans');
+    ta.value = load(ansKey,'');
+    ta.addEventListener('input', () => save(ansKey, ta.value));
+
+    $(mountId+'_start').addEventListener('click', () => {
+      if(timerRunning || timerSecs<=0) return;
+      timerRunning = true;
+      timerHandle = setInterval(tickTimer, 1000);
+    });
+    $(mountId+'_pause').addEventListener('click', stopTimer);
+    $(mountId+'_reset_timer').addEventListener('click', () => { stopTimer(); timerSecs = timerTotal; $(mountId+'_timerval').textContent = fmt(timerSecs); $(mountId+'_timerval').classList.remove('warn'); });
+
+    $(mountId+'_showmg').addEventListener('click', () => {
+      const box = $(mountId+'_mg');
+      const showing = box.style.display !== 'none';
+      box.style.display = showing ? 'none' : 'block';
+      $(mountId+'_showmg').textContent = showing ? 'Show marking guideline' : 'Hide marking guideline';
+    });
+    $(mountId+'_copyai').addEventListener('click', () => {
+      const ans = ta.value || '(no answer written yet)';
+      const text = `Please mark this HSC Geography response against the marking guideline and give feedback with a suggested mark.\n\nQUESTION (${current.marks} marks, source: ${current.source}):\n${current.question}\n\nSTUDENT ANSWER:\n${ans}\n\nMARKING GUIDELINE / SAMPLE ANSWER:\n${current.markingGuideline}`;
+      copyToClipboard(text, $(mountId+'_copyai'));
+    });
+    $(mountId+'_fullmarks').addEventListener('click', () => {
+      stats[current.id].attempts++; stats[current.id].best = current.marks; stats[current.id].archived = true;
+      saveJSON(statKey, stats);
+      $(mountId+'_note').textContent = 'Archived — nice work. Loading a new question…';
+      setTimeout(renderQuestion, 700);
+    });
+    $(mountId+'_notyet').addEventListener('click', () => {
+      stats[current.id].attempts++;
+      saveJSON(statKey, stats);
+      $(mountId+'_note').textContent = 'Kept in rotation — you\'ll see this one again.';
+      setTimeout(renderQuestion, 700);
+    });
+    $(mountId+'_printall').addEventListener('click', () => printWrittenAnswers(questions, storageKeyPrefix, 'Written practice answers'));
+  }
+
+  mount.innerHTML = `<div class="qp-toolbar"><div class="qp-stats" id="${mountId}_stats"></div><button class="btn secondary" id="${mountId}_skip" type="button">Skip to another question</button></div>
+    <div id="${mountId}_qzone"></div>
+    <div class="btn-row"><button class="btn secondary" id="${mountId}_resetall" type="button">Reset progress for this set</button></div>`;
+  $(mountId+'_skip').addEventListener('click', renderQuestion);
+  $(mountId+'_resetall').addEventListener('click', () => {
+    questions.forEach(q => { stats[q.id] = {attempts:0, best:0, archived:false}; });
+    saveJSON(statKey, stats);
+    renderQuestion();
+  });
+  renderQuestion();
+}
+
+// ============================================================================
+// MC-Bank-style skills engine (SOR pattern): grouped by category|difficulty|
+// topicArea, binary solved-tracking per question, groups auto-archive once
+// every question in the group has been solved at least once, weighted
+// auto-draw prioritises unsolved questions over solved ones. No manual
+// filter dropdowns — matches the true SOR MC Revision Bank mechanic.
+// ============================================================================
+function initMCBankStyle(mountId, questions, storageKeyPrefix){
+  const mount = $(mountId);
+  if(!mount) return;
+  if(!questions.length){ mount.innerHTML = '<p class="small">No skills questions loaded yet.</p>'; return; }
+
+  const solvedKey = 'mc_'+storageKeyPrefix;
+  let solved = loadJSON(solvedKey, {});
+
+  function groupKey(q){ return `${q.category}|${q.difficulty}|${q.topicArea}`; }
+  const groups = {};
+  questions.forEach(q => { const k=groupKey(q); (groups[k]=groups[k]||[]).push(q); });
+  const groupKeys = Object.keys(groups);
+
+  function isSolved(q){ return !!solved[q.id]; }
+  function groupArchived(k){ return groups[k].every(isSolved); }
+
+  function renderStats(){
+    const archivedGroups = groupKeys.filter(groupArchived).length;
+    const solvedCount = questions.filter(isSolved).length;
+    $(mountId+'_stats').innerHTML = `
+      <span class="qp-stat"><b>${groupKeys.length}</b>Skill groups</span>
+      <span class="qp-stat"><b>${archivedGroups}</b>Groups mastered</span>
+      <span class="qp-stat"><b>${solvedCount}/${questions.length}</b>Questions solved</span>`;
+  }
+  function renderGroupBar(){
+    $(mountId+'_groupbar').innerHTML = groupKeys.map(k => {
+      const [cat,diff,topic] = k.split('|');
+      const arch = groupArchived(k);
+      return `<span class="mc-group-chip${arch?' archived':''}">${esc(cat)} · ${esc(diff)} · ${esc(topic)}${arch?' ✓':''}</span>`;
+    }).join('');
+  }
+
+  function pickQuestion(){
+    const unsolved = questions.filter(q=>!isSolved(q));
+    const solvedPool = questions.filter(isSolved);
+    if(!unsolved.length && !solvedPool.length) return null;
+    if(unsolved.length && (Math.random()<0.8 || !solvedPool.length)) return unsolved[Math.floor(Math.random()*unsolved.length)];
+    if(solvedPool.length) return solvedPool[Math.floor(Math.random()*solvedPool.length)];
+    return unsolved[Math.floor(Math.random()*unsolved.length)];
+  }
+
+  function renderQuestion(){
+    renderStats(); renderGroupBar();
+    if(groupKeys.every(groupArchived)){
+      $(mountId+'_qzone').innerHTML = `<div class="callout good"><strong>Every skill group is mastered!</strong> Click "Reset progress" to practise them all again.</div>`;
+      return;
+    }
+    const q = pickQuestion();
+    if(!q) return;
+    $(mountId+'_qzone').innerHTML = `
+      <div class="question-card" data-qid="${esc(q.id)}">
+        <div class="badge-row"><span class="badge dark">${esc(q.category)}</span><span class="badge sky">${esc(q.skillCode)} ${esc(q.skillName)}</span><span class="badge sky">${esc(q.difficulty)}</span><span class="badge">${esc(q.topicArea)}</span>${isSolved(q)?'<span class="badge num">Solved before</span>':''}</div>
+        <p><strong>${esc(q.textVersion)}</strong></p>
+        ${q.options.map((opt,oi) => `<button class="option" type="button" data-oi="${oi}">${esc(opt)}</button>`).join('')}
+        <div class="answer-box"><div class="callout good"><strong>Explanation:</strong> ${esc(q.explanation)}</div></div>
+        <div class="btn-row"><button class="btn secondary" type="button" id="${mountId}_next" style="display:none;">Next question</button></div>
+      </div>`;
+    const card = $(mountId+'_qzone').querySelector('.question-card');
+    card.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => {
+      const opts = card.querySelectorAll('.option');
+      opts.forEach(b=>b.classList.remove('correct','wrong'));
+      const oi = Number(btn.dataset.oi);
+      if(oi===q.correct){ btn.classList.add('correct'); solved[q.id]=true; saveJSON(solvedKey, solved); }
+      else { btn.classList.add('wrong'); opts[q.correct].classList.add('correct'); }
+      card.querySelector('.answer-box').classList.add('visible');
+      $(mountId+'_next').style.display = 'inline-block';
+      renderStats(); renderGroupBar();
+    }));
+    $(mountId+'_next').addEventListener('click', renderQuestion);
+  }
+
+  mount.innerHTML = `<div class="qp-toolbar"><div class="qp-stats" id="${mountId}_stats"></div></div>
+    <div class="mc-groupbar" id="${mountId}_groupbar"></div>
+    <div id="${mountId}_qzone"></div>
+    <div class="btn-row"><button class="btn secondary" id="${mountId}_resetall" type="button">Reset progress for this bank</button></div>`;
+  $(mountId+'_resetall').addEventListener('click', () => { solved = {}; saveJSON(solvedKey, solved); renderQuestion(); });
+  renderQuestion();
+}
+</script>
+<script>
+renderSiteNav('Geo12_Q17_GeographicalInvestigation.html');
+initHeaderProfile();
+
+const q17Terms = readData('q17TermsData') || [];
+initFlashDeck('q17Flash', q17Terms, Array.from(new Set(q17Terms.map(t=>t.category))));
+initLocalTabs([['evaluate','Evaluating Fieldwork'],['vocations','Vocations & EIS'],['flash','Flashcards']]);
+
+applyPersonalization();
+</script>
+</body>
+</html>

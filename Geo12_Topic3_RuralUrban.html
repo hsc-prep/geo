@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 3: Rural & Urban Places — Wenona Year 12 Geography</title>
+<style>:root {
+  --ink:#18312f;
+  --muted:#64746f;
+  --bg:#f7fbf7;
+  --card:#ffffff;
+  --line:#d7e5df;
+  --navy:#15314b;
+  --deep:#0f766e;
+  --blue:#0f766e;
+  --blue2:#22c55e;
+  --sky:#5eead4;
+  --aqua:#ccfbf1;
+  --pale:#ecfdf5;
+  --pale2:#f0fdfa;
+  --white:#ffffff;
+  --success:#ecfdf5;
+  --warn:#fff7ed;
+  --shadow:0 14px 35px rgba(15,49,75,.12);
+  --radius:20px;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; padding:0; min-height:100%; color:var(--ink); background:linear-gradient(180deg,#eefbf5 0%,#f7fbf7 45%,#fff 100%); font-family:'Arial Narrow',Arial,sans-serif; font-stretch:condensed; }
+button, input, textarea, select { font:inherit; }
+button { cursor:pointer; }
+p { line-height:1.52; }
+.small { font-size:.92rem; color:var(--muted); }
+ul.tight { margin:8px 0 0 20px; padding:0; }
+ul.tight li { margin:6px 0; line-height:1.42; }
+hr.sep { border:0; border-top:1px solid var(--line); margin:20px 0; }
+
+.app-header { background:linear-gradient(135deg,#15314b 0%,#0f766e 55%,#22c55e 100%); color:#fff; padding:28px 22px 24px; border-bottom:0; position:relative; overflow:hidden; }
+.app-header::after { content:""; position:absolute; right:-90px; top:-70px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.12); }
+.wrap { max-width:1220px; margin:0 auto; position:relative; z-index:1; }
+.app-header h1 { margin:0 0 8px; font-size:clamp(28px,4vw,48px); letter-spacing:-.04em; line-height:1.05; }
+.app-header .subtitle { margin:0; max-width:900px; line-height:1.55; color:#ecfdf5; font-size:1rem; }
+.badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.badges .badge { padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; font-weight:800; font-size:13px; }
+.credit { margin-top:14px; font-size:12px; color:#dcfce7; }
+
+.nav-wrap { position:sticky; top:0; z-index:30; background:rgba(255,255,255,.97); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.tabs { display:flex; gap:8px; overflow-x:auto; padding:10px 16px; max-width:1220px; margin:0 auto; }
+.tab-btn { border:1px solid var(--line); background:#fff; color:var(--ink); padding:10px 14px; border-radius:14px; font-weight:800; white-space:nowrap; cursor:pointer; }
+.tab-btn.active { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border-color:transparent; }
+
+.subnav { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 18px; }
+.subnav button { border:1px solid var(--line); background:#fff; color:var(--deep); padding:8px 12px; border-radius:999px; font-weight:800; font-size:.85rem; }
+.subnav button.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+
+main { max-width:1220px; margin:24px auto; padding:0 18px 60px; }
+.tab-panel { display:none; animation:fade .18s ease; }
+.tab-panel.active { display:block; }
+@keyframes fade { from { opacity:.2; transform:translateY(4px); } to { opacity:1; transform:none; } }
+.sub-panel { display:none; }
+.sub-panel.active { display:block; }
+
+.card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-bottom:18px; }
+.card.soft { background:linear-gradient(135deg,#fff,#f0fdf4); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.grid.two { grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); }
+.grid.three, .grid.four { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+
+.section-title { margin:0 0 14px; border-left:0; padding:0; background:none; color:var(--blue); font-size:1.2rem; }
+.sub-title { margin:0 0 10px; color:var(--blue); font-size:1.25rem; }
+.mini-title { margin:0 0 7px; text-transform:uppercase; letter-spacing:.08em; color:var(--deep); font-size:.82rem; font-weight:900; }
+
+.callout { padding:14px 16px; border-radius:16px; background:var(--pale); border:1px solid #a7f3d0; margin:12px 0; }
+.callout.warn { background:#fff7ed; border-color:#fed7aa; }
+.callout.good, .callout.green { background:#ecfdf5; border-color:#99f6e4; }
+.callout.purple { background:#f5f3ff; border-color:#ddd6fe; }
+.callout.blue { background:#eff6ff; border-color:#bfdbfe; }
+
+.badge-row { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.badge-row .badge { display:inline-flex; align-items:center; gap:6px; border:1px solid #bae6fd; background:#e0f2fe; color:#075985; border-radius:999px; padding:7px 10px; font-size:.86rem; font-weight:900; }
+.badge-row .badge.dark { background:var(--navy); color:#fff; border-color:var(--navy); }
+.badge-row .badge.sky { background:#ecfdf5; color:#0f766e; border-color:#a7f3d0; }
+.badge-row .badge.num { background:var(--navy); color:#fff; border-radius:8px; min-width:26px; text-align:center; }
+
+.btn, button.action { border:0; border-radius:14px; background:var(--blue); color:#fff; padding:10px 14px; font-weight:900; cursor:pointer; box-shadow:none; }
+.btn:hover, button.action:hover { filter:brightness(.96); transform:translateY(-1px); }
+.btn.secondary, button.secondary { background:#e2e8f0; color:#0f172a; border:0; }
+.btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+
+select, input[type="text"] { border:1px solid var(--line); border-radius:999px; padding:10px 12px; background:white; color:var(--ink); }
+textarea { width:100%; min-height:120px; border:1px solid var(--line); border-radius:14px; padding:12px; resize:vertical; background:#fbfdff; color:var(--ink); }
+textarea:focus, select:focus, input:focus { outline:3px solid rgba(94,234,212,.35); border-color:var(--blue); }
+
+.workbook-table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:16px; border:1px solid var(--line); background:white; }
+.workbook-table th { background:#ecfdf5; color:#14532d; text-align:left; padding:11px; font-size:.92rem; }
+.workbook-table td { border-top:1px solid var(--line); padding:11px; vertical-align:top; line-height:1.42; }
+.workbook-table tr:nth-child(even) td { background:#f8fcfa; }
+.workbook-table .section-row td { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; font-weight:900; }
+
+.progress { height:10px; background:#d1fae5; border-radius:999px; overflow:hidden; }
+.progress > span { display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--blue2)); transition:.2s; }
+
+.flip-card { perspective:1000px; min-height:300px; margin-top:16px; }
+.flip-inner { position:relative; width:100%; min-height:300px; transition:transform .55s ease; transform-style:preserve-3d; }
+.flip-card.flipped .flip-inner { transform:rotateY(180deg); }
+.flip-face { position:absolute; inset:0; backface-visibility:hidden; border:2px dashed #86efac; border-radius:22px; padding:26px; background:linear-gradient(135deg,#fff,#ecfdf5); box-shadow:var(--shadow); display:flex; flex-direction:column; justify-content:center; cursor:pointer; }
+.flip-back { transform:rotateY(180deg); border-style:solid; background:linear-gradient(135deg,#f0fdfa,#fff); }
+.flash-term { font-size:clamp(1.5rem, 3.2vw, 2.5rem); color:var(--navy); margin:.35rem 0; line-height:1.15; }
+.flash-meta { text-transform:uppercase; letter-spacing:.14em; color:var(--deep); font-weight:900; font-size:.78rem; margin-bottom:8px; }
+.flash-answer { font-size:1.03rem; line-height:1.55; color:var(--ink); }
+.flash-answer strong { color:var(--navy); }
+.flash-controls { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center; }
+.deck-counter { font-weight:900; color:var(--navy); font-size:.9rem; }
+
+.question-card { border:1px solid var(--line); background:white; border-radius:16px; padding:16px; margin:14px 0; }
+.option { display:block; border:1px solid var(--line); background:#fbfdff; border-radius:12px; padding:10px 12px; margin:8px 0; width:100%; text-align:left; }
+.option.correct { border-color:#1c9960; background:#e8f8ef; }
+.option.wrong { border-color:#c44040; background:#fff0f0; }
+.answer-box { margin-top:10px; display:none; }
+.answer-box.visible { display:block; }
+.mark-pill { display:inline-flex; align-items:center; background:var(--navy); color:white; border-radius:999px; padding:5px 9px; font-weight:900; font-size:.83rem; }
+.directive { font-weight:900; color:var(--deep); }
+
+.app-footer { border-top:1px solid var(--line); padding:24px 18px; text-align:center; color:var(--muted); background:#f7fbf7; font-weight:800; }
+
+/* syllabus accordion */
+.syllabus-section { background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; margin-bottom:20px; }
+.syllabus-section-title { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; padding:16px 18px; }
+.syllabus-section-title h2, .syllabus-section-title h3 { margin:0 0 5px; color:#fff; }
+.syllabus-section-title p { margin:0; color:#d1fae5; font-size:13px; }
+.syllabus-accordion-stack { display:grid; gap:12px; padding:16px; background:#f8fcfa; }
+details.syllabus-accordion { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 8px 22px rgba(15,23,42,.06); }
+details.syllabus-accordion summary { display:grid; grid-template-columns:auto 1fr auto; gap:11px; align-items:center; cursor:pointer; list-style:none; padding:15px 17px; color:#0f172a; font-weight:950; background:linear-gradient(90deg,#ecfdf5,#fff); }
+details.syllabus-accordion summary::-webkit-details-marker { display:none; }
+.dotpoint-number { display:grid; place-items:center; width:30px; height:30px; border-radius:10px; background:var(--navy); color:#fff; font-size:12px; flex-shrink:0; }
+.dotpoint-text { line-height:1.35; }
+.accordion-toggle { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#dcfce7; color:#0f766e; font-size:18px; font-weight:950; }
+details.syllabus-accordion .accordion-toggle::before { content:'+'; }
+details.syllabus-accordion[open] .accordion-toggle::before { content:'\2013'; }
+details.syllabus-accordion[open] summary { background:linear-gradient(90deg,#d1fae5,#f0fdfa); border-bottom:1px solid var(--line); }
+.accordion-body { padding:17px; }
+.accordion-body > :first-child { margin-top:0; }
+.accordion-body > :last-child { margin-bottom:0; }
+.accordion-body .card { box-shadow:none; margin-bottom:14px; padding:14px; }
+.accordion-body .card:last-child { margin-bottom:0; }
+.dp-casestudy { border:1px solid #a7f3d0; border-radius:14px; padding:12px 14px; background:#f0fdf4; margin:8px 0; }
+.dp-casestudy .cs-name { color:#0f4f46; font-weight:950; margin-bottom:6px; display:block; }
+.dp-flashcount { font-size:.78rem; color:var(--muted); margin-top:6px; }
+
+/* syllabus map checklist */
+.check-row { display:grid; grid-template-columns:1fr auto auto; gap:10px; align-items:center; padding:9px 4px; border-top:1px solid var(--line); }
+.check-row:first-child { border-top:0; }
+.check-row .dp-num { font-weight:900; color:var(--navy); margin-right:6px; }
+.check-cell { display:flex; align-items:center; gap:6px; font-size:.78rem; color:var(--muted); font-weight:800; }
+.check-cell input { width:20px; height:20px; accent-color:var(--deep); }
+
+/* glossary / directive terms */
+.term-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.term-card { border:1px solid var(--line); border-radius:18px; padding:15px; background:#fff; box-shadow:0 8px 20px rgba(15,49,75,.07); }
+.term-card h4 { margin:0 0 6px; color:var(--navy); font-size:1.15rem; }
+.term-card .term-meaning { color:var(--deep); font-weight:800; margin:0 0 8px; }
+.term-card .term-example { font-size:.88rem; color:var(--muted); margin:0; }
+
+/* strategy evidence */
+.strategy-tabs { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; }
+.strategy-tab { border:1px solid var(--line); background:#fff; color:var(--ink); padding:10px 14px; border-radius:999px; font-weight:900; cursor:pointer; }
+.strategy-tab.active { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border-color:transparent; }
+.strategy-panel { display:none; }
+.strategy-panel.active { display:block; }
+.strategy-banner { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; border-radius:20px; padding:18px; margin-bottom:14px; }
+.strategy-banner h3 { margin:0 0 5px; color:#fff; }
+.strategy-banner p { margin:0; color:#d1fae5; }
+.evidence-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
+.evidence-tile { background:#fff; border:1px solid var(--line); border-radius:16px; padding:13px; }
+.evidence-tile strong { display:block; color:var(--blue); margin-bottom:5px; }
+
+/* pattern builder */
+.builder-shell { border:1px solid #a7f3d0; border-radius:22px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
+.builder-head { padding:18px 20px; background:linear-gradient(135deg,var(--navy),var(--blue) 55%,var(--blue2)); color:#fff; }
+.builder-head h3 { margin:0 0 6px; font-size:1.45rem; color: #fff;}
+.builder-head p { margin:0; color:#d1fae5; }
+.builder-layout { display:grid; grid-template-columns:minmax(280px,370px) 1fr; }
+.builder-controls { padding:18px; background:#f8fcfa; border-right:1px solid var(--line); }
+.builder-output { padding:18px; min-width:0; }
+.builder-control { margin-bottom:14px; }
+.builder-control label { display:block; margin-bottom:6px; color:#0f4f46; font-weight:900; }
+.builder-control select { width:100%; border-radius:12px; }
+.metric-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(135px,1fr)); gap:10px; margin-bottom:14px; }
+.metric { background:#f8fcfa; border:1px solid var(--line); border-radius:15px; padding:12px; text-align:center; }
+.metric b { display:block; font-size:1.3rem; color:var(--blue); }
+.metric span { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+.model-response { background:#f0fdf4; border:1px solid #a7f3d0; border-radius:18px; padding:16px; }
+.model-response h4 { margin:0 0 8px; color:#0f4f46; }
+.model-response p { margin:.45rem 0; }
+.causal-chain { display:flex; align-items:stretch; gap:7px; overflow-x:auto; margin:14px 0; padding-bottom:4px; }
+.causal-node { min-width:130px; flex:1; padding:10px; border-radius:12px; background:#ecfdf5; color:#0f4f46; border:1px solid #a7f3d0; font-size:12px; font-weight:800; }
+.causal-arrow { display:flex; align-items:center; color:var(--blue); font-size:18px; font-weight:900; }
+
+.where-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.where-item { background:#fff; border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:0 8px 22px rgba(15,23,42,.06); }
+.where-item label { display:block; font-weight:900; color:#0f4f46; margin-bottom:6px; }
+.where-desc { min-height:38px; font-size:13px; color:var(--muted); margin-bottom:8px; line-height:1.35; }
+.where-scale { display:flex; gap:7px; align-items:center; }
+.where-scale span { font-size:12px; color:var(--muted); font-weight:800; }
+.where-scale input[type="range"] { flex:1; accent-color:var(--blue); }
+.where-score { display:inline-grid; place-items:center; min-width:32px; height:32px; border-radius:999px; background:#e9f4f0; color:#0f4f46; font-weight:950; border:1px solid #cfe3da; }
+.recommendation-box { border:1px solid #cfe3da; border-radius:20px; background:linear-gradient(135deg,#f8fcfb,#fff); padding:16px; margin-top:16px; }
+.recommendation-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px; }
+.recommendation-step { background:#fff; border:1px solid var(--line); border-radius:16px; padding:12px; }
+.recommendation-step h4 { margin:0 0 6px; color:#0f4f46; }
+.where-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+
+.timer { font-size:3.2rem; font-weight:900; color:var(--navy); letter-spacing:.04em; text-align:center; }
+
+/* site-wide nav bar (cross-file, canonical order, current page as disabled span) */
+.site-nav-wrap { background:var(--navy); }
+.site-nav-inner { max-width:1220px; margin:0 auto; padding:10px 18px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:.85rem; }
+.site-nav-inner a { color:#cfe8e2; text-decoration:none; font-weight:800; padding:5px 9px; border-radius:8px; }
+.site-nav-inner a:hover { background:rgba(255,255,255,.14); color:#fff; }
+.site-nav-inner .current { color:#fff; font-weight:900; padding:5px 9px; border-radius:8px; background:rgba(255,255,255,.18); }
+.site-nav-inner .sep { color:rgba(255,255,255,.3); }
+.hub-link { display:inline-block; margin-bottom:10px; color:#ecfdf5; font-weight:800; text-decoration:none; font-size:.9rem; }
+.hub-link:hover { text-decoration:underline; }
+
+/* Q11-style / MC-bank-style practice toolbars */
+.qp-toolbar { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.qp-stats { display:flex; gap:10px; flex-wrap:wrap; }
+.qp-stat { background:#fff; border:1px solid var(--line); border-radius:14px; padding:8px 14px; font-weight:900; color:var(--navy); font-size:.85rem; text-align:center; }
+.qp-stat b { display:block; font-size:1.2rem; color:var(--blue); }
+.qp-timerbox { display:flex; align-items:center; gap:10px; background:#f8fcfa; border:1px solid var(--line); border-radius:16px; padding:10px 16px; margin:12px 0; flex-wrap:wrap; }
+.qp-timerbox .timer { font-size:1.8rem; min-width:90px; }
+.timer.warn { color:#c44040; }
+.qp-archived-note { font-size:.85rem; color:var(--deep); font-weight:800; margin-top:6px; min-height:1.2em; }
+.mc-groupbar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.mc-group-chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 11px; font-size:.76rem; font-weight:800; color:var(--muted); }
+.mc-group-chip.archived { background:#dcfce7; color:#0f4f46; border-color:#a7f3d0; }
+
+/* clickable header badges + tile grid (hub) */
+.badges a.badge, .badges a.badge:visited { text-decoration:none; cursor:pointer; }
+.badges a.badge:hover { background:rgba(255,255,255,.28); }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:18px 0; }
+.tile { display:block; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:18px; text-decoration:none; color:var(--ink); transition:.15s; }
+.tile:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(15,49,75,.16); }
+.tile .tile-icon { font-size:1.6rem; margin-bottom:8px; }
+.tile h3 { margin:0 0 6px; color:var(--navy); font-size:1.1rem; }
+.tile p { margin:0; color:var(--muted); font-size:.88rem; line-height:1.4; }
+
+/* header profile (name + start date) */
+.header-profile { margin-top:14px; }
+.profile-form { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.profile-form input { border-radius:999px; border:1px solid rgba(255,255,255,.4); padding:8px 12px; background:rgba(255,255,255,.15); color:#fff; }
+.profile-form input::placeholder { color:#e6fff5; }
+.profile-display { color:#ecfdf5; font-size:.9rem; font-weight:800; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.profile-display .btn.secondary { padding:5px 10px; font-size:.78rem; }
+
+/* revision tier panel (hub) */
+.tier-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+.tier-card h4 { margin:0 0 8px; }
+.tier-card.low { border-top:5px solid #94a3b8; }
+.tier-card.high { border-top:5px solid #38bdf8; }
+.tier-card.highest { border-top:5px solid #22c55e; }
+
+@media (max-width:900px) { .header-grid, .grid.two, .grid.three, .grid.four { grid-template-columns:1fr; } }
+@media (max-width:850px) { .builder-layout { grid-template-columns:1fr; } .builder-controls { border-right:0; border-bottom:1px solid var(--line); } }
+/* printing */
+.print-area { display:none; }
+body.printing > *:not(#printArea) { display:none!important; }
+body.printing #printArea { display:block!important; max-width:900px; margin:0 auto; padding:20px; }
+.print-item { margin-bottom:22px; page-break-inside:avoid; }
+.write-line { overflow:hidden; white-space:nowrap; letter-spacing:2px; color:#94a3b8; font-size:1.1rem; line-height:2.2; height:1.6em; }
+.exam-page { page-break-after:always; padding:10px 0; }
+.exam-page:last-child { page-break-after:auto; }
+.exam-title-page { text-align:center; padding-top:15%; }
+.exam-title-page h1 { font-size:2.2rem; color:var(--navy); }
+@media print {
+  nav, .btn-row, .where-actions, .strategy-tabs, .site-nav-wrap, .header-profile, footer.app-footer { display:none!important; }
+  .tab-panel { display:block!important; }
+  body.printing .app-header { display:none!important; }
+  .exam-page { page-break-after:always; }
+}
+</style>
+</head>
+<body>
+<div class="site-nav-wrap"><nav id="siteNav"></nav></div>
+<header class="app-header">
+  <div class="wrap">
+    
+<a class="hub-link" href="Geo12_Revision_Hub.html">&larr; Back to Hub</a>
+<h1>Topic 3: Rural &amp; Urban Places</h1>
+<p class="subtitle">Rural and urban settlement, the investigation of a rural and an urban place, and the investigation of a large city outside Australia.</p>
+
+    <div class="header-profile" id="headerProfile"></div>
+  </div>
+</header>
+<main class="wrap">
+  
+<div id="localTabs" class="tabs" style="padding:0 0 16px;"></div>
+<div class="tab-panel" id="notes">
+  <div id="topicNotes"></div>
+</div>
+<div class="tab-panel" id="flash">
+  <div class="card">
+    <h2 class="section-title">Flashcards</h2>
+    <p data-personalize="{name}, drill these flashcards until every term feels automatic." class="small">You, drill these flashcards until every term feels automatic.</p>
+    <div id="topicFlash"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="written">
+  <div class="card">
+    <h2 class="section-title">Questions to practise &mdash; real 2025 &amp; 2026 exam questions (non-stimulus)</h2>
+    <p data-personalize="{name}, ready to put pen to paper? Questions are drawn from the 2025 HSC exam, Sample exam, 2025 CSSA &amp; Independent trials, and the 2026 Trial &mdash; the first years of this syllabus. Answer against the timer, check the real marking guideline, then rate your answer honestly. Full-marks answers are archived out of rotation so you keep practising what you're still shaky on." class="small">You, ready to put pen to paper? Questions are drawn from the 2025 HSC exam, Sample exam, 2025 CSSA &amp; Independent trials, and the 2026 Trial &mdash; the first years of this syllabus. Answer against the timer, check the real marking guideline, then rate your answer honestly. Full-marks answers are archived out of rotation so you keep practising what you're still shaky on.</p>
+    <div id="topicWritten"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="exemplars">
+  <div class="card soft"><h2 class="section-title">Real exemplar answers</h2><p>Genuine, high-scoring student responses to the 2026 Trial paper, with the examiner's comment on exactly what earned the marks. Read the comment first, then the response.</p></div>
+  <div id="topicExemplars"></div>
+</div>
+
+</main>
+<footer class="app-footer">Built for Wenona Year 12 Geography</footer>
+<div id="printArea" class="print-area"></div>
+<script type="application/json" id="topicData">{"topicNumber": 3, "topicName": "Rural and Urban Places", "sections": [{"sectionTitle": "Rural and urban settlement", "dotpoints": [{"number": 24, "text": "The size, pattern and spatial distribution of settlements, including different types of settlements (remote settlement, village, suburb, regional centre, city, megacity, urban mega-region); settlement patterns; influences on size and spatial distribution (location, climate, topography, natural resources, population and economic development)", "notes": ["Settlements vary in size and function, from isolated dwellings to megacities and urban mega-regions.", "Settlement patterns describe the spatial arrangement of buildings: nucleated (clustered around a central feature), linear (along a line such as a river, road or coast), or dispersed (spread over a large area).", "Nucleated pattern: houses cluster around a central feature (church, marketplace); promotes community interaction; common in rural areas with limited land; historical roots in medieval communal farming.", "Linear pattern: development follows a line such as a river, road or coastline; facilitates transport but can challenge service provision.", "Dispersed pattern: individual buildings spread over a large area, often due to large landholdings or adverse conditions; challenges include isolation and limited services.", "Factors influencing settlement size, distribution and growth: proximity to resources (water, fertile land, minerals); climate and topography; economic development/diversification; transport infrastructure; population dynamics (urbanisation and internal migration).", "Band 6 exam tip: when explaining factors, use a process chain \u2014 identify the factor, explain the mechanism, then link to a specific settlement example with data."], "caseStudies": [], "data": ["City (ABS definition): population greater than 100,000", "Megacity: population over 10 million (e.g. Shenzhen 17-20 million)"], "flashcards": [{"term": "Remote settlement", "definition": "An isolated, sparsely populated area far from major urban centres that relies on natural resources such as mining or agriculture and has low population density, e.g. Coober Pedy (SA), Birdsville (QLD)."}, {"term": "Village", "definition": "A small settlement with basic services such as a primary school and local shops; close-knit and often agriculturally based, e.g. Berry (NSW), Tilba Tilba (NSW)."}, {"term": "Suburb", "definition": "A residential area on the outskirts of a city, part of a larger urban area with access to city services and often planned with housing, schools and parks, e.g. Parramatta, Glenelg (SA)."}, {"term": "Regional centre", "definition": "A large town or small city that services a surrounding rural area, providing higher-order services such as a hospital or university, e.g. Wagga Wagga, Newcastle."}, {"term": "City vs megacity vs urban mega-region", "definition": "A city is a large, densely populated urban area (ABS: population >100,000) with diverse functions; a megacity has a population over 10 million (e.g. Shenzhen, New York, Jakarta); an urban mega-region is a network of cities merged into one continuous urban area with high transport/economic connectivity (e.g. Pearl River Delta, BosNyWash)."}, {"term": "Nucleated, linear and dispersed patterns", "definition": "Nucleated = clustered around a central feature; linear = development follows a line (river/road/coast, e.g. Lismore along the Wilson River); dispersed = buildings spread over a large area (e.g. Australian outback farming communities)."}]}, {"number": 25, "text": "National and global urban hierarchies of settlements, based on population and urban function, and spheres of influence", "notes": ["Settlements form a hierarchy/pyramid by population: isolated dwellings \u2192 hamlet \u2192 village \u2192 town \u2192 regional centre \u2192 city \u2192 megacity.", "Larger settlements generally offer a wider range and higher order of goods and services (number of functions increases with population size).", "Outliers to this trend: coastal resort towns provide more functions than their population would suggest; remote FIFO mining camps provide fewer functions than their population would suggest.", "Settlements can also be ranked by urban function: economic (financial hubs, market towns), political (national/state capitals, local government centres), cultural (arts/creative industries), and social (healthcare, education).", "The Globalisation and World Cities (GaWC) Index, produced by Loughborough University, ranks cities by global connectivity \u2014 world cities are command-and-control centres, not necessarily the largest, but the most economically and culturally authoritative.", "Alpha cities control global finance, information and culture (e.g. London, New York, Tokyo). Beta/Gamma cities have significant regional influence (e.g. Sydney, Melbourne, Beijing).", "Sphere of influence is the area a settlement serves; larger cities have national/global spheres, villages have only local spheres.", "Band 6 exam tip: distinguish population-based hierarchy from function-based hierarchy \u2014 a city can be large but low in the functional hierarchy (e.g. dormitory towns)."], "caseStudies": [], "data": [], "flashcards": [{"term": "Urban hierarchy", "definition": "A ranking of settlements from smallest to largest (isolated dwelling to megacity), where larger settlements typically provide a greater range and higher order of functions/services."}, {"term": "Urban function", "definition": "The dominant role(s) a settlement performs \u2014 economic, political, cultural or social \u2014 which can be used to rank settlements independently of population size."}, {"term": "GaWC (Globalisation and World Cities Index)", "definition": "An index produced by Loughborough University that ranks cities by their global connectivity and command-and-control influence, rather than simply by population."}, {"term": "Alpha city vs Beta/Gamma city", "definition": "Alpha cities (e.g. London, New York, Tokyo) control global finance, information and culture; Beta/Gamma cities (e.g. Sydney, Melbourne, Beijing) have significant regional rather than global influence."}, {"term": "Sphere of influence", "definition": "The geographic area served by a settlement; it grows with settlement size, from local (village) to national and global (major city)."}, {"term": "Dormitory town", "definition": "A settlement that may be large in population but low in the functional urban hierarchy, mainly housing commuters who work and access higher-order services elsewhere."}]}, {"number": 26, "text": "The nature of urbanisation and urban growth at a global scale, including challenges facing rural and urban places; the interdependence of rural and urban places", "notes": ["In 2023, 57% of the world's population lived in urban areas. Most urbanised regions: North America (83%), Latin America & Caribbean (81%), Europe (75%).", "Africa remains mostly rural (44% urban), projected to reach 56% urban by 2050. Asia is currently 52% urban, projected to reach 68% by 2050.", "By 2100, the world's top 20 cities by population are expected to be in Africa and Asia. Global urbanisation is projected to increase by 12% over the next three decades, an increase of 2.2 billion urban residents, mostly in Africa and Asia.", "Urban populations in developing regions are growing rapidly while rural populations in those regions are projected to decline from around 2020; more developed regions' urban/rural populations are comparatively flat.", "Higher GDP per capita generally correlates with higher urbanisation (e.g. Hong Kong, Japan, UK, US near 100% urbanisation and high GDP; DRC, Uganda, Ethiopia low on both).", "Push factors driving people from rural areas: rural poverty, land degradation, limited services, agricultural mechanisation, natural hazards.", "Pull factors drawing people to urban areas: employment in manufacturing/services, higher wages, better education/healthcare, social opportunities.", "Rural challenges: demographic decline/ageing population/'brain drain'; poverty (most of the global poor live rurally); poor waste collection and land degradation; reduced government spending due to declining populations.", "Survey of rural challenges: lack of housing, inactive downtowns and population loss ranked as the highest community challenges, with need for childcare also in the top 5; rural businesses struggle with worker shortages, lack of support services and usable buildings, and online competition.", "Urban challenges: housing demand exceeding supply (rising prices, homelessness, informal slum housing); infrastructure pressure on transport, utilities and healthcare; air, noise and water pollution; social inequality and spatial disadvantage.", "Urban poverty is multidimensional: inadequate incomes, little/no safety net, overcrowded housing, insufficient infrastructure/services, high prices for necessities, insufficient protection of rights, and voicelessness in government.", "Rural-urban interdependence: urban areas rely on rural areas for food, raw materials, water catchments and energy; rural areas rely on urban areas for higher-order services, manufactured goods, markets and government investment. Challenges in one sphere directly affect the other.", "Band 6 exam tip: use a PEEL structure to demonstrate the two-way rural-urban relationship with specific examples, and evaluate consequences if interdependence breaks down."], "caseStudies": [], "data": ["57% of world's population lived in urban areas in 2023", "Africa: 44% urban (2023) projected to reach 56% by 2050", "Asia: 52% urban (2023) projected to reach 68% by 2050", "Global urbanisation projected to increase by 12% over next three decades (+2.2 billion urban residents)", "82.4% of individuals experiencing poverty globally reside in rural areas", "Only 43% of rural areas have regular waste collection vs 76% of urban areas", "24.2% of the global population lived in informal slum housing as of 2020"], "flashcards": [{"term": "Urbanisation", "definition": "The process by which an increasing proportion of a population comes to live in urban areas, driven by push factors from rural areas and pull factors to cities."}, {"term": "Push factor / Pull factor", "definition": "A push factor drives people away from rural areas (e.g. rural poverty, land degradation); a pull factor draws people toward urban areas (e.g. employment, higher wages, services)."}, {"term": "Rural-urban interdependence", "definition": "The two-way reliance between rural and urban places: urban areas depend on rural areas for food, raw materials and water, while rural areas depend on urban areas for higher-order services, goods and investment."}, {"term": "Informal slum housing", "definition": "Substandard, often unplanned urban housing lacking secure tenure or basic services; 24.2% of the global population lived in such housing as of 2020."}, {"term": "Brain drain", "definition": "The loss of skilled, often younger, people from rural areas as they migrate to cities, contributing to rural population decline and ageing."}, {"term": "Multidimensional urban poverty", "definition": "Urban poverty involving more than low income \u2014 including inadequate housing, insufficient infrastructure, high living costs, weak rights protection and political voicelessness."}]}, {"number": 27, "text": "Settlements in the world today that have maintained a small ecological footprint and a high level of wellbeing", "notes": ["Carbon/ecological footprint: the total greenhouse gases generated by our actions (CO2, methane, etc.), measured in tonnes CO2-equivalent per capita per year.", "Human wellbeing: overall quality of life, encompassing health, education, social connection, safety and access to services.", "Case study used: Oslo, Norway.", "Band 6 exam tip: acknowledge that high living costs and wealth inequality in Oslo mean not all residents equally access sustainability benefits \u2014 evaluate both successes AND limitations."], "caseStudies": [{"name": "Oslo, Norway", "facts": ["Capital city of Norway, Scandinavia; population approximately 710,000.", "Norway's national target is a greater than 95% reduction in greenhouse gas emissions by 2030, compared to 1990 levels.", "Norway produces the most renewable electricity in Europe, almost all from hydroelectricity.", "Oslo consistently ranks in the world's top sustainable and liveable cities (Arcadis Index).", "90% of new vehicle registrations nationally are electric, supported by incentives such as bus lane access, free parking, toll exemptions and free EV charging.", "Over 2,000 EV charging points installed in Oslo \u2014 more than any other European city.", "Public transport is being electrified/hybridised: hydrogen-electric hybrid buses; electric ferries on harbour routes, with plans to electrify all ferry routes.", "Port of Oslo uses shore power so vessels can turn off engines while docked, reducing shipping emissions.", "Compact city design with mixed land use reduces travel distances; pedestrian- and cycle-friendly infrastructure minimises car dependency.", "Expanded cycling infrastructure reduces emissions and improves public health.", "Wellbeing strategies: robust public transport reduces travel stress; mixed land use fosters community interaction; cleaner air improves health outcomes; green urban spaces and active transport promote physical and mental wellbeing."]}], "data": ["Oslo population: approximately 710,000", "Norway target: >95% GHG emissions reduction by 2030 (from 1990 levels)", "90% of new vehicle registrations in Norway are electric", "2,000+ EV charging points in Oslo"], "flashcards": [{"term": "Ecological/carbon footprint", "definition": "The total greenhouse gases generated by a person's or place's actions, measured in tonnes of CO2-equivalent per capita per year."}, {"term": "Human wellbeing", "definition": "The overall quality of life of a population, encompassing health, education, social connection, safety and access to services."}, {"term": "Compact city design", "definition": "An urban planning approach using mixed land use to reduce travel distances and encourage pedestrian- and cycle-friendly, less car-dependent development, used in Oslo."}, {"term": "Shore power", "definition": "Infrastructure (used at the Port of Oslo) allowing docked ships to turn off their engines and plug into electricity, reducing shipping emissions."}, {"term": "Arcadis Sustainable Cities Index", "definition": "A global index that ranks cities on sustainability and liveability; Oslo consistently ranks near the top."}]}, {"number": 28, "text": "Strategies for the sustainable management of rural and urban places, including at least one successful initiative or project", "notes": ["Sustainable management in rural areas: sustainable agriculture (permaculture, organic farming, crop rotation); resource conservation (drip irrigation, rainwater capture, cover cropping, contour ploughing); renewable energy adoption (solar, wind); community engagement to build social resilience.", "Sustainable management in urban areas: green infrastructure (parks, street trees, green roofs, stormwater management); sustainable transport (public transit, cycling, pedestrian design); waste management (recycling, composting, waste reduction); mixed land use to reduce commuting and improve liveability.", "Successful initiative case study used: the Barcelona Superblocks Project (2016-present).", "Superblocks restrict through-traffic within designated city blocks (around 9 standard blocks merged into one); internal streets are freed for pedestrian use, community space, cycling and play, while external streets carry through-traffic.", "Progress: 2012 'Citizen Commitment to Sustainability' signed by 800+ organisations; Superblocks Project launched 2016; as of the guide's writing (2026), 6 superblocks completed with Barcelona planning more than 500 superblocks city-wide.", "Economic evaluation: long-term benefits include increased foot traffic for local businesses, reduced healthcare costs and raised property values attracting investment; short-term challenges include pushback from store owners over delivery access and construction disruption; gentrification is a key equity risk as rising property values may displace lower-income residents.", "Band 6 exam tip: evaluate the Superblocks against three criteria \u2014 environmental (strong/measurable success), social (largely positive but equity concerns remain), and economic (mixed short-term, promising long-term)."], "caseStudies": [{"name": "Barcelona Superblocks Project (Spain)", "facts": ["Located in Barcelona, Catalonia, Spain; initiated 2016 as part of the Barcelona Climate Commitment.", "NO2 levels in Sant Antoni reduced by 33% within one year of implementation.", "Vehicle usage within superblocks decreased by up to 92%, with only a +3% increase in surrounding streets \u2014 cars 'evaporated' rather than being displaced.", "Over 23 hectares of space reclaimed from car use since 2016; Barcelona aims to add 1.6 km2 (1 m2 per resident) of green space by 2030.", "Carbon target: 40% reduction in per capita CO2-equivalent emissions by 2030 from a 2005 baseline of 3.14 GEH/inhabitant.", "Noise reduced by 4 dB within one year; significant given 55% of residents previously lived in environments exceeding the WHO's 65 dB recommendation.", "Former intersections transformed into playgrounds, seating areas and pedestrian zones, promoting social interaction, mental wellbeing and accessibility for children, the elderly and people with disabilities.", "6 superblocks completed with Barcelona planning more than 500 city-wide."]}], "data": ["NO2 levels in Sant Antoni down 33% within one year", "Internal traffic down up to 92%; surrounding streets +3%", "23+ hectares of green space reclaimed since 2016; target +1.6 km2 by 2030", "Noise reduced by 4 dB within one year", "40% CO2-equivalent emissions reduction target by 2030 (from 2005 baseline of 3.14 GEH/inhabitant)", "800+ organisations signed the 2012 Citizen Commitment to Sustainability", "6 superblocks completed vs >500 planned city-wide"], "flashcards": [{"term": "Superblock", "definition": "An urban planning unit (used in Barcelona) formed by merging around 9 standard city blocks, restricting through-traffic to external streets and freeing internal streets for pedestrians, cycling, play and community space."}, {"term": "Traffic evaporation", "definition": "The phenomenon where restricting car access in an area causes a net reduction in vehicle trips rather than simply displacing them elsewhere, as seen in Barcelona's superblocks (92% reduction inside vs only +3% surrounding streets)."}, {"term": "Barcelona Climate Commitment", "definition": "The policy framework under which the Barcelona Superblocks Project was initiated in 2016."}, {"term": "WHO noise recommendation", "definition": "The World Health Organization recommends environmental noise not exceed 65 dB; 55% of Barcelona superblock residents previously lived above this threshold."}, {"term": "Gentrification", "definition": "The transformation of a previously underdeveloped or industrial area into a more affluent one, often raising property values and risking displacement of lower-income residents \u2014 a concern for the Barcelona Superblocks project."}]}]}, {"sectionTitle": "Investigation of a rural and an urban place", "dotpoints": [{"number": 29, "text": "The location and character of each place", "notes": ["This dot point uses two named case studies: Barangaroo, Sydney (urban place) and Berry, NSW South Coast (rural place).", "Barangaroo is a harbourside redevelopment precinct on the edge of the Sydney CBD, divided into three distinct precincts with differing character (green public reserve, mixed-use redevelopment, high-end commercial).", "Berry is a small heritage village on the NSW South Coast with a strong tourism and food identity built around its historic Queen Street commercial centre and surrounding rural landscape."], "caseStudies": [{"name": "Barangaroo, Sydney", "facts": ["Site: a 22-hectare harbourside precinct on the north-western edge of the Sydney CBD, NSW.", "Situation: south of the Sydney Harbour Bridge; bordered by Millers Point, The Rocks and Darling Harbour; walking access to the CBD core.", "Coordinates approximately 33.8611 degrees S, 151.203 degrees E; postcode 2000; City of Sydney LGA.", "Barangaroo Reserve (North): 6 hectares of publicly accessible green space with sandstone headland restoration, the Wulugul Walk, Marrinawi Cove swimming spot and First Nations cultural installations.", "Central Barangaroo: currently under redevelopment, with future medium-density housing and metro station access and a mixed-use community focus.", "Barangaroo South: a high-end commercial precinct with three international commercial towers, Crown Sydney (5-star hotel/casino), global corporate HQs (HSBC, Westpac, Meta, Dyson, Visa), and high-end retail and dining.", "Connectivity: Barangaroo Metro Station (opened 2024) links to the wider Sydney network; a ferry wharf connects to Circular Quay and Darling Harbour; the Barangaroo Foreshore Walk is a pedestrian promenade linking to the CBD."]}, {"name": "Berry, NSW South Coast", "facts": ["A small village on the NSW South Coast, approximately 143 km south of Sydney.", "Coordinates 34 degrees 46'31\" S, 150 degrees 41'38\" E; located in the Shoalhaven region, NSW; postcode 2535.", "Accessible via the Princes Highway (A1) and the South Coast Rail Line (direct from Sydney); Kiama is 23 km north-east and Nowra 19 km south-west.", "Character: heritage architecture, tree-lined streets and rolling green pastures; weatherboard cottages, wrought-iron balconies and cottage gardens.", "Queen Street is the commercial heart of the village, with boutique shops, art galleries, artisan food outlets and homewares.", "Food culture (Berry Donut Van, Il Locale Gelato, Berry Sourdough Cafe) is central to its tourist identity; events such as bi-monthly produce markets and the Berry Show are integral to the social fabric.", "Nearby nature attractions include Seven Mile Beach National Park, with cycling, horse riding, surfing and bushwalking.", "Real estate includes homesteads, dairy farms, hobby farms and luxury retreats, making it a popular 'Sea Change' destination.", "Berry won the '2024 NSW Top Tourism Town Award'."]}], "data": ["Barangaroo: 22-hectare precinct; Barangaroo Reserve is 6 hectares", "Berry: approximately 143 km south of Sydney"], "flashcards": [{"term": "Barangaroo location", "definition": "A 22-hectare harbourside precinct on the north-western edge of the Sydney CBD, south of the Harbour Bridge, bordered by Millers Point, The Rocks and Darling Harbour."}, {"term": "Barangaroo's three precincts", "definition": "Barangaroo Reserve (North) \u2014 public green space; Central Barangaroo \u2014 future housing and metro access; Barangaroo South \u2014 high-end commercial towers and retail."}, {"term": "Berry location", "definition": "A small heritage village in the Shoalhaven region of the NSW South Coast, about 143 km south of Sydney, accessed via the Princes Highway and South Coast Rail Line."}, {"term": "Berry's character", "definition": "A village known for heritage architecture, a boutique commercial strip on Queen Street, strong food/tourism culture, community events and proximity to Seven Mile Beach National Park."}]}, {"number": 30, "text": "Geographical processes, both physical and human, that have shaped the identity of each place", "notes": ["Barangaroo's identity has been shaped by both physical processes (marine erosion and weathering of the sandstone headland) and human processes (19th-century land reclamation for industry, 21st-century urban renewal, and gentrification).", "Berry's identity has been shaped by physical processes (alluvial deposition on the Shoalhaven floodplain, and weathering/erosion of the Illawarra Escarpment) and human processes (agricultural innovation in dairying, and transport/infrastructure development).", "Gentrification is defined as the transformation of a previously underdeveloped/industrial area into a more affluent urban space, often displacing lower-income communities; it has positive impacts (economic revitalisation, improved infrastructure, tourism, employment, sustainability credentials) and negative impacts (rising rents in surrounding areas, loss of local character, displacement of long-term residents).", "Band 6 exam tip: for Barangaroo, avoid simply describing \u2014 analyse the tension between economic development and social equity, and between urban renewal and displacement."], "caseStudies": [{"name": "Barangaroo, Sydney", "facts": ["Physical: pre-colonial weathering and marine erosion shaped the Hawkesbury Sandstone headland over thousands of years, carving rock platforms and small coves.", "Human: in the 19th century the natural headland was cut away and flattened to build wharves for maritime industries; the foreshore was progressively reclaimed and reshaped for shipping and storage.", "Human: from 2003 the NSW Government led an urban renewal project on the disused industrial site, involving re-zoning, environmental remediation and creation of public spaces, commercial towers and cultural venues.", "Human: gentrification has brought economic revitalisation, improved infrastructure, tourism and employment, but also rising rents in Millers Point and The Rocks, loss of local character, and displacement of long-term residents."]}, {"name": "Berry, NSW", "facts": ["Physical: alluvial deposition on the Shoalhaven Floodplain \u2014 sediment carried from the Illawarra Escarpment by the Shoalhaven River and Broughton Creek built the rich agricultural soils that enabled dairy farming.", "Physical: weathering and erosion of the Illawarra Escarpment over millions of years created the surrounding valleys and contributed sediment to Berry's fertile lowlands.", "Human: Berry became a dairy farming hub \u2014 the Berry Central Creamery (established 1895) was the first in NSW to use pasteurisation, supported by a temperate climate, fertile soils and reliable rainfall.", "Human: the late-19th-century railway connected Berry to Sydney and the South Coast, boosting trade and tourism; the Princes Highway and the later Berry Bypass (which reduced through-traffic) shaped modern development patterns."]}], "data": [], "flashcards": [{"term": "Gentrification", "definition": "The transformation of a previously underdeveloped or industrial area into a more affluent urban space, which can bring economic revitalisation but also risks displacing lower-income, long-term residents."}, {"term": "Land reclamation (Barangaroo)", "definition": "The 19th-century process of cutting away and flattening the natural sandstone headland and reshaping the foreshore to build wharves for maritime industry."}, {"term": "Alluvial deposition (Berry)", "definition": "The deposition of sediment carried by the Shoalhaven River and Broughton Creek onto the Shoalhaven Floodplain, building the fertile soils that enabled Berry's dairy industry."}, {"term": "Urban renewal", "definition": "A planned process of redeveloping a disused or degraded urban area (e.g. Barangaroo from 2003) through re-zoning, remediation and new development."}, {"term": "Sea Change / Tree Change migration", "definition": "The movement of people, often retirees or young families, from cities to coastal or rural towns (such as Berry) seeking a better quality of life."}]}, {"number": 31, "text": "Links to other places", "notes": ["Barangaroo has strong physical/transport, cultural, tourism and economic links to other places, connecting Sydney to the rest of Australia and to a global network of business and tourism.", "Berry has strong regional, tourism, transport and agricultural links, connecting it to the surrounding Shoalhaven hinterland and to Sydney/Illawarra markets and visitors."], "caseStudies": [{"name": "Barangaroo, Sydney", "facts": ["Physical links: ferry terminals, pedestrian walkways, Wynyard Station and the Barangaroo Metro (2024); the Foreshore Walk connects to Circular Quay and Darling Harbour.", "Cultural heritage links: named after a Cammeraygal woman; the Reserve features native landscaping and First Nations cultural installations (Wulugul Walk, Girra Girra Steps).", "Domestic tourism links: events such as Vivid Sydney (June), summer open-air cinema, a weekly run club and Pickleball draw visitors from across Sydney and Australia.", "International tourism and economic links: Crown Sydney and waterfront dining attract international visitors; global banks and companies (HSBC, Westpac, Meta Asia-Pacific HQ, Dyson, Visa) connect Sydney to 143+ countries."]}, {"name": "Berry, NSW", "facts": ["Regional links: Berry services the surrounding Shoalhaven hinterland with medical, retail and professional services for smaller townships.", "Tourism links: draws visitors from Sydney and the Illawarra; connected to Seven Mile Beach National Park and the wider Shoalhaven tourism network.", "Transport links: the South Coast rail line and Princes Highway connect Berry to Wollongong, Sydney and Canberra.", "Agricultural links: historical links to Sydney dairy markets via rail; contemporary artisan food producers supply Sydney restaurants."]}], "data": [], "flashcards": [{"term": "Barangaroo's global economic links", "definition": "Barangaroo South hosts global corporate headquarters (HSBC, Westpac, Meta Asia-Pacific, Dyson, Visa), connecting Sydney to more than 143 countries."}, {"term": "Barangaroo's cultural links", "definition": "Barangaroo is named after a Cammeraygal woman, and the Reserve includes First Nations cultural installations such as the Wulugul Walk and Girra Girra Steps."}, {"term": "Berry's transport links", "definition": "Berry is linked to Wollongong, Sydney and Canberra via the South Coast rail line and the Princes Highway."}, {"term": "Berry's agricultural links", "definition": "Berry has historical dairy trade links to Sydney via rail, and today its artisan food producers supply Sydney restaurants."}]}, {"number": 32, "text": "The nature of changes affecting each place, including social, economic and environmental", "notes": ["Barangaroo has undergone dramatic social, economic and environmental change: from a working-class industrial waterfront to a luxury mixed-use precinct, from disused industrial land to a premier commercial hub, and from a contaminated site to a carbon-neutral precinct with restored habitat.", "Berry's changes are best understood as historical (pre-bypass, dairy/timber/service economy) versus contemporary (post-bypass, tourism-led diversified economy), alongside demographic change driven by Sea Change/Tree Change migration."], "caseStudies": [{"name": "Barangaroo, Sydney", "facts": ["Social change: transformation from a working-class industrial waterfront to a luxury mixed-use precinct; the Wulugul Walk and Marrinawi Cove provide public recreation, but high-end retail and dining create a risk of social exclusion for lower-income Sydneysiders.", "Economic change: transformed from disused industrial land (zero productivity) into one of Sydney's premier commercial hubs; three international towers house multinational corporations contributing significant tax revenue.", "Environmental change: transformed from a contaminated industrial site to a carbon-neutral precinct, using solar panels, green roofs, louvre shading systems and water-sensitive urban design (WSUD); Barangaroo Reserve restored around 2.5 hectares of native headland habitat."]}, {"name": "Berry, NSW", "facts": ["Historical (pre-bypass): economy based on dairy farming, timber cutting, tannery and boat building, with through-traffic on the Princes Highway supporting a service economy.", "Contemporary (post-bypass): repositioned as a destination town, diversified into tourism, boutique retail, artisan food and hospitality, with investment in walking trails, cultural events and tourism infrastructure.", "Demographic change: population growth driven by young families and retirees seeking quality of life, proximity to Sydney and remote work flexibility ('Sea Change' and 'Tree Change' migration).", "Economic diversification: shift from a single-industry (dairy) economy to a tourism-led mixed economy, promoted by the Berry Chamber of Commerce, which emphasises quality and local produce."]}], "data": [], "flashcards": [{"term": "WSUD (water-sensitive urban design)", "definition": "An urban design approach integrating water management (e.g. stormwater treatment) into the built environment, used at Barangaroo as part of its environmental transformation."}, {"term": "Carbon-neutral precinct", "definition": "A development designed to have net-zero carbon emissions, as targeted for Barangaroo South through solar panels, green roofs and efficient building design."}, {"term": "Sea Change / Tree Change", "definition": "Migration trends where people relocate from cities to coastal or rural towns respectively, seeking quality of life \u2014 a key driver of Berry's population growth."}, {"term": "Economic diversification (Berry)", "definition": "Berry's shift from a single-industry dairy-farming economy to a diversified, tourism-led economy including boutique retail, hospitality and artisan food."}]}, {"number": 33, "text": "Responses and strategies, including for sustainability", "notes": ["Barangaroo's sustainability response focuses on carbon neutrality, ecological remediation, cultural recognition, sustainable transport and maintaining public access despite premium commercial development.", "Berry's sustainability response spans economic strategy (tourism/local business promotion), heritage conservation, environmental management, and social sustainability, with the Shoalhaven 2035 Community Strategic Plan as an overarching government response.", "Band 6 exam tip (Berry): connect the geographical processes (alluvial soils to dairy farming to railway to tourism transition) into a coherent narrative of change, and evaluate whether strategies adequately address social, economic and environmental dimensions."], "caseStudies": [{"name": "Barangaroo, Sydney", "facts": ["Carbon neutrality target: Barangaroo South is designed to be carbon-neutral, using solar energy, energy-efficient building design and green roofs.", "Ecological remediation: Barangaroo Reserve restores the indigenous sandstone headland and native vegetation lost to industrialisation.", "Cultural sustainability: First Nations heritage is recognised and celebrated through design, including the Wulugul Walk and indigenous plantings.", "Transport sustainability: the Metro station and ferry wharf encourage public transport use over private cars.", "Public access: despite premium commercial development, significant public open space (the Reserve and foreshore promenade) has been maintained."]}, {"name": "Berry, NSW", "facts": ["Economic strategy: the Berry Chamber of Commerce promotes boutique businesses, cafes and restaurants using local produce, with limited chain stores reinforcing local commerce; monthly farmers' markets support local artisans and community spirit.", "The Shoalhaven 2035 Community Strategic Plan sets economic goals to invest in tourism and support diverse employment.", "Heritage conservation: the Shoalhaven City Council 'Have Your Say' campaign gathers community input on heritage zoning; the Princess Street Heritage Conservation Area applies strict planning controls to preserve historic buildings such as the Berry Courthouse; the Berry Historical Society promotes historical awareness.", "Environmental management: riparian restoration along Broughton Creek reduces agricultural runoff and improves water quality; weed eradication targets invasive species (lantana, privet); the Boongaree Nature Play Park uses native plants and sustainable materials for education.", "Social sustainability: community events (Berry Show, Village Market, Food Festivals) promote local products and community spirit; the Shoalhaven 2035 plan also addresses community safety, cultural events and sporting facilities."]}], "data": [], "flashcards": [{"term": "Shoalhaven 2035 Community Strategic Plan", "definition": "A local government strategic plan for the Shoalhaven region (which includes Berry) setting goals across economic, environmental and social sustainability, including tourism investment and community safety."}, {"term": "Riparian restoration", "definition": "Environmental management of vegetation along waterways (e.g. Broughton Creek near Berry) to reduce agricultural runoff, improve water quality and create habitat for native species."}, {"term": "Heritage Conservation Area", "definition": "A zoning designation (e.g. Princess Street, Berry) that applies strict planning controls to preserve historic buildings and streetscapes."}, {"term": "Barangaroo's sustainability strategy", "definition": "A combination of carbon-neutral design, ecological remediation of the sandstone headland, First Nations cultural recognition, and public-transport-oriented connectivity, balanced against high-end commercial development."}]}]}, {"sectionTitle": "Investigation of a large city outside Australia", "dotpoints": [{"number": 34, "text": "The character and spatial dimensions of the large city", "notes": ["The case study used is Shenzhen, China, a city of more than 5 million people.", "Shenzhen is located in the Pearl River Delta, Guangdong Province, southern China, bordering Hong Kong to the south and Guangzhou to the north.", "Its urban form is a dynamic mix of modern skyscrapers, tech campuses and traditional urban villages, making it one of the world's most rapidly urbanised cities."], "caseStudies": [{"name": "Shenzhen, China", "facts": ["Located in the Pearl River Delta, Guangdong Province, southern China; borders Hong Kong (south) and Guangzhou (north).", "Covers an area of 1,991 km2.", "Population of approximately 13.5-20 million, including migrant workers.", "Urban form combines modern skyscrapers, tech campuses and traditional urban villages, reflecting extremely rapid urbanisation."]}], "data": ["Shenzhen area: 1,991 km2", "Shenzhen population: approximately 13.5-20 million (including migrant workers)"], "flashcards": [{"term": "Shenzhen's location", "definition": "A city in the Pearl River Delta, Guangdong Province, southern China, bordering Hong Kong to the south and Guangzhou to the north."}, {"term": "Shenzhen's spatial dimensions", "definition": "Shenzhen covers 1,991 km2 and has a population of roughly 13.5-20 million, including a large migrant worker population, with an urban form mixing skyscrapers, tech campuses and urban villages."}]}, {"number": 35, "text": "Geographical processes shaping the large city and change over time relating to demographic trends; social and economic patterns; political and economic roles; and regional and global linkages", "notes": ["Economic transformation: in 1980 Shenzhen was established as China's first Special Economic Zone (SEZ) under Deng Xiaoping's reform and opening-up policy, when its population was only around 30,000; it has since transformed from a fishing village into a global megacity.", "GDP has grown from 0.15 billion yuan in 1980 to over 2.77 trillion yuan today, with the economy shifting from manufacturing to high-tech, hosting the headquarters of Huawei, Tencent, DJI and BYD.", "Shenzhen has an end-to-end tech ecosystem: Troublemaker Hub incubators, HuaQiangBei component markets, Dongguan/Foshan factories, and Yantian/Chiwan/Shekou ports handling 30 million TEUs annually.", "Demographic trends: 63% of Shenzhen's population are migrants (mainly from rural China), including 8.93 million inter-provincial migrants; this young, skilled and motivated workforce brings cultural diversity from across China's provinces.", "Political and economic role: SEZ status catalysed foreign direct investment (e.g. Apple, Samsung) and economic liberalisation; the Qianhai Cooperation Zone deepened Hong Kong-Shenzhen economic integration, positioning Shenzhen as a global economic hub and innovation engine.", "Regional and global linkages: Pearl River Delta integration with Dongguan (components, manufacturing), Huizhou and Guangzhou; the Greater Bay Area initiative drives economic agglomeration and innovation collaboration across southern China; global trade through ports exporting 30 million TEUs/year; transnational production by DJI, BYD and Huawei with partnerships across Silicon Valley, Singapore and Berlin."], "caseStudies": [{"name": "Shenzhen, China", "facts": ["Established 1980 as China's first Special Economic Zone (SEZ) under Deng Xiaoping's reform and opening-up policy, when population was around 30,000.", "GDP grew from 0.15 billion yuan (1980) to over 2.77 trillion yuan today; economy shifted from manufacturing to high-tech, headquartering Huawei, Tencent, DJI and BYD.", "63% of the population are migrants, mainly from rural China, including 8.93 million inter-provincial migrants.", "The Qianhai Cooperation Zone deepened Hong Kong-Shenzhen economic integration; SEZ status attracted foreign direct investment from companies such as Apple and Samsung.", "Part of the Greater Bay Area initiative integrating Shenzhen with Dongguan, Huizhou and Guangzhou; ports handle 30 million TEUs of trade annually."]}], "data": ["Shenzhen 1980 population: approximately 30,000", "GDP growth: 0.15 billion yuan (1980) to over 2.77 trillion yuan today", "63% of Shenzhen's population are migrants; 8.93 million inter-provincial migrants", "30 million TEUs exported annually through Shenzhen's ports"], "flashcards": [{"term": "Special Economic Zone (SEZ)", "definition": "A designated zone with liberalised economic policies to attract foreign investment; Shenzhen became China's first SEZ in 1980 under Deng Xiaoping's reform and opening-up policy."}, {"term": "Greater Bay Area", "definition": "An initiative integrating Shenzhen with Hong Kong, Guangzhou and other Pearl River Delta cities to drive economic agglomeration and innovation collaboration."}, {"term": "Qianhai Cooperation Zone", "definition": "A zone that deepened economic integration between Hong Kong and Shenzhen, supporting Shenzhen's role as a global economic hub."}, {"term": "TEU (twenty-foot equivalent unit)", "definition": "A standard unit for measuring shipping container volume; Shenzhen's ports handle around 30 million TEUs annually."}, {"term": "Urban village (chengzhongcun)", "definition": "A village absorbed into a rapidly expanding city (such as Shenzhen) that retains informal, dense housing, often used by migrant workers."}]}, {"number": 36, "text": "Challenges of living in the large city", "notes": ["Air pollution: despite a full transition to electric public transport, industrial and traffic emissions still affect air quality and residents' health, particularly for migrant workers in manufacturing zones.", "Housing affordability: rapid growth and migrant influx have driven up housing costs; urban villages (chengzhongcun) provide affordable but overcrowded informal housing for migrants.", "Social integration: the 63% migrant population creates challenges, including the Hukou (household registration) system, which historically limited migrants' access to education and healthcare, contributing to social stratification between permanent residents and migrants.", "Water stress: increasing drought conditions and urban heat island effects strain water infrastructure and green spaces, amplified by climate change.", "Noise pollution: rapid, ongoing construction is a persistent challenge, with urban densification creating constant noise disturbance.", "Ecological footprint: rapid industrialisation created a significant environmental legacy; Shenzhen has reduced its carbon footprint by 19%, but challenges remain."], "caseStudies": [{"name": "Shenzhen, China", "facts": ["Air pollution persists from industrial and traffic emissions despite full electrification of public transport, particularly affecting migrant workers in manufacturing zones.", "Urban villages (chengzhongcun) provide affordable but overcrowded informal housing for the large migrant population amid rapid growth-driven housing cost increases.", "The Hukou household registration system has historically limited migrants' access to education and healthcare, contributing to social stratification.", "Increasing drought conditions and the urban heat island effect strain water infrastructure and green space.", "Rapid, ongoing construction creates persistent noise pollution; rapid industrialisation left a significant ecological legacy despite a 19% reduction in carbon footprint."]}], "data": ["63% of Shenzhen's population are migrants, contributing to social stratification challenges", "Shenzhen has reduced its carbon footprint by 19% (context of ongoing ecological challenges)"], "flashcards": [{"term": "Chengzhongcun (urban village)", "definition": "An informal, dense settlement absorbed within Shenzhen's urban expansion that provides affordable but often overcrowded housing, especially for migrant workers."}, {"term": "Hukou system", "definition": "China's household registration system, which historically limited migrants' access to education and healthcare in cities like Shenzhen, contributing to social stratification."}, {"term": "Urban heat island", "definition": "The phenomenon where urban areas experience higher temperatures than surrounding rural areas due to dense infrastructure and reduced vegetation, contributing to water stress in Shenzhen."}, {"term": "Shenzhen's key challenges", "definition": "Air pollution, housing affordability, social integration (Hukou-related stratification), water stress, noise pollution from construction, and an ongoing ecological footprint legacy from rapid industrialisation."}]}, {"number": 37, "text": "Responses to these challenges and opportunities for enhancing sustainability, including strategies to improve people's quality of life and reduce spatial inequality", "notes": ["Environmental responses: green corridors integrated into urban planning promote walkability and sustainability; the metro system uses energy-efficient systems and natural station lighting; Shenzhen achieved full electrification of its public bus fleet (16,000+ buses), the first city in the world to do so; extensive park networks and waterfront redevelopments provide recreational space.", "Smart city initiatives for public safety: AI-powered surveillance and predictive analytics monitor real-time safety threats, contributing to a 23% decrease in crime rates and influencing adoption of similar systems in New York and Tokyo.", "Smart city initiatives for community governance: 'Community Home Network' and 'Palm App' digital platforms let residents vote on projects and collaborate with local officials, with 65% of residents actively using the platforms and 92% user satisfaction.", "Smart city initiatives for senior care: AI-integrated at-home care, health monitoring and telehealth have enabled 80% of elderly residents to live independently, with hospitalisations decreasing by 35%.", "Economic transformation: a tech-friendly environment continues to attract global investment, with 8.2% GDP growth in 2024; Shenzhen has also achieved a 19% carbon footprint reduction and a 27% increase in recycling rates.", "Band 6 exam tip: evaluate whether Shenzhen's smart city technology and green infrastructure sufficiently offset the environmental and social costs of its extraordinary growth trajectory, integrating statistics (GDP, TEUs, crime rates) for analytical depth."], "caseStudies": [{"name": "Shenzhen, China", "facts": ["Fully electrified its public bus fleet (16,000+ buses) \u2014 the first city in the world to achieve this.", "AI-powered surveillance and predictive analytics reduced crime rates by 23%, influencing adoption of similar systems in New York and Tokyo.", "'Community Home Network' and 'Palm App' digital governance platforms are used actively by 65% of residents, with 92% user satisfaction.", "AI-integrated senior care allows 80% of elderly residents to live independently, with hospitalisations down 35%.", "Achieved 8.2% GDP growth in 2024, alongside a 19% carbon footprint reduction and a 27% increase in recycling rates."]}], "data": ["16,000+ electric buses \u2014 world's first fully electrified public bus fleet", "Crime rates decreased by 23% following AI surveillance implementation", "65% of residents actively use digital governance platforms; 92% user satisfaction", "80% of elderly residents live independently; hospitalisations down 35%", "8.2% GDP growth in 2024", "19% carbon footprint reduction; 27% increase in recycling rates"], "flashcards": [{"term": "Smart city", "definition": "A city that uses digital technology and data (e.g. AI surveillance, digital governance platforms) to improve services, safety and quality of life, as demonstrated by Shenzhen."}, {"term": "Full bus electrification (Shenzhen)", "definition": "Shenzhen became the first city in the world to fully electrify its public bus fleet, with over 16,000 electric buses."}, {"term": "'Community Home Network' / 'Palm App'", "definition": "Digital governance platforms in Shenzhen that let residents vote on local projects and collaborate with officials, used actively by 65% of residents with 92% satisfaction."}, {"term": "AI-powered public safety surveillance", "definition": "A smart city strategy using AI surveillance and predictive analytics to monitor safety threats in Shenzhen, contributing to a 23% reduction in crime rates."}, {"term": "Shenzhen's 2024 sustainability outcomes", "definition": "8.2% GDP growth, a 19% carbon footprint reduction and a 27% increase in recycling rates, alongside continued economic and tech-sector growth."}]}]}]}</script>
+<script type="application/json" id="topicWrittenData">[{"id": "hsc2025_q19a", "source": "2025 HSC", "topicNumber": 3, "dotPoints": [29, 30], "marks": 4, "directive": "Account for", "question": "Account for the identity of ONE place within a larger urban settlement.", "markingGuideline": "Criteria (Question 19(a)):\n4 marks - Accounts for the identity of ONE place within a larger urban settlement\n3 marks - Describes the identity of ONE place within a larger urban settlement\n2 marks - Outlines the identity of ONE place within a larger urban settlement\n1 mark - Provides some relevant information\n\nSample answer: The Plateau-Mont-Royal neighbourhood in Montreal has developed a vibrant arts scene, colourful murals, and historic architecture. It evolved from a working-class area to a trendy neighbourhood, due to its proximity to the city centre, attracting artists, young professionals, and tourists. The area's mix of cafes, boutiques, and green spaces like Parc La Fontaine, contribute to this identity, and make it a lively and culturally rich part of this French-speaking city."}, {"id": "hsc2025_q19b", "source": "2025 HSC", "topicNumber": 3, "dotPoints": [31], "marks": 5, "directive": "Analyse", "question": "Analyse how ONE place in a rural setting is linked to other places.", "markingGuideline": "Criteria (Question 19(b)):\n5 marks - Analyses how ONE place in a rural setting is linked to other places\n4 marks - Describes how ONE place in a rural setting is linked to other places\n3 marks - Outlines how ONE place in a rural setting is linked to other places\n2 marks - Identifies how ONE place in a rural setting is linked to other places\n1 mark - Provides some relevant information\n\nSample answer: Mudgee in central western NSW is linked to other places through various connections. Its agricultural products, particularly wine, are exported to major urban centres like Sydney and Melbourne, leading to economic growth, jobs and population increase. The town is also connected through transportation networks, including the Castlereagh Highway, which facilitate trade and tourism. Additionally, Mudgee's cultural links are strengthened through regional events like the Mudgee Food and Wine Festival, attracting visitors from across Australia. Environmental links, such as the Goulburn River, support local agriculture and regional water systems. These connections help shape Mudgee's identity and development."}, {"id": "hsc2025_q21", "source": "2025 HSC", "topicNumber": 3, "dotPoints": [28, 1], "marks": 6, "directive": "Evaluate", "question": "The diagram shows the four pillars of sustainability: Social, Economic, Environmental, Cultural. With reference to TWO pillars of sustainability, evaluate the success of ONE initiative or project used in the management of rural and/or urban places.", "markingGuideline": "Criteria (Question 21, band marking):\n6 marks - Demonstrates an extensive understanding of sustainable management of a rural or urban place with reference to TWO pillars of sustainability; Makes a comprehensive judgement of the success of ONE initiative or project using the pillars of sustainability\n5 marks - Demonstrates a thorough understanding of sustainable management of a rural or urban place with reference to at least ONE pillar of sustainability; Makes a judgement of the success of ONE initiative or project using the pillars of sustainability\n3-4 marks - Demonstrates sound understanding of sustainable management of a rural or urban place; Outlines the sustainability of ONE initiative or project\n2 marks - Demonstrates a basic understanding of sustainable management or of an initiative or project\n1 mark - Provides some relevant information\n\nSample answer: The Green Exchange in the regional centre of Curitiba, Brazil has proven to be a successful initiative in sustainably managing an urban setting. Environmentally, the program reduces illegal dumping and increases recycling by allowing residents to exchange recyclable materials for fresh produce. Economically, it supports regional agriculture by creating a market for local farmers and reducing reliance on large industry. The program overall therefore supports the area to thrive economically and improve urban cleanliness."}, {"id": "hsc2025_q22a", "source": "2025 HSC", "topicNumber": 3, "dotPoints": [34], "marks": 3, "directive": "Outline", "question": "Answer parts (a)\u2013(c) with reference to ONE large city of 5 million people or more, outside Australia, that you have studied. Outline the character of this city.", "markingGuideline": "Criteria (Question 22(a)):\n3 marks - Outlines the character of a suitable city\n2 marks - Identifies features of a suitable city\n1 mark - Provides some relevant information\n\nSample answer: Tokyo is a dynamic and densely populated city that blends advanced technology with tradition. Known for its efficiency, cleanliness, and safety, it offers a unique mix of modern skyscrapers, historic temples, and vibrant street life. Despite its fast pace, Tokyo maintains a strong sense of community, making it both a global business hub and a culturally rich, liveable city."}, {"id": "hsc2025_q22b", "source": "2025 HSC", "topicNumber": 3, "dotPoints": [36], "marks": 5, "directive": "Describe", "question": "With reference to the same large city of 5 million people or more, outside Australia, that you have studied: Describe TWO challenges of living in this city.", "markingGuideline": "Criteria (Question 22(b)):\n5 marks - Describes TWO challenges of living in the city\n4 marks - Describes ONE challenge of living in the city and outlines ONE other\n3 marks - Outlines TWO challenges of living in the city\n2 marks - Outlines a challenge of living in the city OR Identifies challenges of living in the city\n1 mark - Provides some relevant information\n\nSample answer: One major challenge of living in Tokyo is the difficulty faced by families and low-income individuals in finding suitable housing due to the high cost and limited size of housing. In central areas like Minato, monthly rent for a one-bedroom apartment can exceed 200 000 JPY. Due to land scarcity, many residents live in units under 25 square metres with minimal storage and living space. Another significant challenge is overcrowding, especially on public transport. Train lines like the Tozai line often run at over 200% capacity during peak hours, meaning passengers are packed in with no personal space. This daily stress impacts physical comfort and mental health, particularly for older adults and people with disabilities."}, {"id": "hsc2025_q22c", "source": "2025 HSC", "topicNumber": 3, "dotPoints": [37], "marks": 12, "directive": "Evaluate", "question": "With reference to the same large city of 5 million people or more, outside Australia, that you have studied: Evaluate the effectiveness of TWO strategies to improve people's quality of life in this city.", "markingGuideline": "Criteria (Question 22(c), band marking):\n11-12 marks - Demonstrates comprehensive knowledge and understanding of TWO strategies to improve people's quality of life in the city; Provides a detailed judgement about the effectiveness of strategies to improve people's quality of life in the city; Integrates relevant examples, geographical information and the Stimulus Booklet where appropriate to support the response; Presents a sustained, logical and cohesive response using appropriate geographical ideas, terms and concepts\n8-10 marks - Demonstrates well-developed knowledge and understanding of TWO strategies to improve people's quality of life in the city; Provides some judgement about the effectiveness of strategies to improve people's quality of life in the city; Refers to relevant examples, geographical information and the Stimulus Booklet where appropriate to support the response; Presents a logical response using appropriate geographical terminology and concepts\n5-7 marks - Demonstrates sound knowledge and understanding of TWO strategies to improve people's quality of life in the city; Describes strategies for improving people's quality of life in the city; Refers to examples, geographical information and the Stimulus Booklet where appropriate; Presents a structured response using appropriate geographical concepts\n3-4 marks - Demonstrates some knowledge and understanding of people's quality of life; May refer to examples, geographical information and/or the Stimulus Booklet; Uses some geographical terminology\n1-2 marks - Demonstrates a basic understanding of quality of life\n\nAnswers could include:\n- Wellbeing strategies such as: social infrastructure and services, mixed income development, walkable cities, community initiatives\n- Urban planning strategies such as: housing, greenspace, public transport, congestion reduction, recycling, air quality improvement, stormwater, sanitation\n- Economic development strategies such as: employment schemes, local business support, micro-credit and other NGO support, incubator hubs\n- Resilience strategies such as: climate change adaptations, disaster preparedness, crime prevention\n- Evaluation could be conducted via criteria such as safety, equity, quality of daily life and environmental health."}, {"id": "sample_18", "source": "Sample Exam", "topicNumber": 3, "dotPoints": [28], "marks": 6, "directive": "Explain", "question": "Explain how ONE initiative or project has led to sustainable management of a rural or urban place.", "markingGuideline": "Official marking guideline (top band, 6 marks): Demonstrates a comprehensive understanding of sustainable management of a rural or urban place; clearly explains how ONE initiative or project has led to sustainable management. (Lower bands, 5-1 marks, require progressively less thorough understanding/explanation, down to 1 mark for providing some relevant information.) Official sample answer: Boco Rock Wind Farm, in Nimmitabel NSW, is an example of a project which has led to sustainable management as it provides clean and sustainable energy for this community. Stage One of the wind farm consists of 67 turbines, generating 113 MW of renewable energy. The turbines capture the kinetic energy of the wind and convert it into electricity as the shaft drives the generator, thus creating sustainable energy production. Boco Rock Wind Farm also uses a community engagement strategy that attempts to make a contribution to the local and wider community. It provides employment and infrastructure, such as new roads, to the rural community. The project is delivering clean and sustainable energy to the local area. This is an example of sustainable management, as it provides the energy needs for communities and lowers the ecological footprint."}, {"id": "sample_19a", "source": "Sample Exam", "topicNumber": 3, "dotPoints": [29], "marks": 3, "directive": "Explain", "question": "Explain how ONE spatial technology tool could be used in a geographical inquiry into an urban place.", "markingGuideline": "Official marking guideline (top band, 3 marks): Correctly identifies a spatial technology tool; provides a detailed explanation of how AND why the spatial technology tool would be used during a geographical inquiry. (2 marks: identifies tool and describes how OR why it would be used; 1 mark: provides some relevant information.) Official sample answer: To begin the inquiry, Google Earth Pro could be used to zoom in and view at different scales \u2013 for example from citywide, to a suburb or community and then to street level. This would enable the identification of physical and human characteristics such as the location of a suburb or precinct in a city, building density, facilities and services. The tools in Google Earth could be used to measure distances, to calculate area and identify changes over time."}, {"id": "sample_19b", "source": "Sample Exam", "topicNumber": 3, "dotPoints": [29], "marks": 4, "directive": "Describe", "question": "Describe TWO appropriate fieldwork techniques to use in collecting data or information on the human characteristics of urban places.", "markingGuideline": "Official marking guideline (top band, 4 marks): Describes TWO appropriate fieldwork techniques that could be used to collect data or information on human characteristics of urban places. (3 marks: describes one technique in detail and outlines a second; 2 marks: outlines two techniques OR describes one in detail; 1 mark: some relevant information.) Official sample answer: One fieldwork technique could be conducting a survey to gather information from residents of the place. Survey questions can provide quantitative human data such as age, gender, type of employment and distance travelled to work and qualitative information such as how safe they feel, access to services and facilities, opinions about liveability, happiness and issues of concern. Quantitative data can be graphed. Another technique could be taking photographs at different locations to illustrate human characteristics of an urban place such as transport infrastructure, types of housing, shops and facilities such as schools and hospitals. Human challenges such as urban decay can be captured in photographs."}, {"id": "cssa2025_q19a", "source": "CSSA 2025 Trial", "topicNumber": 3, "dotPoints": [29], "marks": 2, "directive": "Outline", "question": "Outline the location and character of ONE rural place. Rural place: ______", "markingGuideline": "Criteria (2 marks): Sketches in general terms the location and character of a rural place - 2 marks; Provides some relevant information about the location and/or character of a rural place - 1 mark. Sample Answer: Bellingen is a small town on the Mid North Coast of New South Wales, positioned midway between Sydney and Brisbane, located at 30 degrees 27' S, 152 degrees 54' E. The town is situated on Gumbaynggirr land and is divided by the Bellinger River. European settlers initially established timber logging and farming in the area, which shaped its agricultural character. The community's alternative lifestyle has supported creative industries and promoted organic and regenerative farming practices. As of the 2021 ABS census, Bellingen has a population of 3,201. The town's unique character attracts many tourists to its festivals and markets."}, {"id": "cssa2025_q19b", "source": "CSSA 2025 Trial", "topicNumber": 3, "dotPoints": [31], "marks": 4, "directive": "Explain", "question": "Explain TWO links that ONE urban place has to other places. Urban place: ______", "markingGuideline": "Criteria (4 marks): Demonstrates a thorough understanding of the cause of TWO links that this urban place has to other places, relates impacts to other places - 4 marks; Demonstrates a sound understanding of the cause of TWO links that this urban place has to other places, relates impacts to other places - 3 marks; Demonstrates a basic understanding of the link/s that this urban place has to other places, may relate some impacts to other places - 2 marks; Provides some relevant information - 1 mark. Answers could include categories: Cultural; Economic; Political. Sample Answer (Sydney Olympic Park): 1) Sydney 2000 Olympics - Sydney Olympic Park will always have a global link with the rest of the world as the host of the XXVII Olympics in 2000. During September 2000, Sydney welcomed 10,651 athletes from 199 countries who competed in 300 events. The Sydney 2000 Olympic Games was the most watched sport event at that time with more than 3.7 billion people tuned in to watch, which represents a 20% increase over the 1996 Atlanta Olympic Games. Sydney 2000 was broadcast in 220 countries and generated more than 36.1 billion television viewing hours. Therefore establishing a global cultural link with the rest of the world. 2) Business Links - As part of the redevelopment of SOP after the Olympics a key driver was to establish businesses within the precinct, however it took a number of years for it to gain traction. The first key businesses that were established were hotels with the Novotel, Pullman and Ibis groups having hotels within SOP which caters for tourists coming to see sporting or entertainment events. As a result of increased residential development throughout the precinct many cafes, restaurants and small businesses have developed to support the growing population within SOP. The area now has major businesses both government (NSW Ambulance Head Office) and private businesses such as Thales Australia. The NSW Government has committed to a Master Plan to further revitalise the precinct that will bring the jobs total to 34,000 and increase new homes to 10,700 for its 23,500 residents by 2030. Around 12,000 people currently work in the area in more than 200 businesses which is set to increase to more than 20,000 jobs by 2036."}, {"id": "cssa2025_q19c", "source": "CSSA 2025 Trial", "topicNumber": 3, "dotPoints": [37], "marks": 5, "directive": "Analyse", "question": "Analyse ONE response to a challenge experienced by ONE large city outside Australia, where the response has enhanced the city's sustainability. Large city outside of Australia: ______", "markingGuideline": "Criteria (5 marks): Makes clear reference to a large city, clearly draws out and relates implications of ONE response to a challenge that enhances the sustainability in this large city - 5 marks; Makes reference to a large city, relates implications of ONE response to a challenge that enhances the sustainability in this large city - 4 marks; Identifies a large city, attempts to relate implications of ONE response to a challenge that enhances the sustainability in this large city - 3 marks; Identifies a large city, describes ONE response to a challenge that enhances the sustainability in this large city - 2 marks; Provides some relevant information - 1 mark. Examples of large cities outside of Australia: Singapore, London, Hanoi, Nairobi, Santiago, Mumbai, Paris. Challenges could include: Rapid population growth; Access to services and facilities; Affordability; Liveability; Ecological footprint; Climate change. Responses to challenges including strategies to enhance the city's sustainability such as improving people's quality of life and reducing spatial inequality. Nairobi responses: Access to health services - the Linda Mama program offers free maternity services to pregnant women, ensuring that even those in low-income areas have access to essential healthcare services. Links to UN SDGs Goals 3, 5 and 10. Public Transportation Improvements - the development of the Nairobi Metropolitan Area Transport Authority (NaMATA) and the introduction of the Bus Rapid Transit (BRT) system are designed to enhance public transportation, reduce traffic congestion, and provide affordable and efficient transit options for residents. Links to UN SDGs Goals 3, 9, 11 and 13. Singapore responses: Public Housing - The Housing and Development Board (HDB) appointed by the Minister for National Development. Provide affordable housing to the majority of Singaporeans. Over 80% of the population lives in HDB flats, which are well-integrated with amenities like schools, parks, and public transportation. Links to UN SDGs Goals 3, 10 and 11."}, {"id": "cssa2025_q22", "source": "CSSA 2025 Trial", "topicNumber": 3, "dotPoints": [26], "marks": 20, "directive": "Assess", "question": "Assess the challenges facing rural and urban places.", "markingGuideline": "Criteria (20 marks, band descriptors): Demonstrates a comprehensive knowledge and understanding of rural and urban places, makes informed judgements of the challenges facing rural and urban places, integrates relevant examples, geographical information and sources in the Stimulus Booklet where appropriate to support the response, presents a sustained, logical and cohesive response using appropriate geographical information, ideas, terms and concepts - 17-20 marks; Demonstrates well developed knowledge and understanding of rural and urban places, makes judgements of the challenges facing rural and urban places, refers relevant examples, geographical information and sources in the Stimulus Booklet where appropriate, presents a logical and cohesive response - 13-16 marks; Demonstrates a sound understanding of rural and urban places, provides some judgement of the challenges facing rural and urban places, refers to examples, geographical information and sources in the Stimulus Booklet where appropriate, presents a structured response using appropriate geographical information - 9-12 marks; Demonstrates some knowledge and understanding of the challenges of rural and urban places, may refer to examples, geographical information and/or sources in the Stimulus Booklet, uses some geographical information - 5-8 marks; Demonstrates a basic understanding of challenges in rural and urban places - 1-4 marks. Answers could include: Rural Challenges - environmental stress: droughts, floods, famines, bushfires, desertification; water supply and access: increased populations require more water access; employment issues: lack of workforce, rural/urban migration, increased mechanisation. Urban Challenges - access to affordable housing: high levels of mortgage stress in developed places such as New York; employment issues in developing countries: high levels of rural urban migration create employment issues within urban places such as Mumbai and large informal sectors develop which create service and infrastructure issues as result of no taxation; traffic congestion: large urban areas often have major challenges with traffic congestion as a result of high population levels and large-scale car ownership and road infrastructure not keeping up with population growth such as Los Angeles and Mexico City."}, {"id": "indep2025_q19a", "source": "Independent Trial 2025", "topicNumber": 3, "dotPoints": [35], "marks": 6, "directive": "How", "question": "Refer to your knowledge of ONE large city of 5 million people or more, outside of Australia, to answer Question 19(a). How have geographical processes shaped the large city over time?", "markingGuideline": "Criteria: Clearly explains how geographical processes have shaped ONE large city of 5 million people or more, outside of Australia; demonstrates a deep understanding of rural and urban places (6 marks); Provides some explanation of the geographical processes which have shaped ONE large city (5 marks); Describes the geographic processes relating to ONE large city (4 marks); Outlines the geographic processes relating to ONE large city; shows a basic understanding of urban places (3 marks); Identifies geographic process/es relevant to ONE large city (2 marks); Provides some relevant information (1 mark). Sample answer: NYC is a large metropolitan area in the Northeast of the USA. NYC is made up of five boroughs: Manhattan, Brooklyn, Queens, the Bronx and Staten Island with a population of 8.5 million. One geographical process that has shaped NYC is globalisation. NYC underwent this process in the 1970s, where it shifted from a manufacturing-based economy to a services-based economy amplified by TNCs residing in NYC during this period. This has shaped NYC to be an economic powerhouse the way it is known as today. For example, NYC's character is as a diverse political, economic and cultural identity with a significant sphere of influence, evidenced by 6.6 million annual tourists per year, the Headquarters of 54 Fortune 500 companies, and major political institutions such as the United Nations found in the city. This process has also meant that it is now home to over 1000 MNCs and 40 000 workers. Another key process shaping NYC is the urban heat island (UHI) effect. This occurs due to the dense concentration of concrete, asphalt and built infrastructure, which absorb and retain heat, making urban areas significantly warmer than surrounding rural regions. In NYC, summer temperatures can be up to 7C higher in the city than nearby rural areas (NYC Mayor's Office of Sustainability, 2020). This effect disproportionately impacts low income and marginalised communities, where access to green spaces and cooling infrastructure is limited. This has influenced NYC's character as to address this, the city has implemented initiatives like Cool Neighbourhoods NYC, which includes planting over 1 million trees, installing green roofs and expanding cool roofing across 10 000 buildings."}, {"id": "indep2025_q19b", "source": "Independent Trial 2025", "topicNumber": 3, "dotPoints": [24], "marks": 4, "directive": "Describe", "question": "Refer to your knowledge of rural and urban places to answer Question 19(b). Describe TWO influences on the size and spatial distribution of settlements.", "markingGuideline": "Criteria: Describes TWO influences on the size and spatial distribution of settlements; includes clear and relevant examples (4 marks); Attempts to describe TWO influences; includes some relevant examples (3 marks); Outlines TWO influences on the size and spatial distribution of settlements (2 marks); Provides some relevant information (1 mark). Sample answer: One influence on the size and spatial distribution of the world's largest cities is climate. Large cities tend to reside within the temperate climate belt, such as London or New York. This is because these conditions are the best for agriculture, the basis of economic growth for many cities. This further reflects why fewer cities in harsh climates have large populations, as the climate means that a lot more resources will be needed to sustain the needs of the population. Another influence is topography, which is best illustrated with the settlement patterns of the Amalfi Coast in southern Italy, which is characterised by its steep cliffs and ravines. The coastline features dramatic cliffs that rise sharply from the Mediterranean Sea. This steep terrain limits the available flat land for urban development. The presence of narrow valleys between the cliffs creates small pockets of land where villages can be established. This has resulted in a focus on tourism, rather than commercial and industrial development, leading to over 5 million tourists per annum and the settlement being inscribed as a UNESCO World Heritage Site in 1997 for its outstanding cultural landscape, combining natural beauty with human settlement and historical significance."}, {"id": "indep2025_q23", "source": "Independent Trial 2025", "topicNumber": 3, "dotPoints": [32], "marks": 20, "directive": "Assess", "question": "Assess the social, economic and environmental changes that have influenced the nature of ONE place within a larger urban settlement.", "markingGuideline": "Criteria (17-20 marks): Demonstrates a comprehensive understanding of ONE place within a larger urban settlement; makes a clear judgement of the impact of the social, economic and environmental changes on the nature of ONE place; integrates relevant case studies, illustrative examples and the Stimulus Booklet where appropriate; presents a sustained, logical and cohesive response using appropriate geographical information, ideas, terms and concepts. Lower bands (13-16, 9-12, 5-8, 1-4) require progressively less developed understanding, judgement and use of case study material. Sample answer: Green Square (GS), a precinct composed of five suburbs: Alexandria, Zetland, Waterloo, Rosebery and Beaconsfield is located 3.5 km from Sydney's CBD and 4 km from the airport. The dynamic of urban renewal has significantly shaped the suburb since the 1970s and, thus, the area has undergone significant social, economic and environmental change, altering its nature from a manufacturing centre to a world-class mixed-use precinct. As a result of the Building Better Cities project of the 1990s, GS is currently undergoing urban renewal, which is the redevelopment of an urban area involving a change in its functional role. The change in the economic nature and character of GS is evident in its changing economy and investment. The $13 billion project is at the forefront of economic change in Sydney; by 2036 there will be an additional 22 000 jobs added to GS, with a focus on service-based industries linked with the CBD, exhibiting a shift from the historically industrial site. These jobs will contribute to the projected $540 million that GS will provide to the City of Sydney's economy. GS will produce 36 000 more houses to provide tenure for 66 000 more individuals, combatting the shortage of dwellings that are predicted to emerge as residential land supply falls 789 000 below the expected population rise of 2030. The average costs of one-bedroom apartments ($800 000) and townhouses ($1.5m) are significantly higher than Sydney averages. Thus, residents of GS are of high socioeconomic status, evidenced by the median weekly income of more than $2000 (ABS). Problematically, however, due to 88% of the workforce currently being employed by a firm of 20 or less individuals (City of Sydney, 2023), as well as the economy's isolation 4 km away from the CBD, long-term capacity constraints threaten the continued economic restructuring and development of the urban renewal project. Whilst there are limitations on its continued growth and restructuring, there has been a distinct shift from the historical industries of manufacturing and distribution to one of service-based and commercial services. Urban renewal has altered the nature of the region dramatically, evidenced in the influence of urban renewal on GS offering employment, housing and sustainable suburban living. According to Observatory Hill EEC, it is 30% less expensive to develop brownfield growth through urban renewal, and thus, GS, being previously left to decay, has become a significant response to Sydney's rising population, predicted to reach 8 million by 2050. Stretching over 278 hectares, the development of GS has increased social sustainability through sympathetic infill, with the creation of the Joynton Avenue Creative Centre and Gunyama Swimming Pool. The City of Sydney states that these urban burgeons are 'cultural precincts that promise to invigorate the heart of the growing neighbourhood' improving cultural density through public place activation. More so, the rise of YUPS, SINKS and DINKS has greatly altered the nature of the region. The SMH estimates that citizens aged between 23-33 are wanting to live closer to areas of economic and cultural activity in single bed apartment blocks, reinforcing the construction of the OVO and Infinity by Crown Group buildings, which are enhancing GS's streetscape and providing luxury utilities such as the infinity heated pool, gymnasiums, cinemas and kitchen facilities. Coincidentally, as a result of GS's location 4 km from the CBD, connected through 1 train stop, and 4 km from the airport, GS will not only reinforce Sydney's status as a secondary world city (Redefining Global Cities Report 2016) but also ensure liveability amidst emerging and adaptive sociocultural lifestyles. Thus, the impact of urban renewal on GS has seen a shift in the demographic and cultural landscape from the historical norms of the suburb and is, therefore, significant in shaping its nature. Under Sydney's urban renewal scheme, public and private developers are closely collaborating along with environmental officials to ensure that GS becomes a powerhouse of ecological sustainability within Sydney, moving away from its industrial history. As prefaced on the City of Sydney's 'Planning Considerations', and under the operations of Landcom and Mirvac, GSQ hopes to achieve 'the highest rating of sustainability in the Green Star Communities Rating tool' (Clover Moore), utilising 'eco-architecture' and sustainable infrastructure to create the eco-centric 'Drying Green' park and the 'GS Water Building'; which harvests and purifies 900 kL of stormwater every day at full capacity. Furthermore, low carbon energy systems and bike and walking routes are ensuring that urban sprawl is reduced and that dependencies on car ownership are decreased, thus reducing the city's carbon footprint. Additionally, GS features one of Australia's largest urban stormwater recycling schemes - a new 2 km underground flood mitigation system from Epsom Road in Zetland to Shea's Creek channel in Alexandria. Due to the suburb's geographical location, sitting on a floodplain, Green Square's ecologically sustainable drainage has significantly reduced the risk of flooding in the town centre, allowing recycled water to be used by 61 000 residents across the region for washing clothes, flushing toilets and vitalising parks and gardens. Despite costing $140 million, the drainage system has been largely beneficial, both winning the Infrastructure Project Innovation Award for NSW at the 2019 NSW Water Awards and helping shape the suburb as an exemplar for 'green living'. Urban renewal has successfully shaped the ecological sustainability of GS, aligning it with the future trends of the city of Sydney and demonstrating the impact that urban dynamics of change can have on the future trends and ecological sustainability of a suburb."}, {"id": "trial2026-w6", "source": "2026 Trial", "topicNumber": 3, "dotPoints": [34], "marks": 2, "directive": "Outline", "question": "Answer with reference to ONE large city outside Australia that you have studied. Outline the location of the place.", "markingGuideline": "Criteria: 2 marks \u2013 Outlines the location of ONE large city outside of Australia. 1 mark \u2013 Provides some relevant information.\n\nSample answer: Shenzhen is in Guangdong Province, southern China, in the Pearl River Delta. It borders Hong Kong to the south and Guangzhou to the north."}, {"id": "trial2026-w7", "source": "2026 Trial", "topicNumber": 3, "dotPoints": [35], "marks": 3, "directive": "Explain", "question": "Answer with reference to ONE large city outside Australia that you have studied. Explain ONE geographical process that has shaped the identity of the place.", "markingGuideline": "Criteria: 3 marks \u2013 Explains ONE geographical process that has shaped the identity of the place. 2 marks \u2013 Outlines ONE geographical process that has shaped the identity of the place. 1 mark \u2013 Provides some relevant information.\n\nSample answer: Economic transformation has shaped Shenzhen\u2019s identity since it became China\u2019s first Special Economic Zone in 1980. The opening of trade and investment attracted foreign businesses and rapid industrialisation. As a result, Shenzhen grew from a small fishing town into a global technology centre, home to companies such as Huawei, Tencent and DJI, earning the nickname \u201cChina\u2019s Silicon Valley\u201d."}, {"id": "trial2026-w8", "source": "2026 Trial", "topicNumber": 3, "dotPoints": [27, 28], "marks": 6, "directive": "Assess", "question": "Assess the strategies that help maintain a small ecological footprint and a high level of wellbeing in ONE settlement you have studied.", "markingGuideline": "Criteria: 6 marks \u2013 Assesses thoroughly the strategies that help maintain a small ecological footprint AND a high level of wellbeing in ONE settlement. 5 marks \u2013 Assesses the strategies that help maintain a small ecological footprint AND a high level of wellbeing in ONE settlement. 4 marks \u2013 Assesses the strategies that help maintain a small ecological footprint OR a high level of wellbeing in ONE settlement. 2\u20133 marks \u2013 Outlines strategies that help maintain a small ecological footprint OR a high level of wellbeing in ONE settlement. 1 mark \u2013 Provides some relevant information to question.\n\nSample answer: Oslo has implemented highly successful strategies to maintain a small ecological footprint while supporting a high level of wellbeing. The city relies heavily on renewable hydroelectric power and has strongly encouraged electric vehicle adoption through government incentives, significantly reducing transport emissions. Sustainable transport initiatives, including electric ferries, hydrogen-electric buses and extensive cycling infrastructure, have further reduced carbon output and dependence on private cars. These strategies have been highly effective in improving wellbeing by reducing air pollution, supporting public health and providing reliable transport options. As a result, Oslo is widely recognised as one of the world\u2019s most sustainable and liveable cities. However, their overall success is somewhat limited by high living costs, meaning benefits are not accessed equally by all residents."}, {"id": "trial2026-w9", "source": "2026 Trial", "topicNumber": 3, "dotPoints": [27], "marks": 2, "directive": "Define", "question": "Define the term \u2018ecological footprint\u2019.", "markingGuideline": "Criteria: 2 marks \u2013 Defines the term \u2018ecological footprint\u2019. 1 mark \u2013 Provides some relevant information.\n\nSample answer: Ecological footprint is a measure, expressed in global hectares (gha), of the demand human activity places on the Earth\u2019s ecosystems \u2014 the amount of land and water required to produce the resources consumed and absorb the waste generated by a population."}, {"id": "trial2026-w16", "source": "2026 Trial", "topicNumber": 3, "dotPoints": [33], "marks": 20, "directive": "Evaluate", "question": "Sustainable management of places requires the integration of environmental, economic and social considerations at a range of scales.\n\nWith reference to ONE rural and ONE urban place you have studied, evaluate the effectiveness of strategies used to achieve sustainable management.", "markingGuideline": "Criteria (extended-response marking bands):\n17\u201320 marks \u2013 Demonstrates comprehensive knowledge and understanding of the sustainable management of ONE rural and ONE urban place; evaluates extensively the effectiveness of strategies used for sustainable management; integrates relevant case studies, illustrative examples and the Stimulus Booklet where appropriate; presents a sustained, logical and cohesive response using appropriate geographical information, terms and concepts.\n13\u201316 marks \u2013 Demonstrates well-developed knowledge of the sustainable management of ONE rural and ONE urban place; assesses the effectiveness of strategies used for sustainable management; refers to relevant case studies, illustrative examples and the Stimulus Booklet where appropriate; presents a logical response using appropriate geographical information and terms.\n9\u201312 marks \u2013 Demonstrates sound knowledge and understanding of the sustainable management of ONE rural and ONE urban place; provides some judgement of the effectiveness of strategies used for sustainable management; refers to case studies, illustrative examples and the Stimulus Booklet where appropriate; presents a structured response using appropriate geographical information.\n5\u20138 marks \u2013 Demonstrates basic knowledge and understanding of the sustainable management of a rural OR an urban place; provides an outline of sustainable management strategies; may refer to case studies, illustrative examples and/or the Stimulus Booklet; uses some geographical information.\n1\u20134 marks \u2013 Demonstrates some basic knowledge of rural or urban places.\n\nAnswers could include:\nBarangaroo (urban) \u2013 Environmental strategies: Solar power, green roofs, louvre shading and Water-Sensitive Urban Design (WSUD) reduce the precinct's environmental impact, supporting its carbon-neutral design; ~2.5 hectares of native sandstone headland habitat ecologically restored at Barangaroo Reserve, reintroducing endemic vegetation and creating public swimming access at Marrinawi Cove; transformed a contaminated industrial waterfront into a carbon-neutral precinct \u2014 measurable, evidence-based environmental outcomes.\nBarangaroo (urban) \u2013 Social strategies: First Nations cultural design incorporated into public space, including the Wulugul Walk and Girra Girra Steps, developed with reference to Cammeraygal heritage; public open space intended to be accessible to all Sydneysiders; however, redevelopment from a working-class industrial waterfront into a luxury precinct (Crown Sydney, global HQs including HSBC, Meta and Westpac) has raised rents in nearby Millers Point and The Rocks, displacing long-term, lower-income residents \u2014 a clear equity limitation.\nBarangaroo (urban) \u2013 Economic strategies: Disused industrial land transformed into one of Sydney's premier commercial hubs, generating substantial tax revenue and employment; multinational tenants connect Sydney to over 143 countries, reinforcing global economic significance.\nBerry (rural) \u2013 Environmental strategies: Riparian restoration along Broughton Creek and weed eradication (lantana, privet) improve local ecosystem health; Boongaree Nature Play Park integrates green space into the village.\nBerry (rural) \u2013 Economic strategies: Berry Chamber of Commerce and monthly farmers' markets have diversified the local economy beyond dairy farming into tourism, boutique retail and artisan food production; Berry Bypass removed through-traffic and repositioned Berry as a destination town, proving economically resilient as global dairy markets have declined.\nBerry (rural) \u2013 Social strategies: Community events (Berry Show) and heritage protections under the Princess Street Heritage Conservation Area preserve local identity and cultural continuity; Shoalhaven 2035 Community Strategic Plan provides a formal government framework addressing safety, culture and sport; however, popularity as a \u201cSea Change\u201d destination has driven rising property prices, risking the displacement of long-term residents and agricultural users \u2014 echoing Barangaroo's equity concerns.\nJudgements could include: Both places show sustainable management strategies are most effective for environmental and economic goals, where measurable, funded interventions (habitat restoration, economic diversification, green infrastructure) have delivered clear outcomes in both urban and rural contexts. Social sustainability is where both places show the greatest limitations: rising property values, gentrification and displacement affect both Barangaroo and Berry despite their very different scales and contexts. This suggests market-driven redevelopment and destination branding \u2014 even paired with strong environmental design \u2014 can undermine social equity unless explicitly managed alongside it. Overall, effective sustainable management requires an integrated, place-specific approach across all three pillars; inequality in access to the benefits of sustainability remains the most persistent challenge in both rural and urban Australian places."}]</script>
+<script type="application/json" id="topicCaseStudiesData">[]</script>
+<script type="application/json" id="topicExemplarsData">[{"question": "Sustainable management of places requires the integration of environmental, economic and social considerations at a range of scales. With reference to ONE rural and ONE urban place you have studied, evaluate the effectiveness of strategies used to achieve sustainable management.", "marks": 20, "score": "19/20", "examinerComment": "Exceptional evaluation featuring rigorous criteria, precise case-study statistics, and a sophisticated critical balance. Improve further with a more sophisticated evaluation that explicitly weighs the interrelationships and trade-offs between criteria.", "caseStudy": "Berry (rural) &amp; Barangaroo (urban)", "text": "Sustainable management of both rural and urban places requires effective integration of social, environmental and economic strategies at both large and smaller scales in order to promote longevity. This principle is most effectively demonstrated through the village town Berry and the urban precinct Barangaroo, which has effectively managed demographic and cultural shifts, economic integration and diversification and environmental management and innovation.\n\nSocially, Berry is a village town located approximately 143km south of Sydney in the Shoalhaven district, with a population of approximately 5,000 permanent residents. Berry has experienced social change due to counter-urbanisation and the rise of 'tree change' within popular culture, causing the median age to rise to 57, which is significantly higher than the Sydney average of 33. In response, Berry has been able to manage this change by recognising it within public and private stakeholders, investing in more age-care facilities like Uniting Berry (190 beds, 24/7 nurses). However, this has caused house prices to rise to around $1.8m, limiting for younger families and service workers.\n\nEconomically, both Berry and Barangaroo have seen major success in repositioning and diversifying their economies. Berry made a strategic decision to reposition their economy towards tourism (hospitality/tourism = over 75% of Berry's income), while Barangaroo (once an abandoned shipyard) has seen extreme economic repositioning through the Crown Sydney towers, driving large financial flows into the district.\n\nEnvironmentally, Berry promotes sustainability through community organisation (native tree planting around Broughton Creek) and the $580 million Princes Highway Bypass (2017, \u221210,000 vehicles/day). Barangaroo has offset 100% of its energy use for the last 3 years through district cooling and 80% solar panels, and its 2024 metro system aims for only 40% of people travelling to work alone in a car."}, {"question": "Sustainable management of places requires the integration of environmental, economic and social considerations at a range of scales. With reference to ONE rural and ONE urban place you have studied, evaluate the effectiveness of strategies used to achieve sustainable management.", "marks": 20, "score": "18/20", "examinerComment": "Outstanding evaluation featuring clear comparative judgments across environmental, economic, and social pillars, backed by detailed local case examples. Improve further by incorporating precise statistical evidence more consistently.", "caseStudy": "Berry (rural) &amp; Barangaroo (urban) \u2014 contrasting structure", "text": "Berry and Barangaroo both use different strategies to achieve their sustainable management, with different needs. Berry's environmental sustainability strategies are prompted by the Shoalhaven Council, which has 4 pillars of sustainability, with one being the protection of local environments. Their strategies for keeping Berry environmentally sustainable include waste reduction, encouragement of renewable energy use, don't-waste-water campaigns and protection of local areas. These strategies are minimally effective, providing suggestions for individuals to act upon, as opposed to enacting change.\n\nBarangaroo's environmental sustainability strategies are much more effective however, with the precinct being carbon neutral. Barangaroo utilises 100% renewable energy, largely through solar. Building cooling systems are developed through 3 water tanks in the international towers which utilise harbour water to provide cooling. Barangaroo also is home to a 22ha reserve with thousands of native plants, sequestering carbon and limiting high-rise buildings.\n\nWhile both Berry and Barangaroo have implemented environmental sustainability strategies, those in Berry are minimally effective, while in Barangaroo are very effective."}]</script>
+<script>// ============================================================================
+// Geo12 Revision Suite — shared engine (embedded identically on every page)
+// ============================================================================
+
+// ===== Utilities =====
+function $(id){ return document.getElementById(id); }
+function save(key,val){ try{ localStorage.setItem('geo12hub_'+key, val); }catch(e){} }
+function load(key,fallback){ try{ const v=localStorage.getItem('geo12hub_'+key); return v===null?fallback:v; }catch(e){ return fallback; } }
+function saveJSON(key,obj){ save(key, JSON.stringify(obj)); }
+function loadJSON(key,fallback){ try{ const v=load(key,null); return v===null?fallback:JSON.parse(v); }catch(e){ return fallback; } }
+function shuffleArr(a){ const arr=a.slice(); for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function esc(s){ return (s===undefined||s===null) ? '' : String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function readData(id){ const el=$(id); if(!el) return null; try{ return JSON.parse(el.textContent); }catch(e){ console.error('Bad JSON in',id,e); return null; } }
+
+// ===== Site-wide nav bar (canonical order across all 7 pages) =====
+const SITE_NAV = [
+  ['Geo12_Revision_Hub.html','Hub'],
+  ['Geo12_DirectiveTerms.html','Directive Terms'],
+  ['Geo12_Topic1_Sustainability.html','Topic 1: Sustainability'],
+  ['Geo12_Topic2_Ecosystems.html','Topic 2: Ecosystems'],
+  ['Geo12_Topic3_RuralUrban.html','Topic 3: Rural &amp; Urban'],
+  ['Geo12_Q16_Skills.html','Q16: Skills Practice'],
+  ['Geo12_Q17_GeographicalInvestigation.html','Q17: Geog. Investigation'],
+  ['Geo12_ExamBuilder.html','Exam Builder']
+];
+function renderSiteNav(current){
+  const mount = $('siteNav');
+  if(!mount) return;
+  mount.innerHTML = `<div class="site-nav-inner">` + SITE_NAV.map(([file,label]) =>
+    file===current ? `<span class="current">${label}</span>` : `<a href="${file}">${label}</a>`
+  ).join('<span class="sep">/</span>') + `</div>`;
+}
+
+// ===== Local in-page tabs (Notes / Flashcards / Practice, per page) =====
+function initLocalTabs(tabDefs, mountId){
+  const mount = $(mountId||'localTabs');
+  if(!mount) return;
+  mount.innerHTML = tabDefs.map(([id,label],i) => `<button class="tab-btn${i===0?' active':''}" data-tab="${id}" type="button">${label}</button>`).join('');
+  mount.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => showLocalTab(btn.dataset.tab)));
+  const hash = (location.hash||'').replace('#','');
+  const firstId = tabDefs[0][0];
+  const wanted = tabDefs.some(([id])=>id===hash) ? hash : firstId;
+  showLocalTab(wanted);
+}
+function showLocalTab(id){
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab===id));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id===id));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+// ===== Generic content-notes accordion renderer (per-topic dot point notes) =====
+function renderTopicNotes(mountId, topicData){
+  const mount = $(mountId);
+  if(!mount || !topicData) return;
+  mount.innerHTML = topicData.sections.map(section => {
+    const dpHtml = section.dotpoints.map(dp => {
+      const notesHtml = (dp.notes&&dp.notes.length) ? `<ul class="tight">${dp.notes.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>` : '<p class="small">No notes yet for this dot point.</p>';
+      const csHtml = (dp.caseStudies&&dp.caseStudies.length) ? dp.caseStudies.map(cs => `<div class="dp-casestudy"><span class="cs-name">${esc(cs.name)}</span><ul class="tight">${(cs.facts||[]).map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>`).join('') : '';
+      const dataHtml = (dp.data&&dp.data.length) ? `<div class="badge-row">${dp.data.map(d=>`<span class="badge sky">${esc(d)}</span>`).join('')}</div>` : '';
+      const fcCount = dp.flashcards ? dp.flashcards.length : 0;
+      return `<details class="syllabus-accordion" data-accordion-group="${mountId}">
+        <summary><span class="dotpoint-number">${dp.number}</span><span class="dotpoint-text">${esc(dp.text)}</span><span class="accordion-toggle"></span></summary>
+        <div class="accordion-body">
+          <div class="card">
+            <div class="mini-title">Key content</div>
+            ${notesHtml}
+            ${dataHtml}
+          </div>
+          ${csHtml ? `<div class="card"><div class="mini-title">Case studies &amp; examples</div>${csHtml}</div>` : ''}
+          <div class="dp-flashcount">${fcCount} flashcard${fcCount===1?'':'s'} for this dot point &mdash; see the Flashcards tab.</div>
+        </div>
+      </details>`;
+    }).join('');
+    return `<section class="syllabus-section">
+      <div class="syllabus-section-title"><h3>${esc(section.sectionTitle)}</h3></div>
+      <div class="syllabus-accordion-stack">${dpHtml}</div>
+    </section>`;
+  }).join('');
+}
+function initContentAccordions(){
+  document.querySelectorAll('details.syllabus-accordion').forEach(item => item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    const group = item.dataset.accordionGroup;
+    document.querySelectorAll(`details.syllabus-accordion[data-accordion-group="${group}"]`).forEach(other => { if (other !== item) other.open = false; });
+  }));
+}
+
+// ===== Generic flashcard deck =====
+function initFlashDeck(mountId, allCards, categories){
+  const mount = $(mountId);
+  if(!mount) return;
+  mount.innerHTML = `
+    <div class="controls">
+      <select id="${mountId}_cat"><option value="all">All sections</option>${categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+      <span class="deck-counter" id="${mountId}_counter"></span>
+    </div>
+    <div class="flip-card" id="${mountId}_card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front"><div><div class="flash-meta" id="${mountId}_frontmeta">Term</div><div class="flash-term" id="${mountId}_front"></div><p class="small">Click to flip</p></div></div>
+        <div class="flip-face flip-back"><div><div class="flash-meta">Answer</div><div class="flash-answer" id="${mountId}_back"></div></div></div>
+      </div>
+    </div>
+    <div class="progress"><span id="${mountId}_progress"></span></div>
+    <div class="flash-controls">
+      <button class="btn secondary" id="${mountId}_prev" type="button">&larr; Previous</button>
+      <button class="btn" id="${mountId}_flip" type="button">Flip card</button>
+      <button class="btn secondary" id="${mountId}_next" type="button">Next &rarr;</button>
+      <button class="btn secondary" id="${mountId}_shuffle" type="button">Shuffle</button>
+      <button class="btn secondary" id="${mountId}_print" type="button">Print these flashcards</button>
+    </div>`;
+  let deck = allCards.slice();
+  let idx = 0;
+  function renderCard(){
+    const card = deck[idx];
+    if(!card){ $(mountId+'_front').textContent='No cards in this section yet.'; $(mountId+'_back').textContent=''; return; }
+    $(mountId+'_front').textContent = card.term;
+    $(mountId+'_back').innerHTML = esc(card.definition);
+    $(mountId+'_frontmeta').textContent = card.category || 'Term';
+    $(mountId+'_counter').textContent = `${idx+1} of ${deck.length}`;
+    $(mountId+'_progress').style.width = deck.length ? `${((idx+1)/deck.length)*100}%` : '0%';
+    $(mountId+'_card').classList.remove('flipped');
+  }
+  $(mountId+'_cat').addEventListener('change', () => {
+    const v = $(mountId+'_cat').value;
+    deck = (v==='all') ? allCards.slice() : allCards.filter(c => c.category===v);
+    idx = 0; renderCard();
+  });
+  $(mountId+'_card').addEventListener('click', () => $(mountId+'_card').classList.toggle('flipped'));
+  $(mountId+'_flip').addEventListener('click', () => $(mountId+'_card').classList.toggle('flipped'));
+  $(mountId+'_next').addEventListener('click', () => { if(!deck.length) return; idx=(idx+1)%deck.length; renderCard(); });
+  $(mountId+'_prev').addEventListener('click', () => { if(!deck.length) return; idx=(idx-1+deck.length)%deck.length; renderCard(); });
+  $(mountId+'_shuffle').addEventListener('click', () => { deck = shuffleArr(deck); idx=0; renderCard(); });
+  $(mountId+'_print').addEventListener('click', () => {
+    const name = load('studentName','');
+    const html = `<table class="workbook-table"><tr><th>Term</th><th>Answer</th></tr>${deck.map(c=>`<tr><td>${esc(c.term)}</td><td>${c.definition}</td></tr>`).join('')}</table>`;
+    printContent((name?esc(name)+' — ':'')+'Flashcards', html);
+  });
+  renderCard();
+}
+function flatCardsFromTopic(topicData){
+  const out = [];
+  topicData.sections.forEach(section => {
+    section.dotpoints.forEach(dp => {
+      (dp.flashcards||[]).forEach(fc => out.push({term:`DP${dp.number} — ${fc.term}`, definition:fc.definition, category:section.sectionTitle}));
+    });
+  });
+  return out;
+}
+function sectionTitlesFromTopic(topicData){ return topicData.sections.map(s=>s.sectionTitle); }
+
+// ===== Directive terms: glossary + practice quiz =====
+function renderDirectiveGlossary(terms){
+  $('directiveGlossary').innerHTML = `<div class="term-grid">${terms.map(t => `
+    <div class="term-card">
+      <h4>${esc(t.term)}</h4>
+      <p class="term-meaning">${esc(t.meaning)}</p>
+      <p class="term-example"><strong>Example:</strong> ${esc(t.example)}</p>
+      <p class="term-example"><strong>Tip:</strong> ${esc(t.tip)}</p>
+    </div>`).join('')}</div>`;
+}
+function initDirectiveQuiz(mountId, questions){
+  const mount = $(mountId);
+  mount.innerHTML = questions.map((q,i) => `
+    <div class="question-card" data-qi="${i}">
+      <p><strong>Q${i+1}.</strong> ${esc(q.q)}</p>
+      ${q.options.map((opt,oi) => `<button class="option" type="button" data-oi="${oi}">${esc(opt)}</button>`).join('')}
+      <div class="answer-box"><div class="callout good"><strong>Explanation:</strong> ${esc(q.explanation)}</div></div>
+    </div>`).join('') + `<div class="btn-row"><button class="btn" id="${mountId}_check" type="button">Check all answers</button><button class="btn secondary" id="${mountId}_reset" type="button">Reset</button></div><p class="small" id="${mountId}_score"></p>`;
+  const selections = {};
+  mount.querySelectorAll('.question-card').forEach(card => {
+    const qi = Number(card.dataset.qi);
+    card.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => {
+      selections[qi] = Number(btn.dataset.oi);
+      card.querySelectorAll('.option').forEach(b => b.style.outline='');
+      btn.style.outline = '3px solid rgba(15,118,110,.35)';
+    }));
+  });
+  $(mountId+'_check').addEventListener('click', () => {
+    let score = 0;
+    questions.forEach((q,i) => {
+      const card = mount.querySelector(`.question-card[data-qi="${i}"]`);
+      const box = card.querySelector('.answer-box');
+      box.classList.add('visible');
+      const opts = card.querySelectorAll('.option');
+      opts.forEach((btn,oi) => {
+        btn.style.outline='';
+        if(oi===q.correct) btn.classList.add('correct');
+        else if(selections[i]===oi) btn.classList.add('wrong');
+      });
+      if(selections[i]===q.correct) score++;
+    });
+    $(mountId+'_score').textContent = `Score: ${score} / ${questions.length}`;
+  });
+  $(mountId+'_reset').addEventListener('click', () => {
+    Object.keys(selections).forEach(k => delete selections[k]);
+    mount.querySelectorAll('.option').forEach(b => { b.classList.remove('correct','wrong'); b.style.outline=''; });
+    mount.querySelectorAll('.answer-box').forEach(b => b.classList.remove('visible'));
+    $(mountId+'_score').textContent = '';
+  });
+}
+
+// ===== Syllabus map checklist (used on the hub) =====
+function renderSyllabusMap(topics){
+  const mount = $('syllabusChecklist');
+  if(!mount) return;
+  mount.innerHTML = topics.map(topicData => {
+    const rows = topicData.sections.map(section => {
+      const dpRows = section.dotpoints.map(dp => `
+        <div class="check-row">
+          <div><span class="dp-num">DP${dp.number}.</span>${esc(dp.text)}</div>
+          <label class="check-cell"><input type="checkbox" data-check="dp${dp.number}_reviewed"> Reviewed</label>
+          <label class="check-cell"><input type="checkbox" data-check="dp${dp.number}_practised"> Practised</label>
+        </div>`).join('');
+      return `<div class="syllabus-section-title" style="border-radius:12px;margin:14px 0 6px;"><h3 style="font-size:1rem;">${esc(section.sectionTitle)}</h3></div>${dpRows}`;
+    }).join('');
+    return `<div class="card"><h2 class="section-title">Topic ${topicData.topicNumber}: ${esc(topicData.topicName)}</h2>${rows}</div>`;
+  }).join('');
+  mount.querySelectorAll('[data-check]').forEach(cb => {
+    const key = 'chk_'+cb.dataset.check;
+    cb.checked = load(key,'0')==='1';
+    cb.addEventListener('change', () => save(key, cb.checked?'1':'0'));
+  });
+}
+
+// ===== Header profile: name + first-use date, shown in every page header =====
+function initHeaderProfile(){
+  const mount = $('headerProfile');
+  if(!mount) return;
+  function render(){
+    const name = load('studentName','');
+    const started = load('studentStartDate','');
+    if(name){
+      mount.innerHTML = `<div class="profile-display">Hi, <strong>${esc(name)}</strong> &mdash; revising since ${esc(started)} <button class="btn secondary" id="hp_edit" type="button">Edit</button></div>`;
+      $('hp_edit').addEventListener('click', () => { save('studentName',''); render(); applyPersonalization(); });
+    } else {
+      mount.innerHTML = `<div class="profile-form"><input type="text" id="hp_name" placeholder="Type your name" maxlength="40"><button class="btn" id="hp_save" type="button">Save</button></div>`;
+      $('hp_save').addEventListener('click', () => {
+        const v = $('hp_name').value.trim();
+        if(!v) return;
+        save('studentName', v);
+        if(!load('studentStartDate','')) save('studentStartDate', new Date().toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric'}));
+        render();
+        applyPersonalization();
+      });
+      $('hp_name').addEventListener('keydown', e => { if(e.key==='Enter') $('hp_save').click(); });
+    }
+  }
+  render();
+}
+
+// ===== Personalization: fills {name} templates in with the saved student name =====
+function applyPersonalization(){
+  const name = load('studentName','').trim();
+  document.querySelectorAll('[data-personalize]').forEach(el => {
+    const tpl = el.dataset.personalize;
+    el.textContent = name ? tpl.replace(/\{name\}/g, name) : tpl.replace(/\{name\}, /g, '').replace(/\{name\}/g, 'You');
+  });
+}
+
+// ===== Named case-study learning boxes (e.g. Topic 1 Sustainability) =====
+function renderCaseStudyBoxes(mountId, items){
+  const mount = $(mountId);
+  if(!mount || !items.length) return;
+  const cats = Array.from(new Set(items.map(i=>i.category)));
+  mount.innerHTML = cats.map(cat => {
+    const inCat = items.filter(i=>i.category===cat);
+    return `<div class="syllabus-section-title" style="border-radius:12px;margin:14px 0 6px;"><h3 style="font-size:1rem;">${esc(cat)}</h3></div>
+    <div class="evidence-grid">${inCat.map(cs => `
+      <div class="evidence-tile">
+        <strong>${esc(cs.name)}</strong>
+        <div class="badge-row">${(cs.relatedDotPoints||[]).map(dp=>`<span class="badge num">DP${dp}</span>`).join('')}</div>
+        <ul class="tight">${cs.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+      </div>`).join('')}</div>`;
+  }).join('');
+}
+
+// ===== Real exemplar-answer cards (collapsible), from genuine high-scoring scripts =====
+function renderExemplarCards(mountId, items){
+  const mount = $(mountId);
+  if(!mount || !items.length) return;
+  mount.innerHTML = items.map((ex,i) => `
+    <details class="syllabus-accordion" data-accordion-group="${mountId}">
+      <summary><span class="dotpoint-number">${i+1}</span><span class="dotpoint-text">${esc(ex.question)}${ex.marks?` (${ex.marks} marks${ex.score?', scored '+esc(ex.score):''})`:''}</span><span class="accordion-toggle"></span></summary>
+      <div class="accordion-body">
+        <div class="callout good"><strong>Examiner said:</strong> ${esc(ex.examinerComment)}</div>
+        <div class="card"><div class="mini-title">Real student response${ex.caseStudy?' &mdash; '+esc(ex.caseStudy):''}</div>${ex.text.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}</div>
+      </div>
+    </details>`).join('');
+}
+
+// ===== Printing =====
+function printContent(title, bodyHtml){
+  let area = $('printArea');
+  if(!area){ area = document.createElement('div'); area.id = 'printArea'; document.body.appendChild(area); }
+  area.innerHTML = `<h1>${esc(title)}</h1>${bodyHtml}`;
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(() => document.body.classList.remove('printing'), 300);
+}
+function writingLine(){
+  return '<div class="write-line">' + '.'.repeat(400) + '</div>';
+}
+function printWrittenAnswers(questions, storageKeyPrefix, title){
+  const name = load('studentName','');
+  const parts = questions.map(q => {
+    const ans = load('written_'+storageKeyPrefix+'_'+q.id, '');
+    if(!ans.trim()) return '';
+    return `<div class="print-item"><p><strong>${esc(q.question)}</strong> (${q.marks} mark${q.marks===1?'':'s'}, ${esc(q.source)})</p><p style="white-space:pre-wrap;">${esc(ans)}</p></div>`;
+  }).filter(Boolean).join('');
+  if(!parts){ alert('No answers written yet in this set — write something first, then print.'); return; }
+  const heading = (name ? esc(name) + ' — ' : '') + title;
+  printContent(heading, parts);
+}
+
+// ===== Clipboard copy (AI marking prompt) =====
+function copyToClipboard(text, btn){
+  const done = () => { const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = orig; }, 1600); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){}
+  document.body.removeChild(ta);
+}
+
+// ============================================================================
+// Q11-style written-practice engine (SOR pattern): one question at a time,
+// countdown timer, textarea answer, show/hide marking guideline, self-score
+// archive (full marks -> archived out of rotation), AI-marking clipboard copy.
+// storageKeyPrefix should be unique per page (e.g. 'topic1written').
+// ============================================================================
+function initQ11Style(mountId, questions, storageKeyPrefix){
+  const mount = $(mountId);
+  if(!mount) return;
+  if(!questions.length){ mount.innerHTML = '<p class="small">No practice questions loaded here yet.</p>'; return; }
+
+  const statKey = 'qp_'+storageKeyPrefix;
+  let stats = loadJSON(statKey, {});
+  questions.forEach(q => { if(!stats[q.id]) stats[q.id] = {attempts:0, best:0, archived:false}; });
+  saveJSON(statKey, stats);
+
+  let timerSecs = 0, timerTotal = 0, timerHandle = null, timerRunning = false;
+  let current = null;
+
+  function durationFor(marks){
+    if(marks>=20) return 35*60; // essay-length responses get a flat 35 minutes
+    return Math.round(marks*1.8)*60; // 1.8 minutes per mark otherwise
+  }
+  function fmt(s){ const m=Math.floor(s/60), ss=s%60; return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); }
+  function stopTimer(){ if(timerHandle) clearInterval(timerHandle); timerHandle=null; timerRunning=false; }
+  function tickTimer(){
+    if(timerSecs<=0){ stopTimer(); return; }
+    timerSecs--;
+    const el = $(mountId+'_timerval');
+    if(el){ el.textContent = fmt(timerSecs); el.classList.toggle('warn', timerSecs<60); }
+  }
+
+  function pickQuestion(){
+    const active = questions.filter(q => !stats[q.id].archived);
+    if(!active.length) return null;
+    return active[Math.floor(Math.random()*active.length)];
+  }
+
+  function renderStats(){
+    const archivedCount = questions.filter(q=>stats[q.id].archived).length;
+    $(mountId+'_stats').innerHTML = `
+      <span class="qp-stat"><b>${questions.length}</b>Total questions</span>
+      <span class="qp-stat"><b>${archivedCount}</b>Mastered &amp; archived</span>
+      <span class="qp-stat"><b>${questions.length-archivedCount}</b>Still in rotation</span>`;
+  }
+
+  function renderQuestion(){
+    stopTimer();
+    current = pickQuestion();
+    renderStats();
+    if(!current){
+      $(mountId+'_qzone').innerHTML = `<div class="callout good"><strong>All questions in this set are mastered and archived!</strong> Click "Reset progress" below to practise them all again.</div>`;
+      return;
+    }
+    timerTotal = durationFor(current.marks); timerSecs = timerTotal;
+    $(mountId+'_qzone').innerHTML = `
+      <div class="question-card">
+        <div class="badge-row">
+          <span class="badge dark">${esc(current.source)}</span>
+          <span class="mark-pill">${current.marks} mark${current.marks===1?'':'s'}</span>
+          <span class="badge sky directive">${esc(current.directive)}</span>
+          ${(current.dotPoints||[]).map(dp=>`<span class="badge num">DP${dp}</span>`).join('')}
+        </div>
+        <p><strong>${esc(current.question)}</strong></p>
+        <div class="qp-timerbox">
+          <span class="timer" id="${mountId}_timerval">${fmt(timerSecs)}</span>
+          <button class="btn secondary" type="button" id="${mountId}_start">Start</button>
+          <button class="btn secondary" type="button" id="${mountId}_pause">Pause</button>
+          <button class="btn secondary" type="button" id="${mountId}_reset_timer">Reset timer</button>
+        </div>
+        <textarea id="${mountId}_ans" placeholder="Write your answer here..."></textarea>
+        <div class="btn-row">
+          <button class="btn secondary" type="button" id="${mountId}_showmg">Show marking guideline</button>
+          <button class="btn" type="button" id="${mountId}_copyai">Copy question + answer + marking guideline for AI marking</button>
+        </div>
+        <div class="callout good" id="${mountId}_mg" style="display:none;"><strong>Marking guideline / sample answer:</strong><br>${esc(current.markingGuideline).replace(/\n/g,'<br>')}</div>
+        <div class="btn-row">
+          <span class="small" style="align-self:center;">Either from an AI, a buddy, or yourself, rate your answer above against the criteria/model answer provided:</span>
+          <button class="btn" type="button" id="${mountId}_fullmarks">I scored full marks — archive this one</button>
+          <button class="btn secondary" type="button" id="${mountId}_notyet">Not quite — keep it in rotation</button>
+        </div>
+        <p class="qp-archived-note" id="${mountId}_note"></p>
+        <div class="btn-row"><button class="btn secondary" type="button" id="${mountId}_printall">Print my answers so far</button></div>
+      </div>`;
+
+    const ansKey = 'written_'+storageKeyPrefix+'_'+current.id;
+    const ta = $(mountId+'_ans');
+    ta.value = load(ansKey,'');
+    ta.addEventListener('input', () => save(ansKey, ta.value));
+
+    $(mountId+'_start').addEventListener('click', () => {
+      if(timerRunning || timerSecs<=0) return;
+      timerRunning = true;
+      timerHandle = setInterval(tickTimer, 1000);
+    });
+    $(mountId+'_pause').addEventListener('click', stopTimer);
+    $(mountId+'_reset_timer').addEventListener('click', () => { stopTimer(); timerSecs = timerTotal; $(mountId+'_timerval').textContent = fmt(timerSecs); $(mountId+'_timerval').classList.remove('warn'); });
+
+    $(mountId+'_showmg').addEventListener('click', () => {
+      const box = $(mountId+'_mg');
+      const showing = box.style.display !== 'none';
+      box.style.display = showing ? 'none' : 'block';
+      $(mountId+'_showmg').textContent = showing ? 'Show marking guideline' : 'Hide marking guideline';
+    });
+    $(mountId+'_copyai').addEventListener('click', () => {
+      const ans = ta.value || '(no answer written yet)';
+      const text = `Please mark this HSC Geography response against the marking guideline and give feedback with a suggested mark.\n\nQUESTION (${current.marks} marks, source: ${current.source}):\n${current.question}\n\nSTUDENT ANSWER:\n${ans}\n\nMARKING GUIDELINE / SAMPLE ANSWER:\n${current.markingGuideline}`;
+      copyToClipboard(text, $(mountId+'_copyai'));
+    });
+    $(mountId+'_fullmarks').addEventListener('click', () => {
+      stats[current.id].attempts++; stats[current.id].best = current.marks; stats[current.id].archived = true;
+      saveJSON(statKey, stats);
+      $(mountId+'_note').textContent = 'Archived — nice work. Loading a new question…';
+      setTimeout(renderQuestion, 700);
+    });
+    $(mountId+'_notyet').addEventListener('click', () => {
+      stats[current.id].attempts++;
+      saveJSON(statKey, stats);
+      $(mountId+'_note').textContent = 'Kept in rotation — you\'ll see this one again.';
+      setTimeout(renderQuestion, 700);
+    });
+    $(mountId+'_printall').addEventListener('click', () => printWrittenAnswers(questions, storageKeyPrefix, 'Written practice answers'));
+  }
+
+  mount.innerHTML = `<div class="qp-toolbar"><div class="qp-stats" id="${mountId}_stats"></div><button class="btn secondary" id="${mountId}_skip" type="button">Skip to another question</button></div>
+    <div id="${mountId}_qzone"></div>
+    <div class="btn-row"><button class="btn secondary" id="${mountId}_resetall" type="button">Reset progress for this set</button></div>`;
+  $(mountId+'_skip').addEventListener('click', renderQuestion);
+  $(mountId+'_resetall').addEventListener('click', () => {
+    questions.forEach(q => { stats[q.id] = {attempts:0, best:0, archived:false}; });
+    saveJSON(statKey, stats);
+    renderQuestion();
+  });
+  renderQuestion();
+}
+
+// ============================================================================
+// MC-Bank-style skills engine (SOR pattern): grouped by category|difficulty|
+// topicArea, binary solved-tracking per question, groups auto-archive once
+// every question in the group has been solved at least once, weighted
+// auto-draw prioritises unsolved questions over solved ones. No manual
+// filter dropdowns — matches the true SOR MC Revision Bank mechanic.
+// ============================================================================
+function initMCBankStyle(mountId, questions, storageKeyPrefix){
+  const mount = $(mountId);
+  if(!mount) return;
+  if(!questions.length){ mount.innerHTML = '<p class="small">No skills questions loaded yet.</p>'; return; }
+
+  const solvedKey = 'mc_'+storageKeyPrefix;
+  let solved = loadJSON(solvedKey, {});
+
+  function groupKey(q){ return `${q.category}|${q.difficulty}|${q.topicArea}`; }
+  const groups = {};
+  questions.forEach(q => { const k=groupKey(q); (groups[k]=groups[k]||[]).push(q); });
+  const groupKeys = Object.keys(groups);
+
+  function isSolved(q){ return !!solved[q.id]; }
+  function groupArchived(k){ return groups[k].every(isSolved); }
+
+  function renderStats(){
+    const archivedGroups = groupKeys.filter(groupArchived).length;
+    const solvedCount = questions.filter(isSolved).length;
+    $(mountId+'_stats').innerHTML = `
+      <span class="qp-stat"><b>${groupKeys.length}</b>Skill groups</span>
+      <span class="qp-stat"><b>${archivedGroups}</b>Groups mastered</span>
+      <span class="qp-stat"><b>${solvedCount}/${questions.length}</b>Questions solved</span>`;
+  }
+  function renderGroupBar(){
+    $(mountId+'_groupbar').innerHTML = groupKeys.map(k => {
+      const [cat,diff,topic] = k.split('|');
+      const arch = groupArchived(k);
+      return `<span class="mc-group-chip${arch?' archived':''}">${esc(cat)} · ${esc(diff)} · ${esc(topic)}${arch?' ✓':''}</span>`;
+    }).join('');
+  }
+
+  function pickQuestion(){
+    const unsolved = questions.filter(q=>!isSolved(q));
+    const solvedPool = questions.filter(isSolved);
+    if(!unsolved.length && !solvedPool.length) return null;
+    if(unsolved.length && (Math.random()<0.8 || !solvedPool.length)) return unsolved[Math.floor(Math.random()*unsolved.length)];
+    if(solvedPool.length) return solvedPool[Math.floor(Math.random()*solvedPool.length)];
+    return unsolved[Math.floor(Math.random()*unsolved.length)];
+  }
+
+  function renderQuestion(){
+    renderStats(); renderGroupBar();
+    if(groupKeys.every(groupArchived)){
+      $(mountId+'_qzone').innerHTML = `<div class="callout good"><strong>Every skill group is mastered!</strong> Click "Reset progress" to practise them all again.</div>`;
+      return;
+    }
+    const q = pickQuestion();
+    if(!q) return;
+    $(mountId+'_qzone').innerHTML = `
+      <div class="question-card" data-qid="${esc(q.id)}">
+        <div class="badge-row"><span class="badge dark">${esc(q.category)}</span><span class="badge sky">${esc(q.skillCode)} ${esc(q.skillName)}</span><span class="badge sky">${esc(q.difficulty)}</span><span class="badge">${esc(q.topicArea)}</span>${isSolved(q)?'<span class="badge num">Solved before</span>':''}</div>
+        <p><strong>${esc(q.textVersion)}</strong></p>
+        ${q.options.map((opt,oi) => `<button class="option" type="button" data-oi="${oi}">${esc(opt)}</button>`).join('')}
+        <div class="answer-box"><div class="callout good"><strong>Explanation:</strong> ${esc(q.explanation)}</div></div>
+        <div class="btn-row"><button class="btn secondary" type="button" id="${mountId}_next" style="display:none;">Next question</button></div>
+      </div>`;
+    const card = $(mountId+'_qzone').querySelector('.question-card');
+    card.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => {
+      const opts = card.querySelectorAll('.option');
+      opts.forEach(b=>b.classList.remove('correct','wrong'));
+      const oi = Number(btn.dataset.oi);
+      if(oi===q.correct){ btn.classList.add('correct'); solved[q.id]=true; saveJSON(solvedKey, solved); }
+      else { btn.classList.add('wrong'); opts[q.correct].classList.add('correct'); }
+      card.querySelector('.answer-box').classList.add('visible');
+      $(mountId+'_next').style.display = 'inline-block';
+      renderStats(); renderGroupBar();
+    }));
+    $(mountId+'_next').addEventListener('click', renderQuestion);
+  }
+
+  mount.innerHTML = `<div class="qp-toolbar"><div class="qp-stats" id="${mountId}_stats"></div></div>
+    <div class="mc-groupbar" id="${mountId}_groupbar"></div>
+    <div id="${mountId}_qzone"></div>
+    <div class="btn-row"><button class="btn secondary" id="${mountId}_resetall" type="button">Reset progress for this bank</button></div>`;
+  $(mountId+'_resetall').addEventListener('click', () => { solved = {}; saveJSON(solvedKey, solved); renderQuestion(); });
+  renderQuestion();
+}
+</script>
+<script>
+renderSiteNav('Geo12_Topic3_RuralUrban.html');
+initHeaderProfile();
+
+const topicData = readData('topicData');
+renderTopicNotes('topicNotes', topicData);
+initFlashDeck('topicFlash', flatCardsFromTopic(topicData), sectionTitlesFromTopic(topicData));
+initContentAccordions();
+const topicWritten = readData('topicWrittenData') || [];
+initQ11Style('topicWritten', topicWritten, 'topic3written');
+const topicCaseStudies = readData('topicCaseStudiesData') || [];
+renderCaseStudyBoxes('topicCaseStudies', topicCaseStudies);
+const topicExemplars = readData('topicExemplarsData') || [];
+renderExemplarCards('topicExemplars', topicExemplars);
+initLocalTabs([['notes','Notes'],['flash','Flashcards'],['written','Questions to Practise'],['exemplars','Exemplar Answers']]);
+
+applyPersonalization();
+</script>
+</body>
+</html>

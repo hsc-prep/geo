@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q16: Skills Practice — Wenona Year 12 Geography</title>
+<style>:root {
+  --ink:#18312f;
+  --muted:#64746f;
+  --bg:#f7fbf7;
+  --card:#ffffff;
+  --line:#d7e5df;
+  --navy:#15314b;
+  --deep:#0f766e;
+  --blue:#0f766e;
+  --blue2:#22c55e;
+  --sky:#5eead4;
+  --aqua:#ccfbf1;
+  --pale:#ecfdf5;
+  --pale2:#f0fdfa;
+  --white:#ffffff;
+  --success:#ecfdf5;
+  --warn:#fff7ed;
+  --shadow:0 14px 35px rgba(15,49,75,.12);
+  --radius:20px;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; padding:0; min-height:100%; color:var(--ink); background:linear-gradient(180deg,#eefbf5 0%,#f7fbf7 45%,#fff 100%); font-family:'Arial Narrow',Arial,sans-serif; font-stretch:condensed; }
+button, input, textarea, select { font:inherit; }
+button { cursor:pointer; }
+p { line-height:1.52; }
+.small { font-size:.92rem; color:var(--muted); }
+ul.tight { margin:8px 0 0 20px; padding:0; }
+ul.tight li { margin:6px 0; line-height:1.42; }
+hr.sep { border:0; border-top:1px solid var(--line); margin:20px 0; }
+
+.app-header { background:linear-gradient(135deg,#15314b 0%,#0f766e 55%,#22c55e 100%); color:#fff; padding:28px 22px 24px; border-bottom:0; position:relative; overflow:hidden; }
+.app-header::after { content:""; position:absolute; right:-90px; top:-70px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.12); }
+.wrap { max-width:1220px; margin:0 auto; position:relative; z-index:1; }
+.app-header h1 { margin:0 0 8px; font-size:clamp(28px,4vw,48px); letter-spacing:-.04em; line-height:1.05; }
+.app-header .subtitle { margin:0; max-width:900px; line-height:1.55; color:#ecfdf5; font-size:1rem; }
+.badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.badges .badge { padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; font-weight:800; font-size:13px; }
+.credit { margin-top:14px; font-size:12px; color:#dcfce7; }
+
+.nav-wrap { position:sticky; top:0; z-index:30; background:rgba(255,255,255,.97); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.tabs { display:flex; gap:8px; overflow-x:auto; padding:10px 16px; max-width:1220px; margin:0 auto; }
+.tab-btn { border:1px solid var(--line); background:#fff; color:var(--ink); padding:10px 14px; border-radius:14px; font-weight:800; white-space:nowrap; cursor:pointer; }
+.tab-btn.active { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border-color:transparent; }
+
+.subnav { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 18px; }
+.subnav button { border:1px solid var(--line); background:#fff; color:var(--deep); padding:8px 12px; border-radius:999px; font-weight:800; font-size:.85rem; }
+.subnav button.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+
+main { max-width:1220px; margin:24px auto; padding:0 18px 60px; }
+.tab-panel { display:none; animation:fade .18s ease; }
+.tab-panel.active { display:block; }
+@keyframes fade { from { opacity:.2; transform:translateY(4px); } to { opacity:1; transform:none; } }
+.sub-panel { display:none; }
+.sub-panel.active { display:block; }
+
+.card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin-bottom:18px; }
+.card.soft { background:linear-gradient(135deg,#fff,#f0fdf4); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.grid.two { grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); }
+.grid.three, .grid.four { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+
+.section-title { margin:0 0 14px; border-left:0; padding:0; background:none; color:var(--blue); font-size:1.2rem; }
+.sub-title { margin:0 0 10px; color:var(--blue); font-size:1.25rem; }
+.mini-title { margin:0 0 7px; text-transform:uppercase; letter-spacing:.08em; color:var(--deep); font-size:.82rem; font-weight:900; }
+
+.callout { padding:14px 16px; border-radius:16px; background:var(--pale); border:1px solid #a7f3d0; margin:12px 0; }
+.callout.warn { background:#fff7ed; border-color:#fed7aa; }
+.callout.good, .callout.green { background:#ecfdf5; border-color:#99f6e4; }
+.callout.purple { background:#f5f3ff; border-color:#ddd6fe; }
+.callout.blue { background:#eff6ff; border-color:#bfdbfe; }
+
+.badge-row { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.badge-row .badge { display:inline-flex; align-items:center; gap:6px; border:1px solid #bae6fd; background:#e0f2fe; color:#075985; border-radius:999px; padding:7px 10px; font-size:.86rem; font-weight:900; }
+.badge-row .badge.dark { background:var(--navy); color:#fff; border-color:var(--navy); }
+.badge-row .badge.sky { background:#ecfdf5; color:#0f766e; border-color:#a7f3d0; }
+.badge-row .badge.num { background:var(--navy); color:#fff; border-radius:8px; min-width:26px; text-align:center; }
+
+.btn, button.action { border:0; border-radius:14px; background:var(--blue); color:#fff; padding:10px 14px; font-weight:900; cursor:pointer; box-shadow:none; }
+.btn:hover, button.action:hover { filter:brightness(.96); transform:translateY(-1px); }
+.btn.secondary, button.secondary { background:#e2e8f0; color:#0f172a; border:0; }
+.btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+
+select, input[type="text"] { border:1px solid var(--line); border-radius:999px; padding:10px 12px; background:white; color:var(--ink); }
+textarea { width:100%; min-height:120px; border:1px solid var(--line); border-radius:14px; padding:12px; resize:vertical; background:#fbfdff; color:var(--ink); }
+textarea:focus, select:focus, input:focus { outline:3px solid rgba(94,234,212,.35); border-color:var(--blue); }
+
+.workbook-table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:16px; border:1px solid var(--line); background:white; }
+.workbook-table th { background:#ecfdf5; color:#14532d; text-align:left; padding:11px; font-size:.92rem; }
+.workbook-table td { border-top:1px solid var(--line); padding:11px; vertical-align:top; line-height:1.42; }
+.workbook-table tr:nth-child(even) td { background:#f8fcfa; }
+.workbook-table .section-row td { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; font-weight:900; }
+
+.progress { height:10px; background:#d1fae5; border-radius:999px; overflow:hidden; }
+.progress > span { display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--blue2)); transition:.2s; }
+
+.flip-card { perspective:1000px; min-height:300px; margin-top:16px; }
+.flip-inner { position:relative; width:100%; min-height:300px; transition:transform .55s ease; transform-style:preserve-3d; }
+.flip-card.flipped .flip-inner { transform:rotateY(180deg); }
+.flip-face { position:absolute; inset:0; backface-visibility:hidden; border:2px dashed #86efac; border-radius:22px; padding:26px; background:linear-gradient(135deg,#fff,#ecfdf5); box-shadow:var(--shadow); display:flex; flex-direction:column; justify-content:center; cursor:pointer; }
+.flip-back { transform:rotateY(180deg); border-style:solid; background:linear-gradient(135deg,#f0fdfa,#fff); }
+.flash-term { font-size:clamp(1.5rem, 3.2vw, 2.5rem); color:var(--navy); margin:.35rem 0; line-height:1.15; }
+.flash-meta { text-transform:uppercase; letter-spacing:.14em; color:var(--deep); font-weight:900; font-size:.78rem; margin-bottom:8px; }
+.flash-answer { font-size:1.03rem; line-height:1.55; color:var(--ink); }
+.flash-answer strong { color:var(--navy); }
+.flash-controls { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center; }
+.deck-counter { font-weight:900; color:var(--navy); font-size:.9rem; }
+
+.question-card { border:1px solid var(--line); background:white; border-radius:16px; padding:16px; margin:14px 0; }
+.option { display:block; border:1px solid var(--line); background:#fbfdff; border-radius:12px; padding:10px 12px; margin:8px 0; width:100%; text-align:left; }
+.option.correct { border-color:#1c9960; background:#e8f8ef; }
+.option.wrong { border-color:#c44040; background:#fff0f0; }
+.answer-box { margin-top:10px; display:none; }
+.answer-box.visible { display:block; }
+.mark-pill { display:inline-flex; align-items:center; background:var(--navy); color:white; border-radius:999px; padding:5px 9px; font-weight:900; font-size:.83rem; }
+.directive { font-weight:900; color:var(--deep); }
+
+.app-footer { border-top:1px solid var(--line); padding:24px 18px; text-align:center; color:var(--muted); background:#f7fbf7; font-weight:800; }
+
+/* syllabus accordion */
+.syllabus-section { background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; margin-bottom:20px; }
+.syllabus-section-title { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; padding:16px 18px; }
+.syllabus-section-title h2, .syllabus-section-title h3 { margin:0 0 5px; color:#fff; }
+.syllabus-section-title p { margin:0; color:#d1fae5; font-size:13px; }
+.syllabus-accordion-stack { display:grid; gap:12px; padding:16px; background:#f8fcfa; }
+details.syllabus-accordion { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 8px 22px rgba(15,23,42,.06); }
+details.syllabus-accordion summary { display:grid; grid-template-columns:auto 1fr auto; gap:11px; align-items:center; cursor:pointer; list-style:none; padding:15px 17px; color:#0f172a; font-weight:950; background:linear-gradient(90deg,#ecfdf5,#fff); }
+details.syllabus-accordion summary::-webkit-details-marker { display:none; }
+.dotpoint-number { display:grid; place-items:center; width:30px; height:30px; border-radius:10px; background:var(--navy); color:#fff; font-size:12px; flex-shrink:0; }
+.dotpoint-text { line-height:1.35; }
+.accordion-toggle { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#dcfce7; color:#0f766e; font-size:18px; font-weight:950; }
+details.syllabus-accordion .accordion-toggle::before { content:'+'; }
+details.syllabus-accordion[open] .accordion-toggle::before { content:'\2013'; }
+details.syllabus-accordion[open] summary { background:linear-gradient(90deg,#d1fae5,#f0fdfa); border-bottom:1px solid var(--line); }
+.accordion-body { padding:17px; }
+.accordion-body > :first-child { margin-top:0; }
+.accordion-body > :last-child { margin-bottom:0; }
+.accordion-body .card { box-shadow:none; margin-bottom:14px; padding:14px; }
+.accordion-body .card:last-child { margin-bottom:0; }
+.dp-casestudy { border:1px solid #a7f3d0; border-radius:14px; padding:12px 14px; background:#f0fdf4; margin:8px 0; }
+.dp-casestudy .cs-name { color:#0f4f46; font-weight:950; margin-bottom:6px; display:block; }
+.dp-flashcount { font-size:.78rem; color:var(--muted); margin-top:6px; }
+
+/* syllabus map checklist */
+.check-row { display:grid; grid-template-columns:1fr auto auto; gap:10px; align-items:center; padding:9px 4px; border-top:1px solid var(--line); }
+.check-row:first-child { border-top:0; }
+.check-row .dp-num { font-weight:900; color:var(--navy); margin-right:6px; }
+.check-cell { display:flex; align-items:center; gap:6px; font-size:.78rem; color:var(--muted); font-weight:800; }
+.check-cell input { width:20px; height:20px; accent-color:var(--deep); }
+
+/* glossary / directive terms */
+.term-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.term-card { border:1px solid var(--line); border-radius:18px; padding:15px; background:#fff; box-shadow:0 8px 20px rgba(15,49,75,.07); }
+.term-card h4 { margin:0 0 6px; color:var(--navy); font-size:1.15rem; }
+.term-card .term-meaning { color:var(--deep); font-weight:800; margin:0 0 8px; }
+.term-card .term-example { font-size:.88rem; color:var(--muted); margin:0; }
+
+/* strategy evidence */
+.strategy-tabs { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; }
+.strategy-tab { border:1px solid var(--line); background:#fff; color:var(--ink); padding:10px 14px; border-radius:999px; font-weight:900; cursor:pointer; }
+.strategy-tab.active { background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; border-color:transparent; }
+.strategy-panel { display:none; }
+.strategy-panel.active { display:block; }
+.strategy-banner { background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; border-radius:20px; padding:18px; margin-bottom:14px; }
+.strategy-banner h3 { margin:0 0 5px; color:#fff; }
+.strategy-banner p { margin:0; color:#d1fae5; }
+.evidence-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
+.evidence-tile { background:#fff; border:1px solid var(--line); border-radius:16px; padding:13px; }
+.evidence-tile strong { display:block; color:var(--blue); margin-bottom:5px; }
+
+/* pattern builder */
+.builder-shell { border:1px solid #a7f3d0; border-radius:22px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
+.builder-head { padding:18px 20px; background:linear-gradient(135deg,var(--navy),var(--blue) 55%,var(--blue2)); color:#fff; }
+.builder-head h3 { margin:0 0 6px; font-size:1.45rem; color: #fff;}
+.builder-head p { margin:0; color:#d1fae5; }
+.builder-layout { display:grid; grid-template-columns:minmax(280px,370px) 1fr; }
+.builder-controls { padding:18px; background:#f8fcfa; border-right:1px solid var(--line); }
+.builder-output { padding:18px; min-width:0; }
+.builder-control { margin-bottom:14px; }
+.builder-control label { display:block; margin-bottom:6px; color:#0f4f46; font-weight:900; }
+.builder-control select { width:100%; border-radius:12px; }
+.metric-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(135px,1fr)); gap:10px; margin-bottom:14px; }
+.metric { background:#f8fcfa; border:1px solid var(--line); border-radius:15px; padding:12px; text-align:center; }
+.metric b { display:block; font-size:1.3rem; color:var(--blue); }
+.metric span { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+.model-response { background:#f0fdf4; border:1px solid #a7f3d0; border-radius:18px; padding:16px; }
+.model-response h4 { margin:0 0 8px; color:#0f4f46; }
+.model-response p { margin:.45rem 0; }
+.causal-chain { display:flex; align-items:stretch; gap:7px; overflow-x:auto; margin:14px 0; padding-bottom:4px; }
+.causal-node { min-width:130px; flex:1; padding:10px; border-radius:12px; background:#ecfdf5; color:#0f4f46; border:1px solid #a7f3d0; font-size:12px; font-weight:800; }
+.causal-arrow { display:flex; align-items:center; color:var(--blue); font-size:18px; font-weight:900; }
+
+.where-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.where-item { background:#fff; border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:0 8px 22px rgba(15,23,42,.06); }
+.where-item label { display:block; font-weight:900; color:#0f4f46; margin-bottom:6px; }
+.where-desc { min-height:38px; font-size:13px; color:var(--muted); margin-bottom:8px; line-height:1.35; }
+.where-scale { display:flex; gap:7px; align-items:center; }
+.where-scale span { font-size:12px; color:var(--muted); font-weight:800; }
+.where-scale input[type="range"] { flex:1; accent-color:var(--blue); }
+.where-score { display:inline-grid; place-items:center; min-width:32px; height:32px; border-radius:999px; background:#e9f4f0; color:#0f4f46; font-weight:950; border:1px solid #cfe3da; }
+.recommendation-box { border:1px solid #cfe3da; border-radius:20px; background:linear-gradient(135deg,#f8fcfb,#fff); padding:16px; margin-top:16px; }
+.recommendation-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px; }
+.recommendation-step { background:#fff; border:1px solid var(--line); border-radius:16px; padding:12px; }
+.recommendation-step h4 { margin:0 0 6px; color:#0f4f46; }
+.where-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+
+.timer { font-size:3.2rem; font-weight:900; color:var(--navy); letter-spacing:.04em; text-align:center; }
+
+/* site-wide nav bar (cross-file, canonical order, current page as disabled span) */
+.site-nav-wrap { background:var(--navy); }
+.site-nav-inner { max-width:1220px; margin:0 auto; padding:10px 18px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:.85rem; }
+.site-nav-inner a { color:#cfe8e2; text-decoration:none; font-weight:800; padding:5px 9px; border-radius:8px; }
+.site-nav-inner a:hover { background:rgba(255,255,255,.14); color:#fff; }
+.site-nav-inner .current { color:#fff; font-weight:900; padding:5px 9px; border-radius:8px; background:rgba(255,255,255,.18); }
+.site-nav-inner .sep { color:rgba(255,255,255,.3); }
+.hub-link { display:inline-block; margin-bottom:10px; color:#ecfdf5; font-weight:800; text-decoration:none; font-size:.9rem; }
+.hub-link:hover { text-decoration:underline; }
+
+/* Q11-style / MC-bank-style practice toolbars */
+.qp-toolbar { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.qp-stats { display:flex; gap:10px; flex-wrap:wrap; }
+.qp-stat { background:#fff; border:1px solid var(--line); border-radius:14px; padding:8px 14px; font-weight:900; color:var(--navy); font-size:.85rem; text-align:center; }
+.qp-stat b { display:block; font-size:1.2rem; color:var(--blue); }
+.qp-timerbox { display:flex; align-items:center; gap:10px; background:#f8fcfa; border:1px solid var(--line); border-radius:16px; padding:10px 16px; margin:12px 0; flex-wrap:wrap; }
+.qp-timerbox .timer { font-size:1.8rem; min-width:90px; }
+.timer.warn { color:#c44040; }
+.qp-archived-note { font-size:.85rem; color:var(--deep); font-weight:800; margin-top:6px; min-height:1.2em; }
+.mc-groupbar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.mc-group-chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 11px; font-size:.76rem; font-weight:800; color:var(--muted); }
+.mc-group-chip.archived { background:#dcfce7; color:#0f4f46; border-color:#a7f3d0; }
+
+/* clickable header badges + tile grid (hub) */
+.badges a.badge, .badges a.badge:visited { text-decoration:none; cursor:pointer; }
+.badges a.badge:hover { background:rgba(255,255,255,.28); }
+.tile-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:18px 0; }
+.tile { display:block; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:18px; text-decoration:none; color:var(--ink); transition:.15s; }
+.tile:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(15,49,75,.16); }
+.tile .tile-icon { font-size:1.6rem; margin-bottom:8px; }
+.tile h3 { margin:0 0 6px; color:var(--navy); font-size:1.1rem; }
+.tile p { margin:0; color:var(--muted); font-size:.88rem; line-height:1.4; }
+
+/* header profile (name + start date) */
+.header-profile { margin-top:14px; }
+.profile-form { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.profile-form input { border-radius:999px; border:1px solid rgba(255,255,255,.4); padding:8px 12px; background:rgba(255,255,255,.15); color:#fff; }
+.profile-form input::placeholder { color:#e6fff5; }
+.profile-display { color:#ecfdf5; font-size:.9rem; font-weight:800; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.profile-display .btn.secondary { padding:5px 10px; font-size:.78rem; }
+
+/* revision tier panel (hub) */
+.tier-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+.tier-card h4 { margin:0 0 8px; }
+.tier-card.low { border-top:5px solid #94a3b8; }
+.tier-card.high { border-top:5px solid #38bdf8; }
+.tier-card.highest { border-top:5px solid #22c55e; }
+
+@media (max-width:900px) { .header-grid, .grid.two, .grid.three, .grid.four { grid-template-columns:1fr; } }
+@media (max-width:850px) { .builder-layout { grid-template-columns:1fr; } .builder-controls { border-right:0; border-bottom:1px solid var(--line); } }
+/* printing */
+.print-area { display:none; }
+body.printing > *:not(#printArea) { display:none!important; }
+body.printing #printArea { display:block!important; max-width:900px; margin:0 auto; padding:20px; }
+.print-item { margin-bottom:22px; page-break-inside:avoid; }
+.write-line { overflow:hidden; white-space:nowrap; letter-spacing:2px; color:#94a3b8; font-size:1.1rem; line-height:2.2; height:1.6em; }
+.exam-page { page-break-after:always; padding:10px 0; }
+.exam-page:last-child { page-break-after:auto; }
+.exam-title-page { text-align:center; padding-top:15%; }
+.exam-title-page h1 { font-size:2.2rem; color:var(--navy); }
+@media print {
+  nav, .btn-row, .where-actions, .strategy-tabs, .site-nav-wrap, .header-profile, footer.app-footer { display:none!important; }
+  .tab-panel { display:block!important; }
+  body.printing .app-header { display:none!important; }
+  .exam-page { page-break-after:always; }
+}
+</style>
+</head>
+<body>
+<div class="site-nav-wrap"><nav id="siteNav"></nav></div>
+<header class="app-header">
+  <div class="wrap">
+    
+<a class="hub-link" href="Geo12_Revision_Hub.html">&larr; Back to Hub</a>
+<h1>Q16: Skills Practice</h1>
+<p class="subtitle">In the exam, Q16 (and often several of Q1&ndash;15) draws heavily on the Geographical Skills Continuum &mdash; maps, graphs and images &mdash; alongside content questions. Practise the MC bank and the Written Skills bank below, then use the construction guides to make sure you can actually build these graphs and maps by hand, not just read them.</p>
+<div class="badges">
+  <a class="badge" href="Geo12_Q16_Skills.html#skillsmc">44 MC Qs</a>
+  <a class="badge" href="Geo12_Q16_Skills.html#written">Written Skills (Q16)</a>
+</div>
+
+    <div class="header-profile" id="headerProfile"></div>
+  </div>
+</header>
+<main class="wrap">
+  
+<div id="localTabs" class="tabs" style="padding:0 0 16px;"></div>
+<div class="tab-panel" id="skillsmc">
+  <div class="card">
+    <h2 class="section-title">Skills multiple-choice bank</h2>
+    <p data-personalize="{name}, work through these skills questions — 44 in total, covering Maps, Graphs and Images across Easier, Medium and Harder difficulty (from the NSW Geographical Skills Continuum), drawn from real 2025 and 2026 paper skills questions where possible. Unsolved questions are prioritised — once every question in a skill group is solved, that group is marked mastered." class="small">You, work through these skills questions — 44 in total, covering Maps, Graphs and Images across Easier, Medium and Harder difficulty (from the NSW Geographical Skills Continuum), drawn from real 2025 and 2026 paper skills questions where possible. Unsolved questions are prioritised — once every question in a skill group is solved, that group is marked mastered.</p>
+    <div id="skillsQuiz"></div>
+  </div>
+</div>
+<div class="tab-panel" id="written">
+  <div class="card">
+    <h2 class="section-title">Written Skills (Q16)</h2>
+    <p class="small">14 extended-response skills questions &mdash; the 2026 Trial's own Q16, plus past-syllabus Question 21s (the old syllabus's equivalent of the new Q16) converted to text-based practice. Same timer + self-mark + archive mechanic as topic written practice.</p>
+    <div id="q16Written"></div>
+  </div>
+</div>
+<div class="tab-panel" id="construct">
+  <div class="card soft"><h2 class="section-title">Construction Geo-Skills</h2><p>Six graph/map types you may be asked to construct, complete or interpret. Work through each guide, then practise drawing one from scratch on paper &mdash; construction questions are marked on technique (axes, labels, scale, accuracy), not just the finished picture.</p></div>
+<div class="card">
+  <h3 class="sub-title">Climate graphs</h3>
+  <p>A compound graph showing a place&#39;s average monthly rainfall (bars) and average monthly temperature (line) on the same set of axes.</p>
+  <ol class="tight"><li>Draw a horizontal axis with the 12 months (Jan&ndash;Dec) evenly spaced.</li><li>Draw a left-hand vertical axis for rainfall (mm), starting at 0, scaled to fit the highest monthly rainfall value.</li><li>Draw a right-hand vertical axis for temperature (&deg;C), scaled to fit the full temperature range.</li><li>Plot each month&#39;s rainfall as a bar (usually blue) up to the correct height on the rainfall axis.</li><li>Plot each month&#39;s mean temperature as a point on the temperature axis, then join the 12 points with a smooth line (usually red).</li><li>Add a title (place name), axis labels with units, and a key distinguishing rainfall bars from the temperature line.</li><li>If asked, calculate total annual rainfall (sum of all bars) and the annual temperature range (highest minus lowest monthly mean).</li></ol>
+  <div class="callout blue"><strong>Exam tip:</strong> Always check which axis is which before reading values off a given climate graph &mdash; rainfall and temperature scales rarely start at the same maximum.</div>
+</div>
+<div class="card">
+  <h3 class="sub-title">Population pyramids</h3>
+  <p>A back-to-back horizontal bar graph showing the age-sex structure of a population.</p>
+  <ol class="tight"><li>Draw a central vertical axis and label 5-year age cohorts (0&ndash;4, 5&ndash;9, 10&ndash;14 &hellip;) from youngest at the bottom to oldest at the top.</li><li>Draw a horizontal axis on each side of the centre line: males on the left, females on the right, scaled in either population numbers or percentage of total population.</li><li>For each age cohort, draw a horizontal bar extending left (male) and right (female) to the correct value.</li><li>Add a title (place name and year), axis labels, and units (numbers or %).</li><li>Describe the overall shape: a wide base and narrow top = expansive (high birth rate, young population, common in developing countries); roughly even sides = stationary (low birth and death rates, ageing developed country); a narrowing base = constrictive (declining birth rate).</li></ol>
+  <div class="callout blue"><strong>Exam tip:</strong> Never just describe individual bars &mdash; examiners want the overall shape and what it reveals about birth rate, death rate and dependency ratio.</div>
+</div>
+<div class="card">
+  <h3 class="sub-title">Ternary (triangular) graphs</h3>
+  <p>A triangular graph used to plot three variables that add up to 100% at once &mdash; e.g. employment by primary/secondary/tertiary sector, or soil composition (sand/silt/clay).</p>
+  <ol class="tight"><li>Each of the triangle&#39;s three sides is a 0&ndash;100% axis for one variable; the three axes always sum to 100% at any point inside the triangle.</li><li>To plot a value: find the correct value on each of the three axes, then draw a line parallel to the appropriate side of the triangle from each value &mdash; the point where the three lines meet is your data point.</li><li>To read a point already on the graph, draw lines from the point parallel to each side back to each axis and read off the three values (they should sum to 100%, allowing for rounding).</li><li>Label each axis clearly with the variable it represents, and add a title.</li></ol>
+  <div class="callout blue"><strong>Exam tip:</strong> Practise reading a given point before trying to plot one &mdash; ternary graphs are usually tested as a reading/interpretation skill first.</div>
+</div>
+<div class="card">
+  <h3 class="sub-title">Cross sections</h3>
+  <p>A side-on profile of the land surface along a chosen line on a topographic map, showing how relief changes with distance.</p>
+  <ol class="tight"><li>Draw a straight line on the map between your two chosen points (e.g. A to B).</li><li>Lay the straight edge of a piece of paper along this line and mark a tick wherever a contour line crosses the edge, noting its height.</li><li>Transfer the paper to a sheet of graph paper: draw a horizontal axis (distance) and vertical axis (altitude, in metres) with a sensible, evenly-spaced scale.</li><li>Mark each tick at its correct horizontal position and correct height, then join the points with a smooth curved line following the shape of the land.</li><li>Add a title, axis labels and units, and note the vertical exaggeration (vertical scale is almost always exaggerated compared to the horizontal scale &mdash; state the ratio).</li><li>Label key features on the profile (e.g. river valley, ridge, saddle) that correspond to features on the map.</li></ol>
+  <div class="callout blue"><strong>Exam tip:</strong> State the vertical exaggeration whenever you draw or interpret a cross section &mdash; it makes slopes look steeper than they really are, and examiners reward you for noting this.</div>
+</div>
+<div class="card">
+  <h3 class="sub-title">Transects</h3>
+  <p>A line drawn across an area (on a map or in the field) along which data is recorded at regular intervals, then plotted as a profile.</p>
+  <ol class="tight"><li>Choose a transect line that crosses the feature you want to investigate (e.g. a change in vegetation, land use, or a beach profile).</li><li>Record data at regular intervals along the line (e.g. every 10 or 20 metres): this might be vegetation type/height, land use, slope angle, or another variable depending on the investigation.</li><li>Plot the data as a profile diagram: distance along the transect on the horizontal axis, the measured variable (height, elevation, land use category) on the vertical axis.</li><li>Annotate the profile with labels identifying zones or changes (e.g. &#39;foredune vegetation&#39;, &#39;residential land use&#39;).</li><li>Add a title, axis labels, units and, where relevant, the date and location of the fieldwork.</li></ol>
+  <div class="callout blue"><strong>Exam tip:</strong> A transect is really a cross section with fieldwork data plotted on it instead of contour heights &mdash; the construction method is almost identical.</div>
+</div>
+<div class="card">
+  <h3 class="sub-title">Pr&eacute;cis (sketch) maps</h3>
+  <p>A simplified, hand-drawn version of a topographic or other map, showing only the features relevant to a particular question.</p>
+  <ol class="tight"><li>Draw a frame (usually a rectangle) that keeps the same proportions as the original map so your sketch stays roughly to scale.</li><li>Lightly mark the four corner grid references of your frame so the sketch can be matched back to the original map.</li><li>Using a ruler, transfer the main features required by the question only (e.g. relief, drainage, settlement, communication lines) &mdash; leave out irrelevant detail.</li><li>Use appropriate symbols, shading or hachures for relief, and label key features (place names, rivers, roads) clearly.</li><li>Add a title, a north point, an approximate scale, and a key/legend explaining any symbols used.</li></ol>
+  <div class="callout blue"><strong>Exam tip:</strong> A pr&eacute;cis map is marked on accuracy of proportion and completeness against the question&#39;s instructions, not artistic quality &mdash; always include title, scale, north point and key.</div>
+</div>
+</div>
+
+</main>
+<footer class="app-footer">Built for Wenona Year 12 Geography</footer>
+<div id="printArea" class="print-area"></div>
+<script type="application/json" id="skillsQuestionsData">[{"id": "hsc2025_mc1", "source": "2025 HSC", "category": "Graphs", "skillCode": "G4", "skillName": "Climate graphs", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "A climate graph for a location shows the following average figures for the three coldest (winter) months: mean daily minimum temperatures of 1\u00b0C, 2\u00b0C and 2\u00b0C, and monthly precipitation of 60 mm, 65 mm and 58 mm. Which of the following best describes each winter month shown in the graph?", "options": ["Mean daily minimum temperature between 0\u00b0C and 3\u00b0C; monthly precipitation between 15 and 35 mm", "Mean daily minimum temperature between 0\u00b0C and 3\u00b0C; monthly precipitation between 55 and 75 mm", "Mean daily minimum temperature between 5\u00b0C and 8\u00b0C; monthly precipitation between 15 and 35 mm", "Mean daily minimum temperature between 5\u00b0C and 8\u00b0C; monthly precipitation between 55 and 75 mm"], "correct": 1, "explanation": "All three winter months have minimum temperatures within 0\u20133\u00b0C and precipitation within 55\u201375 mm, so the range in option B is the only one that covers all three months' values.", "originalNote": "Original Q3 used an actual climate graph (Source B) and asked which range of minimum temperature/precipitation applied to every winter month shown on it."}, {"id": "hsc2025_mc2", "source": "2025 HSC", "category": "Images", "skillCode": "I1", "skillName": "Photo types (oblique/aerial/ground/satellite)", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "Two photographs of the same area are described below.\nPhotograph D: taken from directly overhead, looking straight down at the ground, with no horizon visible. Buildings appear as small geometric shapes and roads and a railway line can be traced running across the whole image.\nPhotograph E: taken from ground level. It shows two people walking along a path with trees on either side, a lake, and the sky and horizon visible in the background.\nWhat types of image are Photograph D and Photograph E?", "options": ["Oblique aerial photograph / Ground level photograph", "Oblique aerial photograph / Oblique aerial photograph", "Vertical aerial photograph / Oblique aerial photograph", "Vertical aerial photograph / Ground level photograph"], "correct": 3, "explanation": "Photograph D is taken directly overhead with no horizon visible, which is the defining feature of a vertical aerial photograph. Photograph E is taken from eye level with the horizon and sky visible, which is a ground level (terrestrial) photograph.", "originalNote": "Original Q6 showed an actual vertical aerial photo of Vauban, Freiburg (Source D) and an actual ground-level photo of hikers in the Black Forest (Source E), and asked students to name each image type."}, {"id": "hsc2025_mc3", "source": "2025 HSC", "category": "Graphs", "skillCode": "G13", "skillName": "Vertical exaggeration", "difficulty": "Harder", "topicArea": "General skills", "textVersion": "A geographer creates a cross-section from a topographic map. Why would vertical exaggeration be used?", "options": ["To make the map look more accurate", "To show the exact shape of landforms", "To adjust the horizontal scale of the map", "To make elevation changes more obvious"], "correct": 3, "explanation": "Vertical exaggeration stretches the vertical (elevation) scale relative to the horizontal scale so that subtle changes in relief become clearly visible on the cross-section.", "originalNote": "Original Q7 was already a fully text-based conceptual question, not tied to any image or map in the Stimulus Booklet."}, {"id": "hsc2025_mc4", "source": "2025 HSC", "category": "Maps", "skillCode": "M16", "skillName": "River flow direction", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "On a topographic map, contour lines cross a stream and form a V-shape at point R. The point of the V faces towards the south-east, showing that the ground rises in that direction. In which general direction does the stream most likely flow at point R?", "options": ["NE", "NW", "SE", "SW"], "correct": 1, "explanation": "Contour lines crossing a stream always form a V that points upstream, towards higher ground. Since the V points south-east, the stream itself flows in the opposite direction \u2014 north-west.", "originalNote": "Original Q8 used an actual contour V-shape crossing a stream on the topographic map (Source F) at grid reference AR 2630."}, {"id": "hsc2025_mc5", "source": "2025 HSC", "category": "Maps", "skillCode": "M7", "skillName": "Scale and distance", "difficulty": "Easier", "topicArea": "Topic 3: Rural and Urban Places", "textVersion": "On a map, the scale bar shows that 2 cm represents 400 m. A tram departs a stop and travels due south along the tram line for 14.5 cm (as measured on the map) to reach the end of the line. Approximately how far does the tram travel?", "options": ["2.6 km", "2.9 km", "3.3 km", "3.6 km"], "correct": 1, "explanation": "2 cm represents 400 m, so 1 cm represents 200 m. 14.5 cm \u00d7 200 m = 2900 m = 2.9 km.", "originalNote": "Original Q9 required measuring the actual length of a tram line on the topographic map (Source F) from grid reference GR 275343 to its southern terminus."}, {"id": "hsc2025_mc6", "source": "2025 HSC", "category": "Maps", "skillCode": "M14", "skillName": "Local relief", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "On a topographic map with a contour interval of 10 m, point S lies on the 220 m contour and point T lies on the 430 m contour. What is the local relief between point S and point T?", "options": ["50 m", "150 m", "210 m", "360 m"], "correct": 2, "explanation": "Local relief is the difference in elevation between the highest and lowest points being compared: 430 m \u2212 220 m = 210 m.", "originalNote": "Original Q10 required reading the actual contour values at point S (AR 2631) and point T (AR 2732) on the topographic map (Source F)."}, {"id": "hsc2025_mc7", "source": "2025 HSC", "category": "Maps", "skillCode": "M15", "skillName": "Aspect of slope", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "Point P lies at an elevation of 300 m. Point Q lies 400 m due west of point P, at an elevation of 400 m. What is the aspect (the compass direction the slope faces, i.e. the downhill direction) and the gradient between point P and point Q?", "options": ["West, 1:4", "West, 1:8", "East, 1:4", "East, 1:8"], "correct": 2, "explanation": "The slope descends from Q (higher, to the west) down to P (lower, to the east), so the slope's aspect (downhill-facing direction) is east. Gradient = vertical rise \u00f7 horizontal distance = 100 m \u00f7 400 m = 1:4.", "originalNote": "Original Q11 required reading actual elevations for point P and point Q (AR 2531) on the topographic map (Source F) and calculating aspect and gradient between them."}, {"id": "hsc2025_mc8", "source": "2025 HSC", "category": "Maps", "skillCode": "M11", "skillName": "Bearings", "difficulty": "Medium", "topicArea": "Topic 3: Rural and Urban Places", "textVersion": "A lake is located on a map. The closest tram stop to the lake is located 600 m east and 500 m north of the lake. What is the approximate bearing from the lake to the tram stop?", "options": ["50\u00b0", "130\u00b0", "240\u00b0", "320\u00b0"], "correct": 0, "explanation": "Bearings are measured clockwise from north. tan(bearing) = east distance \u00f7 north distance = 600 \u00f7 500 = 1.2, so bearing = tan\u207b\u00b9(1.2) \u2248 50\u00b0.", "originalNote": "Original Q12 required locating an actual lake shown in Source D and the nearest tram stop on the topographic map (Source F), then measuring the bearing between them with a protractor."}, {"id": "hsc2025_mc9", "source": "2025 HSC", "category": "Graphs", "skillCode": "G15", "skillName": "Ternary graphs", "difficulty": "Harder", "topicArea": "Topic 3: Rural and Urban Places", "textVersion": "A ternary (triangular) graph shows, for four cities, the percentage of the population using public transport, private car, and active transport (walking/cycling), with the size of each city's symbol showing its relative population (a larger symbol means a more populated city). City W has the largest symbol and 40% public transport use. City X has the smallest symbol and 34% public transport use. City Y has a medium symbol and 15% public transport use. City Z has a medium symbol and 5% public transport use. What is the difference in public transport use between the most populated city and the least populated city shown?", "options": ["6%", "13%", "55%", "59%"], "correct": 0, "explanation": "The most populated city (W, largest symbol) has 40% public transport use; the least populated city (X, smallest symbol) has 34%. The difference is 40% \u2212 34% = 6%.", "originalNote": "Original Q14 required reading public transport percentages and relative population (symbol size) for Freiburg, Lagos, Melbourne and New York from an actual ternary graph (Source G)."}, {"id": "sample_mc1", "source": "Sample Exam", "category": "Maps", "skillCode": "M1", "skillName": "Map types", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "Which of the following types of map is used to show the movement of people and goods between different areas?", "options": ["Cadastral", "Flowline", "Isoline", "Pr\u00e9cis"], "correct": 1, "explanation": "A flowline map uses arrows or lines (often scaled in width to show volume) to represent the direction and quantity of movement of people, goods or traffic between places. A cadastral map shows property/land ownership boundaries; an isoline map joins points of equal value (e.g. contours, isotherms, isobars); a pr\u00e9cis map is a simplified, summary map showing only key features.", "originalNote": "Original question was already a fully self-contained text-only question (no image or map was supplied) testing recognition of map types."}, {"id": "sample_mc2", "source": "Sample Exam", "category": "Graphs", "skillCode": "G6", "skillName": "Composite/radar graphs", "difficulty": "Medium", "topicArea": "Topic 1: Global Sustainability", "textVersion": "A radar (spider) graph titled 'City sustainability scores' rates a city on a scale of 0-100 across seven measures: quality public transport, adequate quality housing, informal settlements, sporting facilities and programs, bike paths and public spaces, participation of Indigenous Peoples and minority ethnic groups in decision making, and discrimination based on age, race, religion, gender and sexuality. Based on the measures used in this graph, what pillar of sustainability has been the main focus of this city's sustainability measures?", "options": ["Cultural", "Economic", "Environmental", "Social"], "correct": 3, "explanation": "All seven measures shown (public transport access, housing quality, informal settlements, recreation facilities, bike paths/public spaces, Indigenous/minority participation, and discrimination) relate to community wellbeing, equity and inclusion \u2014 these are indicators of the social pillar of sustainability, not the economic, environmental or cultural pillars.", "originalNote": "Original question displayed these seven measures as axes on a radar/spider graph with a shaded data polygon (0-100 scale); this MC only requires recognising the shared theme of the axis labels, not reading exact scores off the graph, so it converts cleanly to text."}, {"id": "cssa2025_mc1", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M8", "skillName": "Weather maps", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "A national synoptic weather map shows a system centred directly over Perth at 10am on a Tuesday. The system is marked with the letter H at its centre, and is surrounded by widely spaced, roughly circular isobars. Skies across the Perth region are clear, with only light winds recorded. What weather feature is operating over Perth at 10am?", "options": ["Cold front", "Warm front", "High-pressure system", "Low-pressure system"], "correct": 2, "explanation": "Widely spaced isobars around a centre marked H, with clear skies and light winds, are the classic signature of a high-pressure (anticyclonic) system. Fronts are shown as lines with triangle/semi-circle symbols, and lows have tightly packed isobars around an L.", "originalNote": "Original Q1 referred to Source A, a BOM daily synoptic chart, asking students to identify the weather feature over Perth at 10am on 6 May 2025."}, {"id": "cssa2025_mc2", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M8", "skillName": "Weather maps", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "On the same national synoptic map, a cold front (shown as a line with triangle symbols) lies out to the west of the New South Wales coast at 10am on Tuesday, and is forecast to cross Sydney within the next 24 hours. Predict the weather Sydney will most likely experience over the next 24 hours from 10am on Tuesday.", "options": ["Unsettled atmospheric conditions, including a drop in temperature and increasing wind speed", "Unsettled atmospheric conditions, including gentle breezes, clear skies and low chance of rain", "Settled atmospheric conditions, with cyclonic winds and heavy rainfall", "Settled atmospheric conditions, with clear skies and hot, dry winds"], "correct": 0, "explanation": "A cold front crossing a location typically brings a wind change, a temperature drop as cooler air replaces warmer air, and increasing/gusty winds - i.e. unsettled conditions, not settled ones.", "originalNote": "Original Q2 asked students to predict Sydney's weather over the next 24 hours based on the same Source A synoptic chart used for Q1."}, {"id": "cssa2025_mc4", "source": "CSSA 2025 Trial", "category": "Graphs", "skillCode": "G4", "skillName": "Climate graphs", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "The table below shows average monthly rainfall for Geraldton, WA:\nJan 5mm, Feb 5mm, Mar 7mm, Apr 9mm, May 20mm, Jun 58mm, Jul 60mm, Aug 50mm, Sep 30mm, Oct 12mm, Nov 8mm, Dec 5mm.\nWhat season has the highest rainfall in Geraldton, WA?", "options": ["July", "Winter", "Summer", "February"], "correct": 1, "explanation": "The three highest monthly rainfall totals (Jun 58mm, Jul 60mm, Aug 50mm) all fall in the winter months, so winter as a season (not a single month) has the highest rainfall.", "originalNote": "Original Q4 showed a climate graph (bars for precipitation, lines for min/avg/max temperature) for Geraldton, WA, printed directly in the exam paper."}, {"id": "cssa2025_mc5", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M16", "skillName": "River flow direction", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "A river on a topographic map passes through two points, A and B. Point B is located directly south of point A. The land surface contour at point A reads 160m, and the contour at point B reads 120m. What is the general direction of flow of the river between points A and B?", "options": ["East", "North", "South", "West"], "correct": 2, "explanation": "Rivers flow from higher elevation to lower elevation. Point A (160m) is higher than point B (120m), and B lies south of A, so the river flows south.", "originalNote": "Original Q5 asked for the direction of flow of the Chapman River between grid references AR 7820 and AR 7821 on the topographic map extract (Source C)."}, {"id": "cssa2025_mc6", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M15", "skillName": "Aspect of slope", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "At a location on a topographic map, the 180m contour lies to the north-east, and the 140m contour lies to the south-west, with the contour lines trending from north-west to south-east between them. The land surface at this location slopes downhill towards the south-south-west. What is the aspect of the slope at this location?", "options": ["East North East (ENE)", "North North West (NNW)", "South South East (SSE)", "South South West (SSW)"], "correct": 3, "explanation": "Aspect is the compass direction that a slope faces, which is the direction the ground descends (perpendicular to the contour lines, from high to low). Since the slope descends towards the south-south-west, its aspect is SSW.", "originalNote": "Original Q6 asked for the aspect of the slope located at grid reference GR 737203 on the topographic map extract (Source C)."}, {"id": "cssa2025_mc8", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M20", "skillName": "Density calculation", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "Grid square X covers an area of 4 km2 and contains 40 buildings. Grid square Y covers an area of 4 km2 and contains 24 buildings. What is the average building density of grid squares X and Y?", "options": ["6 buildings per km2", "8 buildings per km2", "10 buildings per km2", "16 buildings per km2"], "correct": 1, "explanation": "Average density = total buildings / total area = (40 + 24) / (4 + 4) = 64 / 8 = 8 buildings per km2.", "originalNote": "Original Q8 asked for the average building density of grid squares AR 7513 and AR 7613 on the topographic map extract (Source C)."}, {"id": "cssa2025_mc9", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M11", "skillName": "Bearings", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "On a topographic map, Point Moore is located 9.5 km west and 3 km south of Mount Fairfax. What is the bearing of Point Moore from Mount Fairfax?", "options": ["53 degrees", "72 degrees", "231 degrees", "252 degrees"], "correct": 3, "explanation": "Using the west and south displacements, the angle west of south is arctan(9.5/3) is about 72.5 degrees, so the bearing (measured clockwise from north) is 180 + 72.5 is about 252 degrees.", "originalNote": "Original Q9 asked for the bearing of Point Moore (AR 6313) from Mount Fairfax (AR 7517) on the topographic map extract (Source C)."}, {"id": "cssa2025_mc10", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M19", "skillName": "Area calculation", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "A patch of medium forest/scrub shown on a topographic map forms an approximately rectangular shape measuring 2.2 km by 1.4 km. What is the area of the medium forest/scrub?", "options": ["1.5 km2", "3.1 km2", "4.7 km2", "5.3 km2"], "correct": 1, "explanation": "Area = length x width = 2.2 km x 1.4 km = 3.08 km2, which rounds to approximately 3.1 km2.", "originalNote": "Original Q10 asked for the area of medium forest/scrub at Glenfield in the north-west quadrant of the topographic map extract (Source C)."}, {"id": "cssa2025_mc11", "source": "CSSA 2025 Trial", "category": "Maps", "skillCode": "M18", "skillName": "Speed, distance and time", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "A road measures 11 km along Chapman Valley Road between a roundabout and a bridge. How long would it take to travel this distance if travelling at 60 km/hr?", "options": ["11 minutes", "14 minutes", "17 minutes", "21 minutes"], "correct": 0, "explanation": "Time = distance / speed = 11 km / 60 km/hr = 0.1833 hours = 11 minutes.", "originalNote": "Original Q11 asked for the travel time from the roundabout at GR 685205 to the bridge at GR 755275 along Chapman Valley Road at 60 km/hr, using the topographic map extract (Source C)."}, {"id": "cssa2025_mc12", "source": "CSSA 2025 Trial", "category": "Images", "skillCode": "I1", "skillName": "Photo types", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "A photograph shows a coastal town from an elevated position, looking across the landscape at an angle. Buildings, roads and the coastline are visible in perspective, receding towards a horizon in the distance, rather than being viewed directly from above. What type of photograph is this?", "options": ["Ground level photograph", "Oblique aerial photograph", "Satellite image", "Vertical aerial photograph"], "correct": 1, "explanation": "A photograph taken from above at an angle (not straight down), showing a horizon and perspective depth, is an oblique aerial photograph. A vertical aerial photograph or satellite image looks straight down with no horizon, and a ground level photograph is taken from the ground.", "originalNote": "Original Q12 referred to Source E, a panorama-style elevated photograph of Geraldton, and asked students to identify the type of photograph."}, {"id": "cssa2025_mc14", "source": "CSSA 2025 Trial", "category": "Graphs", "skillCode": "G2", "skillName": "Statistics from data tables", "difficulty": "Easier", "topicArea": "Topic 1: Global Sustainability", "textVersion": "The table below shows the percentage of targets that are 'on track or target met' for selected UN Sustainable Development Goals (SDGs) in 2023:\nGoal 6 (Clean Water and Sanitation): 10%\nGoal 7 (Affordable and Clean Energy): 45%\nGoal 12 (Responsible Consumption and Production): 20%\nGoal 14 (Life Below Water): 15%\nWhich of the following Sustainable Development Goals has achieved the greatest percentage of progress towards its goal in 2023?", "options": ["Goal 6", "Goal 7", "Goal 12", "Goal 14"], "correct": 1, "explanation": "Reading the table, Goal 7 has the highest percentage of targets on track or met in 2023 (45%), higher than Goals 6, 12 and 14.", "originalNote": "Original Q14 referred to Source J, a UN SDG Report 2023 infographic showing progress assessment percentages for the 17 goals."}, {"id": "cssa2025_mc15", "source": "CSSA 2025 Trial", "category": "Graphs", "skillCode": "G2", "skillName": "Statistics from data tables", "difficulty": "Easier", "topicArea": "Topic 1: Global Sustainability", "textVersion": "Two data sources give information on selected UN Sustainable Development Goals (SDGs).\nSource 1 (percentage of targets 'on track or target met', 2023): Goal 6: 15%; Goal 8: 5%; Goal 9: 25%; Goal 12: 35%.\nSource 2 (regions where the goal is 'on track', 2022): Goal 6: no regions on track; Goal 8: major challenges in all regions except East and South Asia; Goal 9: on track in High-income Countries and Low-income Countries; Goal 12: on track in Low-income Countries, Sub-Saharan Africa, and East and South Asia.\nWhich statement best describes the information found in the two sources?", "options": ["Goal 6 (Clean Water and Sanitation): Sub-Saharan Africa and Low-income Countries have made the most progress towards achieving the goal in 2022.", "Goal 9 (Industry, Innovation and Infrastructure) is 25% on track or target met in 2023 and is on track in High-income and Low-income Countries in 2022.", "Goal 8 (Decent Work and Economic Growth) has the highest level of stagnation and regression in 2023 and has major challenges across all regions except for East and South Asia in 2022.", "Goal 12 (Responsible Consumption and Production) has the highest level of being on track or target met in 2023 and is on track in Low-income Countries, Sub-Saharan Africa and East and South Asia in 2022."], "correct": 3, "explanation": "Checking each statement against the two sources: Goal 12 has the highest 2023 'on track/target met' figure (35%) of the goals listed, and Source 2 confirms it is on track in Low-income Countries, Sub-Saharan Africa, and East and South Asia in 2022 - matching option D exactly. The other options each contain a detail that does not match the data given.", "originalNote": "Original Q15 referred to Sources J and K, two UN SDG progress infographics, and asked which statement best summarised the combined information for several goals across regions and years."}, {"id": "indep2025_mc1", "source": "Independent Trial 2025", "category": "Maps", "skillCode": "M12", "skillName": "Latitude and longitude (degrees and minutes)", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "A map's Northeast Quadrant lies between the latitude lines 12\u00b000'N and 12\u00b020'N, and the longitude lines 12\u00b000'E and 12\u00b020'E. A town is marked three-quarters of the way north between the two latitude lines, and one-quarter of the way east between the two longitude lines. Which of the following gives the approximate coordinates of the town?", "options": ["12\u00b005'N, 12\u00b015'E", "12\u00b015'S, 12\u00b005'E", "12\u00b015'N, 12\u00b005'E", "12\u00b020'N, 12\u00b000'E"], "correct": 2, "explanation": "Latitude (N/S) is always stated before longitude (E/W). Three-quarters of the way north between 12\u00b000'N and 12\u00b020'N is 12\u00b015'N; one-quarter of the way east between 12\u00b000'E and 12\u00b020'E is 12\u00b005'E, giving 12\u00b015'N, 12\u00b005'E.", "originalNote": "Based on Q3, which asked students to read the approximate latitude and longitude of the town of Maiduguri from a grid in the Northeast Quadrant of a regional map (Source A) in the Stimulus Booklet."}, {"id": "indep2025_mc2", "source": "Independent Trial 2025", "category": "Graphs", "skillCode": "G2", "skillName": "Statistics from data tables", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "The table below shows the population of a country by five-year age group in 2023.\n\nAge group | Population\n0-4 | 24 500 000\n5-9 | 23 100 000\n10-14 | 21 800 000\n15-19 | 25 590 000\n20-24 | 22 250 000\n\nAccording to the table, how many people were aged 15-19 in 2023?", "options": ["21 800 000", "22 250 000", "24 500 000", "25 590 000"], "correct": 3, "explanation": "Reading directly from the '15-19' row of the table gives 25 590 000.", "originalNote": "Based on Q4, which asked students to read the number of Nigerians aged 15-19 in 2023 from Text 1 and a population profile graphic (Source C) in the Stimulus Booklet."}, {"id": "indep2025_mc3", "source": "Independent Trial 2025", "category": "Maps", "skillCode": "M17", "skillName": "Large scale vs small scale maps", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "Four maps show the same country at different levels of detail:\nMap A covers the entire country and shows only major cities.\nMap B covers a single city and shows suburbs and major roads.\nMap C covers a single street block and shows individual buildings and market stalls.\nMap D covers a region of several states and shows highways and rivers.\nWhich of these maps has the largest scale?", "options": ["Map A", "Map B", "Map C", "Map D"], "correct": 2, "explanation": "A large-scale map covers a small area in great detail (a large representative fraction); a small-scale map covers a large area with less detail. Map C, covering only a street block, has the largest scale.", "originalNote": "Based on Q6, which asked students to identify which of four sources (a regional map, a city map, a local food market photo, and a topographic map) in the Stimulus Booklet had the largest scale."}, {"id": "indep2025_mc4", "source": "Independent Trial 2025", "category": "Graphs", "skillCode": "G2", "skillName": "Statistics from graphs", "difficulty": "Easier", "topicArea": "Topic 3: Rural and Urban Places", "textVersion": "A line graph shows the percentage of a country's population living in rural areas from 2000 to 2025. In 2000, 65% of the population lived in rural areas. This proportion declined steadily, reaching 45% in 2025. According to the graph, what percentage of the population lived in rural areas in 2025?", "options": ["65.0%", "55.0%", "45.0%", "35.0%"], "correct": 2, "explanation": "The graph shows a steady decline from 65% in 2000 to 45% in 2025, so the value for 2025 read directly from the graph is 45%.", "originalNote": "Based on Q7, which asked students to read the percentage of Nigeria's population living in rural areas in 2025 from a graph (Source G) in the Stimulus Booklet."}, {"id": "indep2025_mc5", "source": "Independent Trial 2025", "category": "Maps", "skillCode": "M14", "skillName": "Local relief", "difficulty": "Easier", "topicArea": "General skills", "textVersion": "On a topographic map, a spot height of 245 metres is shown at Point A, and a spot height of 165 metres is shown at Point B. What is the local relief between Points A and B?", "options": ["40 metres", "80 metres", "165 metres", "245 metres"], "correct": 1, "explanation": "Local relief is the difference between the highest and lowest elevations: 245m - 165m = 80m.", "originalNote": "Based on Q9, which asked students to calculate the local relief between two spot heights (AR 4412 and AR 4513) on a topographic map (Source H) in the Stimulus Booklet."}, {"id": "indep2025_mc6", "source": "Independent Trial 2025", "category": "Maps", "skillCode": "M21", "skillName": "Gradient expressed as a ratio", "difficulty": "Harder", "topicArea": "General skills", "textVersion": "Point A has a spot height of 320 metres. Point B has a spot height of 210 metres. The horizontal (map) distance between Point A and Point B is 1100 metres. Which of the following correctly calculates the average gradient between Point A and Point B, expressed as a ratio?", "options": ["1:5", "1:8", "1:10", "1:14"], "correct": 2, "explanation": "Vertical interval = 320m - 210m = 110m. Gradient = horizontal distance \u00f7 vertical interval = 1100 \u00f7 110 = 1:10.", "originalNote": "Based on Q10, which asked students to calculate the average gradient between two spot heights at given grid references on a topographic map (Source H) in the Stimulus Booklet."}, {"id": "indep2025_mc7", "source": "Independent Trial 2025", "category": "Maps", "skillCode": "M18", "skillName": "Speed, distance and time", "difficulty": "Medium", "topicArea": "General skills", "textVersion": "An emergency drone must travel 5.5 km in a straight line to reach an incident site, flying at a speed of 30 km/h. Approximately how long would the flight take?", "options": ["5 minutes 30 seconds", "11 minutes", "16 minutes 30 seconds", "30 minutes"], "correct": 1, "explanation": "Time = distance \u00f7 speed = 5.5 \u00f7 30 hours = 0.183 hours \u2248 11 minutes.", "originalNote": "Based on Q11, which asked students to calculate the time for a drone to fly (at 30 km/h) between two grid references on a topographic map (Source H) in the Stimulus Booklet."}, {"id": "indep2025_mc8", "source": "Independent Trial 2025", "category": "Graphs", "skillCode": "G7", "skillName": "Absolute and percentage change", "difficulty": "Medium", "topicArea": "Topic 2: Ecosystems and Global Biodiversity", "textVersion": "Satellite data shows that mangrove cover in a river delta was approximately 1450 km\u00b2 in 1998. By 2022, mangrove cover had declined to approximately 380 km\u00b2. What is the approximate relative (percentage) change in mangrove cover between 1998 and 2022?", "options": ["-74%", "-88%", "+74%", "+88%"], "correct": 0, "explanation": "Percentage change = (new value - original value) \u00f7 original value \u00d7 100 = (380 - 1450) \u00f7 1450 \u00d7 100 \u2248 -74%, i.e. a 74% decrease.", "originalNote": "Based on Q14, which asked students to calculate the relative change in mangrove cover in the Niger Delta between 1998 and 2022 using a source (Source M) in the Stimulus Booklet."}, {"id": "indep2025_mc9", "source": "Independent Trial 2025", "category": "Images", "skillCode": "I9", "skillName": "Estimating time of day from a photograph", "difficulty": "Harder", "topicArea": "General skills", "textVersion": "A photograph was taken in the Southern Hemisphere during summer, with the photographer facing north. In the photo, shadows fall towards the southeast, indicating the sun was positioned in the northwest part of the sky. What time of day was the photograph most likely taken?", "options": ["9:00 am", "11:30 am", "1:30 pm", "6:00 pm"], "correct": 2, "explanation": "In the Southern Hemisphere during summer, the sun tracks from the northeast (morning) through the north (midday) to the northwest (afternoon). A sun position in the northwest, casting shadows to the southeast, indicates a time in the early-to-mid afternoon, around 1:30 pm.", "originalNote": "Based on Q15, which asked students to estimate the time of day a photograph (Source K) in the Stimulus Booklet was taken, given the photographer was facing north."}, {"id": "trial2026-s1", "source": "2026 Trial", "category": "Images", "skillCode": "I1", "skillName": "Distinguishing oblique-aerial from vertical-aerial photographs", "difficulty": "Easier", "topicArea": "Topic 3: Rural and Urban Places (aerial photo interpretation)", "textVersion": "What is a key advantage of using oblique-aerial photographs over vertical aerial photographs?\nA. They show features from a more familiar angle that makes landmarks easier to identify.\nB. They provide a consistent scale around the whole image, useful for accurate measurement.\nC. They are taken from directly overhead, so distances between points can be measured directly.\nD. They eliminate shadow and building height distortion, making them ideal for precise mapping.", "options": ["They show features from a more familiar angle that makes landmarks easier to identify.", "They provide a consistent scale around the whole image, useful for accurate measurement.", "They are taken from directly overhead, so distances between points can be measured directly.", "They eliminate shadow and building height distortion, making them ideal for precise mapping."], "correct": 0, "explanation": "Oblique-aerial photographs are taken at an angle, giving a perspective closer to how the human eye naturally views a landscape, which makes landmarks and features easier to recognise. Options B, C and D are actually advantages of VERTICAL aerial photographs (consistent scale, direct overhead measurement, minimal shadow/building-lean distortion), not oblique ones.", "originalNote": ""}, {"id": "trial2026-s2", "source": "2026 Trial", "category": "Images", "skillCode": "M25", "skillName": "Matching urban characteristics to valid accessibility/network implications", "difficulty": "Medium", "topicArea": "Topic 3: Rural and Urban Places (urban accessibility and transport networks)", "textVersion": "A satellite image shows a coastal urban area featuring high-rise apartment towers concentrated along the beachfront, with a light rail line running through the built-up coastal strip and connecting several coastal centres.\nWhich row of the table identifies a characteristic of the urban area that is logically matched with a valid accessibility feature?\n\nA. Linear development running parallel to the coastline \u2014 Bus networks were removed once the light rail opened, reducing inland access\nB. Low-density suburban dwellings spread across inland areas \u2014 Canals provide the main transport route between coastal centres\nC. Canal estates integrated into residential neighbourhoods \u2014 The light rail runs mainly through low-density inland suburbs\nD. High-rise apartment towers concentrated along the beachfront \u2014 A light rail line connects coastal centres along the beachfront strip", "options": ["Linear development running parallel to the coastline \u2014 Bus networks were removed once the light rail opened, reducing inland access", "Low-density suburban dwellings spread across inland areas \u2014 Canals provide the main transport route between coastal centres", "Canal estates integrated into residential neighbourhoods \u2014 The light rail runs mainly through low-density inland suburbs", "High-rise apartment towers concentrated along the beachfront \u2014 A light rail line connects coastal centres along the beachfront strip"], "correct": 3, "explanation": "High-density, high-rise development along a beachfront generates strong demand for public transport, which a coastal light rail line is well placed to serve \u2014 characteristic and implication are logically consistent. The other rows pair a characteristic with an implication that does not logically follow from it (e.g. inland low-density suburbs would not be served by canals; canal estates are not logically linked to an inland light rail).", "originalNote": "The original question showed an aerial photograph (Source B) of a Gold Coast-style canal-estate/high-rise coastal urban area and asked students to identify the row with a valid characteristic-implication pair. Here the key characteristic (high-rise beachfront towers plus a coastal light rail) is stated directly in the question stem so the logical-matching skill is preserved without needing the image."}, {"id": "trial2026-s3", "source": "2026 Trial", "category": "Maps", "skillCode": "M11", "skillName": "Measuring a bearing on a map", "difficulty": "Medium", "topicArea": "Topic 3: Rural and Urban Places (drone survey / fieldwork mapping)", "textVersion": "On a topographic map, a drone is flown from point A (grid reference 250 880) to point B (grid reference 218 842).\nWhat was the approximate bearing of the flight from A to B?\nA. 40\u00b0\nB. 60\u00b0\nC. 220\u00b0\nD. 240\u00b0", "options": ["40\u00b0", "60\u00b0", "220\u00b0", "240\u00b0"], "correct": 2, "explanation": "From A to B, easting decreases by 32 units (250 \u2192 218, i.e. 3.2 km west) and northing decreases by 38 units (880 \u2192 842, i.e. 3.8 km south). This places B to the south-west of A. Using the tangent ratio (3.2/3.8), the angle from south is about 40\u00b0, giving a compass bearing of 180\u00b0 + 40\u00b0 = 220\u00b0.", "originalNote": "The original question used real points A and B plotted on Source C in the Stimulus Booklet; the grid references here are freshly constructed but preserve the same displacement (and therefore the same 220\u00b0 answer) as the original map."}, {"id": "trial2026-s4", "source": "2026 Trial", "category": "Maps", "skillCode": "M23", "skillName": "Reading isobar values and latitude from a synoptic chart", "difficulty": "Harder", "topicArea": "General geographic skills (synoptic weather chart interpretation)", "textVersion": "On a synoptic chart, isobars are drawn at 4 hPa intervals (\u2026 1016, 1020, 1024, 1028 \u2026 hPa). Point M lies between the 1020 hPa and 1024 hPa isobars, about two-fifths of the way from the 1020 hPa isobar towards the 1024 hPa isobar. The chart's latitude lines are marked at 30\u00b0S and 35\u00b0S (5\u00b0 apart), and point M sits about two-fifths of the way from 30\u00b0S towards 35\u00b0S.\nWhat is the approximate air pressure and latitude at point M?\nA. 1020 hPa, 30\u00b0S\nB. 1022 hPa, 32\u00b0S\nC. 1024 hPa, 34\u00b0S\nD. 1026 hPa, 36\u00b0S", "options": ["1020 hPa, 30\u00b0S", "1022 hPa, 32\u00b0S", "1024 hPa, 34\u00b0S", "1026 hPa, 36\u00b0S"], "correct": 1, "explanation": "Interpolating two-fifths of the way between 1020 hPa and 1024 hPa gives 1020 + 0.4 \u00d7 4 = 1022 hPa. Interpolating two-fifths of the way between 30\u00b0S and 35\u00b0S gives 30 + 0.4 \u00d7 5 = 32\u00b0S.", "originalNote": "The original question used a real synoptic chart (Source D) and asked for the pressure and latitude at a marked point M; this version restates the interpolation as text with freshly constructed but consistent values."}, {"id": "trial2026-s5", "source": "2026 Trial", "category": "Maps", "skillCode": "M23", "skillName": "Determining wind direction and likely weather from a pressure system", "difficulty": "Medium", "topicArea": "General geographic skills (synoptic weather chart interpretation)", "textVersion": "Point O marks the centre of a low-pressure system on a Northern Hemisphere synoptic chart.\nWhat is the direction of wind flow around point O, and the likely weather there?\nA. Anti-clockwise \u2014 Settled, dry and clear\nB. Anti-clockwise \u2014 Unsettled, overcast sky, rain and wind\nC. Clockwise \u2014 Settled, dry and clear\nD. Clockwise \u2014 Unsettled, overcast sky, rain and wind", "options": ["Anti-clockwise \u2014 Settled, dry and clear", "Anti-clockwise \u2014 Unsettled, overcast sky, rain and wind", "Clockwise \u2014 Settled, dry and clear", "Clockwise \u2014 Unsettled, overcast sky, rain and wind"], "correct": 1, "explanation": "In the Northern Hemisphere, winds circulate anti-clockwise around a low-pressure centre (cyclonic flow). Low-pressure systems are associated with rising air, cloud formation and unsettled, wet and windy weather.", "originalNote": "The original question showed a real synoptic chart (Source E) with a marked low-pressure centre at point O; this version states the same underlying scenario (a Northern Hemisphere low) directly in the text."}, {"id": "trial2026-s6", "source": "2026 Trial", "category": "Maps", "skillCode": "M15", "skillName": "Identifying the aspect of a slope from contour lines", "difficulty": "Medium", "topicArea": "Topic 2: Ecosystems and Global Biodiversity (national park topographic map)", "textVersion": "On a topographic map, point Q sits on a hillslope inside a National Park. The contour lines near Q run roughly from north-west to south-east, with elevation values increasing towards the south-west (180 m) and decreasing towards the north-east (140 m).\nWhat is the aspect of the slope at point Q?\nA. NE\nB. NW\nC. SE\nD. SW", "options": ["NE", "NW", "SE", "SW"], "correct": 0, "explanation": "Aspect is the compass direction a slope faces \u2014 the direction of steepest descent, from high ground to low ground. Since elevation decreases from 180 m (SW) to 140 m (NE), the slope faces (has an aspect of) NE.", "originalNote": "The original question used a real contour pattern around point Q on Source F; this version describes an equivalent contour pattern in text, preserving the NE answer."}, {"id": "trial2026-s7", "source": "2026 Trial", "category": "Maps", "skillCode": "M16", "skillName": "Determining stream flow direction from contour lines", "difficulty": "Medium", "topicArea": "Topic 2: Ecosystems and Global Biodiversity (national park topographic map)", "textVersion": "A stream crosses a section of topographic map within a National Park. The contour lines form V-shapes that point towards the north, indicating higher ground to the north. At point R, elevation decreases from 220 m in the north to 160 m in the south, with the streambed trending slightly eastward as it flows south.\nWhat is the approximate direction of stream flow at point R?\nA. NNW\nB. SSE\nC. ESE\nD. WNW", "options": ["NNW", "SSE", "ESE", "WNW"], "correct": 1, "explanation": "Streams flow from higher to lower elevation, and contours form a V pointing upstream (towards higher ground, here to the north). Since the stream flows mostly south with a slight eastward trend, the flow direction is SSE.", "originalNote": "The original question used a real contour/stream pattern around point R on Source F; this version describes an equivalent pattern in text, preserving the SSE answer."}, {"id": "trial2026-s8", "source": "2026 Trial", "category": "Maps", "skillCode": "M22", "skillName": "Determining intervisibility (sight lines) between two points", "difficulty": "Harder", "topicArea": "Topic 2: Ecosystems and Global Biodiversity (national park topographic map)", "textVersion": "An observer stands at point S, at an elevation of 100 m. A ridge with a crest elevation of 155 m lies 400 m from S, directly along the line of sight to each of four buildings listed below.\nUsing the height of the straight line of sight at the point where it crosses the ridge, which building can be seen from point S?\nA. A building 800 m from S, at an elevation of 140 m\nB. A building 600 m from S, at an elevation of 220 m\nC. A building 1000 m from S, at an elevation of 130 m\nD. A building 500 m from S, at an elevation of 150 m", "options": ["A building 800 m from S, at an elevation of 140 m", "A building 600 m from S, at an elevation of 220 m", "A building 1000 m from S, at an elevation of 130 m", "A building 500 m from S, at an elevation of 150 m"], "correct": 1, "explanation": "The height of the line of sight at the ridge (400 m from S) = S's elevation + (400/distance to building) \u00d7 (building elevation \u2212 S's elevation). A: 100+(400/800)\u00d740=120 m < 155 m ridge \u2014 blocked. B: 100+(400/600)\u00d7120=180 m > 155 m ridge \u2014 visible. C: 100+(400/1000)\u00d730=112 m < 155 m \u2014 blocked. D: 100+(400/500)\u00d750=140 m < 155 m \u2014 blocked. Only building B's line of sight clears the ridge, so only B is visible from S.", "originalNote": "The original question asked which of four grid-referenced buildings was visible from point S on the real contour map (Source F), with the answer determined by ridges/plateau blocking the other three. This version constructs a fresh, numerically self-contained intervisibility scenario testing the identical sight-line skill."}, {"id": "trial2026-s9", "source": "2026 Trial", "category": "Maps", "skillCode": "M19", "skillName": "Calculating the area of a feature within a map grid square", "difficulty": "Medium", "topicArea": "Topic 2: Ecosystems and Global Biodiversity (national park topographic map)", "textVersion": "On a 1:25 000 topographic map, area references (AR) each cover a grid square measuring 1 km \u00d7 1 km. In AR 3691, a lake covers a roughly rectangular portion of the square measuring approximately 550 m by 400 m.\nWhat is the approximate area of water only in AR 3691?\nA. 0.12 km\u00b2\nB. 0.22 km\u00b2\nC. 0.32 km\u00b2\nD. 0.42 km\u00b2", "options": ["0.12 km\u00b2", "0.22 km\u00b2", "0.32 km\u00b2", "0.42 km\u00b2"], "correct": 1, "explanation": "Area = length \u00d7 width = 0.55 km \u00d7 0.40 km = 0.22 km\u00b2.", "originalNote": "The original question (Q10) asked for the area of water only within AR 2786 on the real topographic map (Source F), with the marking guidelines confirming an answer of 0.22 km\u00b2 found by adding/subtracting parts of a 2 cm-wide rectangle. This version uses fresh, self-contained dimensions that give the same 0.22 km\u00b2 answer."}, {"id": "trial2026-s10", "source": "2026 Trial", "category": "Graphs", "skillCode": "G2", "skillName": "Using a data table to identify trends and their sustainability implications", "difficulty": "Easier", "topicArea": "Topic 3: Rural and Urban Places (smart city sustainability indicators)", "textVersion": "A smart city dashboard tracks water, energy and waste indicators over time:\n\nTrend shown in data \u2014 Related implication for sustainability\nA. Water used per person is 186 L/day and rising. \u2014 Shows the city is eliminating residential water consumption\nB. Renewable energy generation is 2288.24 MWh/month and rising. \u2014 Indicates the city is increasing its use of low-emission energy sources\nC. Collected waste per household is 50 kg/month and rising sharply. \u2014 Indicates improving waste reduction at the source\nD. The residential recycling rate is 34.8% and decreasing. \u2014 Suggests the city is moving toward a more circular economy\n\nWhich row of the table identifies a valid sustainability implication related to the trend shown in the data?", "options": ["Water used per person is 186 L/day and rising \u2192 Shows the city is eliminating residential water consumption", "Renewable energy generation is 2288.24 MWh/month and rising \u2192 Indicates the city is increasing its use of low-emission energy sources", "Collected waste per household is 50 kg/month and rising sharply \u2192 Indicates improving waste reduction at the source", "The residential recycling rate is 34.8% and decreasing \u2192 Suggests the city is moving toward a more circular economy"], "correct": 1, "explanation": "Rising renewable energy generation directly and logically indicates increasing use of low-emission energy sources. The other rows draw an implication that contradicts the trend: rising water use is not 'eliminating' consumption; rising waste per household is not 'improving waste reduction'; and a decreasing recycling rate does not suggest movement towards a circular economy.", "originalNote": ""}, {"id": "trial2026-s11", "source": "2026 Trial", "category": "Maps", "skillCode": "M18", "skillName": "Calculating time of travel from distance and speed", "difficulty": "Medium", "topicArea": "Topic 3: Rural and Urban Places (drone survey / fieldwork mapping)", "textVersion": "A drone flies 10 km between two points at an average speed of 18.5 km/h.\nHow long will this flight take?\nA. 15 minutes and 22 seconds\nB. 16 minutes and 13 seconds\nC. 30 minutes and 43 seconds\nD. 32 minutes and 26 seconds", "options": ["15 minutes and 22 seconds", "16 minutes and 13 seconds", "30 minutes and 43 seconds", "32 minutes and 26 seconds"], "correct": 3, "explanation": "Time = Distance / Speed = 10 km / 18.5 km/h = 0.5405 hours = 0.5405 \u00d7 60 = 32.43 minutes = 32 minutes and 26 seconds.", "originalNote": "The original question used the actual measured distance between points A and B on Source C, which the marking guidelines reveal to be 10 km (T = D/S = 10/18.5 \u00d7 60 mins = 32 mins 26 sec). This version states that real distance directly in the question so it is answerable without the map."}, {"id": "trial2026-s12", "source": "2026 Trial", "category": "Graphs", "skillCode": "G7", "skillName": "Calculating proportional (percentage) change from a data table", "difficulty": "Medium", "topicArea": "Topic 1: Global Sustainability (global tourism expenditure)", "textVersion": "Tourism expenditure dropped significantly across Australian states and territories due to the impact of Coronavirus.\n\nState/territory \u2014 2019 expenditure ($m) \u2014 2020 expenditure ($m)\nTasmania \u2014 2,600 \u2014 2,000\nQueensland \u2014 12,000 \u2014 9,500\nNew South Wales \u2014 28,000 \u2014 22,000\nNorthern Territory \u2014 1,800 \u2014 1,300\n\nWhich state or territory saw the largest relative (percentage) change in tourism expenditure between 2019 and 2020?\nA. Tasmania\nB. Queensland\nC. New South Wales\nD. Northern Territory", "options": ["Tasmania", "Queensland", "New South Wales", "Northern Territory"], "correct": 3, "explanation": "Percentage change = (2020 \u2212 2019) / 2019 \u00d7 100. Tasmania: \u2212600/2600 \u2248 \u221223.1%. Queensland: \u22122500/12000 \u2248 \u221220.8%. New South Wales: \u22126000/28000 \u2248 \u221221.4%. Northern Territory: \u2212500/1800 \u2248 \u221227.8% \u2014 the largest relative drop.", "originalNote": "The original question used a real ABS domestic tourism expenditure graph (Source H), with the marking guidelines confirming the correct answer was Northern Territory (a 25.3% drop). This version uses freshly constructed but internally consistent figures that preserve the same skill (calculating % change from a data table) and the same correct answer (Northern Territory)."}]</script>
+<script type="application/json" id="q16WrittenData">[{"id": "trial2026-q16-1", "source": "2026 Trial", "marks": 3, "directive": "Constructing and shading a land-use transect from a topographic map (Stage 6 skill: constructing a transect between two points; using a map key to classify land use along a line)", "question": "Complete a transect between point T and point U across the topographic map extract to show: Waterbody areas; National Park; and Other/slopes. Use the key:\n\u2022 Waterbody areas \u2014 wavy-line shading\n\u2022 National Park \u2014 dotted shading\n\u2022 Other/slopes \u2014 vertical-line shading\n\n(For context: The original question (Source F, the same 1:25 000 topographic map extract used for the Section I map-skills questions) showed a coastal section of a National Park containing an area of open water (a lake or waterbody), surrounded by National Park land, with a transect line marked from T (left) to U (right) crossing several land-use zones. Students had to construct a labelled cross-section/transect diagram (a rectangular strip between T and U), shading each horizontal segment according to which of the three zones (Waterbody areas, National Park, Other/slopes) the transect line passed through at that point, using the given key.)", "markingGuideline": "Criteria: 3 marks \u2013 Correctly labels the transect using the key. 2 marks \u2013 Labels the transect using the key with partial accuracy. 1 mark \u2013 Shows some understanding of transect construction.\n\nSample answer (shading pattern reproduced from the marking guidelines' sample transect diagram, reading from T to U): a short 'Other/slopes' (vertical-line) segment at the T end, followed by a substantial 'National Park' (dotted) segment, then a narrower 'Waterbody areas' (wavy-line) segment in the middle of the transect, then a further substantial 'National Park' (dotted) segment continuing to U.", "dotPoints": [16, 18]}, {"id": "q21-1", "source": "CSSA (Catholic Trial), 2023", "marks": 5, "directive": "Interpreting and calculating from a population profile (population pyramid) \u2014 G8, G2", "question": "The table below shows the population structure (percentage of total population) of the small Western Australian coastal town of Bellara in 2016 and 2021.\n\nAge group | Bellara 2016 (%) | Bellara 2021 (%)\n0-4 | 9.0 | 6.0\n5-9 | 8.0 | 5.0\n10-14 | 7.0 | 6.0\n15-19 | 6.0 | 5.0\n20-24 | 3.0 | 2.0\n25-29 | 4.0 | 3.0\n30-34 | 5.0 | 4.0\n35-39 | 6.0 | 5.0\n40-44 | 7.0 | 6.0\n45-49 | 8.0 | 7.0\n50-54 | 8.0 | 8.0\n55-59 | 7.0 | 8.0\n60-64 | 6.0 | 8.0\n65-69 | 5.0 | 7.0\n70-74 | 4.0 | 6.0\n75-79 | 3.0 | 5.0\n80-84 | 2.0 | 4.0\n85+ | 2.0 | 5.0\n\n(a) Bellara's total population in 2021 was 340 people. Calculate how many children were aged 5-9 in Bellara in 2021. (1 mark)\n\n(b) Identify TWO changes in the population structure of Bellara between 2016 and 2021. (2 marks)\n\n(c) With reference to ONE change identified in part (b), outline how this change could impact the community of Bellara. (2 marks)", "markingGuideline": "(a) 1 mark: 340 x 0.05 (5.0%) = 17 children.\n(b) 2 marks (1 mark each, up to two of): a decrease in the percentage of population aged 0-19 (fewer young families/children); a continued low proportion aged 20-24 in both years (young adults leaving for education/employment); an increase in the percentage of population aged 55+ (ageing population); the population pyramid has become more 'top-heavy'/less pyramid-shaped over the five years.\n(c) 2 marks: 1 mark for correctly restating the change chosen; 1 mark for a plausible, clearly linked community impact, e.g. 'The increasing percentage of residents aged 65+ means Bellara will need to plan for greater demand on aged-care services, health facilities and accessible housing, while demand for schooling and childcare may fall as the 0-14 age group shrinks.'", "dotPoints": []}, {"id": "q21-2", "source": "CSSA (Catholic Trial), 2022", "marks": 3, "directive": "Interpreting synoptic weather charts \u2014 pressure systems, fronts, linking a chart to station data \u2014 M23", "question": "Source J is a mean sea level pressure (synoptic) chart for Australia at 9am on 10 December. It shows a vigorous cold front crossing the south-west of Western Australia, with a low pressure system (992 hPa) centred in the Great Australian Bight and closely spaced isobars over Perth and Albany. Source K is a table of weather observations recorded at the same time as Source J.\n\nSource K - Weather observations, 10 December, 9am\nStation | Barometric pressure (hPa) | Wind direction | Temperature (deg C)\nPerth | 1008 | SW | 22\nGeraldton | 1010 | W | 25\nAlbany | 998 | SW | 16\nEsperance | 996 | SW | 15\n\n(a) Name ONE weather feature shown on Source J that contributed to the information recorded for Perth in Source K. (1 mark)\n\n(b) What was the barometric air pressure at Perth on 10 December? (1 mark)\n\n(c) In which season was Source J most likely compiled? (1 mark)", "markingGuideline": "(a) 1 mark: the cold front (or the associated low pressure system) crossing the south-west of WA, which produced the south-westerly winds and falling pressure recorded at Perth.\n(b) 1 mark: 1008 hPa.\n(c) 1 mark: Summer - December falls in the southern hemisphere summer.", "dotPoints": []}, {"id": "q21-3", "source": "CSSA (Catholic Trial), 2021", "marks": 6, "directive": "Interpreting synoptic charts \u2014 isobar spacing and wind speed, pressure, wind direction, short-range forecasting \u2014 M23", "question": "Source E is a synoptic chart for Australia at 9am on 11 December. On the chart, isobars are very tightly packed around Point A, just off the coast near Newcastle (NSW), where a developing east coast low is intensifying. Further out to sea near Point C, the isobars are much more widely spaced. A ridge of high pressure (1024 hPa) extends across central Australia, while a monsoonal trough associated with isolated thunderstorms lies over the north-west of the country, near Port Hedland (WA).\n\nWeather observations, 11 December, 9am\nStation | Barometric pressure (hPa) | Wind direction | Wind speed (knots)\nNewcastle | 1004 | SE | 35\nPort Hedland | 1000 | NW | 15\n\n(a) Where were wind speeds greatest on 11 December, at Point A or Point C? Justify your answer using the spacing of the isobars. (1 mark)\n\n(b) What was the barometric air pressure at Newcastle on 11 December? (1 mark)\n\n(c) Estimate the wind direction at Newcastle. (1 mark)\n\n(d) Describe the likely weather conditions Port Hedland would have been experiencing on 11 December. (3 marks)", "markingGuideline": "(a) 1 mark: Point A - the isobars are more closely spaced there, indicating a steeper pressure gradient and therefore stronger winds.\n(b) 1 mark: 1004 hPa.\n(c) 1 mark: south-easterly (SE).\n(d) 3 marks (1 mark per relevant, correctly linked point, up to 3): Port Hedland, lying under/near the monsoonal trough with a NW wind and relatively low pressure (1000 hPa), would most likely be experiencing hot, humid conditions with high cloud cover and a chance of thunderstorms or heavy showers; conditions consistent with the wet season in tropical north-west Australia.", "dotPoints": []}, {"id": "q21-4", "source": "CSSA (Catholic Trial), 2018", "marks": 8, "directive": "Fieldwork methodology \u2014 identifying an environmental issue from a map, locating with a grid reference, and designing/justifying a primary research method \u2014 M5", "question": "The extract below describes part of a 1:25 000 topographic map of a coastal river catchment.\n\nSelected features and grid references:\n- Sewage treatment plant - GR 412268\n- Market garden (irrigated vegetable farms) - GR 420255\n- Native bushland reserve - GR 405280\n- Caravan park - GR 430260\nThe Kooringal River flows south-east through the map area, passing close to the market garden and the sewage treatment plant, before entering an estuary at GR 440230.\n\n(a) Identify ONE human landuse shown on the map extract above that could impact on the environment. (1 mark)\n\n(b) Locate the landuse identified in (a) with a Grid Reference. (1 mark)\n\n(c) Develop a research focus question to investigate the impact of the landuse stated in (a). (1 mark)\n\n(d) Identify and describe a primary research method that could be used to investigate the research focus question stated in (c). (3 marks)\n\n(e) Justify why you have chosen this research method. (2 marks)", "markingGuideline": "(a)-(b) 2 marks: any landuse reasonably capable of environmental impact, correctly located, e.g. 'Sewage treatment plant, GR 412268' or 'Market garden, GR 420255'.\n(c) 1 mark: a clear, researchable focus question directly linked to the landuse chosen, e.g. 'To what extent does effluent discharge from the sewage treatment plant affect water quality in the Kooringal River downstream of GR 412268?'\n(d) 3 marks: identifies an appropriate primary method (e.g. water quality field testing) and describes it with enough detail to be repeatable - 3 marks; identifies method with limited description - 2 marks; names a method only - 1 mark. Sample: 'Field water sampling: collect water samples at three points - upstream, at, and downstream of the discharge point - and test each for turbidity, pH, dissolved oxygen and nutrient (nitrate/phosphate) levels using a water quality test kit, repeating on at least three occasions to allow for variation.'\n(e) 2 marks: sound justification linking the method's strengths to the research question, e.g. 'This method provides quantifiable, site-specific, current primary data that can be directly compared upstream and downstream, allowing a clear test of whether the treatment plant is affecting water quality, unlike secondary data which may not be available at this local scale.'", "dotPoints": []}, {"id": "q21-5", "source": "CSSA (Catholic Trial), 2017", "marks": 6, "directive": "Constructing and interpreting population pyramids (profiles) from a data table \u2014 G8", "question": "The table below shows the population structure (percentage of total population) of the small town of Jetty Point and of Tasmania as a whole, 2011.\n\nAge group | Jetty Point (%) | Tasmania (%)\n0-4 | 8.0 | 9.0\n5-9 | 8.0 | 6.5\n10-14 | 8.0 | 6.5\n15-19 | 7.0 | 6.5\n20-24 | 5.0 | 6.0\n25-29 | 4.0 | 5.5\n30-34 | 5.0 | 5.5\n35-39 | 5.0 | 6.0\n40-44 | 6.0 | 6.5\n45-49 | 7.0 | 7.0\n50-54 | 7.0 | 7.0\n55-59 | 7.0 | 6.5\n60-64 | 6.0 | 6.0\n65-69 | 5.0 | 5.0\n70-74 | 4.0 | 4.0\n75-79 | 3.0 | 3.0\n80-84 | 2.0 | 2.0\n85+ | 3.0 | 1.5\n\n(a) Using the table, construct a population pyramid for Jetty Point and Tasmania, 2011 (place Jetty Point on the left and Tasmania on the right of a shared vertical age axis). (2 marks)\n\n(b) Identify TWO differences between the populations of Jetty Point and Tasmania shown by your pyramid. (2 marks)\n\n(c) Choose ONE difference identified in part (b) and outline a reason for the difference. (2 marks)", "markingGuideline": "(a) 2 marks: correctly labelled age axis (5-year age groups) and percentage axes for both populations, all 18 age groups plotted as horizontal bars proportional to the data - 2 marks; minor errors/omissions - 1 mark.\n(b) 2 marks (1 mark each), e.g.: Jetty Point has a noticeably lower percentage of population aged 20-34 than Tasmania overall; Jetty Point has a higher percentage of population aged 55-64 and 85+ than Tasmania.\n(c) 2 marks: 1 mark for restating the chosen difference, 1 mark for a plausible, clearly linked reason, e.g. 'Jetty Point has a lower percentage of 20-34 year olds because young adults leave small towns like Jetty Point for tertiary education and employment opportunities that are only available in larger regional centres or cities, a common pattern of rural-to-urban youth migration.'", "dotPoints": []}, {"id": "q21-6", "source": "CSSA (Catholic Trial), 2015", "marks": 10, "directive": "Fieldwork inquiry design \u2014 identifying a geographic issue from a map, framing a research question and hypothesis, selecting and justifying research methods", "question": "The map extract below (Source D) shows a rural-residential subdivision on the fringe of a regional town.\n\nVisible features: a cleared hillside being developed for new housing lots (GR 512389); a creek running through a remnant eucalypt forest (GR 508395); a poultry farm (GR 520380); a public reserve with a walking track (GR 515392). Noticeable erosion scarring and sediment build-up are visible in the creek bed immediately downstream of the new housing development.\n\n(a) Identify and locate ONE Geographic Issue shown on the map extract that could be researched. (2 marks)\n\n(b) Design a research question based on the Geographic Issue identified in part (a). (1 mark)\n\n(c) Propose a hypothesis that could be tested in relation to the research question stated in part (b). (1 mark)\n\n(d) Identify TWO different methodologies that could be used in researching the question stated in part (b), and justify the use of each method of research. (6 marks)", "markingGuideline": "(a) 2 marks: a clearly identified, researchable geographic issue with a correct grid reference, e.g. 'Soil erosion and sedimentation of the creek caused by vegetation clearing for the new housing development, GR 512389-508395.'\n(b) 1 mark: a clear research question directly linked to the issue, e.g. 'Does the clearing of vegetation for the new housing development increase sediment levels in the creek downstream?'\n(c) 1 mark: a testable hypothesis matched to the research question, e.g. 'Sediment levels in the creek will be significantly higher downstream of the cleared housing site than upstream.'\n(d) 6 marks (3 marks per method): for each method - 1 mark for identifying an appropriate methodology, 2 marks for a sound justification linking it to the research question. Sample methods: (1) Water sample turbidity/sediment testing at fixed points upstream and downstream of the development, repeated over time - justified as it provides quantifiable, directly comparable primary data that can test the hypothesis. (2) Structured interview/questionnaire with the local council or residents about erosion-control measures used during construction - justified as it provides qualitative context on the causes and management of the issue that field measurement alone cannot capture.", "dotPoints": []}, {"id": "q21-7", "source": "CSSA (Catholic Trial), 2014", "marks": 4, "directive": "Constructing/interpreting climate graphs \u2014 calculating temperature range and annual average precipitation, reading seasonal patterns \u2014 G4", "question": "Refer to the climatic data for Denmark (Western Australia) below.\n\nDenmark: Western Australia (WA)\nMonth | J | F | M | A | M | J | J | A | S | O | N | D\nAverage temp (deg C) | 20 | 19 | 18 | 16 | 14 | 12 | 11 | 12 | 13 | 14 | 16 | 18\nAverage precip (mm) | 22.3 | 27.3 | 38.1 | 81.9 | 124.7 | 143.0 | 158.9 | 127.8 | 99.1 | 92.1 | 53.0 | 32.0\n\n(a) Calculate the seasonal temperature range for Denmark (WA). (1 mark)\n\n(b) Calculate the annual average precipitation for Denmark (WA). (1 mark)\n\n(c) Using the climatic data ONLY, explain how the data reveals that Denmark (WA) is found in the southern hemisphere. (1 mark)\n\n(d) In which season does Denmark experience a maximum of precipitation? (1 mark)", "markingGuideline": "(a) 1 mark: 20 deg C - 11 deg C = 9 deg C.\n(b) 1 mark: sum of the twelve monthly average precipitation figures = approximately 1000.2 mm (22.3+27.3+38.1+81.9+124.7+143.0+158.9+127.8+99.1+92.1+53.0+32.0).\n(c) 1 mark: the warmest months are December/January/February and the coldest are June/July, i.e. summer occurs in December-February and winter in June-August - the reverse of the northern hemisphere pattern - which confirms a southern hemisphere location.\n(d) 1 mark: winter - the maximum monthly precipitation (158.9 mm) occurs in July.", "dotPoints": []}, {"id": "q21-8", "source": "CSSA (Catholic Trial), 2012", "marks": 6, "directive": "Fieldwork methodology \u2014 identifying an environmental issue from a map, locating with a grid reference, and designing/justifying a primary research method \u2014 M5", "question": "The map extract below shows part of a national park.\n\nVisible features and grid references: an unsealed 4WD access track (GR 662714); a bushwalking trail and lookout (GR 655722); a licensed tour-boat launching area on the river (GR 670708); a small mineral exploration lease boundary (GR 648730) abutting the park's western edge.\n\n(a) Identify a human landuse that could impact on the national park. Locate this landuse with an Area or Grid Reference. (1 mark)\n\n(b) Develop a research focus question to investigate the impact of the human landuse stated in part (a). (1 mark)\n\n(c) Describe ONE possible impact of the human landuse stated in part (a) on the surrounding physical environment. (1 mark)\n\n(d) Identify and justify a primary research method that could be used to investigate the research focus question stated in part (b). (3 marks)", "markingGuideline": "(a) 1 mark: any plausible human landuse with a correct GR, e.g. 'Mineral exploration lease, GR 648730.'\n(b) 1 mark: e.g. 'To what extent does mineral exploration activity affect native vegetation cover along the park's western boundary?'\n(c) 1 mark: e.g. 'Clearing of vegetation and creation of access tracks for exploration equipment could increase soil erosion and disturb wildlife habitat at the park boundary.'\n(d) 3 marks: 1 mark for identifying a suitable primary method (e.g. a vegetation survey using quadrats along transects at increasing distance from the lease boundary), 2 marks for a sound justification, e.g. 'This method gives quantifiable, site-specific, current data on vegetation density and species diversity that can be directly compared near to and further from the exploration site, allowing a clear test of impact.'", "dotPoints": []}, {"id": "q21-9", "source": "CSSA (Catholic Trial), 2010", "marks": 8, "directive": "Constructing a cross-section/transect; calculating gradient and vertical exaggeration \u2014 G5, G12, G13, M21", "question": "The table below gives the elevation at points along a straight-line transect from a spot height at GR 295149 (elevation 105 m) to Neck Beach at GR 310113 (elevation 0 m), a horizontal distance of 3.9 km.\n\nDistance from GR 295149 (km) | 0 | 0.5 | 1.0 | 1.5 | 2.0 | 2.5 | 3.0 | 3.5 | 3.9\nElevation (m) | 105 | 60 | 40 | 65 | 82 | 55 | 25 | 5 | 0\n\nLanduse along the transect: Forest from 0-2.6 km; Cleared Land (marked X) from 2.6-3.4 km; Neck Beach from 3.4-3.9 km (the coastal end of the transect).\n\n(a) Using the table, construct a cross-section from GR 295149 to Neck Beach at GR 310113, and add a legend identifying the Forest, Cleared Land and Neck Beach sections of the transect. (2 marks)\n\n(b) Name the feature located at X (2.6-3.4 km) on the cross-section. (1 mark)\n\n(c) Calculate the average gradient between the spot height at GR 295149 and Neck Beach at GR 310113. (2 marks)\n\n(d) Calculate the vertical exaggeration of your cross-section, given a horizontal scale of 1:25 000 and a vertical scale of 1 cm representing 20 m (i.e. 1:2 000). (2 marks)\n\n(e) What is the purpose of vertical exaggeration in a cross-section? (1 mark)", "markingGuideline": "(a) 2 marks: elevation profile correctly plotted against distance (peaks/dips in the right places), horizontal and vertical axes labelled and scaled, legend correctly shows the three zones in the right positions along the base of the transect - 2 marks; minor errors - 1 mark.\n(b) 1 mark: Cleared Land.\n(c) 2 marks: gradient = vertical interval / horizontal distance = 105 m / 3 900 m = 1:37 (accept 1:37.1 or equivalent working); 1 mark for correct method with a minor arithmetic error.\n(d) 2 marks: VE = horizontal scale denominator / vertical scale denominator = 25 000 / 2 000 = 12.5, i.e. the cross-section is exaggerated approximately 12.5 times; 1 mark for correct method with an arithmetic error.\n(e) 1 mark: vertical exaggeration makes subtle changes in relief and slope easier to see, because horizontal distances on a map are usually far greater than vertical (height) differences, which would otherwise appear almost flat if drawn to the same scale.", "dotPoints": []}, {"id": "q21-10", "source": "CSSA (Catholic Trial), 2009 (equivalent of Question 16, the Section II opening skills question)", "marks": 6, "directive": "Interpreting synoptic charts to identify weather features and forecast short-term change \u2014 M23", "question": "Source K is a synoptic chart for 8am on 15 July. It shows a vigorous cold front, marked X, approaching south-west Victoria and Tasmania from the Southern Ocean, with a low pressure system (988 hPa) centred south of Tasmania. Isobars are tightly packed behind the front, indicating strong south-westerly winds. Source J is a satellite image compiled at the same time, showing a band of thick cloud associated with the front extending from Tasmania to south-west Western Australia. Source J and Source K were compiled on the same day.\n\nWeather observations, 15 July, 8am\nStation | Barometric pressure (hPa) | Wind direction\nMelbourne | 1012 | NW\n\n(a) Identify the weather feature located at point X in Source K. (1 mark)\n\n(b) In which season were these sources most likely produced? (1 mark)\n\n(c) What is the barometric air pressure and wind direction in Melbourne? (1 mark)\n\n(d) Predict how the weather conditions will change in Tasmania over the next 24 hours. (3 marks)", "markingGuideline": "(a) 1 mark: a cold front.\n(b) 1 mark: winter - 15 July falls in the southern hemisphere winter.\n(c) 1 mark: 1012 hPa, north-westerly (NW).\n(d) 3 marks (1 mark per relevant, correctly linked point, up to 3): as the front and low pressure system move towards/across Tasmania, expect falling atmospheric pressure, a wind change from north-westerly to strong south-westerly/westerly, increasing cloud cover, and rain or showers (potentially heavy), together with a drop in temperature once the front passes.", "dotPoints": []}, {"id": "q21-11", "source": "CSSA (Catholic Trial), 2008 (equivalent of Question 18, a Section II skills question)", "marks": 4, "directive": "Constructing a precis map from a written description of a photograph/map \u2014 I4", "question": "An aerial photograph of the industrial town of Yallourn shows the following features: an open cut coal mine occupying the northern half of the town, bounded by a haul road; a coal-fired power station and its cooling towers on the eastern edge of the town, connected to the mine by a conveyor belt; a pine plantation forming a buffer along the southern boundary of the town; and a small residential area in the south-west corner.\n\nConstruct a precis map showing the economic activity in Yallourn described above, and complete the legend. Use a clear, distinct symbol for each of: open cut coal mining, pine plantation, and power station. (4 marks)", "markingGuideline": "4 marks: a simplified, appropriately proportioned sketch map showing the mine, power station, pine plantation and residential area in approximately correct relative positions and directions (e.g. mine in the north, power station in the east, plantation in the south, houses in the south-west), the mine and power station linked by a conveyor belt, and a frame/border, title and north point - 4 marks; a complete key/legend with a distinct symbol for each of the three required land uses is required for full marks. Award 3 marks for a map missing one element (e.g. no north point, or one feature misplaced); 2 marks for a map showing only 2-3 features correctly with a partial key; 1 mark for a basic attempt showing general layout only.", "dotPoints": []}, {"id": "q21-12", "source": "CSSA (Catholic Trial), 2006 (equivalent of Question 16, a Section II skills question)", "marks": 3, "directive": "Constructing a compound (component) bar graph from a data table \u2014 G1, G6", "question": "Employment by industry, 2001 (number of people)\nIndustry | Orbost | Bairnsdale\nAgriculture, forestry, fishing and hunting | 420 | 260\nManufacturing | 180 | 340\nCultural and recreational services | 60 | 150\n\nUsing the data table above, construct a compound (component) bar graph, with an appropriate key, showing employment by industry in Orbost and Bairnsdale in 2001. Use a single horizontal axis scaled from 0 to 1000 people, with one bar for Orbost and one bar for Bairnsdale. (3 marks)", "markingGuideline": "3 marks: 1 mark for two bars (one per town), correctly and identically scaled against a labelled 0-1000 horizontal axis; 1 mark for each bar correctly divided into three segments in the right order and in proportion to the data, with each bar's segments summing to the town's correct total (Orbost = 660; Bairnsdale = 750); 1 mark for a complete key matching the three industries to a distinct shading/pattern used consistently on both bars. Deduct 1 mark overall for a missing title, axis label or units.", "dotPoints": []}, {"id": "q21-13", "source": "CSSA (Catholic Trial), 2005 (equivalent of Question 19, a Section II skills question)", "marks": 7, "directive": "Constructing a vegetation transect; fieldwork issue identification and research design \u2014 G5, G12", "question": "The map extract below (Source D) shows part of a coastal reserve. A straight-line transect runs 500 m due north from GR 240150 to GR 240200. Field observations recorded along this transect were:\n- 0-120 m: dense coastal scrub (banksia and tea-tree, over 2 m high)\n- 120-260 m: an area of dieback, with bare sand and dead/dying vegetation, adjacent to a sandy 4WD track\n- 260-500 m: open eucalypt woodland, grading into low heath near the dune crest\n\n(a) Using the field observations above, complete a vegetation transect and key from GR 240150 to GR 240200, showing the THREE vegetation/land zones described. (2 marks)\n\n(b) Identify the geographical issue evident along this transect and develop a research focus question referring to this issue. (1 mark)\n\n(c) Identify and justify a primary research methodology to investigate the issue stated in part (b). (2 marks)\n\n(d) Name a vocation that would use the research findings from this investigation in their workplace. (1 mark)\n\n(e) State how the research findings would be used by this vocation. (1 mark)", "markingGuideline": "(a) 2 marks: an accurately proportioned 500 m horizontal transect line correctly divided into the three zones (0-120 m / 120-260 m / 260-500 m) with a matching, clearly labelled key - 2 marks; correct zones but proportions/key incomplete - 1 mark.\n(b) 1 mark: issue = vegetation dieback/dune degradation linked to unauthorised 4WD track use; focus question e.g. 'Is informal 4WD access contributing to vegetation dieback in the coastal reserve?'\n(c) 2 marks: 1 mark for an appropriate primary method (e.g. quadrat sampling of vegetation cover and health at set intervals along the transect), 1 mark for justification, e.g. 'this gives quantifiable, repeatable data on vegetation condition that can be compared at different points along the transect and over time.'\n(d) 1 mark: e.g. National Parks ranger / land management officer / council bushland officer.\n(e) 1 mark: e.g. to inform decisions on track closure, fencing off degraded areas, or rehabilitation/replanting programs to reduce further dune erosion.", "dotPoints": []}]</script>
+<script>// ============================================================================
+// Geo12 Revision Suite — shared engine (embedded identically on every page)
+// ============================================================================
+
+// ===== Utilities =====
+function $(id){ return document.getElementById(id); }
+function save(key,val){ try{ localStorage.setItem('geo12hub_'+key, val); }catch(e){} }
+function load(key,fallback){ try{ const v=localStorage.getItem('geo12hub_'+key); return v===null?fallback:v; }catch(e){ return fallback; } }
+function saveJSON(key,obj){ save(key, JSON.stringify(obj)); }
+function loadJSON(key,fallback){ try{ const v=load(key,null); return v===null?fallback:JSON.parse(v); }catch(e){ return fallback; } }
+function shuffleArr(a){ const arr=a.slice(); for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function esc(s){ return (s===undefined||s===null) ? '' : String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function readData(id){ const el=$(id); if(!el) return null; try{ return JSON.parse(el.textContent); }catch(e){ console.error('Bad JSON in',id,e); return null; } }
+
+// ===== Site-wide nav bar (canonical order across all 7 pages) =====
+const SITE_NAV = [
+  ['Geo12_Revision_Hub.html','Hub'],
+  ['Geo12_DirectiveTerms.html','Directive Terms'],
+  ['Geo12_Topic1_Sustainability.html','Topic 1: Sustainability'],
+  ['Geo12_Topic2_Ecosystems.html','Topic 2: Ecosystems'],
+  ['Geo12_Topic3_RuralUrban.html','Topic 3: Rural &amp; Urban'],
+  ['Geo12_Q16_Skills.html','Q16: Skills Practice'],
+  ['Geo12_Q17_GeographicalInvestigation.html','Q17: Geog. Investigation'],
+  ['Geo12_ExamBuilder.html','Exam Builder']
+];
+function renderSiteNav(current){
+  const mount = $('siteNav');
+  if(!mount) return;
+  mount.innerHTML = `<div class="site-nav-inner">` + SITE_NAV.map(([file,label]) =>
+    file===current ? `<span class="current">${label}</span>` : `<a href="${file}">${label}</a>`
+  ).join('<span class="sep">/</span>') + `</div>`;
+}
+
+// ===== Local in-page tabs (Notes / Flashcards / Practice, per page) =====
+function initLocalTabs(tabDefs, mountId){
+  const mount = $(mountId||'localTabs');
+  if(!mount) return;
+  mount.innerHTML = tabDefs.map(([id,label],i) => `<button class="tab-btn${i===0?' active':''}" data-tab="${id}" type="button">${label}</button>`).join('');
+  mount.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => showLocalTab(btn.dataset.tab)));
+  const hash = (location.hash||'').replace('#','');
+  const firstId = tabDefs[0][0];
+  const wanted = tabDefs.some(([id])=>id===hash) ? hash : firstId;
+  showLocalTab(wanted);
+}
+function showLocalTab(id){
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab===id));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id===id));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+// ===== Generic content-notes accordion renderer (per-topic dot point notes) =====
+function renderTopicNotes(mountId, topicData){
+  const mount = $(mountId);
+  if(!mount || !topicData) return;
+  mount.innerHTML = topicData.sections.map(section => {
+    const dpHtml = section.dotpoints.map(dp => {
+      const notesHtml = (dp.notes&&dp.notes.length) ? `<ul class="tight">${dp.notes.map(n=>`<li>${esc(n)}</li>`).join('')}</ul>` : '<p class="small">No notes yet for this dot point.</p>';
+      const csHtml = (dp.caseStudies&&dp.caseStudies.length) ? dp.caseStudies.map(cs => `<div class="dp-casestudy"><span class="cs-name">${esc(cs.name)}</span><ul class="tight">${(cs.facts||[]).map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>`).join('') : '';
+      const dataHtml = (dp.data&&dp.data.length) ? `<div class="badge-row">${dp.data.map(d=>`<span class="badge sky">${esc(d)}</span>`).join('')}</div>` : '';
+      const fcCount = dp.flashcards ? dp.flashcards.length : 0;
+      return `<details class="syllabus-accordion" data-accordion-group="${mountId}">
+        <summary><span class="dotpoint-number">${dp.number}</span><span class="dotpoint-text">${esc(dp.text)}</span><span class="accordion-toggle"></span></summary>
+        <div class="accordion-body">
+          <div class="card">
+            <div class="mini-title">Key content</div>
+            ${notesHtml}
+            ${dataHtml}
+          </div>
+          ${csHtml ? `<div class="card"><div class="mini-title">Case studies &amp; examples</div>${csHtml}</div>` : ''}
+          <div class="dp-flashcount">${fcCount} flashcard${fcCount===1?'':'s'} for this dot point &mdash; see the Flashcards tab.</div>
+        </div>
+      </details>`;
+    }).join('');
+    return `<section class="syllabus-section">
+      <div class="syllabus-section-title"><h3>${esc(section.sectionTitle)}</h3></div>
+      <div class="syllabus-accordion-stack">${dpHtml}</div>
+    </section>`;
+  }).join('');
+}
+function initContentAccordions(){
+  document.querySelectorAll('details.syllabus-accordion').forEach(item => item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    const group = item.dataset.accordionGroup;
+    document.querySelectorAll(`details.syllabus-accordion[data-accordion-group="${group}"]`).forEach(other => { if (other !== item) other.open = false; });
+  }));
+}
+
+// ===== Generic flashcard deck =====
+function initFlashDeck(mountId, allCards, categories){
+  const mount = $(mountId);
+  if(!mount) return;
+  mount.innerHTML = `
+    <div class="controls">
+      <select id="${mountId}_cat"><option value="all">All sections</option>${categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+      <span class="deck-counter" id="${mountId}_counter"></span>
+    </div>
+    <div class="flip-card" id="${mountId}_card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front"><div><div class="flash-meta" id="${mountId}_frontmeta">Term</div><div class="flash-term" id="${mountId}_front"></div><p class="small">Click to flip</p></div></div>
+        <div class="flip-face flip-back"><div><div class="flash-meta">Answer</div><div class="flash-answer" id="${mountId}_back"></div></div></div>
+      </div>
+    </div>
+    <div class="progress"><span id="${mountId}_progress"></span></div>
+    <div class="flash-controls">
+      <button class="btn secondary" id="${mountId}_prev" type="button">&larr; Previous</button>
+      <button class="btn" id="${mountId}_flip" type="button">Flip card</button>
+      <button class="btn secondary" id="${mountId}_next" type="button">Next &rarr;</button>
+      <button class="btn secondary" id="${mountId}_shuffle" type="button">Shuffle</button>
+      <button class="btn secondary" id="${mountId}_print" type="button">Print these flashcards</button>
+    </div>`;
+  let deck = allCards.slice();
+  let idx = 0;
+  function renderCard(){
+    const card = deck[idx];
+    if(!card){ $(mountId+'_front').textContent='No cards in this section yet.'; $(mountId+'_back').textContent=''; return; }
+    $(mountId+'_front').textContent = card.term;
+    $(mountId+'_back').innerHTML = esc(card.definition);
+    $(mountId+'_frontmeta').textContent = card.category || 'Term';
+    $(mountId+'_counter').textContent = `${idx+1} of ${deck.length}`;
+    $(mountId+'_progress').style.width = deck.length ? `${((idx+1)/deck.length)*100}%` : '0%';
+    $(mountId+'_card').classList.remove('flipped');
+  }
+  $(mountId+'_cat').addEventListener('change', () => {
+    const v = $(mountId+'_cat').value;
+    deck = (v==='all') ? allCards.slice() : allCards.filter(c => c.category===v);
+    idx = 0; renderCard();
+  });
+  $(mountId+'_card').addEventListener('click', () => $(mountId+'_card').classList.toggle('flipped'));
+  $(mountId+'_flip').addEventListener('click', () => $(mountId+'_card').classList.toggle('flipped'));
+  $(mountId+'_next').addEventListener('click', () => { if(!deck.length) return; idx=(idx+1)%deck.length; renderCard(); });
+  $(mountId+'_prev').addEventListener('click', () => { if(!deck.length) return; idx=(idx-1+deck.length)%deck.length; renderCard(); });
+  $(mountId+'_shuffle').addEventListener('click', () => { deck = shuffleArr(deck); idx=0; renderCard(); });
+  $(mountId+'_print').addEventListener('click', () => {
+    const name = load('studentName','');
+    const html = `<table class="workbook-table"><tr><th>Term</th><th>Answer</th></tr>${deck.map(c=>`<tr><td>${esc(c.term)}</td><td>${c.definition}</td></tr>`).join('')}</table>`;
+    printContent((name?esc(name)+' — ':'')+'Flashcards', html);
+  });
+  renderCard();
+}
+function flatCardsFromTopic(topicData){
+  const out = [];
+  topicData.sections.forEach(section => {
+    section.dotpoints.forEach(dp => {
+      (dp.flashcards||[]).forEach(fc => out.push({term:`DP${dp.number} — ${fc.term}`, definition:fc.definition, category:section.sectionTitle}));
+    });
+  });
+  return out;
+}
+function sectionTitlesFromTopic(topicData){ return topicData.sections.map(s=>s.sectionTitle); }
+
+// ===== Directive terms: glossary + practice quiz =====
+function renderDirectiveGlossary(terms){
+  $('directiveGlossary').innerHTML = `<div class="term-grid">${terms.map(t => `
+    <div class="term-card">
+      <h4>${esc(t.term)}</h4>
+      <p class="term-meaning">${esc(t.meaning)}</p>
+      <p class="term-example"><strong>Example:</strong> ${esc(t.example)}</p>
+      <p class="term-example"><strong>Tip:</strong> ${esc(t.tip)}</p>
+    </div>`).join('')}</div>`;
+}
+function initDirectiveQuiz(mountId, questions){
+  const mount = $(mountId);
+  mount.innerHTML = questions.map((q,i) => `
+    <div class="question-card" data-qi="${i}">
+      <p><strong>Q${i+1}.</strong> ${esc(q.q)}</p>
+      ${q.options.map((opt,oi) => `<button class="option" type="button" data-oi="${oi}">${esc(opt)}</button>`).join('')}
+      <div class="answer-box"><div class="callout good"><strong>Explanation:</strong> ${esc(q.explanation)}</div></div>
+    </div>`).join('') + `<div class="btn-row"><button class="btn" id="${mountId}_check" type="button">Check all answers</button><button class="btn secondary" id="${mountId}_reset" type="button">Reset</button></div><p class="small" id="${mountId}_score"></p>`;
+  const selections = {};
+  mount.querySelectorAll('.question-card').forEach(card => {
+    const qi = Number(card.dataset.qi);
+    card.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => {
+      selections[qi] = Number(btn.dataset.oi);
+      card.querySelectorAll('.option').forEach(b => b.style.outline='');
+      btn.style.outline = '3px solid rgba(15,118,110,.35)';
+    }));
+  });
+  $(mountId+'_check').addEventListener('click', () => {
+    let score = 0;
+    questions.forEach((q,i) => {
+      const card = mount.querySelector(`.question-card[data-qi="${i}"]`);
+      const box = card.querySelector('.answer-box');
+      box.classList.add('visible');
+      const opts = card.querySelectorAll('.option');
+      opts.forEach((btn,oi) => {
+        btn.style.outline='';
+        if(oi===q.correct) btn.classList.add('correct');
+        else if(selections[i]===oi) btn.classList.add('wrong');
+      });
+      if(selections[i]===q.correct) score++;
+    });
+    $(mountId+'_score').textContent = `Score: ${score} / ${questions.length}`;
+  });
+  $(mountId+'_reset').addEventListener('click', () => {
+    Object.keys(selections).forEach(k => delete selections[k]);
+    mount.querySelectorAll('.option').forEach(b => { b.classList.remove('correct','wrong'); b.style.outline=''; });
+    mount.querySelectorAll('.answer-box').forEach(b => b.classList.remove('visible'));
+    $(mountId+'_score').textContent = '';
+  });
+}
+
+// ===== Syllabus map checklist (used on the hub) =====
+function renderSyllabusMap(topics){
+  const mount = $('syllabusChecklist');
+  if(!mount) return;
+  mount.innerHTML = topics.map(topicData => {
+    const rows = topicData.sections.map(section => {
+      const dpRows = section.dotpoints.map(dp => `
+        <div class="check-row">
+          <div><span class="dp-num">DP${dp.number}.</span>${esc(dp.text)}</div>
+          <label class="check-cell"><input type="checkbox" data-check="dp${dp.number}_reviewed"> Reviewed</label>
+          <label class="check-cell"><input type="checkbox" data-check="dp${dp.number}_practised"> Practised</label>
+        </div>`).join('');
+      return `<div class="syllabus-section-title" style="border-radius:12px;margin:14px 0 6px;"><h3 style="font-size:1rem;">${esc(section.sectionTitle)}</h3></div>${dpRows}`;
+    }).join('');
+    return `<div class="card"><h2 class="section-title">Topic ${topicData.topicNumber}: ${esc(topicData.topicName)}</h2>${rows}</div>`;
+  }).join('');
+  mount.querySelectorAll('[data-check]').forEach(cb => {
+    const key = 'chk_'+cb.dataset.check;
+    cb.checked = load(key,'0')==='1';
+    cb.addEventListener('change', () => save(key, cb.checked?'1':'0'));
+  });
+}
+
+// ===== Header profile: name + first-use date, shown in every page header =====
+function initHeaderProfile(){
+  const mount = $('headerProfile');
+  if(!mount) return;
+  function render(){
+    const name = load('studentName','');
+    const started = load('studentStartDate','');
+    if(name){
+      mount.innerHTML = `<div class="profile-display">Hi, <strong>${esc(name)}</strong> &mdash; revising since ${esc(started)} <button class="btn secondary" id="hp_edit" type="button">Edit</button></div>`;
+      $('hp_edit').addEventListener('click', () => { save('studentName',''); render(); applyPersonalization(); });
+    } else {
+      mount.innerHTML = `<div class="profile-form"><input type="text" id="hp_name" placeholder="Type your name" maxlength="40"><button class="btn" id="hp_save" type="button">Save</button></div>`;
+      $('hp_save').addEventListener('click', () => {
+        const v = $('hp_name').value.trim();
+        if(!v) return;
+        save('studentName', v);
+        if(!load('studentStartDate','')) save('studentStartDate', new Date().toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric'}));
+        render();
+        applyPersonalization();
+      });
+      $('hp_name').addEventListener('keydown', e => { if(e.key==='Enter') $('hp_save').click(); });
+    }
+  }
+  render();
+}
+
+// ===== Personalization: fills {name} templates in with the saved student name =====
+function applyPersonalization(){
+  const name = load('studentName','').trim();
+  document.querySelectorAll('[data-personalize]').forEach(el => {
+    const tpl = el.dataset.personalize;
+    el.textContent = name ? tpl.replace(/\{name\}/g, name) : tpl.replace(/\{name\}, /g, '').replace(/\{name\}/g, 'You');
+  });
+}
+
+// ===== Named case-study learning boxes (e.g. Topic 1 Sustainability) =====
+function renderCaseStudyBoxes(mountId, items){
+  const mount = $(mountId);
+  if(!mount || !items.length) return;
+  const cats = Array.from(new Set(items.map(i=>i.category)));
+  mount.innerHTML = cats.map(cat => {
+    const inCat = items.filter(i=>i.category===cat);
+    return `<div class="syllabus-section-title" style="border-radius:12px;margin:14px 0 6px;"><h3 style="font-size:1rem;">${esc(cat)}</h3></div>
+    <div class="evidence-grid">${inCat.map(cs => `
+      <div class="evidence-tile">
+        <strong>${esc(cs.name)}</strong>
+        <div class="badge-row">${(cs.relatedDotPoints||[]).map(dp=>`<span class="badge num">DP${dp}</span>`).join('')}</div>
+        <ul class="tight">${cs.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+      </div>`).join('')}</div>`;
+  }).join('');
+}
+
+// ===== Real exemplar-answer cards (collapsible), from genuine high-scoring scripts =====
+function renderExemplarCards(mountId, items){
+  const mount = $(mountId);
+  if(!mount || !items.length) return;
+  mount.innerHTML = items.map((ex,i) => `
+    <details class="syllabus-accordion" data-accordion-group="${mountId}">
+      <summary><span class="dotpoint-number">${i+1}</span><span class="dotpoint-text">${esc(ex.question)}${ex.marks?` (${ex.marks} marks${ex.score?', scored '+esc(ex.score):''})`:''}</span><span class="accordion-toggle"></span></summary>
+      <div class="accordion-body">
+        <div class="callout good"><strong>Examiner said:</strong> ${esc(ex.examinerComment)}</div>
+        <div class="card"><div class="mini-title">Real student response${ex.caseStudy?' &mdash; '+esc(ex.caseStudy):''}</div>${ex.text.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}</div>
+      </div>
+    </details>`).join('');
+}
+
+// ===== Printing =====
+function printContent(title, bodyHtml){
+  let area = $('printArea');
+  if(!area){ area = document.createElement('div'); area.id = 'printArea'; document.body.appendChild(area); }
+  area.innerHTML = `<h1>${esc(title)}</h1>${bodyHtml}`;
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(() => document.body.classList.remove('printing'), 300);
+}
+function writingLine(){
+  return '<div class="write-line">' + '.'.repeat(400) + '</div>';
+}
+function printWrittenAnswers(questions, storageKeyPrefix, title){
+  const name = load('studentName','');
+  const parts = questions.map(q => {
+    const ans = load('written_'+storageKeyPrefix+'_'+q.id, '');
+    if(!ans.trim()) return '';
+    return `<div class="print-item"><p><strong>${esc(q.question)}</strong> (${q.marks} mark${q.marks===1?'':'s'}, ${esc(q.source)})</p><p style="white-space:pre-wrap;">${esc(ans)}</p></div>`;
+  }).filter(Boolean).join('');
+  if(!parts){ alert('No answers written yet in this set — write something first, then print.'); return; }
+  const heading = (name ? esc(name) + ' — ' : '') + title;
+  printContent(heading, parts);
+}
+
+// ===== Clipboard copy (AI marking prompt) =====
+function copyToClipboard(text, btn){
+  const done = () => { const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = orig; }, 1600); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){}
+  document.body.removeChild(ta);
+}
+
+// ============================================================================
+// Q11-style written-practice engine (SOR pattern): one question at a time,
+// countdown timer, textarea answer, show/hide marking guideline, self-score
+// archive (full marks -> archived out of rotation), AI-marking clipboard copy.
+// storageKeyPrefix should be unique per page (e.g. 'topic1written').
+// ============================================================================
+function initQ11Style(mountId, questions, storageKeyPrefix){
+  const mount = $(mountId);
+  if(!mount) return;
+  if(!questions.length){ mount.innerHTML = '<p class="small">No practice questions loaded here yet.</p>'; return; }
+
+  const statKey = 'qp_'+storageKeyPrefix;
+  let stats = loadJSON(statKey, {});
+  questions.forEach(q => { if(!stats[q.id]) stats[q.id] = {attempts:0, best:0, archived:false}; });
+  saveJSON(statKey, stats);
+
+  let timerSecs = 0, timerTotal = 0, timerHandle = null, timerRunning = false;
+  let current = null;
+
+  function durationFor(marks){
+    if(marks>=20) return 35*60; // essay-length responses get a flat 35 minutes
+    return Math.round(marks*1.8)*60; // 1.8 minutes per mark otherwise
+  }
+  function fmt(s){ const m=Math.floor(s/60), ss=s%60; return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); }
+  function stopTimer(){ if(timerHandle) clearInterval(timerHandle); timerHandle=null; timerRunning=false; }
+  function tickTimer(){
+    if(timerSecs<=0){ stopTimer(); return; }
+    timerSecs--;
+    const el = $(mountId+'_timerval');
+    if(el){ el.textContent = fmt(timerSecs); el.classList.toggle('warn', timerSecs<60); }
+  }
+
+  function pickQuestion(){
+    const active = questions.filter(q => !stats[q.id].archived);
+    if(!active.length) return null;
+    return active[Math.floor(Math.random()*active.length)];
+  }
+
+  function renderStats(){
+    const archivedCount = questions.filter(q=>stats[q.id].archived).length;
+    $(mountId+'_stats').innerHTML = `
+      <span class="qp-stat"><b>${questions.length}</b>Total questions</span>
+      <span class="qp-stat"><b>${archivedCount}</b>Mastered &amp; archived</span>
+      <span class="qp-stat"><b>${questions.length-archivedCount}</b>Still in rotation</span>`;
+  }
+
+  function renderQuestion(){
+    stopTimer();
+    current = pickQuestion();
+    renderStats();
+    if(!current){
+      $(mountId+'_qzone').innerHTML = `<div class="callout good"><strong>All questions in this set are mastered and archived!</strong> Click "Reset progress" below to practise them all again.</div>`;
+      return;
+    }
+    timerTotal = durationFor(current.marks); timerSecs = timerTotal;
+    $(mountId+'_qzone').innerHTML = `
+      <div class="question-card">
+        <div class="badge-row">
+          <span class="badge dark">${esc(current.source)}</span>
+          <span class="mark-pill">${current.marks} mark${current.marks===1?'':'s'}</span>
+          <span class="badge sky directive">${esc(current.directive)}</span>
+          ${(current.dotPoints||[]).map(dp=>`<span class="badge num">DP${dp}</span>`).join('')}
+        </div>
+        <p><strong>${esc(current.question)}</strong></p>
+        <div class="qp-timerbox">
+          <span class="timer" id="${mountId}_timerval">${fmt(timerSecs)}</span>
+          <button class="btn secondary" type="button" id="${mountId}_start">Start</button>
+          <button class="btn secondary" type="button" id="${mountId}_pause">Pause</button>
+          <button class="btn secondary" type="button" id="${mountId}_reset_timer">Reset timer</button>
+        </div>
+        <textarea id="${mountId}_ans" placeholder="Write your answer here..."></textarea>
+        <div class="btn-row">
+          <button class="btn secondary" type="button" id="${mountId}_showmg">Show marking guideline</button>
+          <button class="btn" type="button" id="${mountId}_copyai">Copy question + answer + marking guideline for AI marking</button>
+        </div>
+        <div class="callout good" id="${mountId}_mg" style="display:none;"><strong>Marking guideline / sample answer:</strong><br>${esc(current.markingGuideline).replace(/\n/g,'<br>')}</div>
+        <div class="btn-row">
+          <span class="small" style="align-self:center;">Either from an AI, a buddy, or yourself, rate your answer above against the criteria/model answer provided:</span>
+          <button class="btn" type="button" id="${mountId}_fullmarks">I scored full marks — archive this one</button>
+          <button class="btn secondary" type="button" id="${mountId}_notyet">Not quite — keep it in rotation</button>
+        </div>
+        <p class="qp-archived-note" id="${mountId}_note"></p>
+        <div class="btn-row"><button class="btn secondary" type="button" id="${mountId}_printall">Print my answers so far</button></div>
+      </div>`;
+
+    const ansKey = 'written_'+storageKeyPrefix+'_'+current.id;
+    const ta = $(mountId+'_ans');
+    ta.value = load(ansKey,'');
+    ta.addEventListener('input', () => save(ansKey, ta.value));
+
+    $(mountId+'_start').addEventListener('click', () => {
+      if(timerRunning || timerSecs<=0) return;
+      timerRunning = true;
+      timerHandle = setInterval(tickTimer, 1000);
+    });
+    $(mountId+'_pause').addEventListener('click', stopTimer);
+    $(mountId+'_reset_timer').addEventListener('click', () => { stopTimer(); timerSecs = timerTotal; $(mountId+'_timerval').textContent = fmt(timerSecs); $(mountId+'_timerval').classList.remove('warn'); });
+
+    $(mountId+'_showmg').addEventListener('click', () => {
+      const box = $(mountId+'_mg');
+      const showing = box.style.display !== 'none';
+      box.style.display = showing ? 'none' : 'block';
+      $(mountId+'_showmg').textContent = showing ? 'Show marking guideline' : 'Hide marking guideline';
+    });
+    $(mountId+'_copyai').addEventListener('click', () => {
+      const ans = ta.value || '(no answer written yet)';
+      const text = `Please mark this HSC Geography response against the marking guideline and give feedback with a suggested mark.\n\nQUESTION (${current.marks} marks, source: ${current.source}):\n${current.question}\n\nSTUDENT ANSWER:\n${ans}\n\nMARKING GUIDELINE / SAMPLE ANSWER:\n${current.markingGuideline}`;
+      copyToClipboard(text, $(mountId+'_copyai'));
+    });
+    $(mountId+'_fullmarks').addEventListener('click', () => {
+      stats[current.id].attempts++; stats[current.id].best = current.marks; stats[current.id].archived = true;
+      saveJSON(statKey, stats);
+      $(mountId+'_note').textContent = 'Archived — nice work. Loading a new question…';
+      setTimeout(renderQuestion, 700);
+    });
+    $(mountId+'_notyet').addEventListener('click', () => {
+      stats[current.id].attempts++;
+      saveJSON(statKey, stats);
+      $(mountId+'_note').textContent = 'Kept in rotation — you\'ll see this one again.';
+      setTimeout(renderQuestion, 700);
+    });
+    $(mountId+'_printall').addEventListener('click', () => printWrittenAnswers(questions, storageKeyPrefix, 'Written practice answers'));
+  }
+
+  mount.innerHTML = `<div class="qp-toolbar"><div class="qp-stats" id="${mountId}_stats"></div><button class="btn secondary" id="${mountId}_skip" type="button">Skip to another question</button></div>
+    <div id="${mountId}_qzone"></div>
+    <div class="btn-row"><button class="btn secondary" id="${mountId}_resetall" type="button">Reset progress for this set</button></div>`;
+  $(mountId+'_skip').addEventListener('click', renderQuestion);
+  $(mountId+'_resetall').addEventListener('click', () => {
+    questions.forEach(q => { stats[q.id] = {attempts:0, best:0, archived:false}; });
+    saveJSON(statKey, stats);
+    renderQuestion();
+  });
+  renderQuestion();
+}
+
+// ============================================================================
+// MC-Bank-style skills engine (SOR pattern): grouped by category|difficulty|
+// topicArea, binary solved-tracking per question, groups auto-archive once
+// every question in the group has been solved at least once, weighted
+// auto-draw prioritises unsolved questions over solved ones. No manual
+// filter dropdowns — matches the true SOR MC Revision Bank mechanic.
+// ============================================================================
+function initMCBankStyle(mountId, questions, storageKeyPrefix){
+  const mount = $(mountId);
+  if(!mount) return;
+  if(!questions.length){ mount.innerHTML = '<p class="small">No skills questions loaded yet.</p>'; return; }
+
+  const solvedKey = 'mc_'+storageKeyPrefix;
+  let solved = loadJSON(solvedKey, {});
+
+  function groupKey(q){ return `${q.category}|${q.difficulty}|${q.topicArea}`; }
+  const groups = {};
+  questions.forEach(q => { const k=groupKey(q); (groups[k]=groups[k]||[]).push(q); });
+  const groupKeys = Object.keys(groups);
+
+  function isSolved(q){ return !!solved[q.id]; }
+  function groupArchived(k){ return groups[k].every(isSolved); }
+
+  function renderStats(){
+    const archivedGroups = groupKeys.filter(groupArchived).length;
+    const solvedCount = questions.filter(isSolved).length;
+    $(mountId+'_stats').innerHTML = `
+      <span class="qp-stat"><b>${groupKeys.length}</b>Skill groups</span>
+      <span class="qp-stat"><b>${archivedGroups}</b>Groups mastered</span>
+      <span class="qp-stat"><b>${solvedCount}/${questions.length}</b>Questions solved</span>`;
+  }
+  function renderGroupBar(){
+    $(mountId+'_groupbar').innerHTML = groupKeys.map(k => {
+      const [cat,diff,topic] = k.split('|');
+      const arch = groupArchived(k);
+      return `<span class="mc-group-chip${arch?' archived':''}">${esc(cat)} · ${esc(diff)} · ${esc(topic)}${arch?' ✓':''}</span>`;
+    }).join('');
+  }
+
+  function pickQuestion(){
+    const unsolved = questions.filter(q=>!isSolved(q));
+    const solvedPool = questions.filter(isSolved);
+    if(!unsolved.length && !solvedPool.length) return null;
+    if(unsolved.length && (Math.random()<0.8 || !solvedPool.length)) return unsolved[Math.floor(Math.random()*unsolved.length)];
+    if(solvedPool.length) return solvedPool[Math.floor(Math.random()*solvedPool.length)];
+    return unsolved[Math.floor(Math.random()*unsolved.length)];
+  }
+
+  function renderQuestion(){
+    renderStats(); renderGroupBar();
+    if(groupKeys.every(groupArchived)){
+      $(mountId+'_qzone').innerHTML = `<div class="callout good"><strong>Every skill group is mastered!</strong> Click "Reset progress" to practise them all again.</div>`;
+      return;
+    }
+    const q = pickQuestion();
+    if(!q) return;
+    $(mountId+'_qzone').innerHTML = `
+      <div class="question-card" data-qid="${esc(q.id)}">
+        <div class="badge-row"><span class="badge dark">${esc(q.category)}</span><span class="badge sky">${esc(q.skillCode)} ${esc(q.skillName)}</span><span class="badge sky">${esc(q.difficulty)}</span><span class="badge">${esc(q.topicArea)}</span>${isSolved(q)?'<span class="badge num">Solved before</span>':''}</div>
+        <p><strong>${esc(q.textVersion)}</strong></p>
+        ${q.options.map((opt,oi) => `<button class="option" type="button" data-oi="${oi}">${esc(opt)}</button>`).join('')}
+        <div class="answer-box"><div class="callout good"><strong>Explanation:</strong> ${esc(q.explanation)}</div></div>
+        <div class="btn-row"><button class="btn secondary" type="button" id="${mountId}_next" style="display:none;">Next question</button></div>
+      </div>`;
+    const card = $(mountId+'_qzone').querySelector('.question-card');
+    card.querySelectorAll('.option').forEach(btn => btn.addEventListener('click', () => {
+      const opts = card.querySelectorAll('.option');
+      opts.forEach(b=>b.classList.remove('correct','wrong'));
+      const oi = Number(btn.dataset.oi);
+      if(oi===q.correct){ btn.classList.add('correct'); solved[q.id]=true; saveJSON(solvedKey, solved); }
+      else { btn.classList.add('wrong'); opts[q.correct].classList.add('correct'); }
+      card.querySelector('.answer-box').classList.add('visible');
+      $(mountId+'_next').style.display = 'inline-block';
+      renderStats(); renderGroupBar();
+    }));
+    $(mountId+'_next').addEventListener('click', renderQuestion);
+  }
+
+  mount.innerHTML = `<div class="qp-toolbar"><div class="qp-stats" id="${mountId}_stats"></div></div>
+    <div class="mc-groupbar" id="${mountId}_groupbar"></div>
+    <div id="${mountId}_qzone"></div>
+    <div class="btn-row"><button class="btn secondary" id="${mountId}_resetall" type="button">Reset progress for this bank</button></div>`;
+  $(mountId+'_resetall').addEventListener('click', () => { solved = {}; saveJSON(solvedKey, solved); renderQuestion(); });
+  renderQuestion();
+}
+</script>
+<script>
+renderSiteNav('Geo12_Q16_Skills.html');
+initHeaderProfile();
+
+const skillsBank = readData('skillsQuestionsData') || [];
+initMCBankStyle('skillsQuiz', skillsBank, 'q16skills');
+const q16WrittenBank = readData('q16WrittenData') || [];
+initQ11Style('q16Written', q16WrittenBank, 'q16written');
+initLocalTabs([['skillsmc','MC Skills Practice'],['written','Written Skills (Q16)'],['construct','Construction Geo-Skills']]);
+
+applyPersonalization();
+</script>
+</body>
+</html>
