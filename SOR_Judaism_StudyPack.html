@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR1 Judaism Study Pack</title>
+<style>
+  :root{
+    --green:#2f4d3a; --green-dark:#22362a; --gold:#efd99a; --gold-dark:#c9a24a;
+    --bg:#f7f5ef; --card:#ffffff; --ink:#20241f; --muted:#5b6259; --line:#e2ddd0;
+    --practice:#3b6ea5; --ethics:#8a4b8a; --movement:#a3541f; --shadow:0 6px 18px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  header{background:var(--green);color:#fff;padding:22px 18px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;color:#d8e3da;font-size:.92rem;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px;}
+  nav.tabs{background:var(--green-dark);padding:8px 16px;position:sticky;top:0;z-index:10;}
+  .tabs-inner{display:flex;gap:8px;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+  nav.tabs button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.88rem;}
+  nav.tabs button.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold);font-weight:700;}
+  .site-nav{padding:10px 16px;margin:0;background:var(--bg);border-bottom:1px solid var(--line);}
+  .site-nav-inner{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;}
+  .site-nav a,.site-nav span{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;border-radius:14px;font-weight:800;white-space:nowrap;text-decoration:none;font-size:.8rem;display:inline-block;}
+  .site-nav a:hover{background:var(--gold);border-color:var(--gold-dark);}
+  .site-nav span.current{background:var(--green);color:#fff;border-color:var(--green);}
+  .site-nav span.soon{color:var(--muted);cursor:not-allowed;background:#f5f5f2;}
+  main{max-width:960px;margin:0 auto;padding:18px 16px 60px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;}
+  .start-here-card{background:#eef4ec;border:1px solid #cfe0c8;border-radius:14px;padding:14px 18px;margin:14px 0;font-size:.9rem;}
+  .start-here-card h2{margin:0 0 6px;font-size:1rem;color:var(--green-dark);}
+  .start-here-card p{margin:0 0 8px;}
+  .start-here-card a.action-link{display:inline-block;background:var(--green);color:#fff;padding:7px 14px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;}
+  .start-here-card a.action-link:hover{opacity:.9;}
+  @media print{ .site-nav,.start-here-card{display:none!important;} }
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .filters button{border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:999px;cursor:pointer;font-size:.82rem;}
+  .filters button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .dp-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.03em;padding:2px 8px;border-radius:999px;color:#fff;margin-right:8px;}
+  .dp-tag.practice{background:var(--practice);}
+  .dp-tag.ethics{background:var(--ethics);}
+  .dp-tag.movement{background:var(--movement);}
+  .rev-title{font-size:1.05rem;font-weight:800;margin:4px 0 8px;}
+  ol.ideas{margin:0;padding-left:22px;}
+  ol.ideas li{margin-bottom:8px;line-height:1.5;font-size:.94rem;}
+  ol.ideas li::marker{font-weight:800;color:var(--gold-dark);}
+  .howto{background:#eef4ec;border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;margin-bottom:14px;}
+  .howto b{color:var(--green-dark);}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  .hub-link{display:inline-flex;align-items:center;gap:6px;color:#d8e3da;text-decoration:none;font-size:.82rem;font-weight:700;margin-bottom:8px;}
+  .hub-link:hover{color:#fff;text-decoration:underline;}
+  /* flashcards */
+  .flip-card{perspective:1200px;min-height:260px;margin-top:14px;}
+  .flip-inner{position:relative;width:100%;min-height:260px;transition:transform .5s ease;transform-style:preserve-3d;}
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-face{position:absolute;inset:0;backface-visibility:hidden;border:2px dashed var(--gold-dark);border-radius:18px;padding:22px;background:linear-gradient(180deg,#fff,#f6f2e4);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;overflow:auto;}
+  .flip-back{transform:rotateY(180deg);border-style:solid;background:linear-gradient(180deg,#eef4ec,#fff);}
+  .flash-meta{text-transform:uppercase;letter-spacing:.12em;color:var(--green);font-weight:900;font-size:.72rem;margin-bottom:8px;}
+  .flash-term{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--green-dark);margin:.2rem 0;line-height:1.25;}
+  .flash-answer{font-size:.9rem;line-height:1.5;color:var(--ink);}
+  .fc-progress{height:8px;background:#e5e0d0;border-radius:999px;overflow:hidden;margin-top:14px;}
+  .fc-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold-dark));transition:.2s;}
+  .action-btn{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:700;}
+  .action-btn.secondary{background:#fff;color:var(--green);border:1px solid var(--green);}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .controls select{padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:.85rem;}
+  /* named evidence + extension */
+  .evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0;}
+  .evidence-cat{background:#f4f1e6;border:1px solid var(--gold-dark);border-radius:10px;padding:10px 14px;}
+  .evidence-cat h4{margin:0 0 6px;font-size:.86rem;color:var(--green-dark);}
+  .evidence-cat ul{margin:0;padding-left:18px;font-size:.85rem;}
+  .evidence-cat li{margin-bottom:3px;}
+  .precept-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86rem;}
+  .precept-table th,.precept-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  .precept-table th{background:#eef4ec;color:var(--green-dark);}
+  .precept-table td.loose{color:#a33;}
+  .precept-table td.precise{color:var(--green-dark);font-weight:600;}
+  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
+  .ba-box{border-radius:10px;padding:10px 14px;font-size:.86rem;line-height:1.45;}
+  .ba-box.generic{background:#f7f1e9;border:1px solid #d9c6a8;}
+  .ba-box.named{background:#eef4ec;border:1px solid #cfe0c8;}
+  .ba-box .ba-label{font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px;}
+  .ba-note{font-size:.78rem;color:var(--muted);margin-top:6px;font-style:italic;}
+  .selfcheck{margin:0;padding-left:0;list-style:none;font-size:.88rem;}
+  .selfcheck li{margin-bottom:6px;padding-left:24px;position:relative;}
+  .selfcheck li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-weight:900;}
+  .ext-box{background:#f4eef7;border:1px solid #d3bfe0;border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+  .ext-box .ext-tag{display:inline-block;background:#8a4b8a;color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-bottom:8px;}
+  .ext-box h4{margin:4px 0 6px;font-size:.98rem;color:#5c3468;}
+  .ext-box p{margin:0;font-size:.88rem;line-height:1.5;}
+  .ext-source{font-size:.74rem;color:var(--muted);margin-top:6px;}
+  /* past questions */
+  .pq-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px;}
+  .pq-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .pq-year{font-size:1.1rem;font-weight:900;color:var(--green);}
+  .pq-marks{font-size:.8rem;color:var(--muted);}
+  .pq-topic{font-size:.85rem;color:var(--green-dark);font-weight:700;margin-bottom:8px;}
+  .verified-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.04em;padding:2px 8px;border-radius:999px;margin-left:6px;text-transform:uppercase;}
+  .verified-badge.full{background:#dcecd8;color:#2f4d3a;}
+  .verified-badge.partial{background:#f7e6c8;color:#7a5a15;}
+  .stimulus{background:#f4f1e6;border:1px dashed var(--gold-dark);border-radius:10px;padding:10px 14px;font-style:italic;margin:8px 0;}
+  .question-text{font-weight:700;margin:8px 0 12px;font-size:.98rem;white-space:pre-line;}
+  .source-note{font-size:.78rem;color:var(--muted);background:#f7f5ef;border-left:3px solid var(--gold-dark);padding:6px 10px;border-radius:4px;margin:6px 0 12px;}
+  details{border:1px solid var(--line);border-radius:10px;margin-top:10px;overflow:hidden;}
+  details summary{cursor:pointer;padding:10px 14px;background:#f8f8f4;font-weight:700;font-size:.9rem;list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details[open] summary::before{content:'\25BE ';}
+  .detail-body{padding:12px 14px;font-size:.9rem;line-height:1.55;}
+  .detail-body p{margin:0 0 10px;white-space:pre-line;}
+  .answer-bullets{margin:0 0 10px;padding-left:20px;}
+  .answer-bullets li{margin:0 0 8px;line-height:1.5;}
+  .crit-table{width:100%;border-collapse:collapse;margin:8px 0 0;font-size:.84rem;}
+  .crit-table th,.crit-table td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  .crit-table th{background:#eef4ec;color:var(--green-dark);width:110px;}
+  .crit-table ul{margin:0;padding-left:16px;}
+  .ans-label{font-weight:800;font-size:.8rem;color:var(--green-dark);margin:4px 0 4px;}
+  .teacher-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:6px;}
+  /* practice-writing process (mirrors Q11 Practice / Buddhism Study Pack) */
+  .sub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .sub-tabs button{border:1px solid var(--line);background:#fff;padding:7px 14px;border-radius:999px;cursor:pointer;font-size:.84rem;font-weight:700;color:var(--green-dark);}
+  .sub-tabs button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .pq-stats-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#eef4ec;border-radius:10px;padding:10px 14px;font-size:.85rem;margin-bottom:14px;color:var(--green-dark);}
+  .pq-stats-bar button.linklike{background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.8rem;padding:0;}
+  .timer-box{display:flex;align-items:center;gap:10px;background:#f4f1e6;border:1px solid var(--gold-dark);border-radius:10px;padding:8px 14px;margin:10px 0;flex-wrap:wrap;}
+  .timer-display{font-size:1.5rem;font-weight:900;color:var(--green-dark);min-width:74px;font-variant-numeric:tabular-nums;}
+  .timer-display.warn{color:#a33;}
+  .timer-box button{border:1px solid var(--green);background:#fff;color:var(--green);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.82rem;font-weight:700;}
+  .timer-box button.primary{background:var(--green);color:#fff;}
+  .timer-label{font-size:.78rem;color:var(--muted);}
+  textarea.answer-box{width:100%;min-height:140px;padding:10px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:.92rem;resize:vertical;box-sizing:border-box;}
+  .mark-actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;align-items:center;}
+  .mark-actions button{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:700;}
+  .copy-status{font-size:.82rem;color:var(--muted);}
+  .self-score{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .self-score p{margin:0 0 8px;font-size:.88rem;font-weight:700;color:var(--green-dark);}
+  .score-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .score-row button{border:1px solid var(--green);background:#fff;color:var(--green);width:38px;height:38px;border-radius:50%;cursor:pointer;font-weight:800;}
+  .score-row button:hover{background:#eef4ec;}
+  .score-row button.chosen{background:var(--green);color:#fff;}
+  .archived-note{background:#eef4ec;border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--green-dark);margin-top:10px;}
+  .next-row{display:flex;justify-content:center;margin:18px 0;}
+  .next-row button{background:var(--gold-dark);color:#3a2c08;border:none;padding:12px 22px;border-radius:10px;cursor:pointer;font-size:.95rem;font-weight:800;}
+  .restore-btn{background:#fff;color:var(--green);border:1px solid var(--green);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:700;}
+  @media (max-width:700px){ .evidence-grid,.before-after{grid-template-columns:1fr;} }
+  @media print{ nav.tabs, .filters, .hub-link, .controls, .sub-tabs, .timer-box, .self-score, .next-row, .mark-actions{display:none!important;} .panel{display:block!important;} details{border:none;} }
+  #printArea{display:none;}
+  .print-set-title{font-size:1.2rem;font-weight:800;margin-bottom:10px;}
+  .print-stimulus{font-style:italic;border-left:3px solid #ccc;padding-left:10px;margin-bottom:10px;}
+  .print-question{font-weight:700;margin-bottom:14px;}
+  .print-answer-box{border:1px solid #999;border-radius:6px;padding:12px;min-height:200px;white-space:pre-wrap;line-height:1.6;}
+  @media print{
+    body.printing-single *{visibility:hidden;}
+    body.printing-single #printArea, body.printing-single #printArea *{visibility:visible;}
+    body.printing-single #printArea{display:block;position:absolute;left:0;top:0;width:100%;}
+  }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+    <h1>SOR1 Judaism Study Pack</h1>
+    <p>Content bank, flashcards, a named-evidence bank and real past HSC questions (2024&ndash;2025) with marking criteria and model answers &mdash; built from Dr Batten's Judaism depth-study material (Death &amp; Mourning, Bioethics, Jewish Feminism). More source files will expand this over time.</p>
+    <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+  </div>
+</header>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="SOR_Revision_Hub.html#start">Start Here</a>
+    <a href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html">6-Week Planner</a>
+    <a href="SOR_Revision_Hub.html#brain">Brain Dump</a>
+    <a href="SOR_Revision_Hub.html#quiz">Quick Quiz</a>
+    <a href="SOR_MC_Revision_Bank.html">Multiple Choice</a>
+    <a href="SOR_Q11_Practice.html">Q11</a>
+    <a href="SOR_Buddhism_StudyPack.html">Buddhism</a>
+    <span class="current">Judaism</span>
+    <a href="SOR_Content_Flashcards.html">Flashcards</a>
+    <a href="SOR_Terminology.html">Terminology</a>
+    <a href="SOR_Detail_Bank.html">SLV</a>
+    <a href="SOR_Exam_Builder.html">Build an Exam</a>
+  </div>
+</nav>
+<nav class="tabs" id="tabs">
+  <div class="tabs-inner">
+    <button data-tab="content" class="active">Content Bank</button>
+    <button data-tab="flash">Flashcards</button>
+    <button data-tab="evidence">Named Evidence &amp; Extension</button>
+    <button data-tab="past">Questions to Practise</button>
+  </div>
+</nav>
+<main>
+
+<div class="start-here-card">
+  <h2>New here?</h2>
+  <p>This is pack 1 of the Judaism material: 7 content-bank items across the three significant areas (Death &amp; Mourning as Practice, Bioethics as Ethic, Jewish Feminism as significant school of thought/Movement), flashcards, a named-evidence bank built from a genuine "precision of citation" revision lesson, and 7 real HSC questions (2024&ndash;2025) with genuine marking criteria and NESA sample answers where they exist &mdash; clearly flagged wherever a model answer had to be written to match a real question because no official sample existed.</p>
+  <a class="action-link" href="SOR_Revision_Hub.html#start">Go to Start Here &rarr;</a>
+</div>
+
+<section id="content" class="panel active">
+  <div class="howto"><b>How to use this:</b> each item gives 5 exam-ready sentence ideas (&le;320 words total, ranked with the most important first) &mdash; Judaism's Section III essay is worth 20 marks, so these carry more depth and named examples than a short-answer bank. Aim to know at least 3 sentences per item cold, including the ones with real dates, organisations and quotes.</div>
+  <div class="filters" id="jdFilters"></div>
+  <div id="jdList"></div>
+</section>
+
+<section id="flash" class="panel">
+  <div class="howto"><b>How to use this:</b> flip through the deck, filter by category, or shuffle. The <b>Named Evidence Bank</b> and <b>Extension</b> categories are separate from the core content &mdash; extension cards are optional depth, not required HSC content.</div>
+  <div class="card soft">
+    <div class="controls">
+      <select id="flashFilter" aria-label="Flashcard filter"></select>
+      <button class="action-btn secondary" id="shuffleCards" type="button">Shuffle</button>
+      <button class="action-btn secondary" id="prevCard" type="button">Previous</button>
+      <button class="action-btn" id="flipCard" type="button">Flip</button>
+      <button class="action-btn secondary" id="nextCard" type="button">Next card</button>
+    </div>
+    <div class="fc-progress"><span id="flashProgress"></span></div>
+    <p class="small" id="flashCount" style="color:var(--muted);font-size:.82rem;"></p>
+    <div class="flip-card" id="flashCard" tabindex="0" role="button" aria-label="Flip flashcard">
+      <div class="flip-inner">
+        <div class="flip-face">
+          <div class="flash-meta" id="flashCat"></div>
+          <h3 class="flash-term" id="flashFront"></h3>
+          <p class="small" style="color:var(--muted);">Click to reveal the answer.</p>
+        </div>
+        <div class="flip-face flip-back">
+          <div class="flash-meta">Answer</div>
+          <div class="flash-answer" id="flashBack"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence" class="panel">
+  <div class="howto"><b>Why this tab exists:</b> the single most repeated marker note on Judaism responses this year wasn't about knowledge &mdash; this cohort's Judaism essays were called "excellent and enlightening to read". The note was "include the exact source of scripture, not just the reference" &mdash; it appeared on essays scoring anywhere from 14/20 to 18/20. Use this bank to turn a reference into a source. The <b>Extension</b> boxes below are optional depth &mdash; useful for reach into the top band, not required for the syllabus.</div>
+
+  <div class="card">
+    <h3 class="rev-title">Say it precisely: reference vs exact source</h3>
+    <table class="precept-table">
+      <tr><th>Reference only</th><th>Exact source</th></tr>
+      <tr id="preceptRows"></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 class="rev-title" id="beforeAfterTitle"></h3>
+    <div class="before-after">
+      <div class="ba-box generic">
+        <div class="ba-label">Generic</div>
+        <div id="baGeneric"></div>
+        <div class="ba-note" id="baGenericNote"></div>
+      </div>
+      <div class="ba-box named">
+        <div class="ba-label">Named</div>
+        <div id="baNamed"></div>
+        <div class="ba-note" id="baNamedNote"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="rev-title">The Judaism Evidence Bank</h3>
+    <div class="evidence-grid" id="evidenceGrid"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="rev-title">Before you submit &mdash; evidence audit</h3>
+    <ul class="selfcheck" id="selfCheckList"></ul>
+  </div>
+
+  <div id="extensionList"></div>
+</section>
+
+<section id="past" class="panel">
+  <div class="howto" data-personalize><b>How to use this:</b> you'll get ONE past Judaism question at a time, picked at random &mdash; read it and attempt it for real, using the timer. Then check it against the criteria and answer(s) below (each labelled genuine or self-authored &mdash; see the note on each card) and rate your own answer. Score full marks and it moves to your Archive, just like Q11 Practice. Use "Copy AI-marking prompt" to get feedback on your own draft from Copilot or another AI tool your school provides &mdash; nothing is sent anywhere automatically, you paste it yourself.</div>
+  <div class="sub-tabs" id="pqSubTabs">
+    <button data-sub="practice" class="active">Practice (random)</button>
+    <button data-sub="archive">Archive (mastered)</button>
+  </div>
+  <div class="pq-stats-bar" id="pqStatsBar"></div>
+  <div id="pqPractice"></div>
+  <div id="pqArchive" style="display:none;"></div>
+</section>
+
+<div id="printArea"></div>
+</main>
+<footer>Wenona SOR1 revision suite &middot; built for offline / SharePoint use &middot; not affiliated with NESA</footer>
+
+<script>
+// ===== Judaism content bank =====
+// Item sets are <320 words (not <170 — Judaism's Section III essay is worth 20 marks in the
+// real papers, so these carry more depth/examples than the Nature of Religion & Belief bank).
+var JUDAISM_BANK = [
+  {
+    id: "jd13a", dp: "DP13a", area: "practice",
+    title: "Describe Death &amp; Mourning, and how it expresses belief in One God",
+    ideas: [
+      "Death and Mourning is Judaism's significant practice for this pack, guided by halakhah (Jewish law, from the Written Torah/Tanakh and Oral Torah/Talmud) and the mitzvot Kavod Hamet (honouring the dead) and Nichum Aveilim (comforting mourners): “For dust you are and to dust you shall return” (Genesis 3:19).",
+      "Belief in One God is expressed through the Shema, recited by the gosses (the dying person) as their central declaration of faith: “Hear O Israel, the Lord is our God, the Lord is One” (Deuteronomy 6:4).",
+      "Mourners recite the Kaddish, Judaism's central prayer: “Magnified and sanctified be His great name…”. It never mentions death, instead proclaiming God's greatness — reciting it affirms belief in One God even as a mourner's faith is tested by loss.",
+      "“God created humankind in His image” (Genesis 1:27, Tzelem Elohim — a belief, not a mitzvah) is reflected in the dignity of Jewish funeral customs: a simple, plain shroud and coffin symbolise that all people are equal before God, and readings such as Job 1:21 (“Naked I came from my mother's womb… blessed be the name of the Lord”) reinforce humility before God.",
+      "Orthodox and Conservative funeral services are strictly the same for everyone — no flowers, no individual booklet — while some Progressive synagogues now allow eco-burials or cremation as a matter of personal choice, citing modern values of autonomy and environmental concern, while still maintaining spiritually meaningful rituals such as reciting Kaddish."
+    ]
+  },
+  {
+    id: "jd13b", dp: "DP13b", area: "practice",
+    title: "How Death &amp; Mourning expresses belief in divinely-inspired Law and Covenant",
+    ideas: [
+      "Belief in divinely inspired moral law: “You shall not desecrate the dead” (Deuteronomy 21:23) underpins Kavod Hamet, ensuring dignity and respect for the deceased; a Chevra Kadisha (burial volunteer group) performs taharah (ritual purification) as commanded in halakhah.",
+      "“Comfort the mourners” (derived from Isaiah 40:1 and rabbinic tradition) underpins Nichum Aveilim; the dead are buried in their tallit (prayer shawl) with the tzitzit strings cut, symbolising fulfilment of the 613 mitzvot.",
+      "Restrictions in mourning reflect obedience to halakhah: Shiva, the strict first 7 days, involves not leaving home, working or engaging in entertainment, sitting on low chairs and wearing keriah (torn clothing). Orthodox Judaism enforces all restrictions strictly; Progressive Judaism often relaxes rules, e.g. allowing family to work during Shiva, showing diversity in applying the moral law.",
+      "Belief in Covenant: every aspect of death and mourning symbolises the Covenant between God and His people, with adherents upholding their side by following the 613 mitzvot; the Kaddish also says “…may He establish His kingdom…”, affirming the covenantal relationship.",
+      "Outside Israel, soil from Israel is thrown onto the coffin at burial, recalling God's covenantal land-promise (e.g. Genesis 15:18: “…the Lord made a covenant with Abram… to your descendants I give this land”); today, some Progressive communities in the US incorporate environmental-covenant themes through green burials."
+    ]
+  },
+  {
+    id: "jd13c", dp: "DP13c", area: "practice",
+    title: "Analyse the significance of Death &amp; Mourning for the individual and the Jewish community",
+    ideas: [
+      "For the individual: before death, the gosses is treated with dignity and supported to recite the Shema, preparing to meet God; after death, the Chevra Kadisha prepares the body for burial through the taharah ritual under the Kavod Hamet mitzvot, generally within 24 hours.",
+      "Burial within 24 hours anticipates resurrection at the end of days: “Many who sleep in the dust will awake” (Daniel 12:2) — Orthodox and Conservative streams emphasise messianic hope, while Progressive Judaism often interprets resurrection metaphorically, focusing on spiritual continuity.",
+      "Mourning is structured through the stages of Nichum Aveilim: Shiva (7 days — no jewellery, shaving or TV; mirrors covered; round-shaped Condolence Meals such as eggs and bagels symbolising the cycle of life), Shloshim (extends to 30 days — return to work but avoid music/parties) and, for a parent, Avelut (12 months total) — offering psychological comfort and gradual reintegration into normal life.",
+      "For the community: once a person dies, a Chevra Kadisha is called regardless of stream, fulfilling the ethical teachings of Tikkun Olam (repairing the world) and Gemilut Chasadim (acts of loving-kindness); reciting Kaddish always requires a minyan (a minimum of 10 people — traditionally men in Orthodox and most Conservative synagogues, though Progressive minyanim can include women), affirming communal responsibility so mourners need not feel alone.",
+      "This unifying force adapts without losing its meaning: many synagogues organised “Zoom minyanim” for Kaddish during lockdowns, and in Israel, livestreamed funerals during that period let families abroad feel involved — showing death and mourning as Judaism's living, dynamic response to the equality of all people before God."
+    ]
+  },
+  {
+    id: "jd14a", dp: "DP14a", area: "ethics",
+    title: "Pikuach Nefesh and Tzelem Elohim, applied to the start of life (abortion, IVF)",
+    ideas: [
+      "Two foundational teachings guide Jewish bioethics: Pikuach Nefesh (preservation of life, Talmud Yoma 85b) and Tzelem Elohim (“made in the image of God”, Genesis 1:27 — a belief, not a mitzvah, worth stating precisely): “Whoever destroys one life is as if he destroyed a whole world, and whoever preserves a life is as if he preserved the whole world” (Mishnah Sanhedrin 4:5).",
+      "Interpretation varies across bioethical areas and across streams, but the underlying instruction is to “choose life, so that you and your descendants may live” (Deuteronomy 30:19).",
+      "On abortion: the general position is grounded in Jeremiah 1:5 (“Before I formed you in the womb, I knew you…”). Orthodox and Conservative Judaism restrict abortion after 40 days except for severe maternal risk, while Progressive Judaism allows broader consideration of mental health and autonomy.",
+      "In the first 40 days, rabbinical interpretation considers the foetus “mere water” (Yevamot 69b), making abortion permissible where maternal health is at risk; where the foetus is regarded as a rodef (a genuine threat to the mother's life — a term worth checking precisely, not loosely applied), abortion is not only allowed but required, across all streams.",
+      "IVF is widely permitted, since embryonic wastage is not considered an ethical obstacle; it fulfils the mitzvah to “be fruitful and multiply” (Genesis 1:28), a command post-Holocaust Jewish communities particularly emphasise, and Israel's government funds IVF cycles until two live births, reflecting national and religious priorities."
+    ]
+  },
+  {
+    id: "jd14b", dp: "DP14b", area: "ethics",
+    title: "Pikuach Nefesh applied to manipulation of life (stem cells, organ donation) and end of life",
+    ideas: [
+      "In manipulation-of-life issues, Pikuach Nefesh and Tzelem Elohim both apply strongly: the commitment to improving a patient's quality of life is essential, and stem cell research is permissible under Pikuach Nefesh as it seeks cures for life-threatening conditions such as Parkinson's disease.",
+      "This is also supported by Tikkun Olam (repairing the world) and Tzedakah (charity), since the research aims to alleviate suffering: “You shall not stand idly by the blood of your neighbour” (Leviticus 19:16) reinforces the obligation to act.",
+      "Pikuach Nefesh is considered so significant that it is understood to override almost all other mitzvot (Talmud Yoma 85b) — for example, Sabbath law may be broken if a life is at stake.",
+      "Organ donation varies across streams: Progressive and Conservative adherents generally encourage donation, even live kidney donation, citing Pikuach Nefesh; Orthodox adherents have traditionally been discouraged from any defilement of the body (including transplantation, during life or after death), looking to bodily resurrection — though some Orthodox rabbis now permit post-mortem organ donation once death is halachically confirmed, e.g. the Israeli National Transplant Center promotes donation with rabbinical approval.",
+      "On end of life: Jewish belief holds that God decides when a person dies — “there is a time to be born and a time to die” (Ecclesiastes 3:2). Orthodox rabbis often allow passive withdrawal of life support (not starting new treatment) but forbid actively hastening death; Progressive Judaism permits broader autonomy, emphasising dignity and compassion.",
+      "Suicide and voluntary euthanasia are clearly prohibited — “You shall not kill” (Exodus 20:13) — with focus instead on the dying person (Gosses) being supported to die with dignity and meet their Creator, reflecting Tzelem Elohim."
+    ]
+  },
+  {
+    id: "jd15a", dp: "DP15a", area: "movement",
+    title: "Jewish Feminism's impact on the development of Judaism (leadership &amp; education)",
+    ideas: [
+      "Jewish Feminism (JF) is a modern school of thought applying Tikkun Olam — not one of the 613 mitzvot, but a guiding ethical principle grounded in mitzvot such as Tzedakah, Pikuach Nefesh, Gemilut Chasadim and Bal Tashchit — to challenge patriarchy and promote gender equity, rooted in Tzelem Elohim: “So God created mankind in His image, male and female He created them” (Genesis 1:27). Dr Batten's ELPCO acronym tracks JF's impact: Education, Leadership, and variation across Progressive, Conservative and Orthodox streams.",
+      "In 1972, ten Jewish feminists formed Ezrat Nashim, producing a document, “The Call for Change”, seeking spiritual, ritual, intellectual and political opportunities for women; Numbers 27:1–7, where the daughters of Zelophehad successfully petition Moses for inheritance rights (“The daughters of Zelophehad speak rightly”), is cited by JF as scriptural precedent for women influencing law and leadership within halakhah.",
+      "The world's first ordained female rabbi was Regina Jonas, ordained in Berlin in 1935; she served the city's liberal Jewish community through the Nazi era before being murdered in Auschwitz. Progressive Judaism's first American-ordained woman rabbi was Sally Priesand, in 1972 (Cincinnati); Conservative Judaism's 1983 decision to allow women's ordination marked a major shift, and Rabbi Amy Eilberg became its first ordained woman in 1985 (New York).",
+      "Orthodox feminism works within halakhah: JOFA (Jewish Orthodox Feminist Alliance), founded in 1997 by Blu Greenburg, advocates for women's meaningful participation “within the framework of halachah”. Rabbi Phil Kaplan of Sydney's Great Synagogue confirms Orthodox rabbanits — including Rabbanit Sara Hurwitz (2009) and Rabbanit Ellyse Borghi (2019, Melbourne) — can now read Torah publicly and preach, though their role remains halakhically limited, e.g. from mixed services and minyanim.",
+      "Education has also shifted: most Jewish schools in Sydney are now co-educational, applying “teach them diligently to your children” (Deuteronomy 6:7) inclusively — JF argues that expanding access to Torah study strengthens covenantal responsibility because it lets every member contribute to halakhic interpretation and communal decision-making."
+    ]
+  },
+  {
+    id: "jd15b", dp: "DP15b", area: "movement",
+    title: "Jewish Feminism's impact on the expression of Judaism (ritual &amp; marriage law)",
+    ideas: [
+      "JF argues Tzelem Elohim supports equal ritual participation, since both genders reflect the divine image; Progressive Judaism has held Bat Mitzvahs since 1922 (USA), and Progressive and Conservative Judaism now permit women to join a minyan — the quorum of ten Jewish adults (traditionally men over 13) required for key communal prayers such as Kaddish — aligning with Deuteronomy 31:12's call for “men, women and children” to “hear and learn” the law together.",
+      "Orthodox ritual participation remains halakhically limited (e.g. from mixed minyanim), but is opening incrementally: wearing a tallit is now a choice for Progressive and Conservative women; a feminist reading of Numbers 15:37–41 argues the tzitzit (tassel) commandment was likely intended for all Israelites, not only men, defying traditional male-centric interpretation — and women's prayer groups and Torah education have expanded even within Orthodoxy.",
+      "On marriage law: tradition frames marriage as the man “acquiring” the woman (kiddushin), with only the husband able to grant a divorce (a get). Conservative Judaism has introduced egalitarian rituals, e.g. both partners exchanging rings, while the husband remains legally obligated to give a get on civil divorce; Progressive Judaism has moved furthest toward full legal equality in marriage.",
+      "JOFA has campaigned against the status of Agunot (women “chained” in marriage without a husband's consent to divorce), citing “You shall not oppress the stranger” (Exodus 22:21) as extending to gender justice — notably succeeding after 9/11, when the relevant Jewish authority allowed some widowed Agunot to remarry despite their husbands' bodies never being recovered.",
+      "A genuine extension flagged for the top band after this cohort's 2026 Trial HSC: Jewish feminist hermeneutics (reinterpreting sacred texts through a gender-inclusive lens) and kol isha (literally “a woman's voice” — historically a restriction on women's public voice in some Orthodox contexts, now also invoked by Jewish feminists reclaiming women's voice and more inclusive scriptural language, especially in the Progressive stream)."
+    ]
+  }
+];
+
+// ===== Named Evidence Bank + Extension =====
+var NAMED_EVIDENCE = {
+  scripture: { label: "Scripture, precisely sourced", items: ["Genesis 1:27 (Tzelem Elohim)", "Exodus 6:7", "Deuteronomy 6:7", "Leviticus 19:16", "Deuteronomy 30:19 (‘choose life’)", "Talmud Yoma 85b (Pikuach Nefesh)"] },
+  bioethics: { label: "Bioethics — nuance to check", items: ["Pikuach Nefesh (overrides almost all other mitzvot)", "rodef — check the exact meaning (a genuine threat to the mother's life)", "Tzelem Elohim — a belief, not a mitzvah (a real 2026 marker note)"] },
+  feminism: { label: "Jewish Feminism, named", items: ["JOFA (founded 1997 by Blu Greenburg)", "named ordained rabbis — Regina Jonas (1935, world's first), Sally Priesand (1972, US first), Amy Eilberg (1985)", "kol isha", "Jewish feminist hermeneutics", "Tikkun Olam — not one of the 613 mitzvot itself (nuance to check)"] },
+  mourning: { label: "Death &amp; Mourning, precise terms", items: ["Chevra Kadisha", "Shiva / Shloshim / Avelut", "the Gosses (the dying person)", "taharah (the purification ritual)"] }
+};
+var PRECEPT_PRECISION = [
+  { loose: "“The Torah says we are made in God's image.”", precise: "“Made in the image of God” — Genesis 1:27" },
+  { loose: "“God promises to be their God.”", precise: "“I will take you as My people, and I will be your God” — Exodus 6:7" },
+  { loose: "“Adherents are told to teach their children.”", precise: "“Teach them diligently to your children” — Deuteronomy 6:7" },
+  { loose: "“The Torah says not to stand by.”", precise: "“You shall not stand idly by the blood of your neighbour” — Leviticus 19:16" }
+];
+var NAMED_EVIDENCE_EXAMPLE = {
+  question: "Bioethics — the same underlying belief, two very different answers.",
+  generic: "Jewish ethical teachings guide adherents to protect life and act responsibly in medical decisions.",
+  genericNote: "Accurate. But this sentence could sit in almost any student's essay on almost any ethical area — nothing to underline.",
+  named: "Pikuach Nefesh (Talmud Yoma 85b) is considered so significant that it overrides almost all other mitzvot — Orthodox rabbis therefore permit breaking Sabbath law to save a life, and some now permit post-mortem organ donation once death is halachically confirmed, e.g. through the Israeli National Transplant Center.",
+  namedNote: "Same belief. Now there's a named source (Talmud Yoma 85b), a precise mechanism (overriding other mitzvot) and a named organisation — three underlinable details."
+};
+var EVIDENCE_SELFCHECK = [
+  "Have I identified the pairing this question is actually asking for, not just the one I rehearsed?",
+  "Does every scriptural quotation have an exact source — book, chapter and verse — not just “the Torah says”?",
+  "Have I checked any contested term (rodef, Tzelem Elohim) against its precise meaning, not a loose paraphrase?",
+  "Is the stimulus visible throughout my response, not only in the introduction?"
+];
+var EXTENSION_CONTENT = [
+  {
+    title: "Extension: kol isha and Jewish feminist hermeneutics",
+    source: "Wenona external HSC marker feedback, Trial 2026",
+    body: "The external marker's feedback on this cohort's 2026 Trial named this as an extension worth building in for top-band Judaism responses: Jewish feminist hermeneutics is the practice of re-reading and reinterpreting sacred texts through a gender-inclusive lens, recovering women's presence and voice within halakhic and scriptural tradition rather than treating it as fixed. Kol isha (“a woman's voice”) is a related, contested idea — in some Orthodox contexts historically used to restrict a woman's voice being heard publicly, especially in prayer — which Jewish feminists have increasingly reclaimed as a symbol of restoring women's voice, particularly through more inclusive scriptural language in the Progressive stream. Using these terms precisely, and knowing which movement is doing the reclaiming, is exactly the kind of named, exact detail that separates a good Jewish Feminism response from an excellent one."
+  },
+  {
+    title: "Extension: Rabbi Abraham Joshua Heschel — a different significant person",
+    source: "NESA 2025 HSC Studies of Religion Marking Guidelines (genuine ‘answers could include’ content, adapted)",
+    body: "NESA's own 2025 marking guidelines for the ‘significant person or school of thought’ question point to Rabbi Abraham Joshua Heschel as one valid real answer, alongside (not instead of) Jewish Feminism. Heschel highlighted engaging with Jewish tradition as a source of wisdom for contemporary challenges, with ideas centred on spirituality, ethics and the connection between humans and the divine. He emphasised cultivating awe and wonder at the divine, urged active awareness of God's presence in daily life, stressed a personal, emotional and experiential relationship with God rather than a purely intellectual one, and named ‘Tikkun Olam’ as the way this translates into a meaningful, ethically engaged life — alongside the importance of community in sustaining spiritual growth."
+  },
+  {
+    title: "Extension: Susanna Heschel — a different significant person, not to be confused with her father",
+    source: "Wenona SOR 15a slide reference; general biographical/scholarly knowledge of a well-known public academic",
+    body: "Susanna Heschel — daughter of Rabbi Abraham Joshua Heschel (see the extension above) — is a leading Jewish feminist theologian and historian of Jewish Studies (Eli Black Professor of Jewish Studies, Dartmouth College). She is best known for editing “On Being a Jewish Feminist: A Reader”, a foundational collection of Jewish feminist theology, and for scholarship applying feminist and historical-critical method to Jewish text and tradition. Citing both Heschels by full name, and being clear which one is meant, is exactly the kind of named precision that separates a good response from an excellent one — especially since her father is already a genuine NESA-recognised alternative answer in his own right."
+  }
+];
+
+// ===== Flashcards =====
+var JUDAISM_FLASHCARDS = [
+  {cat:"Death & Mourning", front:"What two mitzvot guide Jewish death and mourning practice?",
+    back:"Kavod Hamet (honouring the dead) and Nichum Aveilim (comforting mourners) — both derived from halakhah, the collective body of Jewish law from the Written Torah (Tanakh) and Oral Torah (including the Talmud)."},
+  {cat:"Death & Mourning", front:"What does the dying person (the gosses) recite, and what does it express?",
+    back:"The Shema — “Hear O Israel, the Lord is our God, the Lord is One” (Deuteronomy 6:4) — the central Jewish declaration of belief in One God, recited as death approaches."},
+  {cat:"Death & Mourning", front:"What is unusual about the Kaddish prayer, and why does that matter?",
+    back:"It never mentions death — instead it proclaims God's greatness (“Magnified and sanctified be His great name…”). By reciting it, mourners affirm belief in One God even while their faith is tested by loss."},
+  {cat:"Death & Mourning", front:"What does a Chevra Kadisha do, and under which mitzvah?",
+    back:"A burial volunteer group that performs taharah (ritual purification) of the body, fulfilling the Kavod Hamet mitzvot, which is derived partly from “You shall not desecrate the dead” (Deuteronomy 21:23)."},
+  {cat:"Death & Mourning", front:"What are the three main stages of Jewish mourning (Avelut), in order?",
+    back:"Shiva (the first, strict 7 days), Shloshim (extends to 30 days — return to work, but no music/parties), and for the death of a parent, the wider Avelut period runs 12 months in total."},
+  {cat:"Death & Mourning", front:"Name three Shiva restrictions.",
+    back:"Mourners do not leave home, work or engage in entertainment; they sit on low chairs; they wear keriah (torn clothing) — and mirrors are covered so the focus stays on the memory of the deceased, not the mourner."},
+  {cat:"Death & Mourning", front:"Why are round-shaped Condolence Meal foods (e.g. eggs, bagels) brought during Shiva?",
+    back:"They symbolise the cycle of life, and new life continuing for the deceased through those left behind."},
+  {cat:"Death & Mourning", front:"What is a minyan, and why does it matter for mourning?",
+    back:"A minimum of 10 people required to recite the Kaddish (traditionally men in Orthodox and most Conservative synagogues; Progressive Judaism allows women). It ensures no mourner recites Kaddish, or grieves, alone."},
+  {cat:"Death & Mourning", front:"How do Orthodox/Conservative and Progressive streams differ on burial vs cremation?",
+    back:"Orthodox and Conservative Judaism require burial, strictly the same simple service for everyone (no flowers, no individual booklet). Some Progressive synagogues now permit cremation or eco-burials as a matter of personal choice, citing autonomy and environmental concern, while still keeping meaningful rituals like reciting Kaddish."},
+  {cat:"Death & Mourning", front:"How did death and mourning practice adapt during COVID, while keeping its meaning?",
+    back:"Many synagogues held “Zoom minyanim” for Kaddish, and burials in Israel were still completed within 24 hours but livestreamed — letting families abroad feel involved, showing the practice as living and dynamic."},
+  {cat:"Death & Mourning", front:"What does burial within 24 hours anticipate, and how do streams differ in interpreting it?",
+    back:"“Many who sleep in the dust will awake” (Daniel 12:2) — resurrection at the end of days. Orthodox and Conservative Judaism emphasise this literal messianic hope; Progressive Judaism often reads it metaphorically, as spiritual continuity."},
+  {cat:"Bioethics", front:"What are the two foundational teachings behind Jewish bioethics?",
+    back:"Pikuach Nefesh (preservation of life, Talmud Yoma 85b) and Tzelem Elohim (“made in the image of God”, Genesis 1:27) — a belief, not a mitzvah, so name it precisely."},
+  {cat:"Bioethics", front:"Complete and source: “Whoever destroys one life…”",
+    back:"“Whoever destroys one life is as if he destroyed a whole world, and whoever preserves a life is as if he preserved the whole world” — Mishnah Sanhedrin 4:5."},
+  {cat:"Bioethics", front:"How does Jewish law treat abortion in the first 40 days vs after?",
+    back:"In the first 40 days, rabbinical interpretation considers the foetus “mere water” (Yevamot 69b), permitting abortion for maternal health. After 40 days, Orthodox and Conservative Judaism restrict abortion except for severe maternal risk; Progressive Judaism allows broader consideration of mental health and autonomy."},
+  {cat:"Bioethics", front:"What is a rodef, and why does the term matter for abortion ethics?",
+    back:"A rodef is a genuine threat to the mother's life. Where the foetus is a rodef, abortion is not only allowed but required — across all streams. It's a precise legal term, not a loose description of risk."},
+  {cat:"Bioethics", front:"Why is IVF widely permitted in Judaism?",
+    back:"Embryonic wastage isn't considered an ethical obstacle, and IVF fulfils the mitzvah to “be fruitful and multiply” (Genesis 1:28) — a command post-Holocaust communities particularly emphasise; Israel's government funds IVF cycles until two live births."},
+  {cat:"Bioethics", front:"How significant is Pikuach Nefesh compared to other mitzvot?",
+    back:"It is considered so significant it overrides almost all other mitzvot (Talmud Yoma 85b) — for example, Sabbath law may be broken if a life is genuinely at stake."},
+  {cat:"Bioethics", front:"How do streams differ on organ donation?",
+    back:"Progressive and Conservative Judaism generally encourage donation (even live kidney donation), citing Pikuach Nefesh. Orthodox Judaism has traditionally discouraged bodily defilement, looking to bodily resurrection, though some Orthodox rabbis now permit post-mortem donation once death is halachically confirmed."},
+  {cat:"Bioethics", front:"What is the Orthodox position on withdrawing life support, and how does it differ from Progressive Judaism?",
+    back:"Orthodox rabbis often allow passive withdrawal (not starting new treatment) but forbid actively hastening death. Progressive Judaism permits broader personal autonomy, emphasising dignity and compassion."},
+  {cat:"Bioethics", front:"Is voluntary euthanasia permitted in Judaism? What's the alternative focus?",
+    back:"No — suicide and voluntary euthanasia are prohibited (“You shall not kill”, Exodus 20:13). The focus instead is on the dying person (Gosses) being supported to die with dignity, reflecting Tzelem Elohim."},
+  {cat:"Jewish Feminism", front:"What does Dr Batten's ELPCO acronym stand for?",
+    back:"Education, Leadership, Progressive, Conservative, Orthodox — tracking Jewish Feminism's impact on the development and expression of Judaism across those three streams."},
+  {cat:"Jewish Feminism", front:"Who was Regina Jonas, and why does she matter for Jewish Feminism?",
+    back:"The world's first ordained female rabbi — ordained in Berlin in 1935, serving the city's liberal Jewish community through the Nazi era, before being murdered in Auschwitz. She predates Sally Priesand (1972, first ordained in the US) by 37 years."},
+  {cat:"Jewish Feminism", front:"What was Ezrat Nashim, and what did it produce?",
+    back:"A group of ten Jewish feminists formed in 1972, who produced “The Call for Change”, seeking spiritual, ritual, intellectual and political opportunities for women."},
+  {cat:"Jewish Feminism", front:"Name the first ordained woman rabbi in Progressive and in Conservative Judaism, with dates.",
+    back:"Progressive: Rabbi Sally Priesand, ordained 1972 (Cincinnati) — the first ordained in the US (Regina Jonas, 1935 Berlin, was the world's first). Conservative: Rabbi Amy Eilberg, ordained 1985 (New York), after Conservative Judaism's 1983 decision to allow women's ordination."},
+  {cat:"Jewish Feminism", front:"What is JOFA, and how does it position its advocacy?",
+    back:"The Jewish Orthodox Feminist Alliance, founded 1997 by Blu Greenburg — advocates for women's meaningful participation “within the framework of halachah”, working for change from inside Orthodoxy rather than outside it."},
+  {cat:"Jewish Feminism", front:"What is a rabbanit, and what can she do (and not do) in Orthodox Judaism?",
+    back:"A female Orthodox religious leader — Rabbi Phil Kaplan of Sydney's Great Synagogue confirms that, since Rabbanit Sara Hurwitz (2009) and Rabbanit Ellyse Borghi (2019, Melbourne), rabbanits can read Torah publicly and preach, but remain halakhically limited, e.g. excluded from mixed services and minyanim."},
+  {cat:"Jewish Feminism", front:"What exactly is a minyan, precisely defined?",
+    back:"The quorum of ten Jewish adults (traditionally men over 13) required to perform specific communal prayers and rituals, such as Kaddish and wedding blessings — from the Hebrew for “to count” or “number”."},
+  {cat:"Jewish Feminism", front:"What does a feminist reading of Numbers 15:37–41 argue?",
+    back:"That the commandment to wear tzitzit (tassels) — reminders of God's laws — was likely intended for all Israelites, not only men, defying traditional male-centric interpretation and grounding Progressive/Conservative women's choice to wear a tallit."},
+  {cat:"Jewish Feminism", front:"What's the precise status of Tikkun Olam? (a real nuance to check)",
+    back:"Not one of the 613 mitzvot itself — a guiding ethical principle grounded in real mitzvot including Tzedakah (charity), Pikuach Nefesh (saving life), Gemilut Chasadim (acts of kindness) and Bal Tashchit (prohibition against waste)."},
+  {cat:"Jewish Feminism", front:"What scriptural precedent does Jewish Feminism cite for women influencing halakhah?",
+    back:"Numbers 27:1–7 — the daughters of Zelophehad successfully petition Moses for inheritance rights, and God affirms: “The daughters of Zelophehad speak rightly.”"},
+  {cat:"Jewish Feminism", front:"How does ritual participation differ across streams for women today?",
+    back:"Progressive Judaism: full equality, Bat Mitzvahs since 1922 (USA), women in a minyan. Conservative: women in a minyan permitted, Bat Mitzvahs more common from the 1960s–70s. Orthodox: still halakhically limited, though tallit-wearing and women's prayer groups/Torah education are growing."},
+  {cat:"Jewish Feminism", front:"What is an Agunah (plural Agunot), and what has JOFA done about it?",
+    back:"A woman “chained” in marriage because her husband won't grant a divorce (a get). JOFA has campaigned against this — notably succeeding after 9/11, when some widowed Agunot were permitted to remarry despite bodies never being recovered."},
+  {cat:"Jewish Feminism", front:"What does kiddushin traditionally mean for Jewish marriage law, and how has Conservative Judaism reformed it?",
+    back:"Kiddushin frames marriage as the man “acquiring” the woman, with only the husband able to grant a get. Conservative Judaism has introduced egalitarian rituals (e.g. both partners exchanging rings) while the husband remains legally obligated to give a get."},
+  {cat:"Jewish Feminism", front:"What are kol isha and Jewish feminist hermeneutics? (2026 extension)",
+    back:"Kol isha (“a woman's voice”) — historically a restriction on a woman's public voice in some Orthodox contexts, now reclaimed by Jewish feminists. Jewish feminist hermeneutics is re-reading sacred texts through a gender-inclusive lens. Named by this cohort's real 2026 Trial marker as an extension worth building in for the top band."},
+  {cat:"Jewish Feminism", front:"What Genesis verse grounds Jewish Feminism's claim to equal dignity, and what does it say?",
+    back:"Genesis 1:27: “So God created mankind in His image, male and female He created them” — cited to argue that Tzelem Elohim (being made in God's image) applies equally to both genders."},
+  {cat:"Named Evidence Bank", front:"What was the single most repeated marker note on Judaism essays this year, and across what mark range did it appear?",
+    back:"“Include the exact source of scripture — not just the reference.” It appeared on essays scoring anywhere from 14/20 to 18/20 — Judaism is already this cohort's strongest section, so the gap is precision, not knowledge."},
+  {cat:"Named Evidence Bank", front:"Turn this into an exact source: “The Torah says we are made in God's image.”",
+    back:"“Made in the image of God” — Genesis 1:27. Book, chapter and verse, every time."},
+  {cat:"Named Evidence Bank", front:"What are the four categories in the Judaism Evidence Bank?",
+    back:"Scripture (precisely sourced, e.g. Genesis 1:27), Bioethics (Pikuach Nefesh, rodef — nuance to check), Jewish Feminism (JOFA, named ordained rabbis, kol isha), Death & Mourning (Chevra Kadisha, Shiva/Shloshim/Avelut, the Gosses)."},
+  {cat:"Named Evidence Bank", front:"Before you submit a Judaism response, what four questions make up the evidence audit?",
+    back:"Have I identified the pairing this question is actually asking for? Does every quotation have an exact source (book, chapter, verse)? Have I checked contested terms (rodef, Tzelem Elohim) precisely? Is the stimulus visible throughout, not just in the introduction?"},
+  {cat:"Extension", front:"Extension: what is Jewish feminist hermeneutics?",
+    back:"The practice of re-reading and reinterpreting sacred texts through a gender-inclusive lens, recovering women's presence and voice within halakhic and scriptural tradition rather than treating it as fixed."},
+  {cat:"Extension", front:"Extension: what is kol isha, and how has its meaning shifted?",
+    back:"Literally “a woman's voice” — historically used in some Orthodox contexts to restrict a woman's public voice, especially in prayer. Jewish feminists have increasingly reclaimed it as a symbol of restoring women's voice, especially through more inclusive scriptural language in the Progressive stream."},
+  {cat:"Extension", front:"Extension: who is Rabbi Abraham Joshua Heschel, and what does NESA's own guidance say about him?",
+    back:"A real, alternative answer to the ‘significant person or school of thought’ question (NESA 2025 marking guidelines): Heschel emphasised spirituality, ethics, awe and wonder at the divine, a personal/experiential relationship with God, and ‘Tikkun Olam’ as the path to a meaningful, ethically engaged life."},
+  {cat:"Extension", front:"Extension: who is Susanna Heschel, and how does she relate to Abraham Joshua Heschel?",
+    back:"A leading Jewish feminist theologian and historian of Jewish Studies (Dartmouth College) — daughter of Rabbi Abraham Joshua Heschel, and editor of “On Being a Jewish Feminist: A Reader”. Naming both Heschels precisely, and being clear which is meant, is a top-band level of detail."},
+  {cat:"Extension", front:"Extension: what did NESA's real 2025 sample answer use as an example of ONE significant practice expressing ONE belief?",
+    back:"Jewish marriage expressing the belief in the Covenant — through the wedding vows and the Ketubah, the couple form a divine partnership symbolising the Covenantal relationship between Yahweh and His people."}
+];
+
+// ===== Past questions =====
+// Sourced from the genuine 2024 and 2025 NESA HSC Studies of Religion exam papers and marking
+// guidelines (both in the wider source archive). Where NESA published a sample answer or
+// "answers could include" content, it is reproduced/adapted and clearly labelled genuine.
+// Where no sample existed, a model answer was written by Claude to match the real question and
+// criteria — always labelled as such, never presented as an official NESA answer.
+var JUDAISM_PAST_QUESTIONS = [
+  {
+    id: "jd-practice-essay", year: "Adapted from 2024–2025 HSC", marksLabel: "20 marks", marks: 20, topic: "Significant practice — Death & Mourning, essay-length",
+    verified: "partial",
+    stimulus: "Religious practices are the sacred threads that weave together adherents' beliefs and connect them to the divine.",
+    question: "With reference to the statement, analyse how the significant practice of Death and Mourning expresses the beliefs of Judaism.",
+    questionNote: "This is NOT a genuine NESA Section III question — every Judaism question in this pack is essay-length, so this pack's chosen significant practice (Death & Mourning) gets essay-length practice too. Claude adapted it by extending the real 2024 HSC Section II Q16(b) (8 marks, using this same genuine stimulus) and the real 2025 HSC Section II Q16(a) (3 marks) into a full Section III-style, 20-mark essay. The stimulus and underlying question focus are genuine NESA content; the essay-length criteria and model answer below are self-authored by Claude to match real Section III conventions, not verbatim NESA content.",
+    criteria: [
+      { marks: "17–20", desc: ["Presents a comprehensive and accurate analysis of how the significant practice of Death and Mourning expresses the beliefs of Judaism", "Integrates the statement effectively throughout the response", "Supports a cohesive and well-structured response with detailed, relevant and accurate information", "Integrates relevant and accurate terminology"] },
+      { marks: "13–16", desc: ["Presents an accurate analysis", "Integrates the statement within the response", "Supports a structured response with relevant and accurate information", "Uses relevant and accurate terminology"] },
+      { marks: "9–12", desc: ["Presents some analysis", "Refers to the statement within the response", "Supports the response with relevant information", "Uses accurate terminology"] },
+      { marks: "5–8", desc: ["Makes general statements about how Death and Mourning expresses the beliefs of Judaism", "May refer to the statement", "Uses some examples and/or terminology"] },
+      { marks: "1–4", desc: ["Makes general statements about Judaism", "May use some terminology"] }
+    ],
+    criteriaNote: "Self-authored by Claude, adapting the real 2024/2025 NESA Section II marking-guideline language for this topic into Section III-style 5-band criteria (matching the real 20-mark Section III bands used elsewhere in this pack) — not verbatim NESA Section III criteria, since NESA has not set Death & Mourning as a genuine Section III essay question in recent papers.",
+    modelAnswer: {
+      label: "Model essay answer (written by Claude — not an official NESA answer)",
+      text: "Death and mourning are the sacred threads weaving together Judaism's core beliefs — in One God, divinely inspired law, and Covenant — while connecting adherents to the divine at life's most significant moment. The practice is grounded in halakhah, the collective body of Jewish law drawn from the Written Torah (Tanakh) and Oral Torah (including the Talmud), which structures every stage of dying, burial and mourning through the mitzvot Kavod Hamet (honouring the dead) and Nichum Aveilim (comforting mourners): “For dust you are and to dust you shall return” (Genesis 3:19).\n\nBelief in One God is affirmed most clearly at the moment of death itself. The gosses (the dying person) is supported to recite the Shema as their central declaration of faith: “Hear O Israel, the Lord is our God, the Lord is One” (Deuteronomy 6:4). This same belief is then carried through the entire mourning period by the Kaddish, Judaism's central prayer, recited daily by mourners. Strikingly, the Kaddish never once mentions death; instead it proclaims God's greatness (“Magnified and sanctified be His great name…”), so that reciting it affirms belief in One God even while a mourner's own faith is being tested by grief. “God created humankind in His image” (Genesis 1:27, Tzelem Elohim — a belief rather than a mitzvah, and worth stating precisely as such) is reflected in the deliberate plainness of Jewish funeral customs: a simple, uniform shroud and coffin symbolise that all people, rich or poor, are equal before God, while readings such as Job 1:21 (“Naked I came from my mother's womb… blessed be the name of the Lord”) reinforce humility in the face of the divine.\n\nThe practice is equally shaped by belief in divinely inspired law and Covenant. “You shall not desecrate the dead” (Deuteronomy 21:23) underpins Kavod Hamet, and is fulfilled practically when a Chevra Kadisha (a burial volunteer group) performs taharah, the ritual purification of the body, generally within 24 hours of death. “Comfort the mourners” (drawn from Isaiah 40:1 and rabbinic tradition) underpins Nichum Aveilim, structured through clearly defined stages: Shiva, the intense first seven days, during which mourners do not leave home, work or engage in entertainment, sit on low chairs and wear keriah (torn clothing); Shloshim, extending to thirty days, during which mourners return to work but avoid music and celebrations; and, for the loss of a parent, Avelut, lasting twelve months in total. Each stage gradually reintegrates the mourner into ordinary life while never letting go of halakhic structure. Orthodox Judaism observes these restrictions strictly, while Progressive Judaism often relaxes elements of them — for instance allowing a mourner to return to work earlier during Shiva — showing that the same underlying law can be lived out with real diversity across the streams while still expressing obedience to it. Covenant is expressed even more directly: the deceased is buried in their tallit (prayer shawl) with its tzitzit strings deliberately cut, symbolising the fulfilment of the 613 mitzvot, and, outside Israel, soil from Israel is placed on the coffin, recalling God's covenantal land-promise to Abraham — “the Lord made a covenant with Abram… to your descendants I give this land” (Genesis 15:18). The Kaddish itself reinforces this, its words affirming that God will “establish His kingdom”, tying personal grief back to the covenantal relationship between God and His people.\n\nFinally, Death and Mourning is deeply significant for both the individual and the Jewish community, in ways that show it to be a living, adaptable practice rather than a fixed ritual performed by rote. For the individual, burial within 24 hours anticipates the Jewish hope of resurrection at the end of days — “Many who sleep in the dust will awake” (Daniel 12:2) — which Orthodox and Conservative Judaism tend to read as a literal, future hope, while Progressive Judaism more often interprets it metaphorically, as spiritual continuity beyond death; either way, the ritual structure gives the individual mourner a clear, supported path through grief. For the community, the requirement that Kaddish be recited within a minyan — a quorum of at least ten adults, traditionally men in Orthodox and most Conservative settings, though Progressive minyanim may include women — turns private loss into shared, communal responsibility, fulfilling the ethical teachings of Tikkun Olam (repairing the world) and Gemilut Chasadim (acts of loving-kindness) and ensuring that no mourner grieves alone. This communal, covenantal character has shown itself to be genuinely dynamic in the modern world: during COVID-19 lockdowns, many synagogues organised “Zoom minyanim” so mourners could still recite Kaddish in community, and in Israel livestreamed funerals let family members abroad remain meaningfully present. Variation across the streams — Orthodox and Conservative funerals kept deliberately uniform, with no flowers and no individual booklet, against some Progressive communities now permitting eco-burials or cremation as an expression of personal autonomy and environmental concern, while still retaining core rituals such as Kaddish — shows that Death and Mourning continues to weave together belief in One God, divinely inspired law and Covenant precisely by adapting its outward form to a changing modern context without losing its underlying religious meaning, exactly as the statement describes."
+    }
+  },
+  {
+    id: "jd2024-21", year: "2024 HSC", marksLabel: "20 marks", marks: 20, topic: "Significant person or school of thought — impact, other than Abraham or Moses",
+    verified: "full",
+    stimulus: "Significant people or schools of thought have been agents of change, enriching the faith and inspiring new forms of religious expression.",
+    question: "With reference to the statement, analyse the impact of ONE significant person OR school of thought, other than Abraham or Moses.",
+    questionNote: "Captured verbatim from the real 2024 HSC exam paper (Question 21, Section III, 20 marks) and its official NESA marking guidelines. NESA's guidelines gave criteria only, with no published sample essay — the model answer below is a condensed, essay-style response written by Claude to match the real criteria, not an official NESA answer.",
+    criteria: [
+      { marks: "17–20", desc: ["Presents a comprehensive and accurate analysis of the impact of ONE significant person/school of thought on Judaism", "Integrates the statement effectively throughout the response", "Supports a cohesive and well-structured response with detailed, relevant and accurate information", "Integrates relevant and accurate terminology"] },
+      { marks: "13–16", desc: ["Presents an accurate analysis", "Integrates the statement within the response", "Supports a structured response with relevant and accurate information", "Uses relevant and accurate terminology"] },
+      { marks: "9–12", desc: ["Presents some analysis", "Refers to the statement within the response", "Supports the response with relevant information", "Uses accurate terminology"] },
+      { marks: "5–8", desc: ["Makes general statements about ONE significant person/school of thought on Judaism", "May refer to the statement", "Uses some examples and/or terminology"] },
+      { marks: "1–4", desc: ["Makes general statements about Judaism", "May use some terminology"] }
+    ],
+    criteriaNote: "Captured verbatim from the genuine 2024 NESA HSC Studies of Religion Marking Guidelines.",
+    modelAnswer: {
+      label: "Model answer on Jewish Feminism (condensed essay, written by Claude to match this real question — not an official NESA answer)",
+      text: "Jewish Feminism has been a genuine agent of change, enriching Judaism's faith and inspiring new forms of religious expression across every stream, though unevenly and at each stream's own pace. It is best understood not as a rejection of Judaism but as a modern school of thought that applies Tikkun Olam (repairing the world — not itself one of the 613 mitzvot, but a guiding ethical principle grounded in mitzvot such as Tzedakah, Pikuach Nefesh, Gemilut Chasadim and Bal Tashchit) to challenge patriarchal structures and promote gender equity. Its theological foundation is Tzelem Elohim: “So God created mankind in His image, male and female He created them” (Genesis 1:27), which grounds the claim that gender equity fulfils, rather than threatens, covenantal responsibility — giving the movement real theological force alongside its social one.\n\nIts impact on the development of Judaism is clearest in leadership and education. In 1972, ten Jewish feminists formed Ezrat Nashim, producing “The Call for Change”, a founding document seeking spiritual, ritual, intellectual and political opportunities for women; the movement points to Numbers 27:1–7, where the daughters of Zelophehad successfully petition Moses for inheritance rights (“The daughters of Zelophehad speak rightly”), as genuine scriptural precedent for women shaping halakhah rather than simply being subject to it. Ordination has changed dramatically across the twentieth and twenty-first centuries: Regina Jonas, ordained in Berlin in 1935, was the world's first ordained female rabbi, serving the city's liberal Jewish community through the Nazi era before being murdered in Auschwitz — a reminder that the movement's history is not only one of steady progress. Progressive Judaism ordained its first American woman rabbi, Sally Priesand, in Cincinnati in 1972; Conservative Judaism followed with its 1983 decision to permit women's ordination, and Rabbi Amy Eilberg became its first ordained woman in New York in 1985. Even Orthodoxy, which holds most tightly to traditional limits, has changed incrementally: JOFA (the Jewish Orthodox Feminist Alliance), founded in 1997 by Blu Greenburg, advocates for women's meaningful participation “within the framework of halachah”, and Orthodox rabbanits — including Rabbanit Sara Hurwitz (2009) and Rabbanit Ellyse Borghi (Melbourne, 2019) — can now read Torah publicly and preach, even though their role remains halakhically limited, for instance excluded from leading mixed minyanim. Education has shifted too: most Jewish schools in Sydney are now co-educational, applying “teach them diligently to your children” (Deuteronomy 6:7) inclusively, with the movement arguing that expanding access to Torah study strengthens covenantal responsibility by letting every member of the community contribute to halakhic interpretation and communal decision-making.\n\nIts impact on the expression of Judaism is just as significant, reshaping both ritual and marriage law. Progressive Judaism has held Bat Mitzvahs since 1922 in the United States, and Progressive and Conservative Judaism now permit women to join a minyan — the quorum of ten adults, traditionally men over thirteen, required for key communal prayers such as Kaddish — drawing on Deuteronomy 31:12's call for “men, women and children” to “hear and learn” the law together. Orthodox ritual participation remains more limited, but is opening incrementally: wearing a tallit is now a personal choice for Progressive and Conservative women, and a feminist reading of Numbers 15:37–41 argues that the tzitzit (tassel) commandment was likely intended for all Israelites, not only men — directly challenging a traditional male-centric interpretation — while women's prayer groups and Torah education have expanded even within Orthodox communities. Marriage law shows a similar pattern of change: tradition frames Jewish marriage as the man “acquiring” the woman (kiddushin), with only the husband legally able to grant a divorce (a get). Conservative Judaism has introduced more egalitarian rituals, such as both partners exchanging rings, even as the husband remains legally obligated to grant a get under civil divorce, while Progressive Judaism has moved furthest toward full legal equality in marriage. JOFA has specifically campaigned against the status of Agunot — women “chained” in marriage without a husband's consent to divorce — citing “You shall not oppress the stranger” (Exodus 22:21) as extending to gender justice; this campaign achieved a notable success after the 11 September 2001 attacks, when the relevant Jewish authority permitted some widowed Agunot to remarry despite their husbands' bodies never being recovered, showing the movement translating theological argument into genuine halakhic change.\n\nMost recently, Jewish feminist hermeneutics — the practice of re-reading and reinterpreting sacred texts through a gender-inclusive lens, recovering women's presence and voice within tradition rather than treating it as fixed — and the reclaiming of kol isha (“a woman's voice”, historically a restriction on women's public voice in some Orthodox contexts, now also invoked by Jewish feminists reclaiming that voice, especially through more inclusive scriptural language in the Progressive stream) show the movement continuing to inspire new forms of religious expression rather than having finished its work. Overall, Jewish Feminism's impact is comprehensive: it has changed who leads, how adherents worship, and how sacred texts themselves are read and understood, while remaining, at each stream's own pace and within each stream's own halakhic limits, a living development within the covenantal tradition rather than a movement outside or against it — precisely the kind of agency and enrichment the statement describes."
+    }
+  },
+  {
+    id: "jd2025-21", year: "2025 HSC", marksLabel: "20 marks", marks: 20, topic: "Ethical teachings guide adherents to navigate the world today",
+    verified: "full",
+    stimulus: "What is chosen to be upheld in ethical decisions is shaped by sources such as sacred texts or lived experience and how they help adherents navigate the world today.",
+    question: "With reference to the stimulus, analyse how the ethical teachings of Judaism guide adherents to navigate the world today.\n\nIn your response, refer to ONE of the following areas:\n• Bioethics\n• Environmental ethics\n• Sexual ethics.",
+    questionNote: "Captured verbatim from the real 2025 HSC exam paper (Question 21, Section III, 20 marks) and its official NESA marking guidelines, including the genuine ‘answers could include’ content below (on sexual ethics).",
+    criteria: [
+      { marks: "17–20", desc: ["Provides a comprehensive analysis of how the ethical teachings of Judaism guide adherents to navigate the world today", "Integrates the stimulus effectively throughout the response", "Supports a cohesive and well-structured response with detailed, relevant and accurate information", "Integrates relevant and accurate terminology"] },
+      { marks: "13–16", desc: ["Provides a thorough analysis", "Integrates the stimulus within the response", "Supports a structured response with relevant and accurate information", "Uses relevant and accurate terminology"] },
+      { marks: "9–12", desc: ["Provides an analysis", "Refers to the stimulus within the response", "Supports the response with relevant information", "Uses accurate terminology"] },
+      { marks: "5–8", desc: ["Provides a description of the ethical teachings of Judaism", "May refer to the stimulus", "Uses some information and/or terminology"] },
+      { marks: "1–4", desc: ["Makes general statements about Judaism", "May use some terminology"] }
+    ],
+    criteriaNote: "Captured verbatim from the genuine 2025 NESA HSC Studies of Religion Marking Guidelines.",
+    sampleAnswer: {
+      label: "Genuine NESA ‘answers could include’ (2025 HSC, sexual ethics)",
+      bullets: [
+        "Judaism provides a comprehensive ethical framework that guides adherents in their daily lives and in navigating the complexities of the world today.",
+        "Jewish ethics encompass three expectations: the practice of goodness is based upon the holiness of God; the ethic is for the whole community not just the individual; the ethical traditions direct the practical activities of daily life.",
+        "Sources of ethical teaching include the Ten Commandments given to Moses by God, the Prophetic Vision/teachings, and the Book of Proverbs.",
+        "There is a continual interaction between Halacha (Jewish law) and ethical issues confronting society.",
+        "Judaism sees sexuality and sexual expression as a positive action — a legitimate good, a mitzvah compatible with holiness — however Judaism imposes certain restraints and discipline to protect adherents from abuse (Kiddushin/Kadeisha): “It is not good for man to be alone” (Gen 2:18).",
+        "“Go forth and multiply” (Gen 1:28) is one of the main ethical teachings in sexual ethics, taken from God's blessing to Adam and Eve.",
+        "Jewish law traditionally opposes birth control or abortion when practised for selfish reasons.",
+        "Tzniut addresses pre-marital sex — performed before marriage, the sexual act can undermine self-respect; because sex is one of the three stages of marriage (betrothal, contract, consummation), barriers such as neggiah (Orthodox men and women not left alone before marriage) are formed. “Thou shalt not commit adultery” (Ex 20:14) is the appropriate teaching here.",
+        "Jewish ethical teachings provide a moral compass for adherents navigating the modern world's complex sexual ethics issues, and the diversity of Jewish thought ensures there is always room for personal interpretation."
+      ],
+      teacherNote: "This genuine NESA content covers sexual ethics; a bioethics version, matching this pack's main content-bank focus, is given as the model answer below."
+    },
+    exemplarAnswer: {
+      label: "Model answer on bioethics (written by Claude, to the same real criteria)",
+      text: "Judaism's ethical teachings guide adherents to navigate today's bioethical questions by weighing sacred texts against lived medical reality, always through the lens of two foundational teachings: Pikuach Nefesh (preservation of life, Talmud Yoma 85b) and Tzelem Elohim (being made in the image of God, Genesis 1:27 — a belief, not a mitzvah, worth stating precisely). Because “whoever destroys one life is as if he destroyed a whole world, and whoever preserves a life is as if he preserved the whole world” (Mishnah Sanhedrin 4:5), the starting instruction in every bioethical area is to “choose life, so that you and your descendants may live” (Deuteronomy 30:19) — but what this means in practice is shaped by lived experience and interpretation as much as by the bare text, exactly as the stimulus suggests.\n\nOn the start of life, Judaism's general position on abortion is grounded in Jeremiah 1:5 (“Before I formed you in the womb, I knew you…”), which affirms the sanctity of developing life from its earliest stages. Orthodox and Conservative Judaism generally restrict abortion after forty days except where maternal health is genuinely at risk, while Progressive Judaism allows broader consideration of factors such as mental health and personal autonomy — a real difference in how the same sacred text is read and applied. Rabbinic interpretation of the foetus as “mere water” in the first forty days (Yevamot 69b) makes abortion permissible in that period where maternal health is threatened; and where the foetus is a rodef — a precise term meaning a genuine, active threat to the mother's life, not merely a difficult pregnancy — abortion is not only permitted but required, across every stream. This shows adherents navigating a hard case by holding text and lived medical circumstance together, not by applying a single rule mechanically. IVF, by contrast, is widely permitted across the streams, since the wastage of unused embryos is not itself treated as an ethical obstacle; it fulfils the mitzvah to “be fruitful and multiply” (Genesis 1:28), a command that post-Holocaust Jewish communities in particular have emphasised, and the State of Israel's government funds IVF cycles until two live births are achieved, reflecting how a religious teaching and a national policy can reinforce one another in navigating a genuinely modern medical technology.\n\nOn the manipulation of life, Pikuach Nefesh and Tzelem Elohim are both applied with real force: stem cell research is considered permissible because it seeks treatments for life-threatening and life-limiting conditions such as Parkinson's disease, a position reinforced by Tikkun Olam (repairing the world) and Tzedakah (charity) and by the direct instruction “You shall not stand idly by the blood of your neighbour” (Leviticus 19:16). Indeed, Pikuach Nefesh is considered so significant within Judaism that it is understood to override almost all other mitzvot (Talmud Yoma 85b) — for example, Sabbath law may lawfully be broken where a life is genuinely at stake, showing that even Judaism's most central ritual obligations bend before the preservation of life. Organ donation illustrates how the same underlying belief plays out differently across the streams as medicine develops: Progressive and Conservative adherents generally encourage donation, including live kidney donation, explicitly citing Pikuach Nefesh; Orthodox adherents have traditionally been more cautious, concerned about defilement of the body given hopes of bodily resurrection, though this position is itself shifting, with some Orthodox rabbis now permitting post-mortem organ donation once death has been halachically confirmed — the Israeli National Transplant Center, for instance, actively promotes donation with rabbinical approval. This is Judaism adapting a genuinely ancient teaching to a technology the Torah's authors could never have anticipated.\n\nOn the end of life, Jewish belief holds that ultimately God decides when a person dies — “there is a time to be born and a time to die” (Ecclesiastes 3:2) — which grounds a general acceptance of mortality rather than a demand to prolong life at any cost. Suicide and voluntary euthanasia are clearly prohibited, resting on “You shall not kill” (Exodus 20:13); however, Orthodox rabbis commonly permit the passive withdrawal of life support, meaning not starting new treatment, while still forbidding any act that actively hastens death, whereas Progressive Judaism tends to permit broader patient autonomy, placing more weight on dignity and compassion in how death is approached. In every case the focus remains on the dying person, the gosses, being supported to die with dignity and to meet their Creator — a direct expression of Tzelem Elohim even at life's final moment.\n\nOverall, Jewish bioethics shows adherents navigating the modern world neither by rigidly following ancient rules regardless of context nor by discarding sacred text in favour of pure autonomy, but by holding textual authority and lived medical experience together at every stage of life, and adapting that balance differently across Orthodox, Conservative and Progressive streams as circumstances and medical possibilities change. This is precisely what the stimulus describes: ethical decisions shaped jointly by sacred sources and lived experience, helping adherents make sense of a rapidly changing medical world without abandoning the religious teachings that have always grounded Jewish ethics."
+    }
+  },
+  {
+    id: "jd-cssa2025-21", year: "2025 CSSA Trial", marksLabel: "20 marks", marks: 20, topic: "Marriage and Bioethics — Judaism as a living religious tradition",
+    verified: "full",
+    stimulus: "We will do and hear everything the Lord has said. (Exodus 24:7)",
+    question: "With reference to the stimulus, explain how significant practices and ethical teachings guide adherents to an understanding of Judaism as a living religious tradition.",
+    questionNote: "Captured from the genuine 2025 CSSA (Catholic Schools Secondary Association) Trial HSC exam paper (Question 21, Section III, 20 marks) and its official CSSA marking guidelines, including the genuine 'answers could include' content below. CSSA Trials are written independently of NESA, by CSSA, as trial/practice exams — not official NESA exam papers — but are a standard, widely-used contemporary resource for genuine HSC-style Judaism essay practice.",
+    criteria: [
+      { marks: "17–20", desc: ["Presents a sustained and reasoned explanation about how significant practices and ethical teachings guide adherents to an understanding of Judaism as a living religion", "Supports a cohesive and well-structured response with detailed, relevant and accurate information about Judaism", "Effectively integrates the stimulus and includes accurate terminology"] },
+      { marks: "13–16", desc: ["Presents a reasoned explanation about how significant practices and ethical teachings guide adherents to an understanding of Judaism as a living religion", "Supports a well-structured response with relevant and accurate information about Judaism", "Integrates the stimulus and uses accurate terminology"] },
+      { marks: "9–12", desc: ["Presents some detail about how significant practices and ethical teachings guide adherents to an understanding of Judaism as a living religion", "Supports the response with relevant examples", "Uses some relevant terminology in a descriptive response"] },
+      { marks: "5–8", desc: ["Provides some general statements about Judaism and/or significant practices and/or ethical teachings", "Uses some terminology in a largely descriptive response"] },
+      { marks: "1–4", desc: ["Makes general statements about Judaism", "May use some terminology"] }
+    ],
+    criteriaNote: "Captured from the genuine 2025 CSSA Trial HSC Studies of Religion Marking Guidelines. The extracted source shows a small gap at the middle band boundary (a likely PDF-extraction/OCR artefact in the original scan), so the 9–12 band's exact wording is reconstructed from the surrounding genuine bands' pattern — treat it as accurate in substance, not a guaranteed verbatim match.",
+    sampleAnswer: {
+      label: "Genuine CSSA 'answers could include' (2025 CSSA Trial, Marriage and Bioethics)",
+      bullets: [
+        "Judaism as a living religion is exemplified through the dynamic responses of its adherents to evolving contexts and issues. This can be seen in relation to the practice of Marriage and the response to Bioethics.",
+        "Marriage is a significant practice which allows adherents an opportunity to reaffirm their faith and to reflect the ancient history and traditions of adherents.",
+        "In Progressive and Masorti Judaism, same-sex marriage is accepted, reflecting the now-legal view of same-sex marriage in Australia.",
+        "In these two streams of Judaism, the role of women and the ability for a woman to take part in religious ritual is reflective of the egalitarian nature of society and changing societal norms.",
+        "This evolution demonstrates Judaism's responsiveness to adherents' lived experiences, ensuring the religious tradition remains relevant and supportive.",
+        "Marriage allows adherents to express key beliefs, including the use of the chuppah — symbolising the way God's presence is everywhere and how the home should be open and welcoming to all.",
+        "The breaking of the glass at the end of the ceremony is a reminder of the fragility of life and that one should always remember the suffering of others, even amid joy and celebration.",
+        "The interpretation and implementation of bioethical teachings within Judaism highlights the capacity of the different streams to address more contemporary issues through an interpretation of sacred writings.",
+        "Taking one's own life is regarded as halachically and morally improper; while Judaism cannot condemn those who, amid unbearable pain and suffering, take their own lives, it cannot encourage, condone, or participate in the commission of such an act.",
+        "The preservation of life has always been regarded as a cardinal value in Judaism — the Torah was given to man so 'that he may live'.",
+        "Judaism also mandates that the value of life is not dependent on the health or circumstances of the individual."
+      ],
+      teacherNote: "This genuine CSSA content pairs Marriage (a practice this pack doesn't otherwise cover) with Bioethics (already covered elsewhere in this pack via Pikuach Nefesh) — a good example of how the same underlying ethical teaching (preservation of life) can anchor a different practice pairing than this pack's main Death & Mourning focus."
+    },
+    modelAnswer: {
+      label: "Model essay answer, full length (written by Claude, expanding the genuine CSSA points above — not an official CSSA answer)",
+      text: "“We will do and hear everything the Lord has said” (Exodus 24:7) captures Judaism's continuing commitment to living out its covenant with God through action, not just words — and this is nowhere clearer than in the significant practice of Marriage and in the ethical teachings surrounding Bioethics, both of which show Judaism responding dynamically to evolving contexts while remaining anchored in sacred text.\n\nMarriage is a significant practice that allows adherents to reaffirm their faith and to express the ancient history and traditions of the Jewish people. Traditionally, marriage is framed through kiddushin, in which the groom formally “acquires” the bride, and only the husband is legally able to grant a divorce, known as a get — a structure that has remained largely intact within Orthodox Judaism. Conservative Judaism has introduced more egalitarian rituals, such as both partners exchanging rings during the ceremony, while the husband remains legally obligated to grant a get on civil divorce; Progressive and Masorti Judaism have moved furthest toward full legal equality, and in these streams same-sex marriage is accepted, reflecting the now-legal status of same-sex marriage in Australia. In these two streams, the role of women and their ability to take part fully in religious ritual reflects the egalitarian nature of contemporary society and changing societal norms. This evolution demonstrates Judaism's responsiveness to adherents' lived experiences, ensuring the religious tradition remains relevant and genuinely supportive of the people living within it, rather than a fixed relic of the past.\n\nMarriage also allows adherents to express core beliefs through its central symbols. The chuppah, the canopy under which the couple stands, symbolises the way God's presence is everywhere and the belief that the Jewish home should be open and welcoming to all, echoing the hospitality Abraham himself is said to have shown to strangers. The breaking of the glass at the end of the ceremony is a reminder of the fragility of life and a call to always remember the suffering of others — traditionally linked to the destruction of the Temple in Jerusalem — even amid joy and celebration, showing that even Judaism's most joyful practice carries an ethical seriousness at its core. Organisations within the Jewish community have also worked to address inequities within traditional marriage law: campaigns against the status of Agunot, women “chained” in marriage because a husband will not consent to a get, cite “You shall not oppress the stranger” (Exodus 22:21) as extending to gender justice within marriage itself — a reminder that Marriage as a living practice is not static even within more traditional streams.\n\nThe interpretation and implementation of bioethical teachings within Judaism further highlights the capacity of the different streams to address contemporary issues through renewed interpretation of sacred writings. The preservation of life has always been regarded as a cardinal value in Judaism — the Torah was given to humanity so “that he may live”, and Pikuach Nefesh (preservation of life, Talmud Yoma 85b) is considered so significant that it is understood to override almost all other mitzvot. Judaism also mandates that the value of a life is not dependent on the health, age or circumstances of the individual concerned, grounded in the belief that every person is made Tzelem Elohim, in the image of God (Genesis 1:27). Taking one's own life is regarded as halachically and morally improper; while Judaism cannot condemn those who, amid unbearable pain and suffering, take their own lives, it cannot encourage, condone or participate in the commission of such an act, since “You shall not kill” (Exodus 20:13) stands as a clear prohibition even where compassion for suffering is genuinely felt. At the same time, Orthodox rabbis commonly permit the passive withdrawal of life-prolonging treatment, while forbidding any act that actively hastens death, and Progressive Judaism generally places greater emphasis on patient autonomy and dignity in these decisions — again showing the same underlying value, the sanctity of life, interpreted with real variation across the streams as medicine and society change.\n\nMarriage and Bioethics may, at first glance, appear to be very different areas of Jewish life — one a joyful communal ritual, the other a set of difficult, often private, ethical decisions. Yet both are united by the same underlying pattern that defines Judaism as a living religious tradition: adherents returning again and again to sacred text and inherited law, and then applying it, adapting it and sometimes reworking its outward expression, in order to remain genuinely responsive to the lived reality of the Jewish community today. This is exactly what it means, as the stimulus puts it, to “do and hear everything the Lord has said” — not simply reciting the Law, but continuing to act it out in a changing world."
+    }
+  }
+];
+
+(function(){
+  function $(id){ return document.getElementById(id); }
+
+  // ---- Content bank ----
+  var AREA_LABEL = { practice: "Death &amp; Mourning", ethics: "Bioethics", movement: "Jewish Feminism" };
+  var jdActiveArea = "all";
+  function renderJdFilters(){
+    var areas = ["all"].concat(Object.keys(AREA_LABEL));
+    $("jdFilters").innerHTML = areas.map(function(a){
+      return '<button data-area="'+a+'" class="'+(a===jdActiveArea?"active":"")+'">'+(a==="all"?"All":AREA_LABEL[a])+'</button>';
+    }).join("");
+    Array.prototype.forEach.call($("jdFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){
+        jdActiveArea = btn.getAttribute("data-area");
+        renderJdFilters(); renderJdList();
+      });
+    });
+  }
+  function renderJdList(){
+    var items = JUDAISM_BANK.filter(function(it){ return jdActiveArea==="all" || it.area===jdActiveArea; });
+    $("jdList").innerHTML = items.map(function(it){
+      return '<div class="card">'+
+        '<span class="dp-tag '+it.area+'">'+it.dp+'</span>'+
+        '<div class="rev-title">'+it.title+'</div>'+
+        '<ol class="ideas">'+it.ideas.map(function(s){ return '<li>'+s+'</li>'; }).join("")+'</ol>'+
+        '</div>';
+    }).join("");
+  }
+
+  // ---- Flashcards ----
+  var currentCards = JUDAISM_FLASHCARDS.slice();
+  var cardIndex = 0;
+  function categories(cards){
+    var seen = {}; var out = ["All"];
+    cards.forEach(function(c){ if(!seen[c.cat]){ seen[c.cat]=true; out.push(c.cat); } });
+    return out;
+  }
+  function setCards(){
+    var cat = $("flashFilter").value;
+    currentCards = (cat==="All") ? JUDAISM_FLASHCARDS.slice() : JUDAISM_FLASHCARDS.filter(function(c){ return c.cat===cat; });
+    cardIndex = 0;
+    renderCard();
+  }
+  function renderCard(){
+    $("flashCard").classList.remove("flipped");
+    if(currentCards.length===0){
+      $("flashCat").textContent = ""; $("flashFront").textContent = "No cards"; $("flashBack").innerHTML=""; $("flashCount").textContent="0 of 0";
+      $("flashProgress").style.width = "0%";
+      return;
+    }
+    var c = currentCards[cardIndex];
+    $("flashCat").textContent = c.cat;
+    $("flashFront").textContent = c.front;
+    $("flashBack").innerHTML = "<p>"+c.back+"</p>";
+    $("flashCount").textContent = (cardIndex+1)+" of "+currentCards.length;
+    $("flashProgress").style.width = Math.round(((cardIndex+1)/currentCards.length)*100)+"%";
+  }
+  function initFlash(){
+    $("flashFilter").innerHTML = categories(JUDAISM_FLASHCARDS).map(function(c){ return '<option value="'+c+'">'+c+'</option>'; }).join("");
+    $("flashFilter").addEventListener("change", function(){ setCards(); });
+    $("flipCard").addEventListener("click", function(){ $("flashCard").classList.toggle("flipped"); });
+    $("flashCard").addEventListener("click", function(){ $("flashCard").classList.toggle("flipped"); });
+    $("nextCard").addEventListener("click", function(){ cardIndex = (cardIndex+1) % currentCards.length; renderCard(); });
+    $("prevCard").addEventListener("click", function(){ cardIndex = (cardIndex-1+currentCards.length) % currentCards.length; renderCard(); });
+    $("shuffleCards").addEventListener("click", function(){ currentCards.sort(function(){ return Math.random()-.5; }); cardIndex = 0; renderCard(); });
+    renderCard();
+  }
+
+  // ---- Named Evidence & Extension ----
+  function renderEvidence(){
+    $("preceptRows").parentNode.innerHTML = '<tr><th>Reference only</th><th>Exact source</th></tr>' + PRECEPT_PRECISION.map(function(p){
+      return '<tr><td class="loose">'+p.loose+'</td><td class="precise">'+p.precise+'</td></tr>';
+    }).join("");
+    $("beforeAfterTitle").textContent = NAMED_EVIDENCE_EXAMPLE.question;
+    $("baGeneric").textContent = NAMED_EVIDENCE_EXAMPLE.generic;
+    $("baGenericNote").textContent = NAMED_EVIDENCE_EXAMPLE.genericNote;
+    $("baNamed").textContent = NAMED_EVIDENCE_EXAMPLE.named;
+    $("baNamedNote").textContent = NAMED_EVIDENCE_EXAMPLE.namedNote;
+    $("evidenceGrid").innerHTML = Object.keys(NAMED_EVIDENCE).map(function(k){
+      var cat = NAMED_EVIDENCE[k];
+      return '<div class="evidence-cat"><h4>'+cat.label+'</h4><ul>'+cat.items.map(function(i){ return '<li>'+i+'</li>'; }).join("")+'</ul></div>';
+    }).join("");
+    $("selfCheckList").innerHTML = EVIDENCE_SELFCHECK.map(function(s){ return '<li>'+s+'</li>'; }).join("");
+    $("extensionList").innerHTML = EXTENSION_CONTENT.map(function(e){
+      return '<div class="ext-box"><span class="ext-tag">Extension</span><h4>'+e.title+'</h4><p>'+e.body+'</p><div class="ext-source">Source: '+e.source+'</div></div>';
+    }).join("");
+  }
+
+  // ---- Past questions ----
+  function renderCriteria(criteria){
+    if(!criteria) return "";
+    return '<table class="crit-table">'+criteria.map(function(row){
+      return '<tr><th>'+row.marks+'</th><td><ul>'+row.desc.map(function(d){ return '<li>'+d+'</li>'; }).join("")+'</ul></td></tr>';
+    }).join("")+'</table>';
+  }
+  function pqAnswerDetails(q){
+    var out = "";
+    if(q.criteria){
+      out += '<details><summary>Marking criteria</summary><div class="detail-body">'+renderCriteria(q.criteria)+
+        '<div class="source-note">'+q.criteriaNote+'</div></div></details>';
+    } else if(q.criteriaNote){
+      out += '<details><summary>Note on marking criteria</summary><div class="detail-body"><div class="source-note">'+q.criteriaNote+'</div></div></details>';
+    }
+    ["sampleAnswer","exemplarAnswer","modelAnswer"].forEach(function(key){
+      var a = q[key];
+      if(!a) return;
+      var body = a.bullets ? ('<ul class="answer-bullets">'+a.bullets.map(function(b){ return '<li>'+b+'</li>'; }).join("")+'</ul>') : ('<p>'+a.text+'</p>');
+      out += '<details><summary>'+a.label+'</summary><div class="detail-body">'+body+
+        (a.teacherNote ? '<p class="teacher-note">'+a.teacherNote+'</p>' : '')+
+        '</div></details>';
+    });
+    return out;
+  }
+
+  // ---- Past questions: practice-writing process (mirrors Q11 Practice / Buddhism Study Pack) ----
+  var PQ_STATS_KEY = "sorJudaismQStats_v1";
+  var pqStats = {};
+  (function(){
+    try{ pqStats = JSON.parse(localStorage.getItem(PQ_STATS_KEY)) || {}; }catch(e){ pqStats = {}; }
+  })();
+  function savePQStats(){ try{ localStorage.setItem(PQ_STATS_KEY, JSON.stringify(pqStats)); }catch(e){} }
+  function pqStatFor(id){
+    if(!pqStats[id]) pqStats[id] = { attempts: 0, best: 0, archived: false };
+    return pqStats[id];
+  }
+  function activePQs(){ return JUDAISM_PAST_QUESTIONS.filter(function(q){ return !pqStatFor(q.id).archived; }); }
+  function archivedPQs(){ return JUDAISM_PAST_QUESTIONS.filter(function(q){ return pqStatFor(q.id).archived; }); }
+
+  function renderPQStatsBar(){
+    var activeN = activePQs().length, archivedN = archivedPQs().length;
+    $("pqStatsBar").innerHTML =
+      '<span>'+activeN+' in rotation &middot; '+archivedN+' archived (full marks) &middot; '+JUDAISM_PAST_QUESTIONS.length+' total essay questions (2024&ndash;2025 HSC + 2025 CSSA)</span>'+
+      '<button type="button" class="linklike" id="pqResetProgress">Reset all Judaism progress</button>';
+  }
+
+  // ---- flat 35-minute countdown timer — every question in this pack is now a 20-mark essay,
+  // so (unlike Buddhism's per-mark timer) Judaism uses one fixed exam-length duration for all ----
+  var JUDAISM_TIMER_SECONDS = 35 * 60;
+  var pqTimerState = { remaining: JUDAISM_TIMER_SECONDS, total: JUDAISM_TIMER_SECONDS, running: false, intervalId: null };
+  function pqResetTimer(){
+    clearInterval(pqTimerState.intervalId);
+    pqTimerState.remaining = JUDAISM_TIMER_SECONDS; pqTimerState.total = JUDAISM_TIMER_SECONDS; pqTimerState.running = false; pqTimerState.intervalId = null;
+    pqDrawTimer();
+  }
+  function pqDrawTimer(){
+    var el = $("pqTimerDisplay");
+    if(!el) return;
+    var m = Math.floor(pqTimerState.remaining/60).toString().padStart(2,"0");
+    var s = (pqTimerState.remaining%60).toString().padStart(2,"0");
+    el.textContent = m+":"+s;
+    el.classList.toggle("warn", pqTimerState.remaining <= 60);
+  }
+  function pqStartTimer(){
+    if(pqTimerState.running) return;
+    pqTimerState.running = true;
+    pqTimerState.intervalId = setInterval(function(){
+      pqTimerState.remaining = Math.max(0, pqTimerState.remaining-1);
+      pqDrawTimer();
+      if(pqTimerState.remaining === 0){ clearInterval(pqTimerState.intervalId); pqTimerState.running = false; }
+    }, 1000);
+  }
+  function pqPauseTimer(){ clearInterval(pqTimerState.intervalId); pqTimerState.running = false; }
+
+  function buildPQPrompt(q, studentAnswer){
+    var lines = [];
+    lines.push("You are an HSC NSW Studies of Religion I marker. Mark the student answer below out of "+q.marks+" using the marking guidance given, then suggest specific improvements.");
+    lines.push("");
+    lines.push("QUESTION ("+q.marksLabel+"): "+q.question);
+    if(q.stimulus) lines.push("STIMULUS: "+q.stimulus);
+    lines.push("");
+    if(q.criteria){
+      lines.push("MARKING CRITERIA:");
+      q.criteria.forEach(function(c){ lines.push("- ("+c.marks+") "+c.desc.join("; ")); });
+    } else {
+      lines.push("MARKING CRITERIA: not captured from the original source for this question — mark against typical HSC SOR1 conventions for a "+q.marks+"-mark response (detail, accuracy and relevant terminology scale with the mark value).");
+    }
+    lines.push("");
+    ["sampleAnswer","exemplarAnswer","modelAnswer"].forEach(function(key){
+      var a = q[key];
+      if(!a) return;
+      lines.push("REFERENCE ANSWER ("+a.label+"):");
+      lines.push(a.text);
+      lines.push("");
+    });
+    lines.push("STUDENT ANSWER:");
+    lines.push(studentAnswer && studentAnswer.trim() ? studentAnswer.trim() : "[paste your answer here before copying]");
+    lines.push("");
+    lines.push("Please give: (1) a mark out of "+q.marks+", (2) what the answer does well, (3) what's missing to reach full marks, (4) an improved version that blends the student's own language with the missing content, written to a genuine full-mark standard.");
+    return lines.join("\n");
+  }
+  function doPQCopy(qid, answerText, statusEl){
+    var q = JUDAISM_PAST_QUESTIONS.find(function(x){ return x.id === qid; });
+    var prompt = buildPQPrompt(q, answerText);
+    function done(ok){
+      statusEl.textContent = ok ? "Copied — paste into Copilot/Claude/ChatGPT." : "Couldn't copy automatically — select the text below and copy manually.";
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(prompt).then(function(){ done(true); }).catch(function(){ done(false); });
+    } else {
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = prompt; ta.style.position="fixed"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        done(ok);
+      }catch(err){ done(false); }
+    }
+  }
+
+  var currentPQ = null;
+  function pickNextPQ(excludeId){
+    var pool = activePQs();
+    if(!pool.length) return null;
+    var choices = excludeId ? pool.filter(function(q){ return q.id !== excludeId; }) : pool;
+    if(!choices.length) choices = pool;
+    return choices[Math.floor(Math.random()*choices.length)];
+  }
+
+  function renderPQPractice(){
+    renderPQStatsBar();
+    var host = $("pqPractice");
+    if(!activePQs().length){
+      host.innerHTML = '<div class="pq-card"><p>Every past Judaism question is archived at full marks — amazing work! Open the Archive tab to review any of them again, or reset progress above to bring them back into rotation.</p></div>';
+      return;
+    }
+    if(!currentPQ || pqStatFor(currentPQ.id).archived){ currentPQ = pickNextPQ(); }
+    var q = currentPQ;
+    var st = pqStatFor(q.id);
+    host.innerHTML =
+      '<div class="pq-card" data-qid="'+q.id+'">'+
+        (q.stimulus ? '<div class="stimulus">'+q.stimulus+'</div>' : '')+
+        '<div class="question-text">'+q.question+'</div>'+
+        '<div class="pq-head"><span class="pq-year">'+q.year+'<span class="verified-badge '+q.verified+'">'+(q.verified==="full"?"Fully verified":"Partially verified")+'</span></span><span class="pq-marks">'+q.marksLabel+'</span></div>'+
+        '<div class="pq-topic">'+q.topic+'</div>'+
+        (q.marksNote ? '<div class="source-note">'+q.marksNote+'</div>' : '')+
+        '<div class="source-note">'+q.questionNote+'</div>'+
+        (st.attempts ? '<div class="archived-note">Attempted '+st.attempts+' time(s) before &middot; best self-score so far: '+st.best+'/'+q.marks+'</div>' : '')+
+        '<div class="timer-box">'+
+          '<span class="timer-display" id="pqTimerDisplay">35:00</span>'+
+          '<span class="timer-label">35-minute exam timer</span>'+
+          '<button type="button" data-role="timer-start" class="primary">Start</button>'+
+          '<button type="button" data-role="timer-pause">Pause</button>'+
+          '<button type="button" data-role="timer-reset">Reset</button>'+
+        '</div>'+
+        '<textarea class="answer-box" placeholder="Write your own answer here first — no peeking at the criteria or sample/model answers yet." data-role="answer"></textarea>'+
+        '<div class="mark-actions">'+
+          '<button data-role="copy">Copy AI-marking prompt</button>'+
+          '<button type="button" data-role="print-answer">Print this question + my answer</button>'+
+          '<span class="copy-status" data-role="status"></span>'+
+        '</div>'+
+        pqAnswerDetails(q)+
+        '<div class="self-score">'+
+          '<p>Either from an AI, a buddy, or yourself, rate your answer above against the criteria/answer(s) provided (out of '+q.marks+'). Score '+q.marks+'/'+q.marks+' and this question archives itself:</p>'+
+          '<div class="score-row" data-role="score-row">'+
+            Array.from({length:q.marks}, function(_,i){ return i+1; }).map(function(n){
+              return '<button type="button" data-score="'+n+'">'+n+'</button>';
+            }).join("")+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="next-row"><button type="button" id="pqNextBtn">Next random question &rarr;</button></div>';
+    pqResetTimer();
+  }
+
+  $("pqPractice").addEventListener("click", function(e){
+    var timerBtn = e.target.closest("button[data-role^='timer-']");
+    if(timerBtn){
+      var role = timerBtn.getAttribute("data-role");
+      if(role === "timer-start") pqStartTimer();
+      else if(role === "timer-pause") pqPauseTimer();
+      else if(role === "timer-reset") pqResetTimer();
+      return;
+    }
+    var copyBtn = e.target.closest('button[data-role="copy"]');
+    if(copyBtn){
+      var card = copyBtn.closest(".pq-card");
+      var qid = card.getAttribute("data-qid");
+      var answerText = card.querySelector('[data-role="answer"]').value;
+      doPQCopy(qid, answerText, card.querySelector('[data-role="status"]'));
+      return;
+    }
+    var printBtn = e.target.closest('button[data-role="print-answer"]');
+    if(printBtn){
+      var pCard = printBtn.closest(".pq-card");
+      var pStimulus = pCard.querySelector(".stimulus");
+      var pQuestion = pCard.querySelector(".question-text");
+      var pAnswer = pCard.querySelector('[data-role="answer"]').value;
+      var printArea = document.getElementById("printArea");
+      printArea.innerHTML = '<div class="print-set-title">SOR1 Judaism Study Pack \u2014 my answer</div>'
+        + (pStimulus ? '<div class="print-stimulus">'+pStimulus.innerHTML+'</div>' : '')
+        + '<div class="print-question">'+(pQuestion?pQuestion.innerHTML:"")+'</div>'
+        + '<div class="print-answer-box">'+(pAnswer ? pAnswer.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}).replace(/\n/g,"<br>") : '<i>(no answer written yet)</i>')+'</div>';
+      document.body.classList.add("printing-single");
+      window.print();
+      return;
+    }
+    var scoreBtn = e.target.closest("button[data-score]");
+    if(scoreBtn){
+      var card2 = scoreBtn.closest(".pq-card");
+      var qid2 = card2.getAttribute("data-qid");
+      var score = parseInt(scoreBtn.getAttribute("data-score"), 10);
+      var st2 = pqStatFor(qid2);
+      st2.attempts += 1;
+      st2.best = Math.max(st2.best, score);
+      var q2 = JUDAISM_PAST_QUESTIONS.find(function(x){ return x.id === qid2; });
+      var justArchived = false;
+      if(score >= q2.marks){ st2.archived = true; justArchived = true; }
+      savePQStats();
+      card2.querySelectorAll("[data-score]").forEach(function(b){ b.classList.toggle("chosen", parseInt(b.getAttribute("data-score"),10)===score); });
+      if(justArchived){
+        var note = document.createElement("div");
+        note.className = "archived-note";
+        note.textContent = "Archived — full marks! It won't come up again in random rotation. Find it any time in the Archive tab.";
+        scoreBtn.closest(".self-score").appendChild(note);
+        renderPQStatsBar();
+      }
+      return;
+    }
+    if(e.target && e.target.id === "pqNextBtn"){
+      currentPQ = pickNextPQ(currentPQ ? currentPQ.id : null);
+      renderPQPractice();
+    }
+  });
+  $("pqStatsBar").addEventListener("click", function(e){
+    if(e.target && e.target.id === "pqResetProgress"){
+      if(confirm("Reset all Judaism past-question progress? This un-archives every question and clears attempt history.")){
+        pqStats = {}; savePQStats(); currentPQ = null; renderPQPractice(); renderPQArchive();
+      }
+    }
+  });
+
+  function renderPQArchive(){
+    var host = $("pqArchive");
+    var list = archivedPQs();
+    if(!list.length){
+      host.innerHTML = '<div class="pq-card"><p>No archived questions yet — score yourself a genuine full mark on a question in the Practice tab and it will appear here.</p></div>';
+      return;
+    }
+    host.innerHTML = list.map(function(q){
+      var st = pqStatFor(q.id);
+      return '<div class="pq-card" data-qid="'+q.id+'">'+
+        (q.stimulus ? '<div class="stimulus">'+q.stimulus+'</div>' : '')+
+        '<div class="question-text">'+q.question+'</div>'+
+        '<div class="pq-head"><span class="pq-year">'+q.year+'<span class="verified-badge '+q.verified+'">'+(q.verified==="full"?"Fully verified":"Partially verified")+'</span></span><span class="pq-marks">'+q.marksLabel+'</span></div>'+
+        '<div class="pq-topic">'+q.topic+'</div>'+
+        '<div class="archived-note">Mastered at '+st.best+'/'+q.marks+' after '+st.attempts+' attempt(s).</div>'+
+        pqAnswerDetails(q)+
+        '<button type="button" class="restore-btn" data-role="restore">Move back into rotation</button>'+
+      '</div>';
+    }).join("");
+  }
+  $("pqArchive").addEventListener("click", function(e){
+    var btn = e.target.closest('button[data-role="restore"]');
+    if(!btn) return;
+    var qid = btn.closest(".pq-card").getAttribute("data-qid");
+    pqStatFor(qid).archived = false;
+    savePQStats();
+    renderPQArchive(); renderPQStatsBar();
+  });
+
+  $("pqSubTabs").addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-sub]");
+    if(!btn) return;
+    Array.prototype.forEach.call($("pqSubTabs").querySelectorAll("button"), function(b){ b.classList.toggle("active", b===btn); });
+    var sub = btn.getAttribute("data-sub");
+    $("pqPractice").style.display = sub === "practice" ? "" : "none";
+    $("pqArchive").style.display = sub === "archive" ? "" : "none";
+    if(sub === "archive") renderPQArchive();
+  });
+
+  // ---- Tabs ----
+  // Supports plain tab hashes (#content, #flash, #evidence, #past) plus compound hashes
+  // #content-practice / #content-ethics / #content-movement that also pre-set the Content Bank
+  // filter (used by the hub's "How am I feeling" links into Judaism's 3 significant areas).
+  function initTabs(){
+    var btns = document.querySelectorAll("nav.tabs button");
+    function activate(tabKey){
+      Array.prototype.forEach.call(btns, function(b){ b.classList.toggle("active", b.getAttribute("data-tab")===tabKey); });
+      Array.prototype.forEach.call(document.querySelectorAll(".panel"), function(p){ p.classList.toggle("active", p.id===tabKey); });
+    }
+    Array.prototype.forEach.call(btns, function(btn){
+      btn.addEventListener("click", function(){
+        activate(btn.getAttribute("data-tab"));
+        if(location.hash !== "#"+btn.getAttribute("data-tab")){ history.replaceState(null, "", "#"+btn.getAttribute("data-tab")); }
+      });
+    });
+    var validKeys = Array.prototype.map.call(btns, function(b){ return b.getAttribute("data-tab"); });
+    var AREA_HASHES = { "content-practice": "practice", "content-ethics": "ethics", "content-movement": "movement" };
+    var h = (location.hash||"").replace("#","");
+    if(AREA_HASHES.hasOwnProperty(h)){
+      jdActiveArea = AREA_HASHES[h];
+      renderJdFilters(); renderJdList();
+      activate("content");
+    } else if(h && validKeys.indexOf(h) !== -1){
+      activate(h);
+    }
+  }
+
+  renderJdFilters();
+  renderJdList();
+  initFlash();
+  renderEvidence();
+  renderPQPractice();
+  renderPQArchive();
+  initTabs();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script>window.addEventListener("afterprint", function(){ document.body.classList.remove("printing-single"); });</script>
+</body>
+</html>

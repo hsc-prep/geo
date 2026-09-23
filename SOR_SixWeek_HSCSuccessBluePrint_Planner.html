@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR 6-Week HSC Success Blueprint Planner</title>
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --bg:#eef3ea;
+    --card-bg:#ffffff;
+    --border:#e3e7dc;
+    --text-dark:#26332a;
+    --text-mid:#5c6b5f;
+    --text-light:#8a978c;
+    --label-color:#bd5c3d;
+    --date-color:#2c6f6a;
+    --pill-bg:#f2e6c2;
+    --pill-text:#7a5a1e;
+    --bar-track:#e9e3d3;
+    --bar-fill-1:#2f4d3a;
+    --bar-fill-2:#c9a227;
+    --summary-bg:#e3ecdd;
+    --checked-bg:#e7f1e1;
+    --checked-border:#bcd6ae;
+    --check-green:#3f6b46;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:24px 16px 64px;
+    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text-dark);
+  }
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    background:var(--card-bg);
+    border-radius:20px;
+    padding:32px;
+    box-shadow:0 2px 18px rgba(40,60,40,0.07);
+  }
+  header{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:8px;
+  }
+  .hub-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:var(--bar-fill-1);
+    text-decoration:none;
+    font-size:.86rem;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .hub-link:hover{text-decoration:underline;}
+  @media print{ .hub-link{display:none!important;} }
+  h1{
+    margin:0 0 4px;
+    font-size:1.7rem;
+    letter-spacing:-0.01em;
+  }
+  .subtitle{
+    margin:0;
+    color:var(--text-mid);
+    font-size:0.95rem;
+  }
+  .header-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  #resetBtn,#printBtn{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:9px 18px;
+    font-size:0.9rem;
+    color:var(--text-dark);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  #resetBtn:hover,#printBtn:hover{background:#f6f6f2;}
+
+  .name-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:14px 0 22px;
+    font-size:0.88rem;
+    color:var(--text-mid);
+  }
+  .name-row label{white-space:nowrap;}
+  .name-row input{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:7px 10px;
+    font-size:0.88rem;
+    font-family:inherit;
+    max-width:260px;
+    width:100%;
+    color:var(--text-dark);
+  }
+  .print-name{display:none;}
+
+  .summary{
+    background:var(--summary-bg);
+    border-radius:14px;
+    padding:16px 20px;
+    margin-bottom:24px;
+  }
+  .summary-label{
+    font-weight:700;
+    font-size:1rem;
+    margin-bottom:10px;
+  }
+  .bar-track{
+    height:9px;
+    border-radius:999px;
+    background:var(--bar-track);
+    overflow:hidden;
+  }
+  .bar-fill{
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--bar-fill-1),var(--bar-fill-2));
+    transition:width 0.25s ease;
+  }
+
+  .overview-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .ov-card{
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px;
+    cursor:pointer;
+    background:#fff;
+    text-align:left;
+  }
+  .ov-card:hover{background:#f8f9f5;}
+  .ov-card.is-current{
+    border-color:var(--bar-fill-1);
+    box-shadow:0 0 0 2px rgba(47,77,58,0.15);
+  }
+  .ov-card.is-past{opacity:0.55;}
+  .ov-now{
+    display:inline-block;
+    background:var(--bar-fill-1);
+    color:#fff;
+    font-size:0.6rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    padding:2px 7px;
+    border-radius:999px;
+    margin-bottom:6px;
+  }
+  .ov-label{
+    font-size:0.68rem;
+    font-weight:700;
+    color:var(--label-color);
+    letter-spacing:0.03em;
+    margin-bottom:6px;
+  }
+  .ov-title{
+    font-weight:700;
+    font-size:0.95rem;
+    margin-bottom:10px;
+    line-height:1.2;
+  }
+  .ov-bar-track{
+    height:6px;
+    border-radius:999px;
+    background:var(--bar-track);
+    margin-bottom:8px;
+    overflow:hidden;
+  }
+  .ov-bar-fill{
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--bar-fill-1),var(--bar-fill-2));
+    transition:width 0.25s ease;
+  }
+  .ov-count{
+    font-size:0.8rem;
+    color:var(--text-light);
+  }
+
+  .section-heading{
+    display:inline-block;
+    background:var(--pill-bg);
+    color:var(--pill-text);
+    font-weight:700;
+    font-size:0.85rem;
+    padding:7px 16px;
+    border-radius:999px;
+    margin:8px 0 16px;
+  }
+  #pastSection{margin-top:8px;}
+
+  .periods{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .period-card{
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    scroll-margin-top:16px;
+  }
+  .period-card.is-current{
+    border:2px solid var(--bar-fill-1);
+    background:#fbfdf9;
+  }
+  .current-badge{
+    display:inline-block;
+    background:var(--bar-fill-1);
+    color:#fff;
+    font-weight:700;
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    padding:4px 10px;
+    border-radius:999px;
+    margin-bottom:8px;
+  }
+  .current-badge.soon{background:var(--date-color);}
+  .period-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:14px;
+    gap:10px;
+  }
+  .period-title{
+    font-weight:700;
+    font-size:1.05rem;
+    margin:0 0 2px;
+  }
+  .period-date{
+    color:var(--date-color);
+    font-weight:600;
+    font-size:0.85rem;
+    margin:0;
+  }
+  .period-pill{
+    background:var(--pill-bg);
+    color:var(--pill-text);
+    font-weight:700;
+    font-size:0.85rem;
+    padding:5px 12px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .task-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .task-item{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:9px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:11px 12px;
+    background:#fff;
+  }
+  .task-item.checked{
+    background:var(--checked-bg);
+    border-color:var(--checked-border);
+  }
+  .task-label{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    cursor:pointer;
+    flex:1;
+    min-width:0;
+  }
+  .task-item input{
+    margin-top:2px;
+    width:16px;
+    height:16px;
+    accent-color:var(--check-green);
+    flex-shrink:0;
+    cursor:pointer;
+  }
+  .task-item span{
+    font-size:0.88rem;
+    line-height:1.35;
+  }
+  .task-item.checked span{
+    text-decoration:line-through;
+    color:var(--text-light);
+  }
+  .task-link{
+    flex-shrink:0;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--bar-fill-1);
+    text-decoration:none;
+    white-space:nowrap;
+    padding:4px 9px;
+    border:1px solid var(--checked-border);
+    border-radius:999px;
+    background:var(--checked-bg);
+    margin-top:1px;
+  }
+  .task-link:hover{background:var(--check-green);color:#fff;border-color:var(--check-green);}
+  @media print{ .task-link{display:none!important;} }
+
+  .notes-block{margin-top:4px;}
+  .notes-label{
+    display:block;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--text-mid);
+    margin-bottom:6px;
+  }
+  .notes-textarea{
+    width:100%;
+    min-height:64px;
+    resize:vertical;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px 12px;
+    font-family:inherit;
+    font-size:0.85rem;
+    color:var(--text-dark);
+    background:#fbfbf8;
+  }
+  .notes-textarea:focus{outline:2px solid var(--checked-border);outline-offset:1px;}
+
+  footer{
+    margin-top:28px;
+    font-size:0.78rem;
+    color:var(--text-light);
+    line-height:1.5;
+    border-top:1px solid var(--border);
+    padding-top:16px;
+  }
+
+  /* modal */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(30,40,30,0.35);
+    display:none;align-items:center;justify-content:center;padding:20px;z-index:50;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal-box{
+    background:#fff;border-radius:14px;padding:22px;max-width:360px;width:100%;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+  }
+  .modal-box p{margin:0 0 16px;font-size:0.9rem;color:var(--text-dark);}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+  .modal-actions button{
+    border-radius:999px;padding:8px 16px;font-size:0.85rem;cursor:pointer;border:1px solid var(--border);
+  }
+  .btn-cancel{background:#fff;color:var(--text-dark);}
+  .btn-confirm{background:#c1543a;color:#fff;border-color:#c1543a;}
+
+  @media (max-width:820px){
+    .periods{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:20px 16px;border-radius:14px;}
+    .task-grid{grid-template-columns:1fr;}
+    header{flex-direction:column;}
+    .name-row input{max-width:none;}
+  }
+
+  @media print{
+    body{background:#fff;padding:0;}
+    .wrap{box-shadow:none;padding:0;max-width:100%;border-radius:0;}
+    #resetBtn,#printBtn,.modal-overlay,.overview-grid,.name-row,footer{display:none;}
+    .print-name{display:block;font-weight:700;font-size:1.05rem;margin:2px 0 14px;}
+    .summary{background:#fff;border:1px solid #ccc;}
+    .summary .bar-track{display:none;}
+    .section-heading{background:#fff;border:1px solid #ccc;color:#333;}
+    .periods{grid-template-columns:1fr;gap:0;}
+    .period-card{border:none;border-bottom:1px solid #ccc;border-radius:0;padding:12px 0;page-break-inside:avoid;background:#fff !important;}
+    .period-pill{background:#fff;border:1px solid #ccc;color:#333;}
+    .current-badge{background:#fff;border:1px solid #333;color:#333;}
+    .task-grid{grid-template-columns:1fr;gap:2px;}
+    .task-item{border:none;padding:3px 0;background:#fff !important;}
+    .task-item input{display:none;}
+    .task-item::before{content:"\2610\00A0";}
+    .task-item.checked::before{content:"\2611\00A0";}
+    .task-item.checked span{color:#333;}
+    .notes-textarea{border:1px solid #ccc;background:#fafafa;color:#333;}
+  }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+  <header>
+    <div>
+      <h1>6-Week HSC Planner</h1>
+      <p class="subtitle">SOR &middot; HSC Success Blueprint &middot; tick the boxes as you go</p>
+      <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+    </div>
+    <div class="header-actions">
+      <button id="printBtn" type="button">Print / save summary</button>
+      <button id="resetBtn" type="button">Reset planner</button>
+    </div>
+  </header>
+
+  <div class="print-name" id="printName"></div>
+
+  <div class="name-row">
+    <label for="studentName">Name (optional):</label>
+    <input type="text" id="studentName" placeholder="e.g. Jane Smith" autocomplete="off">
+  </div>
+
+  <div class="summary">
+    <div class="summary-label" id="summaryLabel">0/0 tasks complete (0%)</div>
+    <div class="bar-track"><div class="bar-fill" id="summaryBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="overview-grid" id="overviewGrid"></div>
+
+  <div class="periods" id="periodsGridActive"></div>
+
+  <div id="pastSection" style="display:none;">
+    <div class="section-heading">Past &ndash; but you can catch up</div>
+    <div class="periods" id="periodsGridPast"></div>
+  </div>
+
+  <footer>
+    Your progress, notes and name are saved automatically in this browser on this device, tied to this exact file or web address &mdash; they won't sync between devices, and they'll reset if you open a different copy of the file, a re-downloaded copy, or a different browser. Save this file (or bookmark its exact address) somewhere permanent before you start ticking boxes, and always reopen that same copy. This week's focus is worked out from your device's own date, so make sure that's set correctly. Use "Print / save summary" any time to keep a PDF snapshot of your progress and notes.
+  </footer>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <p>Reset the whole planner? This clears every ticked box and note on this device. It can't be undone.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn-cancel" id="modalCancel">Cancel</button>
+      <button type="button" class="btn-confirm" id="modalConfirm">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // start/end are 'YYYY-MM-DD' local-date strings. Weeks run Friday-Thursday,
+  // anchored on the HSC exam date (Thu 22 Oct 2026).
+  var PERIODS = [
+    {
+      id:"p1", label:"SEP 11-17", title:"Week 8-9", date:"Sep 11-17",
+      start:"2026-09-11", end:"2026-09-17",
+      tasks:[
+        "Complete 10 multiple-choice questions",
+        "Religious Landscape paragraph or plan",
+        "Aboriginal Spirituality paragraph or plan",
+        "Review Trial feedback",
+        "Update evidence banks (new stats, legislation, case studies)"
+      ]
+    },
+    {
+      id:"p2", label:"SEP 18-24", title:"Week 9-10", date:"Sep 18-24",
+      start:"2026-09-18", end:"2026-09-24",
+      tasks:[
+        "Complete 10 multiple-choice questions",
+        "Buddhism response",
+        "Judaism response",
+        "Review previous responses & annotate improvements",
+        "Consolidate evidence learned this term"
+      ]
+    },
+    {
+      id:"p3", label:"SEP 25 – OCT 1", title:"Week 10 to Term Break 1", date:"Sep 25 – Oct 1",
+      start:"2026-09-25", end:"2026-10-01",
+      tasks:[
+        "Complete 20 multiple-choice questions",
+        "Religious Landscape response",
+        "Aboriginal Spirituality response",
+        "Buddhism response",
+        "Judaism response",
+        "Full paper: Thu Oct 1, 9:25am"
+      ]
+    },
+    {
+      id:"p4", label:"OCT 2-8", title:"Term Break 1-2", date:"Oct 2-8",
+      start:"2026-10-02", end:"2026-10-08",
+      tasks:[
+        "Complete 30 multiple-choice questions",
+        "Religious Landscape response",
+        "Aboriginal Spirituality response",
+        "1+ Buddhism response",
+        "1+ Judaism response",
+        "Refine evidence banks & strengthen memorisation sheets",
+        "Full paper: Thu Oct 8, 9:25am"
+      ]
+    },
+    {
+      id:"p5", label:"OCT 9-15", title:"Term Break 2 to Week 1", date:"Oct 9-15",
+      start:"2026-10-09", end:"2026-10-15",
+      tasks:[
+        "Complete 25 multiple-choice questions",
+        "2 timed Question 11 responses",
+        "1 timed Buddhism response",
+        "1 timed Judaism essay",
+        "Review all feedback & identify recurring growth areas",
+        "Finalise revision summaries"
+      ]
+    },
+    {
+      id:"p6", label:"OCT 16-22", title:"Final Run", date:"Oct 16-22 · HSC exam Thu 22 Oct",
+      start:"2026-10-16", end:"2026-10-22",
+      tasks:[
+        "Revise evidence banks daily",
+        "Short retrieval quizzes (not full responses)",
+        "Practise key concepts verbally with study partners or family",
+        "Recite statistics, legislation, organisations, scholars & scriptures aloud",
+        "Review your strongest practice responses",
+        "Prioritise sleep, exercise & routine — arrive rested, organised, confident"
+      ]
+    }
+  ];
+
+  // Tasks that map to a live tool in the revision suite get a small "Open"
+  // link alongside their tick box. Matched by keyword against the task text;
+  // first match wins. Tasks with no matching tool (trial feedback review,
+  // full papers, verbal recitation etc.) get no link.
+  var TASK_LINKS = [
+    {re:/multiple-choice/i, href:"SOR_MC_Revision_Bank.html", label:"Open MC Bank"},
+    {re:/timed Question 11|Question 11 response/i, href:"SOR_Q11_Practice.html#past", label:"Open Q11 Practice"},
+    {re:/retrieval quiz/i, href:"SOR_Revision_Hub.html#quiz", label:"Open Quick Quiz"},
+    {re:/Buddhism/i, href:"SOR_Buddhism_StudyPack.html#past", label:"Open Buddhism Study Pack"},
+    {re:/Judaism/i, href:"SOR_Judaism_StudyPack.html#past", label:"Open Judaism Study Pack"},
+    {re:/evidence bank/i, href:"SOR_Q11_Practice.html#content", label:"Open Content Bank"},
+    {re:/Religious Landscape (paragraph|response)/i, href:"SOR_Q11_Practice.html#content", label:"Open Content Bank"},
+    {re:/Aboriginal Spirituality (paragraph|response)/i, href:"SOR_Q11_Practice.html#content", label:"Open Content Bank"}
+  ];
+  function resolveTaskLink(taskText){
+    for(var i=0;i<TASK_LINKS.length;i++){
+      if(TASK_LINKS[i].re.test(taskText)) return TASK_LINKS[i];
+    }
+    return null;
+  }
+
+  var STORAGE_KEY = "sorSixWeekPlanner_v3";
+  var state = {};
+
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      state = raw ? JSON.parse(raw) : {};
+    }catch(e){
+      state = {};
+    }
+  }
+  function saveState(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }catch(e){ /* storage unavailable; progress just won't persist */ }
+  }
+
+  function pad(n){ return n<10 ? "0"+n : ""+n; }
+  function todayStr(){
+    var d = new Date();
+    return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+  }
+  function statusOf(p){
+    var today = todayStr();
+    if(p.end && today > p.end){ return "past"; }
+    if(today < p.start){ return "future"; }
+    return "current";
+  }
+
+  function totalTasks(){
+    var n=0;
+    PERIODS.forEach(function(p){ n += p.tasks.length; });
+    return n;
+  }
+  function completedInPeriod(p){
+    var n=0;
+    p.tasks.forEach(function(_,i){ if(state[p.id+"-"+i]) n++; });
+    return n;
+  }
+  function completedTotal(){
+    var n=0;
+    PERIODS.forEach(function(p){ n += completedInPeriod(p); });
+    return n;
+  }
+
+  var overviewGrid = document.getElementById("overviewGrid");
+  var activeGrid = document.getElementById("periodsGridActive");
+  var pastGrid = document.getElementById("periodsGridPast");
+  var pastSection = document.getElementById("pastSection");
+  var summaryLabel = document.getElementById("summaryLabel");
+  var summaryBar = document.getElementById("summaryBar");
+  var studentNameInput = document.getElementById("studentName");
+
+  var TOTAL = totalTasks();
+
+  function buildOverview(){
+    overviewGrid.innerHTML = "";
+    PERIODS.forEach(function(p){
+      var st = statusOf(p);
+      var card = document.createElement("button");
+      card.type = "button";
+      card.className = "ov-card" + (st==="current" ? " is-current" : "") + (st==="past" ? " is-past" : "");
+      card.addEventListener("click", function(){
+        var target = document.getElementById("card-"+p.id);
+        if(target){ target.scrollIntoView({behavior:"smooth", block:"start"}); }
+      });
+
+      if(st==="current"){
+        var now = document.createElement("div");
+        now.className = "ov-now";
+        now.textContent = "NOW";
+        card.appendChild(now);
+      }
+
+      var label = document.createElement("div");
+      label.className = "ov-label";
+      label.textContent = p.label;
+
+      var title = document.createElement("div");
+      title.className = "ov-title";
+      title.textContent = p.title;
+
+      var barTrack = document.createElement("div");
+      barTrack.className = "ov-bar-track";
+      var barFill = document.createElement("div");
+      barFill.className = "ov-bar-fill";
+      barFill.id = "ovbar-"+p.id;
+      barTrack.appendChild(barFill);
+
+      var count = document.createElement("div");
+      count.className = "ov-count";
+      count.id = "ovcount-"+p.id;
+
+      card.appendChild(label);
+      card.appendChild(title);
+      card.appendChild(barTrack);
+      card.appendChild(count);
+      overviewGrid.appendChild(card);
+    });
+  }
+
+  function buildPeriodCard(p, isSpotlight, spotlightKind){
+    var card = document.createElement("div");
+    card.className = "period-card" + (isSpotlight ? " is-current" : "");
+    card.id = "card-"+p.id;
+
+    if(isSpotlight){
+      var badge = document.createElement("div");
+      badge.className = "current-badge" + (spotlightKind==="soon" ? " soon" : "");
+      badge.textContent = spotlightKind==="soon" ? "Starts soon" : "This week";
+      card.appendChild(badge);
+    }
+
+    var head = document.createElement("div");
+    head.className = "period-head";
+
+    var headLeft = document.createElement("div");
+    var title = document.createElement("p");
+    title.className = "period-title";
+    title.textContent = p.title;
+    var date = document.createElement("p");
+    date.className = "period-date";
+    date.textContent = p.date;
+    headLeft.appendChild(title);
+    headLeft.appendChild(date);
+
+    var pill = document.createElement("div");
+    pill.className = "period-pill";
+    pill.id = "pill-"+p.id;
+
+    head.appendChild(headLeft);
+    head.appendChild(pill);
+
+    var taskGrid = document.createElement("div");
+    taskGrid.className = "task-grid";
+
+    p.tasks.forEach(function(taskText, i){
+      var taskId = p.id+"-"+i;
+      var item = document.createElement("div");
+      item.className = "task-item";
+      item.id = "item-"+taskId;
+
+      var labelWrap = document.createElement("label");
+      labelWrap.className = "task-label";
+      labelWrap.setAttribute("for", "cb-"+taskId);
+
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.id = "cb-"+taskId;
+      cb.addEventListener("change", function(){
+        setChecked(taskId, cb.checked);
+      });
+
+      var span = document.createElement("span");
+      span.textContent = taskText;
+
+      labelWrap.appendChild(cb);
+      labelWrap.appendChild(span);
+      item.appendChild(labelWrap);
+
+      var taskLink = resolveTaskLink(taskText);
+      if(taskLink){
+        var link = document.createElement("a");
+        link.className = "task-link";
+        link.href = taskLink.href;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = taskLink.label;
+        item.appendChild(link);
+      }
+
+      taskGrid.appendChild(item);
+    });
+
+    var notesBlock = document.createElement("div");
+    notesBlock.className = "notes-block";
+    var notesLabel = document.createElement("label");
+    notesLabel.className = "notes-label";
+    notesLabel.setAttribute("for", "notes-"+p.id);
+    notesLabel.textContent = "Notes & evidence collected";
+    var notesArea = document.createElement("textarea");
+    notesArea.className = "notes-textarea";
+    notesArea.id = "notes-"+p.id;
+    notesArea.placeholder = "Jot down stats, legislation, case studies, scholars or reminders for this week...";
+    notesArea.addEventListener("input", function(){
+      state["notes-"+p.id] = notesArea.value;
+      saveState();
+    });
+    notesBlock.appendChild(notesLabel);
+    notesBlock.appendChild(notesArea);
+
+    card.appendChild(head);
+    card.appendChild(taskGrid);
+    card.appendChild(notesBlock);
+    return card;
+  }
+
+  function buildPeriods(){
+    activeGrid.innerHTML = "";
+    pastGrid.innerHTML = "";
+
+    var activePeriods = PERIODS.filter(function(p){ return statusOf(p) !== "past"; });
+    var pastPeriods = PERIODS.filter(function(p){ return statusOf(p) === "past"; });
+
+    activePeriods.forEach(function(p, idx){
+      var isSpotlight = (idx === 0);
+      var kind = isSpotlight ? (statusOf(p)==="current" ? "now" : "soon") : null;
+      activeGrid.appendChild(buildPeriodCard(p, isSpotlight, kind));
+    });
+
+    pastPeriods.forEach(function(p){
+      pastGrid.appendChild(buildPeriodCard(p, false, null));
+    });
+
+    pastSection.style.display = pastPeriods.length ? "block" : "none";
+  }
+
+  function setChecked(taskId, checked){
+    if(checked){ state[taskId] = true; } else { delete state[taskId]; }
+    saveState();
+    render();
+  }
+
+  function applyStateToInputs(){
+    PERIODS.forEach(function(p){
+      p.tasks.forEach(function(_,i){
+        var taskId = p.id+"-"+i;
+        var cb = document.getElementById("cb-"+taskId);
+        var item = document.getElementById("item-"+taskId);
+        var isChecked = !!state[taskId];
+        if(cb){ cb.checked = isChecked; }
+        if(item){ item.classList.toggle("checked", isChecked); }
+      });
+      var notesArea = document.getElementById("notes-"+p.id);
+      if(notesArea){ notesArea.value = state["notes-"+p.id] || ""; }
+    });
+    studentNameInput.value = state.studentName || "";
+  }
+
+  function render(){
+    applyStateToInputs();
+
+    var doneTotal = completedTotal();
+    var pct = TOTAL ? Math.round((doneTotal/TOTAL)*100) : 0;
+    summaryLabel.textContent = doneTotal+"/"+TOTAL+" tasks complete ("+pct+"%)";
+    summaryBar.style.width = pct+"%";
+
+    PERIODS.forEach(function(p){
+      var done = completedInPeriod(p);
+      var total = p.tasks.length;
+      var pPct = total ? Math.round((done/total)*100) : 0;
+      var barFill = document.getElementById("ovbar-"+p.id);
+      var countEl = document.getElementById("ovcount-"+p.id);
+      var pillEl = document.getElementById("pill-"+p.id);
+      if(barFill){ barFill.style.width = pPct+"%"; }
+      if(countEl){ countEl.textContent = done+"/"+total; }
+      if(pillEl){ pillEl.textContent = done+"/"+total; }
+    });
+  }
+
+  studentNameInput.addEventListener("input", function(){
+    state.studentName = studentNameInput.value;
+    saveState();
+  });
+
+  // reset modal
+  var overlay = document.getElementById("modalOverlay");
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    overlay.classList.add("show");
+  });
+  document.getElementById("modalCancel").addEventListener("click", function(){
+    overlay.classList.remove("show");
+  });
+  overlay.addEventListener("click", function(e){
+    if(e.target === overlay){ overlay.classList.remove("show"); }
+  });
+  document.getElementById("modalConfirm").addEventListener("click", function(){
+    var keepName = state.studentName;
+    state = {};
+    if(keepName){ state.studentName = keepName; }
+    saveState();
+    render();
+    overlay.classList.remove("show");
+  });
+
+  // print
+  document.getElementById("printBtn").addEventListener("click", function(){
+    window.print();
+  });
+  window.addEventListener("beforeprint", function(){
+    var nameVal = (state.studentName || "").trim();
+    document.getElementById("printName").textContent = nameVal ? ("Name: " + nameVal) : "";
+    document.querySelectorAll(".notes-textarea").forEach(function(el){
+      el.dataset.prevHeight = el.style.height || "";
+      el.style.height = "auto";
+      el.style.height = el.scrollHeight + "px";
+    });
+  });
+  window.addEventListener("afterprint", function(){
+    document.querySelectorAll(".notes-textarea").forEach(function(el){
+      el.style.height = el.dataset.prevHeight || "";
+    });
+  });
+
+  loadState();
+  buildOverview();
+  buildPeriods();
+  render();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR1 Q11 Practice — The Nature of Religion and Belief</title>
+<style>
+  :root{
+    --green:#2f4d3a; --green-dark:#22362a; --gold:#efd99a; --gold-dark:#c9a24a;
+    --bg:#f7f5ef; --card:#ffffff; --ink:#20241f; --muted:#5b6259; --line:#e2ddd0;
+    --landscape:#3b6ea5; --dialogue:#8a4b8a; --aboriginal:#a3541f;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  header{background:var(--green);color:#fff;padding:22px 18px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;color:#d8e3da;font-size:.92rem;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px;}
+  nav.tabs{background:var(--green-dark);padding:8px 16px;position:sticky;top:0;z-index:10;}
+  .tabs-inner{display:flex;gap:8px;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+  nav.tabs button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.88rem;}
+  nav.tabs button.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold);font-weight:700;}
+  .site-nav{padding:10px 16px;margin:0;background:var(--bg);border-bottom:1px solid var(--line);}
+  .site-nav-inner{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;}
+  .site-nav a,.site-nav span{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;border-radius:14px;font-weight:800;white-space:nowrap;text-decoration:none;font-size:.8rem;display:inline-block;}
+  .site-nav a:hover{background:var(--gold);border-color:var(--gold-dark);}
+  .site-nav span.current{background:var(--green);color:#fff;border-color:var(--green);}
+  .site-nav span.soon{color:var(--muted);cursor:not-allowed;background:#f5f5f2;}
+  main{max-width:960px;margin:0 auto;padding:18px 16px 60px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;}
+  .start-here-card{background:#eef4ec;border:1px solid #cfe0c8;border-radius:14px;padding:14px 18px;margin:14px 0;font-size:.9rem;}
+  .start-here-card h2{margin:0 0 6px;font-size:1rem;color:var(--green-dark);}
+  .start-here-card p{margin:0 0 8px;}
+  .start-here-card a.action-link{display:inline-block;background:var(--green);color:#fff;padding:7px 14px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;}
+  .start-here-card a.action-link:hover{opacity:.9;}
+  @media print{ .site-nav,.start-here-card{display:none!important;} }
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .filters button{border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:999px;cursor:pointer;font-size:.82rem;}
+  .filters button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .dp-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.03em;padding:2px 8px;border-radius:999px;color:#fff;margin-right:8px;}
+  .dp-tag.landscape{background:var(--landscape);}
+  .dp-tag.dialogue{background:var(--dialogue);}
+  .dp-tag.aboriginal{background:var(--aboriginal);}
+  .rev-title{font-size:1.05rem;font-weight:800;margin:4px 0 8px;}
+  .seq-note{background:#fdf6e3;border-left:3px solid var(--gold-dark);padding:6px 10px;font-size:.85rem;color:#6b5511;margin-bottom:10px;border-radius:4px;}
+  ol.ideas{margin:0;padding-left:22px;}
+  ol.ideas li{margin-bottom:8px;line-height:1.5;font-size:.94rem;}
+  ol.ideas li::marker{font-weight:800;color:var(--gold-dark);}
+  .q11-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .q11-year{font-size:1.15rem;font-weight:900;color:var(--green);}
+  .q11-source{font-size:.78rem;color:var(--muted);}
+  .stimulus{background:#f4f1e6;border:1px dashed var(--gold-dark);border-radius:10px;padding:10px 14px;font-style:italic;margin:10px 0;}
+  .question-text{font-weight:700;margin:8px 0 12px;font-size:1rem;}
+  details{border:1px solid var(--line);border-radius:10px;margin-top:10px;overflow:hidden;}
+  details summary{cursor:pointer;padding:10px 14px;background:#f8f8f4;font-weight:700;font-size:.9rem;list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details[open] summary::before{content:'\\25BE ';}
+  .detail-body{padding:12px 14px;font-size:.92rem;line-height:1.55;}
+  .detail-body p{margin:0 0 10px;}
+  .crit-list{margin:0;padding-left:18px;}
+  .crit-list li{margin-bottom:6px;font-size:.88rem;}
+  textarea.answer-box{width:100%;min-height:140px;padding:10px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:.92rem;resize:vertical;}
+  .mark-actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;}
+  .mark-actions button{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:700;}
+  .mark-actions button.secondary{background:#fff;color:var(--green);border:1px solid var(--green);}
+  .copy-status{font-size:.82rem;color:var(--muted);align-self:center;}
+  .howto{background:#eef4ec;border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;margin-bottom:14px;}
+  .howto b{color:var(--green-dark);}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  .hub-link{display:inline-flex;align-items:center;gap:6px;color:#d8e3da;text-decoration:none;font-size:.82rem;font-weight:700;margin-bottom:8px;}
+  .hub-link:hover{color:#fff;text-decoration:underline;}
+  .sub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .sub-tabs button{border:1px solid var(--line);background:#fff;padding:7px 14px;border-radius:999px;cursor:pointer;font-size:.84rem;font-weight:700;color:var(--green-dark);}
+  .sub-tabs button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .q11-stats-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#eef4ec;border-radius:10px;padding:10px 14px;font-size:.85rem;margin-bottom:14px;color:var(--green-dark);}
+  .q11-stats-bar button.linklike{background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.8rem;padding:0;}
+  .timer-box{display:flex;align-items:center;gap:10px;background:#f4f1e6;border:1px solid var(--gold-dark);border-radius:10px;padding:8px 14px;margin:10px 0;flex-wrap:wrap;}
+  .timer-display{font-size:1.5rem;font-weight:900;color:var(--green-dark);min-width:74px;font-variant-numeric:tabular-nums;}
+  .timer-display.warn{color:#a33;}
+  .timer-box button{border:1px solid var(--green);background:#fff;color:var(--green);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.82rem;font-weight:700;}
+  .timer-box button.primary{background:var(--green);color:#fff;}
+  .timer-label{font-size:.78rem;color:var(--muted);}
+  .self-score{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .self-score p{margin:0 0 8px;font-size:.88rem;font-weight:700;color:var(--green-dark);}
+  .score-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .score-row button{border:1px solid var(--green);background:#fff;color:var(--green);width:38px;height:38px;border-radius:50%;cursor:pointer;font-weight:800;}
+  .score-row button:hover{background:#eef4ec;}
+  .score-row button.chosen{background:var(--green);color:#fff;}
+  .archived-note{background:#eef4ec;border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--green-dark);margin-top:10px;}
+  .next-row{display:flex;justify-content:center;margin:18px 0;}
+  .next-row button{background:var(--gold-dark);color:#3a2c08;border:none;padding:12px 22px;border-radius:10px;cursor:pointer;font-size:.95rem;font-weight:800;}
+  .restore-btn{background:#fff;color:var(--green);border:1px solid var(--green);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:700;}
+  h2.section-title{font-size:1.15rem;margin:26px 0 12px;color:var(--green-dark);}
+  h2.section-title:first-child{margin-top:0;}
+  .area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px;}
+  @media(max-width:700px){.area-grid{grid-template-columns:1fr;}}
+  .area-chip{border-radius:10px;padding:12px 14px;font-size:.85rem;}
+  .area-chip.landscape{background:#eaf1f8;border:1px solid #c9dcee;}
+  .area-chip.dialogue{background:#f3ecf3;border:1px solid #e0cfe0;}
+  .area-chip.aboriginal{background:#f7ede2;border:1px solid #ecd3b7;}
+  .area-chip b{display:block;margin-bottom:3px;}
+  .tile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;margin-bottom:8px;}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:16px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;cursor:pointer;text-align:left;font-family:inherit;position:relative;min-height:118px;}
+  .tile .tile-icon{font-size:1.6rem;}
+  .tile .tile-name{font-weight:800;font-size:.98rem;}
+  .tile .tile-desc{font-size:.76rem;color:var(--muted);line-height:1.4;flex-grow:1;}
+  .tile-status{position:absolute;top:10px;right:10px;font-size:.62rem;font-weight:900;letter-spacing:.03em;padding:2px 7px;border-radius:999px;background:#dcefdd;color:#256029;}
+  @media print{ nav.tabs, .mark-actions, .filters, .sub-tabs, .timer-box, .self-score, .next-row, .hub-link, .tile-grid, .area-grid{display:none!important;} .panel{display:block!important;} details{border:none;} }
+  #printArea{display:none;}
+  .print-set-title{font-size:1.2rem;font-weight:800;margin-bottom:10px;}
+  .print-stimulus{font-style:italic;border-left:3px solid #ccc;padding-left:10px;margin-bottom:10px;}
+  .print-question{font-weight:700;margin-bottom:14px;}
+  .print-answer-box{border:1px solid #999;border-radius:6px;padding:12px;min-height:200px;white-space:pre-wrap;line-height:1.6;}
+  @media print{
+    body.printing-single *{visibility:hidden;}
+    body.printing-single #printArea, body.printing-single #printArea *{visibility:visible;}
+    body.printing-single #printArea{display:block;position:absolute;left:0;top:0;width:100%;}
+  }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+    <h1>SOR1 Q11 Practice — The Nature of Religion and Belief</h1>
+    <p>Core content bank (24 syllabus dot/dash points) and 41 Question 11 practice items — every real NESA HSC year 2007–2025, genuine CSSA/ISA/PEM trial questions, and self-authored practice for every DP that's never appeared in a real paper — with marking criteria and worked model answers.</p>
+    <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+  </div>
+</header>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="SOR_Revision_Hub.html#start">Start Here</a>
+    <a href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html">6-Week Planner</a>
+    <a href="SOR_Revision_Hub.html#brain">Brain Dump</a>
+    <a href="SOR_Revision_Hub.html#quiz">Quick Quiz</a>
+    <a href="SOR_MC_Revision_Bank.html">Multiple Choice</a>
+    <span class="current">Q11</span>
+    <a href="SOR_Buddhism_StudyPack.html">Buddhism</a>
+    <a href="SOR_Judaism_StudyPack.html">Judaism</a>
+    <a href="SOR_Content_Flashcards.html">Flashcards</a>
+    <a href="SOR_Terminology.html">Terminology</a>
+    <a href="SOR_Detail_Bank.html">SLV</a>
+    <a href="SOR_Exam_Builder.html">Build an Exam</a>
+  </div>
+</nav>
+<nav class="tabs" id="tabs">
+  <div class="tabs-inner">
+    <button data-tab="content" class="active">Core Content Bank</button>
+    <button data-tab="past">Questions to Practise</button>
+    <button data-tab="overview">Overview</button>
+  </div>
+</nav>
+<main>
+
+<div class="start-here-card">
+  <h2>New here?</h2>
+  <p>This tool has the 24-item content bank and all 19 real past HSC Q11s, one at a time on a 10-minute timer. Not sure where to begin? Rate yourself and get a recommended pathway on the hub's Start Here page.</p>
+  <a class="action-link" href="SOR_Revision_Hub.html#start">Go to Start Here →</a>
+</div>
+
+<section id="content" class="panel active">
+  <div class="howto"><b>How to use this:</b> each of the 24 items gives 5 exam-ready sentence ideas, ranked with the most important first. Where a strict order matters (e.g. Mabo before Wik), that's flagged at the top of the item. Aim to know at least 3 sentences per item cold — including the ones with real dates, organisations and statistics.</div>
+  <div class="filters" id="revFilters"></div>
+  <div id="revList"></div>
+</section>
+
+<section id="past" class="panel">
+  <div class="howto" data-personalize><b>How to use this:</b> you'll get ONE past Q11 at a time, picked at random — read the stimulus (if any) and attempt it for real, using the 10-minute timer. Then compare against NESA's own marking criteria and sample answer, and the extended model answer, and rate your own answer out of 5. Score yourself a genuine 5/5 and the question moves to your Archive so you stop seeing it in rotation — just like the Multiple Choice bank. Use "Copy AI-marking prompt" to get feedback on your own draft from Copilot or another AI tool your school provides — nothing is sent anywhere automatically, you paste it yourself.</div>
+  <div class="sub-tabs" id="q11SubTabs">
+    <button data-sub="practice" class="active">Practice (random)</button>
+    <button data-sub="archive">Archive (5/5 mastered)</button>
+  </div>
+  <div class="q11-stats-bar" id="q11StatsBar"></div>
+  <div id="q11Practice"></div>
+  <div id="q11Archive" style="display:none;"></div>
+</section>
+
+<section id="overview" class="panel">
+  <h2 class="section-title">The three "Religion in Australia" areas at a glance</h2>
+  <div class="area-grid">
+    <div class="area-chip landscape"><b>Religious Landscape</b>Census patterns since 1945, secularism, Christianity's continued dominance, immigration, denominational switching, New Age religions.</div>
+    <div class="area-chip dialogue"><b>Religious Dialogue</b>Christian ecumenical movements (NCCA, NSW Ecumenical Council), interfaith dialogue, and religious traditions' role in Aboriginal reconciliation.</div>
+    <div class="area-chip aboriginal"><b>Aboriginal Spiritualities</b>The Dreaming (kinship, ceremonial life, obligations to land and people), the Land Rights movement, Native Title, Mabo, Wik, and the continuing effects of dispossession.</div>
+  </div>
+
+  <h2 class="section-title">Revision tools</h2>
+  <div class="tile-grid">
+    <a class="tile" href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html"><div class="tile-icon">🗓️</div><div class="tile-name">6-Week Planner</div><div class="tile-desc">Week-by-week HSC Success Blueprint checklist, ticks and notes saved on your device.</div><span class="tile-status">Ready</span></a>
+    <a class="tile" href="SOR_MC_Revision_Bank.html"><div class="tile-icon">📝</div><div class="tile-name">Multiple Choice Bank</div><div class="tile-desc">476 real and practice questions with a mastery/archive system.</div><span class="tile-status">Ready</span></a>
+    <a class="tile" href="SOR_Q11_Practice.html"><div class="tile-icon">✍️</div><div class="tile-name">Q11 Practice</div><div class="tile-desc">24 Q11 content-banks with practice — 19 real past Q11s (2007–2025), one at a time, on a 10-minute timer.</div><span class="tile-status">Ready</span></a>
+    <a class="tile" href="SOR_Buddhism_StudyPack.html"><div class="tile-icon">☯️</div><div class="tile-name">Buddhism Study Pack</div><div class="tile-desc">7 content-banks with practice — named evidence bank and real HSC questions with marking criteria and model answers.</div><span class="tile-status">Ready</span></a>
+    <a class="tile" href="SOR_Judaism_StudyPack.html"><div class="tile-icon">✡</div><div class="tile-name">Judaism Study Pack</div><div class="tile-desc">7 content-banks with practice — named evidence bank and real essay questions with marking criteria and model answers.</div><span class="tile-status">Ready</span></a>
+    <a class="tile" href="SOR_Content_Flashcards.html"><div class="tile-icon">🃏</div><div class="tile-name">Flashcards</div><div class="tile-desc">351 quick-flip cards covering every topic in the suite, including Terminology, Quotes, Living/Dynamic and Variant.</div><span class="tile-status">Ready</span></a>
+  </div>
+</section>
+
+<div id="printArea"></div>
+</main>
+<footer>Wenona SOR1 revision suite · built for offline / SharePoint use · not affiliated with NESA</footer>
+
+<script>
+// SOR1 "Nature of Religion and Belief" — 24-item core content bank
+// Built from Dr Batten's own DP1-9 Fact Files (21/06/2026) + verified NESA marking-guideline
+// content (NCCA, Affinity Intercultural Foundation, ISRA, NSW Jewish Board of Deputies, Columban
+// Centre) already confirmed accurate against source PDFs earlier in this project.
+// Each item: 5 ranked sentence-ideas (most important first), >=3 carrying real dates/orgs/stats,
+// and a `sequence` note where chronology/order matters for the answer.
+//
+// Expanded from 22 to 24 items (Sept 2026): two dense sub-topics that had enough distinct,
+// well-evidenced content in the fact files to earn their own item, matching the same logic
+// used to split Mabo/Wik out of DP8 originally:
+//   1. dp2bp — Pentecostal movements, split out from DP2b (Christianity). DP2b's fact-file
+//      section has ~10 distinct Pentecostal-specific facts (growth/decline stats, mega-church
+//      definition) that were being under-used bundled inside the general Christianity item.
+//   2. dp8nt — the Native Title Act 1993 as land-rights LEGISLATION, split out from DP8's
+//      general overview so the legislative mechanism (the Act, the Tribunal) has its own item
+//      distinct from the two court decisions either side of it (Mabo = dp8a, Wik = dp8b). This
+//      directly answers "is land rights its own thing in DP8, as well as the overall DP8?" —
+//      yes: dp8 (overview) + dp8nt (the Act itself) + dp8a (Mabo) + dp8b (Wik) = 4 items in the
+//      DP8 family now, up from 3.
+// If you want a 25th (or more) later — e.g. splitting DP7 into "Wave Hill/NT Land Rights Act"
+// vs "the Dreaming's role" — the id scheme below (dp7, dp8, dp8nt, dp8a, dp8b) leaves room.
+
+var REVISION_BANK = [
+  {
+    id: "dp1", dp: "DP1", area: "landscape",
+    title: "Changing patterns of religious adherence, 1945–present (census data)",
+    sequence: null,
+    ideas: [
+      "According to the 2021 Census, 61% of Australians identified with a religion, with Christianity remaining the largest tradition at 43.9%, followed by Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%) — confirming Australia's shift from religious homogeneity to a genuinely multifaith society.",
+      "Hinduism was the fastest-growing religious tradition in total numbers at the 2021 Census, continuing a longer-term trend in which Buddhist, Hindu and Pentecostal adherence all grew between 1996 and 2011.",
+      "NSW records the highest percentage of people reporting a religious affiliation of any Australian state, meaning changing patterns of adherence are not uniform across the country.",
+      "Religions other than Christianity have grown steadily across successive censuses since 1945, reflecting both post-war immigration and the diversification of Australia's religious landscape.",
+      "These changing patterns of adherence need to be read alongside the parallel rise of secularism (DP2a), since growth in non-Christian traditions and growth in 'no religion' have occurred simultaneously rather than one replacing the other."
+    ]
+  },
+  {
+    id: "dp2", dp: "DP2", area: "landscape",
+    title: "Account for the present religious landscape (all five factors, combined)",
+    sequence: "Use this as the synthesis/overview answer; DP2a–DP2e below are the five factors in depth.",
+    ideas: [
+      "The present religious landscape is explained by five interacting factors — secularism, Christianity's continued dominance, immigration, denominational switching and New Age religions — not any single cause.",
+      "Secularism and immigration are the two most significant factors: secularism explains 'no religion' rising from 30.1% in 2016 to 38.9% in 2021, while immigration explains both Christianity's persistence and growth in Islam, Hinduism and Buddhism.",
+      "Denominational switching and New Age religions are usually secondary factors — e.g. Pentecostal movements more than doubled between 1981 and 1991 through switching — reshaping Christianity internally without changing the overall balance as dramatically as secularism or immigration.",
+      "A strong 'account for' response cites a specific statistic or organisation for each factor, e.g. the Uniting Church's 1977 formation, or the 38.9% 'no religion' figure.",
+      "Examiners reward explicit judgements of relative significance — ranking secularism and immigration above switching and New Age religions — rather than an equal-weight list."
+    ]
+  },
+  {
+    id: "dp2a", dp: "DP2a", area: "landscape",
+    title: "Secularism",
+    sequence: null,
+    ideas: [
+      "Secularism is the separation of government and public affairs from religion; its growth is clearest in the Census — 'no religion' became the largest response category for the first time in 2016 (30.1%), rising to 38.9% by 2021.",
+      "Secularism is strongest among younger Australians: those aged 34 and under are significantly more likely to report no religion than those 35 and over, suggesting the trend will keep strengthening generationally.",
+      "A key driver of rising secularism is the perception that the traditional responses of religious traditions to life's enduring questions feel outdated to many Australians.",
+      "Everyday examples of secularisation include declining religious-celebrant marriages (with civil celebrants rising), seven-day shop trading, and state schools operating independently of religious control.",
+      "Secularism reduces religion's overall social influence without necessarily eliminating personal belief — a shift in public/institutional influence more than a decline in private belief."
+    ]
+  },
+  {
+    id: "dp2b", dp: "DP2b", area: "landscape",
+    title: "Christianity as the major religious tradition",
+    sequence: null,
+    ideas: [
+      "Christianity remains Australia's largest tradition, though its share fell sharply — from 61.1% in 2011 to 43.9% in 2021 — reflecting secularism and an ageing Christian population.",
+      "The three largest Christian denominations by 2021 were Catholic (20.0%), Anglican (9.8%) and Uniting Church (2.6%); Catholicism overtook Anglicanism as the largest during the 1980s, after Anglican numbers fell from a 1947 high of 39%.",
+      "Older Australians are far more likely to identify as Christian: 2016 Census data shows those aged 65+ were disproportionately Christian, reflecting the tradition's ageing adherent base.",
+      "Several major denominations — Anglican, Uniting Church, Presbyterian — recorded numerical declines between 1996 and 2011, even as Christian denominations grew more ethnically diverse through immigration.",
+      "Practising Christianity has changed qualitatively too: falling regular Mass attendance among Catholics shows nominal affiliation and active practice don't always move together."
+    ]
+  },
+  {
+    id: "dp2bp", dp: "DP2b", area: "landscape",
+    title: "Pentecostal movements (within Christianity)",
+    sequence: "Grew steadily 1981–2016, then reversed: roughly doubled 1981–1991 → ~1.1% of the population by 2016 → declined 2016–2021.",
+    ideas: [
+      "Pentecostal movements trace their roots to the first Pentecost in Acts and emphasise the Holy Spirit's gifts, such as speaking in tongues; Pentecostalism is not one denomination but many distinct movements under a shared label.",
+      "Pentecostal adherence roughly doubled 1981–1991 and kept growing, reaching about 1.1% of the population by 2016 — then reversed by 2021, with the sharpest decline (13%) among 15–34-year-olds, the age group that had driven its growth.",
+      "'Mega-churches' — congregations attracting more than 2,000 people weekly — are a distinctive, mainly urban feature of Pentecostalism, drawing more young adherents than traditional denominations.",
+      "A common misconception is that mega-churches grow through stronger female leadership than traditional churches — this is NOT the case; growth is better explained by worship style, urban location and youth appeal.",
+      "Pentecostal growth and its 2016–2021 decline connect to denominational switching (DP2d): switching drove growth up to 2016, and adherents leaving today more often switch to another Pentecostal church (e.g. one with a smaller tithe) than leave Pentecostalism altogether."
+    ]
+  },
+  {
+    id: "dp2c", dp: "DP2c", area: "landscape",
+    title: "Immigration",
+    sequence: "Christian immigration (post-1945) came first; non-Christian immigration grew mainly after the White Australia Policy's abolition in the early 1970s.",
+    ideas: [
+      "Post-1945 immigration is the factor most often credited with turning Australia into 'a nation of many faiths' — first through large-scale Christian immigration (England, New Zealand, the Philippines), then, after the White Australia Policy's abolition in the early 1970s, through immigration from largely non-Christian countries.",
+      "The Policy's end directly enabled growth in Islam, Hinduism and Buddhism from 1990 onward, each appearing as its own Census category within a decade of the others: Islam in 1976, Buddhism in 1981, Hinduism in 1986.",
+      "Immigration produced proportionally larger growth in non-Christian religions than in Christian denominations, though Christian immigration also increased ethnic diversity within Christianity itself since the 1960s.",
+      "Post-war English immigration specifically boosted Anglican numbers, showing immigration diversified Christianity internally as well as introducing new traditions.",
+      "Religious traditions have become increasingly engaged with immigration's humanitarian dimensions — an ongoing focus of religious social action, not just a demographic driver of change."
+    ]
+  },
+  {
+    id: "dp2d", dp: "DP2d", area: "landscape",
+    title: "Denominational switching",
+    sequence: null,
+    ideas: [
+      "Denominational switching is moving from one Christian denomination to another, usually motivated by finding a form of practice that better aligns with personal values.",
+      "Switching was the main driver of Pentecostal growth up to 2016, and is self-reinforcing: those switching into a Pentecostal denomination are more likely to have come from another Pentecostal denomination than from outside it.",
+      "Orthodox Christianity is least likely to lose members to switching, due to its strong link to national and cultural identity, followed by Catholicism, whose retention is often linked to Catholic education.",
+      "Some Pentecostal churches attract switching adherents through both male and female leadership, seen as more inclusive than traditional denominations — though not true of every Pentecostal mega-church.",
+      "Negative publicity around tithing has itself driven switching within Pentecostalism, with members moving to a church requiring a smaller tithe rather than leaving Pentecostalism altogether."
+    ]
+  },
+  {
+    id: "dp2e", dp: "DP2e", area: "landscape",
+    title: "Rise of New Age religions",
+    sequence: null,
+    ideas: [
+      "New Age religions are a loosely connected set of spiritualities emphasising individualism, personal transformation and individual morality, part of a wider search for enlightenment outside institutional religion.",
+      "A defining feature is rejecting materialistic values for self-awareness and individual fulfilment — many adherents would say 'I'm more spiritual than religious' rather than name an organised tradition.",
+      "New Age spirituality includes neo-pagan belief systems and supernatural spirituality, associated internationally with sites like Stonehenge in England and the Festival of Body, Mind and Spirit in Oslo.",
+      "New Age adherents and Christians generally agree spirituality matters and believers' needs are central, but disagree sharply on life after death, the human soul, and whether sacred texts should ground belief.",
+      "Because New Age spirituality is individualised rather than institutionally organised, it's harder to measure through Census data than mainstream traditions, so its true scale may be understated."
+    ]
+  },
+  {
+    id: "dp3", dp: "DP3", area: "dialogue",
+    title: "Impact of Christian ecumenical movements in Australia",
+    sequence: null,
+    ideas: [
+      "Christian ecumenical movements build Christians' shared commitment to Gospel values and mutual understanding between denominations, promoting religious harmony while respecting genuine diversity.",
+      "The ecumenical movement's biggest outcome was the Uniting Church's 1977 formation, merging the Methodist Church, the Congregational Union, and most — not all — Presbyterian congregations.",
+      "The NCCA promotes shared worship (the World Day of Prayer, Week of Prayer for Christian Unity) and social justice campaigns like 'Everybody's Home' against homelessness; the NSW Ecumenical Council (1984) addresses division among NSW churches and voices a common Christian position on state issues.",
+      "Ecumenism also runs through smaller initiatives: 'Interdenominational Praise' events, resource-sharing among declining rural churches, and the National Church Life Survey, which gathers cross-denominational data.",
+      "A strong answer covers both formal outcomes (the Uniting Church) and informal ones (shared worship, campaigns, resource-sharing) — and since the 2024 HSC Q11 asked about only ONE of the NCCA or NSW Ecumenical Council, know three solid facts about each."
+    ]
+  },
+  {
+    id: "dp4", dp: "DP4", area: "dialogue",
+    title: "Importance of interfaith dialogue in multifaith Australia",
+    sequence: null,
+    ideas: [
+      "Interfaith dialogue promotes tolerance, mutual understanding and peaceful coexistence between traditions, helping religions become less competitive and more cooperative in an increasingly multifaith Australia.",
+      "Interfaith dialogue had no organised, institutional form in Australia until the 1970s — a comparatively recent development next to the traditions' much longer history.",
+      "The Parliament of the World's Religions, held in Melbourne, is a landmark example of large-scale interfaith dialogue, bringing adherents of many traditions into one high-profile forum.",
+      "Smaller, ongoing initiatives matter just as much: the Affinity Intercultural Foundation has fostered dialogue between young Muslim Australians and Christian and Jewish groups since 2001, and ISRA's Iftar dinners invite non-Muslims to share in breaking the Ramadan fast.",
+      "Interfaith dialogue builds both social cohesion and individual religious identity, encouraging adherents to see shared values like tolerance and social justice as part of their own tradition, not just practised in isolation."
+    ]
+  },
+  {
+    id: "dp5", dp: "DP5", area: "dialogue",
+    title: "Aboriginal spiritualities and religious traditions in the process of Reconciliation",
+    sequence: null,
+    ideas: [
+      "Aboriginal reconciliation involves non-Aboriginal Australians recognising past wrongs and building respectful relationships with Aboriginal peoples; religious traditions have engaged by confronting their own historical role in dispossession and committing members to reconciliation.",
+      "In May 2022, a significant number of Australian religious leaders publicly supported the Uluru Statement from the Heart, demonstrating institutional religious commitment to constitutional reform and reconciliation.",
+      "Religious engagement has included growing Christian acceptance of Aboriginal ritual and ceremony, and stronger recognition across traditions of land's centrality to Aboriginal spirituality.",
+      "Concrete examples: the NSW Jewish Board of Deputies hosted a Shabbat Service for Aboriginal community leaders at the Great Synagogue in December 2019, and the Columban Centre for Christian–Muslim Relations supports reconciliation on shared spiritual, moral and humanitarian grounds.",
+      "The Uluru Statement from the Heart (2017) is understood to contribute to national unity — religious leaders' 2022 endorsement placed institutional weight behind a reform already five years underway."
+    ]
+  },
+  {
+    id: "dp6", dp: "DP6", area: "aboriginal",
+    title: "How Aboriginal spirituality is determined by the Dreaming (overview)",
+    sequence: "The Dreaming determines three distinct elements — kinship, ceremonial life, obligations to land and people — covered separately in DP6a–DP6c.",
+    ideas: [
+      "The Dreaming is the foundation of Aboriginal spirituality — it explains how the world was formed and sustained, and determines kinship, ceremonial life, and obligations to land and people.",
+      "Land represents a sacred link embracing Aboriginal identity, since land is understood as the basis of the Dreaming, not just its setting.",
+      "Aboriginal spirituality recognises no separation between the spiritual and the secular — as one elder said, 'We cultivated our land, but in a way different from the white man... they seemed to live off it' — obligation to Country is woven into everyday life, not just ceremony.",
+      "Creation stories are central to how the Dreaming informs cultural identity — e.g. the ancestral being Baiame creating the Blue Mountains links a specific landscape directly to spiritual meaning for the people connected to that Country.",
+      "The Dreaming determines three distinct but connected elements — kinship, ceremonial life, obligations to land and people — so a strong response addresses all three explicitly (DP6a–DP6c) rather than treating 'the Dreaming' as one concept."
+    ]
+  },
+  {
+    id: "dp6a", dp: "DP6a", area: "aboriginal",
+    title: "Kinship",
+    sequence: null,
+    ideas: [
+      "Kinship defines where an individual fits within their family and the wider Aboriginal community, and is determined by being born into a particular kinship group rather than by an individual's personal totem.",
+      "Kinship regulates social relationships within traditional Aboriginal society, including who may marry whom, making it a structural as well as spiritual system.",
+      "Totemism expresses a system of kinship within the natural world: a totem — typically a fish, plant or animal representing a spirit ancestor associated with a particular region — provides individuals with a direct spiritual link to ancestral beings.",
+      "Elders hold significant status and respect within Aboriginal communities because they possess and safeguard valued sacred knowledge about kinship and spirituality, passing it on according to kinship-based responsibilities.",
+      "Because kinship is inherited by birth rather than chosen, it provides a stable, lifelong framework for both spiritual identity and practical social obligation within the community."
+    ]
+  },
+  {
+    id: "dp6b", dp: "DP6b", area: "aboriginal",
+    title: "Ceremonial life",
+    sequence: null,
+    ideas: [
+      "Ceremonial life is the primary way Aboriginal people express their spirituality, maintaining connection between the physical and spiritual worlds through enactment ceremonies, myths and legends that merge past, present and future.",
+      "Initiation ceremonies specifically teach young Aboriginal people their responsibilities, prepare them to undertake adult responsibilities within the community, and ensure the continuation of Law across generations.",
+      "Burial in one's own 'Country' is spiritually significant because it allows the deceased's spirit to return to its ancestors, linking ceremonial practice directly to the Dreaming's understanding of land.",
+      "Elders play the traditional role of preserving and transmitting the most sacred meaning of Aboriginal ritual and ceremony, ensuring continuity of spiritual knowledge across generations.",
+      "An important clarification for exam responses: contemporary Aboriginal ceremonies can differ from ceremonies of the past, since Aboriginal stories and practices allow for change — and Aboriginal peoples do not worship ancestral beings, a common misconception."
+    ]
+  },
+  {
+    id: "dp6c", dp: "DP6c", area: "aboriginal",
+    title: "Obligations to the land and people",
+    sequence: null,
+    ideas: [
+      "Obligations to land and people are central to Aboriginal spirituality, publicly acknowledged today through Welcome to Country, which recognises Traditional Owners as ongoing custodians of Country.",
+      "Uluru's 2019 closure to climbers is a significant contemporary example, recognised by the Anangu traditional owners as honouring obligations to land and people, and traditional Aboriginal law and Australian law working together.",
+      "Territorial boundaries form the basis of ritual estates; responsibility for an area of Country is established primarily through the kinship system, not individual choice or Western-style ownership.",
+      "Law is central to the Dreaming: obligations to land and people are a legal and spiritual responsibility simultaneously, not simply cultural custom.",
+      "As one elder put it: 'We cultivated our land, but in a way different from the white man... they seemed to live off it' — obligation to Country shapes a relationship with land fundamentally different from Western land-use."
+    ]
+  },
+  {
+    id: "dp7", dp: "DP7", area: "aboriginal",
+    title: "Importance of the Dreaming for the Land Rights movement",
+    sequence: "Wave Hill (1966) → NT Land Rights Act (1976) → Mabo (1992) → Wik (1996) is the chronological backbone across DP7–DP8b.",
+    ideas: [
+      "The Dreaming is important for Land Rights because it underpins Aboriginal peoples' connection to Country — claims are fundamentally about restoring the ability to live out Dreaming-based spiritual obligations, not simply land ownership.",
+      "A spiritual relationship to Country — not an economic or historical claim alone — is the basis of Aboriginal Land Rights claims, distinguishing them from other land claims.",
+      "The 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari, is a landmark early example of Land Rights driven by spiritual and cultural connection to Country, not only pay and conditions.",
+      "The 1976 Aboriginal Land Rights (NT) Act, partly a response to Wave Hill, was the first major legislation giving legal recognition to Aboriginal land claims based on traditional and spiritual connection to Country — linking the Dreaming to a legal framework for the first time.",
+      "The Dreaming's importance for Land Rights connects to later developments — Mabo (1992) and Wik (1996) — which gave connection to Country legal standing for the first time (DP8a, DP8b)."
+    ]
+  },
+  {
+    id: "dp8", dp: "DP8", area: "aboriginal",
+    title: "Importance of Native Title, Mabo and Wik for the Land Rights movement (overview)",
+    sequence: "Mabo (1992) → Native Title Act (1993) → Wik (1996) → Native Title Amendment Act (1998).",
+    ideas: [
+      "Native Title, Mabo and Wik together transformed Australian law's recognition of Aboriginal and Torres Strait Islander peoples' relationship to land, contributing to the revitalisation of Aboriginal traditions more broadly.",
+      "Sequence matters: Mabo (1992) came first, leading to the Native Title Act 1993, later tested and clarified by Wik (1996) and the Native Title Amendment Act 1998 (see DP8a, DP8b for detail).",
+      "The Native Title Act 1993 (Cwlth) required formal recognition of Aboriginal and Torres Strait Islander land rights claims, particularly over Commonwealth-held land, converting Mabo's common-law recognition into a workable legislative process.",
+      "These developments matter for Aboriginal spiritualities specifically, not just land law: establishing native title requires demonstrating continuous connection to Country through Dreaming-based customary law and ceremony, legally validating spiritual practice as evidence.",
+      "A strong response distinguishes the legal/judicial developments (Mabo, Wik — High Court decisions) from the legislative response (the Native Title Act 1993 and its 1998 amendment), since students often conflate court decisions with the Acts that followed."
+    ]
+  },
+  {
+    id: "dp8nt", dp: "DP8", area: "aboriginal",
+    title: "The Native Title Act 1993 (native title as land-rights legislation)",
+    sequence: "Mabo (1992) → Native Title Act 1993 → Wik (1996) → Native Title Amendment Act 1998 — this item covers the two Acts either side of the two court decisions (dp8a/dp8b).",
+    ideas: [
+      "The Native Title Act 1993 (Cwlth) was Parliament's response to Mabo, formally requiring recognition of Aboriginal and Torres Strait Islander native title claims — particularly over Commonwealth land — and establishing the National Native Title Tribunal to administer claims.",
+      "Native title differs from the 1976 Aboriginal Land Rights (NT) Act (DP7): it's a common-law right Parliament recognised a process for, rather than a government land grant — confirming a pre-existing right, not creating a new one.",
+      "Establishing native title requires claimants to show continuous connection to Country through traditional law and custom, linking the process directly to the Dreaming-based obligations in DP6.",
+      "After Wik (1996), the Native Title Amendment Act 1998 let native title coexist with pastoral leases and let states/territories legislate their own procedures — narrowing claims' scope compared with the position right after Mabo.",
+      "A strong response keeps Mabo/Wik (High Court cases) distinct from the legislative response (the 1993 Act and its 1998 amendment): this item covers the legislation itself; dp8a/dp8b cover the two court decisions."
+    ]
+  },
+  {
+    id: "dp8a", dp: "DP8a", area: "aboriginal",
+    title: "Mabo",
+    sequence: "Comes before Wik: Mabo (1992) → Native Title Act (1993) → Wik (1996).",
+    ideas: [
+      "In *Mabo v Queensland (No 2)* (1992), the High Court ruled for Eddie Mabo and the Meriam people, overturning *terra nullius* and recognising — for the first time — that native title existed under Australian common law before colonisation.",
+      "The decision led directly to the *Native Title Act 1993*, establishing a legal process — and the National Native Title Tribunal — for Aboriginal and Torres Strait Islander peoples to claim native title, including land and water rights.",
+      "Mabo gave legal weight to the spiritual relationship between Aboriginal peoples and land in the Dreaming, since 'continuous connection to country' is often shown through customary law, ceremony and ties to specific sites.",
+      "Eddie Mabo pursued the case for ten years from 1982 with fellow Meriam plaintiffs, and died in January 1992 — months before the June judgment.",
+      "Mabo is widely seen as the most significant legal turning point in the land rights movement, a precedent *Wik Peoples v Queensland* (1996) built on regarding native title's coexistence with pastoral leases."
+    ]
+  },
+  {
+    id: "dp8b", dp: "DP8b", area: "aboriginal",
+    title: "Wik",
+    sequence: "Comes after Mabo/the Native Title Act: Mabo (1992) → Native Title Act (1993) → Wik (1996) → Native Title Amendment Act (1998).",
+    ideas: [
+      "In *Wik Peoples v Queensland* (1996), the High Court ruled native title could coexist with pastoral leases rather than being automatically extinguished by them — a major clarification of the framework established after Mabo.",
+      "Wik did not extinguish pastoralists' existing rights; it established native title and pastoral leaseholder rights could exist simultaneously over the same land, with pastoral lease rights prevailing in a genuine conflict.",
+      "Wik prompted the *Native Title Amendment Act 1998*, formally establishing native title could coexist with leaseholder rights, and empowering states and territories to legislate their own native title procedures.",
+      "Following political controversy among the pastoral and mining industries, the 1998 amendments are often seen as narrowing native title's practical scope compared with the position right after Mabo, though the coexistence principle itself favoured Aboriginal claimants.",
+      "Sequence matters: Wik (1996) and its 1998 amendment came after Mabo (1992) and the Native Title Act (1993) — Wik answered a question Mabo left open (land already leased for pastoral use), not overturning Mabo's core findings."
+    ]
+  },
+  {
+    id: "dp9", dp: "DP9", area: "aboriginal",
+    title: "The continuing effect of dispossession on Aboriginal spiritualities (overview)",
+    sequence: "Three connected but distinct strands — land, kinship, the Stolen Generations — covered separately in DP9a–DP9c.",
+    ideas: [
+      "Dispossession continues to affect Aboriginal spiritualities today primarily by disrupting the connection between land and kinship, since both are needed together to practise and transmit Aboriginal spirituality.",
+      "Dispossession disrupts Aboriginal cultural practices broadly, not just one element — ceremonial life, kinship and connection to land are all affected together, not in isolation.",
+      "The syllabus names three continuing effects — separation from land, separation from kinship groups, and the Stolen Generations — connected but distinct strands, each disrupting spirituality through a different mechanism (DP9a–DP9c).",
+      "Because assimilation-era policy (roughly 1910s–1970s) targeted land, family and cultural practice together, its effects compound: losing land made maintaining kinship harder, and losing kinship made passing on land-based knowledge harder.",
+      "A strong response makes clear these are *continuing* effects, not just historical: native title gaps, disrupted family knowledge and intergenerational trauma from the Stolen Generations still shape Aboriginal spirituality today."
+    ]
+  },
+  {
+    id: "dp9a", dp: "DP9a", area: "aboriginal",
+    title: "Dispossession — separation from the land",
+    sequence: null,
+    ideas: [
+      "Dispossession physically separated many Aboriginal peoples from traditional Country through colonial land seizure and, later, forced relocation onto missions and reserves, breaking the everyday connection to land Aboriginal spirituality depends on.",
+      "Because land is the basis of the Dreaming (DP6), separation from land is not just loss of property but loss of the primary source of spiritual identity, ancestral teachings and Law.",
+      "Restricted or lost access to sacred sites has, in many cases, made it difficult or impossible to perform the ceremonies that maintain connection between the physical and spiritual worlds (DP6b).",
+      "Native title processes since Mabo (1992) and the Native Title Act (1993) let some communities regain legal access to traditional land, though many remain separated from Country where a claim can't be established (DP8a).",
+      "Separation from land continues to affect spiritual practice wherever Country now falls under freehold or leasehold title incompatible with cultural access — 19th- and 20th-century dispossession's effects are not simply historical."
+    ]
+  },
+  {
+    id: "dp9b", dp: "DP9b", area: "aboriginal",
+    title: "Dispossession — separation from kinship groups",
+    sequence: null,
+    ideas: [
+      "Dispossession disrupted Aboriginal kinship structures by physically separating people from their kinship groups — through forced removal to missions and reserves, later through Stolen Generations policies — breaking the system through which spiritual identity and sacred knowledge are transmitted.",
+      "Because kinship is inherited by birth and regulates relationships including marriage (DP6a), separation from one's kinship group disrupted the transmission of Law, totemic knowledge and ceremonial roles to the next generation.",
+      "Elders, who hold and transmit sacred knowledge through kinship-based responsibility (DP6a), could not pass it on to family members forcibly separated from them, creating gaps in spiritual knowledge across generations.",
+      "Where kinship groups were dispersed across missions, reserves or adoptive families, often in different regions, individuals lost not only immediate family but the people who held knowledge of their own Country and totem.",
+      "Reconnecting with kinship groups today, through family tracing and community reunion programs, is a necessary step in restoring fuller participation in Aboriginal spirituality for many descendants of the Stolen Generations."
+    ]
+  },
+  {
+    id: "dp9c", dp: "DP9c", area: "aboriginal",
+    title: "Dispossession — the Stolen Generations",
+    sequence: null,
+    ideas: [
+      "The Stolen Generations refers to the forced removal of Aboriginal and Torres Strait Islander children from their families under government assimilation policy, with the main stated reason after 1945 being to force children to adopt European culture.",
+      "As one survivor's testimony put it, 'They stole my speech and family' — removal took not just physical connection to family but language, culture and ancestral teachings too.",
+      "Members of the Stolen Generations have often struggled to reconnect with Aboriginal spirituality because removal from family disrupted kinship groups (DP9b), cutting off the relationships through which spiritual knowledge, Country and ceremony are normally transmitted.",
+      "Because assimilation policy targeted children specifically, its effects are intergenerational: removed individuals often could not pass on cultural and spiritual knowledge to their own children and grandchildren, compounding the loss.",
+      "National Sorry Day (26 May) and the 2008 National Apology to the Stolen Generations, delivered by PM Kevin Rudd, are contemporary acknowledgements of this continuing effect — though acknowledgement alone doesn't restore the spiritual knowledge and relationships lost."
+    ]
+  }
+];
+</script>
+<script>
+// Past-paper Question 11 harvest — verified against source PDFs (spot-checked 2020/2022/2025
+// word-for-word against the scanned question papers and marking guidelines).
+// stimulus: exact transcription (or null). official: NESA's own criteria + sample answer.
+// model: an original, higher-reaching answer built from the criteria + safe syllabus content.
+var Q11_BANK = [
+  {
+    id: "q11-2020", year: "2020", dpRef: "dp2c",
+    source: "NESA 2020 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "“Without mass migration the Australian religious landscape would look very different today.”",
+    question: "How accurate is this statement in relation to Australia’s religious landscape since 1945?",
+    criteria: [
+      "5 — Makes a judgement about the accuracy of the quote; provides detailed and accurate knowledge of the Australian religious landscape post-1945 to support the judgement; integrates relevant and accurate terminology.",
+      "3–4 — Attempts to make a judgement about the accuracy of the quote; provides accurate knowledge and understanding of the Australian religious landscape post-1945; uses relevant terminology.",
+      "2 — Makes generally accurate statements about the Australian religious landscape post-1945; may refer to the quote.",
+      "1 — Makes statements about the Australian religious landscape."
+    ],
+    officialAnswer: "The statement that mass migration reshaped the religious landscape of Australia is true for the diversity of faith within Australia. From 1966–1975 only 5% of migrants reported a religious identity other than Christianity. This rose to 17% 1976–1985 driven by Buddhist migrants from South–East Asia and most recently sits at just under a third of migrants in 2007–2016. Since 1966, Christianity has fallen from 88.2% of the population to just over half of the population in 2016. This is despite the fact that at 34%, Christianity is the most commonly professed religion of immigrants to Australia. The marked fall in Christian adherence is due to the rise of secularism. As at 2016, 30.1% of Australians chose not to state a religious identity. This is similar to the percentage of immigrants who state that they are non-religious. So although non-Christian religious identification has grown to 8.2% of the Australian population in 2016, these statistics are dwarfed by the increasingly secular nature of the Australian religious landscape.",
+    modelAnswer: "The statement is largely accurate: mass migration since 1945 has been a major driver of Australia’s shift from religious homogeneity to religious pluralism, though it is not the only factor reshaping the landscape, and its accuracy must be balanced against the independent rise of secularism.\n\nPost-war migration, beginning with mostly European migrants in the 1940s–60s, increased internal diversity within Christianity, and following the end of the White Australia Policy in the 1970s, migration increasingly brought adherents of non-Christian traditions. The proportion of migrants identifying with a religion other than Christianity rose from around 5% (1966–75) to 17% (1976–85), driven substantially by Buddhist migration from South-East Asia, and to nearly a third of migrants by 2007–16 — directly explaining the growth of Buddhism, Hinduism and Islam to around 8% non-Christian identification by 2016.\n\nHowever, the statement understates the parallel, migration-independent trend of secularism: Christian adherence fell from around 88% (mid-1960s) to just over half by 2016, driven mainly by rising ‘no religion’ identification (around 30% by 2016) among the existing population — not by migration, since Christianity has in fact remained the most commonly professed religion among immigrants themselves.\n\nTherefore, while migration is rightly credited with diversifying Australia’s religious landscape, the statement overstates migration as the sole cause of change: the concurrent rise of secularism has been at least as significant since 1945."
+  },
+  {
+    id: "q11-2021", year: "2021", dpRef: "dp5",
+    source: "NESA 2021 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "How have religious traditions engaged with the process of Aboriginal reconciliation?",
+    criteria: [
+      "5 — Provides a detailed and accurate explanation of how religious traditions have engaged with the process of reconciliation; integrates clear, relevant and accurate terminology.",
+      "4 — Provides an accurate explanation of how religious traditions have engaged with the process of reconciliation; uses clear and relevant terminology.",
+      "3 — Provides an explanation of how religious tradition(s) have engaged with the process of reconciliation; uses relevant terminology.",
+      "2 — Makes general statements about religious tradition(s) and the process of reconciliation.",
+      "1 — Makes statement(s) about aspects of religion in Australia."
+    ],
+    officialAnswer: "Religious traditions have commenced working alongside Aboriginal groups towards justice, equality, healing and recognition by acknowledging their dispossession from land, culture and community. For example, in December 2019, the NSW Jewish Board of Deputies hosted a special Shabbat Service and dinner at the Great Synagogue for Aboriginal community leaders. The Jewish community argues that they do not want to repeat the mistakes of the past by remaining silent on the injustices endured by the Aboriginal community. Further, the Columban Centre for Christian–Muslim Relations supports reconciliation with Aboriginal peoples on spiritual, moral and humanitarian grounds promoting understanding and tolerance with the aim of treating everyone as equal before God.",
+    modelAnswer: "Religious traditions in Australia have engaged with Aboriginal reconciliation by acknowledging past dispossession, supporting justice and healing, and building relationships of mutual respect with Aboriginal communities — both through formal statements and ongoing practical partnerships.\n\nChristian denominations have been prominent, issuing formal apologies for the impact of colonisation and mission-era institutions, supporting National Reconciliation Week and Sorry Day, and developing Reconciliation Action Plans.\n\nInterfaith bodies have also engaged directly: in December 2019 the NSW Jewish Board of Deputies hosted a Shabbat Service and dinner at the Great Synagogue for Aboriginal community leaders, stating they did not wish to repeat past mistakes by remaining silent about injustices. Similarly, the Columban Centre for Christian–Muslim Relations has supported reconciliation on spiritual, moral and humanitarian grounds, promoting the principle that all people are equal before God.\n\nThrough such statements, services and partnerships, religious traditions have contributed to reconciliation by promoting acknowledgment of past wrongs, fostering dialogue, and supporting Aboriginal peoples’ aspirations for justice, healing and recognition."
+  },
+  {
+    id: "q11-2022", year: "2022", dpRef: "dp4",
+    source: "NESA 2022 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "“I used to think that Interfaith is something we do. But now I realise it is something we are.” — Dr Berys Anne Gargan, Winner of World Interfaith Harmony Prize, 2019",
+    question: "With reference to the stimulus, explain the importance of interfaith dialogue in Australia.",
+    criteria: [
+      "5 — Provides a detailed and relevant explanation about the importance of interfaith dialogue in Australia with clear reference to the stimulus; uses clear, relevant and accurate terminology.",
+      "4 — Provides a relevant explanation with some reference to the stimulus; uses clear and relevant terminology.",
+      "3 — Provides an explanation about the importance of interfaith dialogue in Australia; uses relevant terminology.",
+      "2 — Makes general statements about interfaith dialogue in Australia.",
+      "1 — Makes statement(s) about aspects of religion in Australia."
+    ],
+    officialAnswer: "Interfaith dialogue is more than actions, initiatives and things that religious traditions ‘do’. As Australian society becomes increasingly secular, multifaith and multicultural dialogue about diversity of belief and expression have helped to build mutual tolerance between religious traditions. In this way, interfaith dialogue has become important to religious identity and something religious adherents ‘are’ by virtue of their shared pursuit of social justice, environmental change and action for peace. The Affinity Intercultural Foundation has sought opportunities since 2001 for ongoing interactions between young Muslim Australians and Christian and Jewish groups. Through public educational events such as discussion forums and lectures, this organisation plays an important role in bringing people of diverse faith backgrounds together to create enduring relationships and understanding between them.",
+    modelAnswer: "Interfaith dialogue is the ongoing, respectful exchange between people of different religious traditions aimed at building understanding and mutual respect. As Dr Gargan’s stimulus suggests, it has moved beyond being merely something religious groups ‘do’ to becoming part of what adherents ‘are’ — an expression of identity shaped by relationship with people of other faiths.\n\nThis matters for several reasons. Australia’s religious diversity, driven by sustained post-1945 immigration, means faith communities now live in close proximity; dialogue allows mutual understanding rather than reliance on stereotype, reducing prejudice. In an increasingly secular, multifaith society, dialogue also helps traditions demonstrate shared commitment to values such as social justice and peace. Concrete examples reinforce this: the Affinity Intercultural Foundation has fostered dialogue between young Muslim Australians and Christian and Jewish groups since 2001 through public forums and lectures.\n\nBecause Dr Gargan frames interfaith as identity rather than activity, it also encourages adherents to carry openness and shared purpose into everyday interactions, not only formal events — making interfaith dialogue important both for social cohesion and for how religious adherents understand their own identity."
+  },
+  {
+    id: "q11-2023", year: "2023", dpRef: "dp7",
+    source: "NESA 2023 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "Explain the relationship between the Dreaming and the Land Rights movement.",
+    criteria: [
+      "5 — Provides a comprehensive explanation of the relationship between the Dreaming and the Land Rights movement; uses clear, accurate and relevant terminology.",
+      "4 — Provides a thorough explanation; uses clear and relevant terminology.",
+      "3 — Provides a sound explanation; uses relevant terminology.",
+      "2 — Demonstrates some understanding about the Dreaming and/or the Land Rights movement.",
+      "1 — Provides some relevant information."
+    ],
+    officialAnswer: "The Dreaming is the basis of every aspect of Aboriginal spirituality. A very important part of this is developing and maintaining a connection with the land. Aboriginal people understand that ancestral beings created and shaped the land, and continue to dwell there today. Having access to sacred sites is essential for them to perform ceremonies in order to maintain their relationship with ancestral beings. The formal Land Rights movement in Australia changed significantly as a result of legal decisions in the early 1990s. Through their understanding of the Dreaming, terra nullius was legally overturned by the courts and Aboriginal people were able to regain access to sites that are important to understanding and expressing the Dreaming. As a result, society’s understanding of the Dreaming and the relationship between Aboriginal spirituality and the land is deepened.",
+    modelAnswer: "The Dreaming is the foundation of Aboriginal spirituality, encompassing the creation of the land, kinship, Law and ongoing spiritual responsibilities to Country. Because the Dreaming ties identity and ceremony directly to specific land, Aboriginal spirituality cannot be separated from physical connection to Country — access to land is required to perform ceremony and pass on sacred knowledge.\n\nThis connection is the basis of the Land Rights movement. Dispossession under colonisation denied access to sites essential to the Dreaming, so the movement has been fundamentally about restoring the ability to practise and express Aboriginal spirituality, not simply about economic ownership. The 1966 Wave Hill Walk-off was driven partly by spiritual connection to Country; and the 1992 Mabo decision legally recognised native title and overturned terra nullius, acknowledging for the first time a continuing spiritual and customary relationship to land — reinforced by the Native Title Act 1993, under which claims are proven largely through evidence of Dreaming stories, ceremony and kinship ties to specific sites.\n\nThe Dreaming and the Land Rights movement are therefore interdependent: the Dreaming explains why land matters spiritually, and the Land Rights movement is the legal and political means by which that spiritual relationship is protected and restored."
+  },
+  {
+    id: "q11-2024", year: "2024", dpRef: "dp3",
+    source: "NESA 2024 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "Choice of ONE: National Council of Churches — NSW Ecumenical Council",
+    question: "With reference to ONE of the following ecumenical organisations, describe the impact of a Christian ecumenical movement in Australia.",
+    criteria: [
+      "5 — Provides a detailed and accurate description of the impact of ONE Christian ecumenical movement in Australia.",
+      "4 — Provides an accurate description of the impact of ONE Christian ecumenical movement in Australia.",
+      "3 — Provides a description of the impact of ONE Christian ecumenical movement in Australia.",
+      "2 — Makes general statements about the ecumenical movement in Australia.",
+      "1 — Makes statement(s) about aspects of religion in Australia."
+    ],
+    officialAnswer: "The National Council of Churches Australia (NCCA) seeks to promote greater understanding and cooperation between Christian denominations. The National Council of Churches works for justice for those in need such as facing homelessness in Australia. The NCCA is supporting the ‘Everybody’s home’ campaign petitioning for an end to homelessness in Australia. The NCCA also promotes ecumenical prayer opportunities such as the World Day of Prayer and the Week of Prayer for Christian unity. These actions reinforce the ongoing impact of the ecumenical movement in Australia.",
+    modelAnswer: "The National Council of Churches in Australia (NCCA) is a peak ecumenical body bringing together most major Christian denominations — including Anglican, Catholic, Uniting, Orthodox and Salvation Army churches — to work towards unity, dialogue and shared witness.\n\nIts impact spans several areas. It fosters spiritual unity through initiatives such as the Week of Prayer for Christian Unity and the World Day of Prayer, bringing diverse denominations into shared worship. It has significant social justice impact, coordinating combined church responses to homelessness (through campaigns like ‘Everybody’s Home’) and refugee welfare, letting Christian churches speak with a more unified, influential voice than any single denomination alone. Through the National Aboriginal and Torres Strait Islander Ecumenical Commission (NATSIEC), the NCCA has also supported reconciliation between churches and Aboriginal and Torres Strait Islander peoples.\n\nTogether, these activities show the Christian ecumenical movement, through bodies like the NCCA, has had a lasting impact in reducing denominational division, strengthening Christianity’s social influence, and promoting justice and reconciliation in Australian society."
+  },
+  {
+    id: "q11-2025", year: "2025", dpRef: "dp4",
+    source: "NESA 2025 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "Why is religious dialogue important in Australia post 1945?",
+    criteria: [
+      "5 — Provides a thorough understanding of the importance of religious dialogue in Australia post 1945; integrates relevant evidence to support response.",
+      "4 — Provides a sound understanding; uses evidence to support response.",
+      "3 — Demonstrates an understanding; may use evidence to support response.",
+      "2 — Makes general statements about religious dialogue in Australia post 1945; may use evidence.",
+      "1 — Makes statements about religious dialogue in Australia."
+    ],
+    officialAnswer: "Religious dialogue is very important in Australia post 1945 due to changes in Australia’s religious landscape, meaning there is a growing need to build respect and peace amongst religious traditions. Christianity now accounts for approximately 44% of the population while other religions represent around 10%, demonstrating that ecumenical and interfaith dialogue is needed for improving religious dialogue. For example, ISRA’s interfaith Iftar dinner draws Muslims and non-Muslims together during Ramadan to build greater understanding of this important Muslim event and increase and promote religious harmony, thus breaking down barriers and encouraging greater religious respect in Australian society. Events such as this are important for building religious dialogue and enhancing peaceful relationships between the diverse range of religions in Australia.",
+    modelAnswer: "Religious dialogue has become increasingly important in Australia post-1945 because mass immigration transformed the nation from a predominantly Anglo-Christian society into one of the most religiously diverse in the world. The 2021 Census reflects this: Christianity remains largest at around 44%, but other religions now make up roughly 10%, and almost 39% report no religious affiliation — diversity and secularism that make dialogue essential to avoid misunderstanding and division.\n\nDialogue addresses this two ways. Ecumenical dialogue — cooperation between Christian denominations through bodies such as the NCCA — overcomes historical division and lets Christians speak with a more unified voice. Interfaith dialogue builds understanding across entirely different traditions: ISRA’s interfaith Iftar dinners during Ramadan, for example, let non-Muslim Australians learn about Ramadan first-hand, breaking down stereotypes about Islam.\n\nDialogue also matters for reconciliation with Aboriginal and Torres Strait Islander peoples, fostering recognition of dispossession and supporting engagement with the Dreaming and connection to land. In a nation this religiously and culturally plural, dialogue is essential for social cohesion: it promotes peaceful coexistence and ensures all communities — including those of no religion — feel respected and valued."
+  },
+  {
+    id: "q11-2007", year: "2007", dpRef: "dp3",
+    source: "NESA 2007 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "“The churches should act together in all matters except those in which deep differences of conviction compel them to act separately.” — Conference on Faith and Order, 1952",
+    question: "Using the above statement and your own knowledge, describe the impact of Christian ecumenical movements in Australia.",
+    criteria: [
+      "(From the 2007 HSC Notes from the Marking Centre — narrative commentary, not a formal band table) Higher-range responses showed a clear understanding of the question and referred to the quotation, effectively linking examples and providing accurate details of the impact of the ecumenical movement in Australia.",
+      "Middle-range responses described broad features and characteristics of ecumenism in Australia, but did not refer to the stimulus or provided only tenuous links to the quotation.",
+      "Lower-range responses were generalised and superficial, and did not directly address the question or refer to the quotation.",
+      "A common weakness across all bands: many candidates confused ecumenical movements with interfaith dialogue between different religious traditions, or blended the two without distinguishing them."
+    ],
+    officialAnswer: "No official sample answer was provided for this year — NESA's 2007 marking guidance gave narrative commentary on candidate performance only, not a model response.",
+    modelAnswer: "The 1952 statement — that churches should act together except where genuine differences of conviction require separate action — captures exactly what Christian ecumenical movements in Australia have tried to achieve: cooperation without erasing real denominational difference.\n\nThe clearest evidence of churches ‘acting together’ is the 1977 formation of the Uniting Church, which merged the Methodist Church, the Congregational Union, and most — but not all — Presbyterian congregations; some Presbyterians chose to remain separate, illustrating the statement’s qualifier about ‘deep differences of conviction’ in practice.\n\nBeyond forming a single new denomination, ecumenism also operates through ongoing cooperative structures. The National Council of Churches in Australia (NCCA) promotes shared worship (the World Day of Prayer, the Week of Prayer for Christian Unity) and joint social-justice campaigns such as ‘Everybody’s Home’ against homelessness, while the NSW Ecumenical Council, formed in 1984, unites NSW churches to express a common Christian voice on state issues.\n\nTogether, these examples show ecumenism’s impact operating on two levels the statement anticipates: structural unity where possible (the Uniting Church) and ongoing cooperative ‘acting together’ where full union isn’t sought (the NCCA and NSW Ecumenical Council), while individual denominations retain their distinct identities."
+  },
+  {
+    id: "q11-2008", year: "2008", dpRef: "dp9",
+    source: "NESA 2008 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "The continuing effect of dispossession on Aboriginal spiritualities has been enormous and overwhelmingly detrimental.",
+    question: "With reference to the statement above and using your own knowledge, discuss the continuing effect of dispossession on Aboriginal spirituality.",
+    criteria: [
+      "(From the 2008 HSC Notes from the Marking Centre — narrative commentary, not a formal band table) Higher-range responses showed a clear understanding of the question, identified relevant issues, and provided detailed and accurate points for or against the continuing effect of dispossession on Aboriginal spirituality.",
+      "Middle-range responses identified issues and provided some points for or against the continuing effects of dispossession, but made only limited reference to the statement.",
+      "Lower-range responses provided very general comments about Aboriginal spirituality but did not refer to the continuing effects of dispossession."
+    ],
+    officialAnswer: "No official sample answer was provided for this year — NESA's 2008 marking guidance gave narrative commentary on candidate performance only, not a model response.",
+    modelAnswer: "The statement that dispossession's effects have been ‘enormous and overwhelmingly detrimental’ is well supported: dispossession disrupted three connected but distinct elements of Aboriginal spirituality — land, kinship and, through the Stolen Generations, cultural transmission itself — with effects that continue today rather than belonging only to the past.\n\nSeparation from land broke the everyday connection to Country that the Dreaming depends on, since land is understood as the basis of the Dreaming; without access to traditional Country, many communities lost the ability to perform ceremonies and maintain sacred sites. Separation from kinship groups compounded this: because elders hold and transmit sacred knowledge through kinship-based responsibility, forced removal — culminating in the Stolen Generations, whose removals after 1945 were aimed at forcing children to adopt European culture — broke the chain through which spiritual knowledge is passed on.\n\nThese effects are genuinely continuing, not historical: native title claims since Mabo (1992) have only partly restored access to land, and many descendants of the Stolen Generations still struggle to reconnect with Aboriginal spirituality because the kinship relationships that would teach them are permanently disrupted. The statement is therefore accurate — dispossession's effects are severe and ongoing, even as reconciliation efforts attempt to address them."
+  },
+  {
+    id: "q11-2009", year: "2009", dpRef: "dp2",
+    source: "NESA 2009 HSC SOR1/SOR2 (shared Section I), Q11",
+    marks: 5,
+    stimulus: "Two church noticeboard/sign images, captioned 'Church sign 1965' and 'Church sign 2009':\n\nLEFT — 'Middleton Methodist Church': Sunday Services 9.30am, 6.30pm; Communion First Sunday of the month; Sunday school 8.30am and 10.30am; Ladies Church Aid Tuesdays; Youth Group Wednesdays; Men's Brotherhood Thursdays. Minister: Rev William Thomas, BA, LTh.\n\nRIGHT — 'Middleton Uniting Church': Sunday Service 9.30am; Sunday School 10.30am; Communion First Sunday of the month. Minister: Rev Jennifer Hill, BBus, MTh; Chinese Service 12 noon, Minister: Rev Peter Lim; Tongan Service 5.00pm, Minister: Rev Jione A'Fuangu'a.",
+    question: "With reference to the two signs above and your own knowledge, account for changes in Australia's religious landscape since the 1960s.",
+    criteria: [
+      "5 marks: Demonstrates comprehensive knowledge and understanding of changes in Australia's religious landscape since the 1960s; makes reference to both signs and applies own knowledge to explain the changes.",
+      "3–4 marks: Demonstrates sound knowledge and understanding of changes in Australia's religious landscape since the 1960s; may make reference to one or both signs and applies own knowledge to describe changes.",
+      "1–2 marks: Demonstrates limited knowledge of Australia's religious landscape; may make some reference to the signs."
+    ],
+    officialAnswer: "No official sample answer was provided for this year — NESA's 2009 marking guidelines gave the band-descriptor criteria above only.",
+    modelAnswer: "The two signs — a single-minister 1965 Methodist church and a multi-minister, multicultural 2009 Uniting church — capture two of the most significant drivers of change in Australia's religious landscape since the 1960s: denominational switching/church union and immigration.\n\nThe change of name from 'Methodist' to 'Uniting' directly reflects the 1977 formation of the Uniting Church, which brought together the Methodist Church, the Congregational Union and most Presbyterian congregations — a landmark outcome of the Christian ecumenical movement, itself a response to declining individual denominational strength.\n\nThe 2009 sign's Chinese and Tongan-language services, led by ministers with clearly non-Anglo names and qualifications, reflect the impact of post-1970s immigration following the end of the White Australia Policy, which diversified Christianity internally (bringing culturally diverse adherents into existing denominations) even as it also introduced entirely new non-Christian traditions like Islam, Buddhism and Hinduism elsewhere in Australia.\n\nFinally, the reduction from multiple weekly services and several dedicated lay groups (Ladies' Aid, Youth Group, Men's Brotherhood) in 1965 to a leaner weekly schedule by 2009 is consistent with rising secularism, evidenced by the 'no religion' Census category becoming the largest single response by 2016. Together, the signs illustrate ecumenism, immigration and secularism operating simultaneously since the 1960s."
+  },
+  {
+    id: "q11-2010", year: "2010", dpRef: "dp6c",
+    source: "NESA 2010 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "Dream country* is belonging. Every person has a place in the world in which they are needed, and in which they are 'healthy'.\n\n*country — term used by Aboriginal people to refer to the land to which they belong and their place of Dreaming.",
+    question: "Describe the ways in which Aboriginal spirituality is closely linked to belonging to country.",
+    criteria: [
+      "5 marks: Provides details of characteristics and features of relevant and accurate ways in which Aboriginal spirituality is closely linked to belonging to country.",
+      "3–4 marks: Provides characteristics and features of some relevant way(s) in which Aboriginal spirituality is closely linked to belonging to country.",
+      "1–2 marks: Makes simple statements about Aboriginal spirituality and/or belonging to country."
+    ],
+    officialAnswer: "No official sample answer was provided for this year — NESA's 2010 marking guidelines gave the band-descriptor criteria above only.",
+    modelAnswer: "Belonging to country — as the stimulus describes, a place where a person is 'needed' and 'healthy' — is inseparable from Aboriginal spirituality because land is understood as the very basis of the Dreaming, not merely the physical setting in which it takes place.\n\nObligations to land and people are publicly expressed today through Welcome to Country, which recognises Traditional Owners as ongoing custodians of their Country; this custodial relationship is legal as well as spiritual, since Law is central to the Dreaming. Responsibility for a particular area of Country is established through the kinship system rather than individual choice, meaning belonging to country is inherited, not chosen — reinforcing its status as identity rather than property.\n\nBelonging to country also structures ceremonial life: burial within one's own Country is spiritually significant because it allows the deceased's spirit to return to its ancestors, and territorial boundaries form the basis of ritual estates. As one Aboriginal elder put it, 'We cultivated our land, but in a way different from the white man. We endeavour to live with the land, they seemed to live off it' — capturing a relationship of obligation, not ownership.\n\nBecause belonging to country underpins identity, law, ceremony and kinship together, it is central to — not separate from — the practice of Aboriginal spirituality."
+  },
+  {
+    id: "q11-2011", year: "2011", dpRef: "dp4",
+    source: "NESA 2011 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "Explain the role of the ecumenical movement and/or interfaith dialogue as religious responses to growing secularism. Include examples in your answer.",
+    criteria: [
+      "5 marks: Provides a detailed and accurate understanding of the role of the ecumenical movement and/or interfaith dialogue as a religious response to growing secularism; makes relevant reference to examples.",
+      "3–4 marks: Provides some accurate details of the role of the ecumenical movement and/or interfaith dialogue as a religious response to growing secularism; makes some reference to examples.",
+      "1–2 marks: Makes simple statements about the ecumenical movement and/or interfaith dialogue; may make some reference to examples."
+    ],
+    officialAnswer: "No official sample answer was provided for this year — NESA's 2011 marking guidelines gave the band-descriptor criteria above only.",
+    modelAnswer: "As secularism has grown — with the 'no religion' Census category rising to become the largest single response by 2016 and reaching 38.9% by 2021 — both ecumenical and interfaith dialogue have functioned as religious responses aimed at strengthening religion's collective voice and relevance rather than competing internally while facing this shared external trend.\n\nThe ecumenical movement responds by unifying Christian denominations' efforts: the National Council of Churches in Australia coordinates cooperative social-justice campaigns (such as 'Everybody's Home' against homelessness) and shared worship events like the Week of Prayer for Christian Unity, allowing Christianity to present a more unified, socially engaged presence rather than a fragmented one — arguably more persuasive to an increasingly secular public than competing denominational voices.\n\nInterfaith dialogue responds by building cooperation across entirely different traditions, presenting religion broadly as tolerant and socially valuable: the Affinity Intercultural Foundation has fostered dialogue between young Muslim Australians and Christian and Jewish groups since 2001, while ISRA's interfaith Iftar dinners invite non-Muslims to share in breaking the Ramadan fast, directly countering the sense that religious identity is divisive or irrelevant.\n\nBy replacing competition with cooperation, both movements aim to make organised religion more relevant and appealing in a society growing more secular."
+  },
+  {
+    id: "q11-2012", year: "2012", dpRef: "dp5",
+    source: "NESA 2012 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "How have religious traditions in Australia given support to the process of Aboriginal reconciliation?",
+    criteria: [
+      "5 marks: Provides a detailed and accurate understanding of how religious traditions in Australia have given support to the process of Aboriginal reconciliation; may make reference to relevant examples.",
+      "3–4 marks: Provides an accurate understanding of how religious traditions in Australia have given support to the process of Aboriginal reconciliation; may make reference to examples.",
+      "1–2 marks: Makes simple statements about religious traditions in Australia and may make a simple link to the process of Aboriginal reconciliation."
+    ],
+    officialAnswer: "Religious traditions in Australia have given strong support to the process of reconciliation. The traditions recognised that this process must include an understanding and valuing of Aboriginal culture as well as ensuring that programs and strategies to be put in place work towards justice and equity. The Jewish tradition sees Aboriginal reconciliation as a human rights issue while the Islamic tradition supports reconciliation on both moral and humanitarian grounds. Actions that support the relationship between Aboriginal spiritualities and religious traditions could include: the Corroboree 2000 Bridge Walk, where religious leaders and adherents of all major traditions participated; statements of support by religious leaders for the Prime Minister's 2008 Apology to the Stolen Generations; Christian and other religious traditions politically supporting the process of land rights recognition; and shared views on reconciliation between Hindus and Buddhists.",
+    modelAnswer: "Religious traditions in Australia have supported Aboriginal reconciliation by recognising past wrongs, engaging politically and spiritually with land rights, and building direct relationships with Aboriginal communities — treating reconciliation as both a moral and spiritual responsibility rather than an optional social issue.\n\nAt a symbolic and public level, religious leaders and adherents from across traditions took part in the Corroboree 2000 Bridge Walk, and many issued statements supporting the Prime Minister's 2008 National Apology to the Stolen Generations, showing collective institutional commitment. More recently, in May 2022, a significant number of religious leaders publicly backed the Uluru Statement from the Heart, extending this support into constitutional reform.\n\nDifferent traditions have framed their support through their own theology: the Jewish tradition approaches reconciliation as a human rights issue, while Islamic teaching supports it on moral and humanitarian grounds; the NSW Jewish Board of Deputies hosting a Shabbat Service for Aboriginal community leaders in December 2019 is a concrete, direct example of this in action. Christian denominations, meanwhile, have often supported the political process of land rights recognition itself.\n\nAcross traditions, this support has combined acknowledgment of injustice with practical solidarity, showing religious traditions contributing meaningfully to Australia's ongoing reconciliation process."
+  },
+  {
+    id: "q11-2013", year: "2013", dpRef: "dp8nt",
+    source: "NESA 2013 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "'The native title process has also given Indigenous people a seat at the negotiating table — whether or not native title has been determined by the Federal Court. However, the Native Title Act has its shortcomings and there is always room for improvement.' — John Sosso, Acting President, National Native Title Tribunal, Koori Mail, 14 January 2009",
+    question: "With reference to the quotation, outline the importance of Native Title legislation in achieving the objectives of the Land Rights movement.",
+    criteria: [
+      "5 marks: Makes informed and clear statements about the importance of Native Title legislation in achieving the objectives of the Land Rights movement; makes clear reference to the views expressed in the quotation.",
+      "4 marks: Makes informed statements about the importance of Native Title legislation in achieving the objectives of the Land Rights movement; makes clear reference to the views expressed in the quotation.",
+      "3 marks: Makes statements about the importance of Native Title legislation in achieving the objectives of the Land Rights movement; makes reference to the views expressed in the quotation.",
+      "2 marks: Makes simple statements about the importance of Native Title legislation.",
+      "1 mark: Makes a general statement about Native Title and/or Land Rights."
+    ],
+    officialAnswer: "The Land Rights movement recognises the inextricable connection between the land and expressions of the Dreaming. Native Title is a legal term recognising the rights of Aboriginal and Torres Strait Islanders to use and occupy their lands for traditional purposes, thus providing a continued connection with the land. Therefore the Native Title process has played an important role in achieving the objective of the Land Rights movement. There is however, as suggested by John Sosso, 'always room for improvement'. The Mabo Case (1992) overturned the notion of 'Terra Nullius'. This judgment was very significant as the first legal recognition for the Land Rights movement, giving 'Indigenous people a seat at the negotiating table'. In 1993, the Native Title Act and subsequent amendments (1997) stated Native Title and leasehold rights could coexist, giving leaseholders 'priority'. Although a clarification of the Act, the Land Rights movement sees this as an area for further negotiation. The Native Title Act continues to be reviewed in relation to its perceived 'shortcomings', and this has assisted the objectives of the movement. Indigenous peoples are now members of the bodies created and possess legal authority to manage land rights claims, recognising the importance of inclusion in the decision-making process.",
+    modelAnswer: "Sosso's quotation captures Native Title legislation's dual character: it has genuinely given Aboriginal people 'a seat at the negotiating table', yet remains imperfect, with 'always room for improvement' — both halves matter for assessing its importance to the Land Rights movement's objectives.\n\nThe Native Title Act 1993 was Parliament's legislative response to the Mabo decision (1992), which overturned terra nullius and gave the first legal recognition that native title existed under Australian common law. The Act converted that legal recognition into a workable process — including the National Native Title Tribunal — through which Aboriginal and Torres Strait Islander peoples could formally claim land and water rights by demonstrating continuous traditional connection to Country. This directly advances the Land Rights movement's core objective: restoring the legal ability to live out Dreaming-based obligations to land.\n\nHowever, Sosso's caution about 'shortcomings' is borne out by the Wik decision (1996) and the resulting Native Title Amendment Act 1998, which confirmed pastoral leaseholder rights would prevail over native title in genuine conflict — narrowing the practical scope of claims compared with the position immediately after Mabo.\n\nNative Title legislation is therefore importantly enabling — it gives Aboriginal claimants a genuine, ongoing 'seat at the table' — without being a complete or final resolution of Land Rights objectives."
+  },
+  {
+    id: "q11-2014", year: "2014", dpRef: "dp2",
+    source: "NESA 2014 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "For some Australians, God is no longer important. Religion does not seem attractive as the country is becoming increasingly secular.",
+    question: "With reference to the statement, account for the current religious landscape in Australia.",
+    criteria: [
+      "5 marks: Demonstrates comprehensive knowledge and understanding of Australia's current religious landscape; makes specific reference to the quotation to support own knowledge.",
+      "3–4 marks: Demonstrates sound knowledge and understanding of Australia's current religious landscape; makes some reference to the quotation to support own knowledge.",
+      "1–2 marks: Demonstrates basic knowledge of Australia's religious landscape; may make some reference to the quotation."
+    ],
+    officialAnswer: "The quotation draws links between the rise of materialism and the increasingly secularist nature of Australian society. The statement reflects trends revealed in current census data about Australia's religious landscape. In particular, the 'no religion' category has shown a steady increase from 15.5% in 2001 to 22.3% in 2011. However, despite this increase, identification with a religious tradition continues to be a dominant characteristic of contemporary Australian society, exceeding two-thirds of the population in the 2011 census. Immigration is providing a greater religious diversity in Australia, particularly with the increasing number of Buddhists and Hindus. The main Christian churches (excluding the Pentecostals) have experienced a significant decline in church attendance as reflected in recent National Church Life Survey data. Hence, as the quotation infers, Australia's religious landscape has undergone significant change in recent years and data validates this conclusion. [Note: figures shown are NESA's own 2001/2011 Census figures from the original 2014 marking guidelines — a genuinely historical primary source, left unedited as an accurate record of what NESA published that year.]",
+    modelAnswer: "The statement is partly accurate but incomplete: while secularism is real and growing, framing it as 'God no longer important' understates how the religious landscape has changed rather than simply shrunk.\n\nSecularism's growth is well evidenced: 'no religion' became the single largest Census response for the first time in 2016 (30.1%), rising further to 38.9% by 2021, and is strongest among Australians aged 34 and under, suggesting the trend will keep strengthening generationally. This partly validates the statement's claim that religion 'does not seem attractive' to a growing share of Australians.\n\nHowever, the statement overlooks that religious identification remains substantial and, in some respects, more diverse than ever: by 2021, 61% of Australians still identified with a religion, and while Christianity's share fell from 61.1% (2011) to 43.9% (2021), this partly reflects immigration-driven growth in Islam, Hinduism and Buddhism — traditions for which 'God' remains highly significant — not a uniform decline in religious commitment.\n\nAccounting for the current landscape therefore requires balancing genuine secularisation against continued, increasingly diverse religious identification — the statement captures one real trend but not the whole picture."
+  },
+  {
+    id: "q11-2015", year: "2015", dpRef: "dp9",
+    source: "NESA 2015 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "In what ways has dispossession continued to affect Aboriginal spiritualities?",
+    criteria: [
+      "5 marks: Demonstrates detailed knowledge and understanding of the continuing effect of dispossession on Aboriginal spiritualities; integrates relevant and specific terminology.",
+      "3–4 marks: Demonstrates knowledge and understanding of the effect of dispossession on Aboriginal spiritualities; uses some relevant terminology.",
+      "1–2 marks: Makes simple statements about dispossession and/or Aboriginal spirituality."
+    ],
+    officialAnswer: "With European settlement across Australia, many Indigenous peoples found themselves forced off their lands and dispossessed. Separation from land has had a devastating effect on Aboriginal spiritualities. Removal from land meant ceremonies, rituals etc could no longer occur and were lost. Totemic obligations could no longer be fulfilled and links to ancestor spirits were broken. People separated from kinship groups, also known as The Stolen Generations, were expected to assimilate into white society and adopt Christianity. With kinship ties broken, elders who had sacred knowledge were unable to pass this on, resulting in the inability of new generations to connect with their Aboriginal spirituality. Thus the continuing effect as a result of separation from kinship groups has resulted in Aboriginal peoples' loss of language and culture. While some Aboriginal people have tried to re-establish connection with the land through Native Title claims, many Aboriginal people today are unable to connect with their spirituality and have resorted to other artificial ways, such as substance abuse, of coping with this loss.",
+    modelAnswer: "Dispossession continues to affect Aboriginal spiritualities in three connected but distinct ways: separation from land, separation from kinship groups, and the Stolen Generations — each disrupting spirituality through a different mechanism, and compounding one another.\n\nSeparation from land is foundational, since land is understood as the basis of the Dreaming: colonial seizure and forced relocation onto missions and reserves cut off the everyday connection to Country needed to perform ceremonies and maintain sacred sites, a loss only partly addressed today through native title claims since Mabo (1992).\n\nSeparation from kinship groups compounded this, since elders hold and transmit sacred knowledge through kinship-based responsibility; when families were dispersed across different missions or regions, the specific people who held knowledge of an individual's Country and totem were often lost entirely.\n\nThe Stolen Generations intensified both effects: the forced removal of children under assimilation policy — aimed, after 1945, at making children adopt European culture — broke the transmission of language, ceremony and spiritual knowledge between generations, effects survivors describe starkly ('They stole my speech and family').\n\nBecause these three strands reinforce each other, dispossession's effects on Aboriginal spirituality remain active today, not merely historical, even as reconciliation and native title processes attempt to address them."
+  },
+  {
+    id: "q11-2016", year: "2016", dpRef: "dp7",
+    source: "NESA 2016 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "We must respect each other's right to choose a collective destiny, and the opportunity to develop the legal and political rights for Indigenous and non-Indigenous peoples so that we may enjoy the right to maintain our culture, our heritage and our land, as a united Australia. — Dr Jackie Huggins, Aboriginal Rights Activist",
+    question: "With reference to the quotation, outline the importance of the Land Rights movement to Aboriginal Australians.",
+    criteria: [
+      "5 marks: Makes informed and clear statements about the importance of the Land Rights movement to Aboriginal Australians; makes clear reference to the ideas expressed in the quote; integrates relevant and specific terminology.",
+      "3–4 marks: Makes informed statements about the importance of the Land Rights movement to Aboriginal Australians; makes reference to the ideas expressed in the quote; makes some use of relevant and specific terminology.",
+      "1–2 marks: Makes general statements about the importance of the Land Rights movement to Aboriginal Australians; may refer to the quote; may use relevant terminology."
+    ],
+    officialAnswer: "The land is central to the expression of Dreaming as it provides the basis of ritual, totem and identity. Disconnection from land through generations of removal has seen a generation of people with a loss of cultural identity, a loss of heritage and a loss of physical land. The Land Rights movement recognises the inextricable connection between the land and the Dreaming and aims to restore the spiritual and physical relationship with the land. Native title is a legal term recognising the rights of Aboriginal and Torres Strait Islanders to occupy their lands for traditional purposes. The Mabo Case (1992), Native Title Act (1993) and the Wik Decision (1996) all contributed to re-establishing in law the connection and access Aboriginal people had with the land. By supporting the work of the Land Rights movement, Aboriginal people have access to legal and political rights and may fulfil their cultural responsibilities. This in turn strengthens their connection to Dreaming.",
+    modelAnswer: "Huggins' quotation ties Land Rights directly to 'legal and political rights' to 'maintain culture, heritage and land' — precisely what the Land Rights movement has sought, since the Dreaming underpins Aboriginal peoples' connection to Country and makes Land Rights fundamentally spiritual, not merely economic.\n\nThe 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari, is the movement's landmark early example, driven by cultural and spiritual connection to Country as much as by pay and conditions. This directly influenced the 1976 Aboriginal Land Rights (Northern Territory) Act, the first major legislation to legally recognise Aboriginal land claims based on traditional and spiritual connection — turning the Dreaming into a legal framework for the first time.\n\nLater legal developments extended this: the Mabo decision (1992) overturned terra nullius, the Native Title Act (1993) established a claims process, and the Wik decision (1996) clarified native title's coexistence with pastoral leases. Together these gave Aboriginal Australians' spiritual relationship to Country legal standing.\n\nAs Huggins suggests, this matters because legal and political rights allow Aboriginal Australians to fulfil their cultural responsibilities and strengthen their connection to Dreaming — making the Land Rights movement essential to both cultural survival and genuine national unity."
+  },
+  {
+    id: "q11-2017", year: "2017", dpRef: "dp9b",
+    source: "NESA 2017 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "Discuss the impact that separation from kinship groups has had on Aboriginal spiritualities.",
+    criteria: [
+      "5 marks: Identifies issues and provides detailed and accurate points for and/or against the impact of separation from kinship groups on Aboriginal spiritualities; integrates relevant and accurate terminology.",
+      "3–4 marks: Identifies issues and provides points for and/or against the impact of separation from kinship groups on Aboriginal spiritualities; integrates relevant terminology.",
+      "2 marks: Makes general statements about separation from kinship groups and/or kinship groups and Aboriginal spiritualities.",
+      "1 mark: Makes statements about Aboriginal spiritualities."
+    ],
+    officialAnswer: "The link between the Aboriginal people and the land can be seen through the stewardship of land, expressed through roles and responsibilities gifted through the kinship system. The systematic, forcible removal of Aboriginal children from their families over a number of generations, a phenomenon named 'the Stolen Generation', had significant ramifications not only for family groups but the wider network of relationships expressed through the kinship system, and ultimately led to the breakdown of kinship relations, roles and responsibilities arising from that system. In addition, the ritual roles associated with the kinship system were affected, resulting in a wider sense of loss in Aboriginal spiritualities. These include the inability to pass on stories, perform ritual, maintain totems and sacred sites, resulting in the loss of significant components of Aboriginal spiritualities for many groups. As a result, separation from kinship groups was a profound component in the breakdown of Aboriginal spiritualities for many Aboriginal Australians.",
+    modelAnswer: "Separation from kinship groups has had a profound and continuing impact on Aboriginal spiritualities, because kinship — inherited by birth and regulating relationships including marriage — is the very system through which spiritual identity, responsibility for Country and sacred knowledge are transmitted between generations.\n\nThe clearest historical cause is the systematic, forcible removal of children now known as the Stolen Generations, whose separation from family disrupted not just individual households but entire kinship networks. Because elders hold and transmit sacred knowledge through kinship-based responsibility, children removed from their kinship groups could not receive that knowledge — breaking the transmission of totemic knowledge, ceremonial roles and Law to the next generation.\n\nThe ritual consequences were significant: without functioning kinship networks, communities lost the ability to pass on stories, perform ceremonies, and maintain totems and sacred sites, since territorial boundaries and ritual estates are themselves established through kinship rather than individual choice.\n\nThis impact continues today — reconnecting with kinship groups through family tracing and community reunion programs is understood as a necessary step for many descendants of the Stolen Generations seeking fuller participation in Aboriginal spirituality, showing the breakdown of kinship networks remains an active, not merely historical, loss."
+  },
+  {
+    id: "q11-2018", year: "2018", dpRef: "dp2c",
+    source: "NESA 2018 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: null,
+    question: "With reference to TWO religious traditions, explain the effects of immigration between 1945 and 2016 on Australia's religious landscape.",
+    criteria: [
+      "5 marks: For TWO religious traditions, provides a detailed and accurate explanation of the effects of immigration between 1945 and 2016 on Australia's religious landscape; integrates relevant and accurate terminology.",
+      "3–4 marks: For TWO religious traditions, provides an accurate explanation of the effects of immigration between 1945 and 2016 on Australia's religious landscape; integrates relevant terminology.",
+      "2 marks: For ONE or TWO religious traditions, makes general statements about immigration and/or Australia's religious landscape.",
+      "1 mark: Makes statements about Australia's religious landscape."
+    ],
+    officialAnswer: "Immigration has had a substantial impact on Australia's religious landscape between 1945 and 2016. At the beginning of this period, the Church of England was the largest Christian denomination. After WWII, immigration was promoted as a means of increasing the country's population. A huge number of European Catholics resettled in Australia, which contributed to steady growth in this denomination. In the early '90s, Catholicism surpassed Anglicanism as the biggest Christian denomination. The 2016 census reinforced Catholicism as the largest single religious group at 22%. Censuses in the 1980s reflected changes to Australia's religious landscape in relation to non-Christian traditions. The abolition of the White Australia Policy facilitated Muslim immigration from Asia and the Middle East. The number of Muslims grew by almost 1 million over the 10-year period leading into 2016. Today this worldview constitutes just over 2.6% of the Australian population, making it the largest non-Christian religious tradition.",
+    modelAnswer: "Immigration between 1945 and 2016 reshaped Australia's religious landscape through two distinct waves, well illustrated by Catholicism and Islam.\n\nPost-1945 Catholicism grew through large-scale European Catholic immigration (from countries including Italy and Ireland, alongside British and Irish arrivals more broadly), steadily increasing Catholic numbers until Catholicism overtook Anglicanism as Australia's largest Christian denomination during the 1980s — a shift the 2016 Census confirmed, recording Catholicism as the largest single religious group at around 22%. This wave diversified Christianity internally rather than introducing a new tradition.\n\nIslam illustrates the second, later wave: the abolition of the White Australia Policy in the early 1970s directly enabled growth in Islamic immigration from Asia and the Middle East, with the Muslim population appearing as its own Census category from 1976. Muslim numbers grew substantially in the decade leading to 2016, making Islam the largest non-Christian tradition in Australia by that year.\n\nTogether, Catholic and Muslim immigration show that between 1945 and 2016 immigration both reshaped Christianity's internal composition and introduced entirely new religious traditions — the twin effects that transformed Australia from a largely Anglo-Christian society into a genuinely multifaith one."
+  },
+  {
+    id: "q11-2019", year: "2019", dpRef: "dp6",
+    source: "NESA 2019 HSC SOR1, Section I Q11",
+    marks: 5,
+    stimulus: "The land is the mother and we are of the land; we do not own the land, rather the land owns us. — Professor Dennis Foley, a Gai-mariagal and Wiradjuri man, and a Fulbright scholar",
+    question: "Why is the land important in Aboriginal spirituality?",
+    criteria: [
+      "5 marks: Provides a detailed and accurate explanation of why the land is important in Aboriginal spirituality; may reference the ideas expressed in the quote; integrates relevant and accurate terminology.",
+      "3–4 marks: Provides an accurate explanation of why the land is important in Aboriginal spirituality; integrates relevant terminology.",
+      "2 marks: Makes general statements about the land and Aboriginal spirituality.",
+      "1 mark: Makes statements about the land or Aboriginal spirituality."
+    ],
+    officialAnswer: "The land is of great importance in Aboriginal spirituality. This is because of its relationship with the Dreaming. The two are, in fact, inextricably linked. Aboriginal people understand that the land plays a key role in sustaining relationships with Ancestral Beings, who continue to dwell within. These Ancestral Beings are held responsible for the creation of the land, and the stories and expressions of the Dreaming. It is the Dreaming that provides Aboriginal people with purpose and meaning, allowing them to cultivate their spirituality. Ancestral Beings continue to dwell within the land, because of the stewardship of previous generations. Aboriginal people recognise and seek to fulfil their obligations to the land for the continuity of the life-sustaining Dreaming for future generations. They see themselves as custodians of the land, with a duty to nurture and protect species and totems which live in and off it. Furthermore, the land is central to ceremonial life and kinship.",
+    modelAnswer: "Professor Foley's statement that 'the land owns us' rather than the reverse expresses precisely why land is central to Aboriginal spirituality: land is understood as the foundation of the Dreaming itself, not simply territory or property.\n\nThe Dreaming explains how the world was formed and continues to be sustained, and land represents a sacred link that embraces identity and belonging — creation stories, such as the ancestral being Baiame creating the Blue Mountains, tie specific landscapes directly to spiritual meaning for the people connected to that Country. Because Aboriginal spirituality recognises no separation between the spiritual and the secular, this relationship to land shapes everyday life, not only formal ceremony.\n\nLand also structures the three elements the Dreaming determines: kinship (responsibility for Country is established through kinship, not individual choice), ceremonial life (burial in one's own Country allows a spirit to return to its ancestors), and obligations to land and people (publicly acknowledged today through Welcome to Country). Territorial boundaries themselves form the basis of ritual estates, showing land and Law are inseparable.\n\nAs Foley's quote suggests, land in Aboriginal spirituality is therefore not a possession but a relationship of mutual belonging — making it, rather than any single ritual or belief, the foundation the rest of Aboriginal spirituality rests on."
+  },
+{
+ "id": "q11-practice-dp1",
+ "year": "Practice",
+ "dpRef": "dp1",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "stimulus": "“Australia’s religious landscape has changed dramatically since 1945.”",
+ "question": "To what extent is this statement true of patterns of religious adherence in Australia?",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "The statement is well supported: Australia has shifted from religious homogeneity toward a genuinely multifaith, increasingly secular society since 1945, though change has been uneven rather than uniform.\n\nAccording to the 2021 Census, 61% of Australians still identified with a religion, with Christianity remaining the largest tradition at 43.9%, followed by Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%) — evidence both of continuity (Christianity's continued dominance) and change (real, growing non-Christian diversity). Hinduism was the fastest-growing tradition in total numbers at the 2021 Census, continuing a longer-term trend in which Buddhist, Hindu and Pentecostal adherence all grew between 1996 and 2011.\n\nChange has not been uniform across the country: NSW records the highest percentage of people reporting a religious affiliation of any Australian state, showing the national picture masks real regional variation. Religions other than Christianity have grown steadily across successive censuses since 1945, reflecting both post-war immigration and the diversification of Australia's religious landscape.\n\nHowever, these changing patterns of adherence must be read alongside the parallel rise of secularism, since growth in non-Christian traditions and growth in 'no religion' have occurred simultaneously rather than one simply replacing the other — meaning the statement is accurate, but the change is multi-directional rather than a simple move away from religion altogether."
+},
+{
+ "id": "q11-practice-dp2a",
+ "year": "Practice",
+ "dpRef": "dp2a",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "stimulus": "“‘No religion’ is now the single largest response category in the Australian Census.”",
+ "question": "Account for the growth of secularism in Australia since 1945.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "Secularism — the separation of government and public affairs from religion — has grown to become the most significant single factor reshaping Australia's religious landscape.\n\nIts growth is clearest in Census data: 'no religion' became the largest response category for the first time in 2016 (30.1%), rising to 38.9% by 2021. Secularism is strongest among younger Australians — those aged 34 and under are significantly more likely to report no religion than those 35 and over — suggesting the trend will keep strengthening generationally rather than plateauing.\n\nA key driver is the perception that religious traditions' answers to life's enduring questions feel outdated to many Australians. This shows up in everyday examples of secularisation too: declining religious-celebrant marriages alongside rising civil celebrants, seven-day shop trading, and state schools operating independently of religious control.\n\nImportantly, secularism reduces religion's overall social and institutional influence without necessarily eliminating personal belief — it represents a shift in public influence more than a uniform decline in private belief, which is why it must be considered alongside, not instead of, factors like immigration when accounting for Australia's present religious landscape."
+},
+{
+ "id": "q11-practice-dp2b",
+ "year": "Practice",
+ "dpRef": "dp2b",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain why Christianity remains Australia's largest religious tradition despite a declining share of the population.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "Christianity remains Australia's largest religious tradition even as its Census share has fallen sharply, from 61.1% in 2011 to 43.9% in 2021, reflecting both secularism and an ageing Christian population rather than a rapid collapse.\n\nThe three largest Christian denominations by 2021 were Catholic (20.0%), Anglican (9.8%) and Uniting Church (2.6%). Catholicism overtook Anglicanism as the largest denomination during the 1980s, after Anglican numbers fell from a 1947 high of 39% — showing internal reshuffling within Christianity, not just external decline.\n\nAge is a major factor in Christianity's continued size: 2016 Census data shows those aged 65+ were disproportionately Christian, reflecting the tradition's ageing adherent base rather than strong ongoing growth among younger Australians. Several major denominations — Anglican, Uniting Church, Presbyterian — recorded numerical declines between 1996 and 2011, even as Christian denominations grew more ethnically diverse through immigration.\n\nFinally, practising Christianity has changed qualitatively as well as numerically: falling regular Mass attendance among Catholics shows that nominal affiliation and active practice don't always move together, meaning Christianity's continued numerical size understates how much its lived practice has also changed since 1945."
+},
+{
+ "id": "q11-practice-dp2d",
+ "year": "Practice",
+ "dpRef": "dp2d",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain the nature and causes of denominational switching in Australia.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "Denominational switching — moving from one Christian denomination to another — is usually motivated by finding a form of practice that better aligns with an individual's personal values, and has reshaped Christianity internally without changing the overall religious balance as dramatically as secularism or immigration.\n\nSwitching was the main driver of Pentecostal growth up to 2016, and is self-reinforcing: those switching into a Pentecostal denomination are more likely to have come from another Pentecostal denomination than from outside Pentecostalism altogether. Some Pentecostal churches specifically attract switching adherents through both male and female leadership, seen by some as more inclusive than traditional denominations, though this isn't true of every Pentecostal mega-church.\n\nSwitching is not evenly distributed across Christianity: Orthodox Christianity is least likely to lose members to switching, due to its strong link to national and cultural identity, followed by Catholicism, whose retention is often linked to Catholic education.\n\nNegative publicity around tithing has itself driven switching within Pentecostalism specifically, with members moving to a church requiring a smaller tithe rather than leaving Pentecostalism altogether — showing switching is often a fine-grained movement within a tradition, not simply believers abandoning Christianity."
+},
+{
+ "id": "q11-practice-dp2e",
+ "year": "Practice",
+ "dpRef": "dp2e",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Outline the nature of New Age religions and their place in Australia's present religious landscape.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "New Age religions are a loosely connected set of spiritualities emphasising individualism, personal transformation and individual morality, forming part of a wider search for enlightenment outside institutional religion.\n\nA defining feature is rejecting materialistic values in favour of self-awareness and individual fulfilment — many adherents would describe themselves as 'more spiritual than religious' rather than naming a single organised tradition. New Age spirituality includes neo-pagan belief systems and supernatural spirituality, associated internationally with sites like Stonehenge in England and events such as the Festival of Body, Mind and Spirit in Oslo.\n\nCompared with mainstream Christianity, New Age adherents and Christians generally agree spirituality matters and that believers' needs are central, but disagree sharply on life after death, the human soul, and whether sacred texts should ground belief — making New Age spirituality a genuinely distinct category, not simply a looser form of existing traditions.\n\nBecause New Age spirituality is individualised rather than institutionally organised, it is harder to measure through Census data than mainstream traditions, so its true scale in Australia's religious landscape may be understated by official statistics — an important caveat when accounting for the present landscape using Census data alone."
+},
+{
+ "id": "q11-practice-dp6a",
+ "year": "Practice",
+ "dpRef": "dp6a",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain the role of kinship in Aboriginal spiritualities.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "Kinship defines where an individual fits within their family and the wider Aboriginal community, and is determined by being born into a particular kinship group rather than by an individual's personal totem — making it foundational to Aboriginal spiritual identity from birth.\n\nKinship regulates social relationships within traditional Aboriginal society, including who may marry whom, making it a structural as well as spiritual system. Totemism expresses this system of kinship within the natural world: a totem — typically a fish, plant or animal representing a spirit ancestor associated with a particular region — provides individuals with a direct spiritual link to ancestral beings.\n\nElders hold significant status and respect within Aboriginal communities because they possess and safeguard valued sacred knowledge about kinship and spirituality, passing it on according to kinship-based responsibilities — meaning kinship is also the mechanism through which spiritual knowledge is transmitted across generations.\n\nBecause kinship is inherited by birth rather than chosen, it provides a stable, lifelong framework for both spiritual identity and practical social obligation within the community, distinguishing it from Western, individually chosen forms of belonging."
+},
+{
+ "id": "q11-practice-dp6b",
+ "year": "Practice",
+ "dpRef": "dp6b",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain the importance of ceremonial life for Aboriginal spiritualities.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "Ceremonial life is the primary way Aboriginal people express their spirituality, maintaining connection between the physical and spiritual worlds through enactment ceremonies, myths and legends that merge past, present and future.\n\nInitiation ceremonies specifically teach young Aboriginal people their responsibilities, prepare them to undertake adult responsibilities within the community, and ensure the continuation of Law across generations — making ceremony central to cultural transmission, not just religious observance. Burial in one's own 'Country' is spiritually significant because it allows the deceased's spirit to return to its ancestors, linking ceremonial practice directly to the Dreaming's understanding of land.\n\nElders play the traditional role of preserving and transmitting the most sacred meaning of Aboriginal ritual and ceremony, ensuring continuity of spiritual knowledge across generations.\n\nAn important clarification is that contemporary Aboriginal ceremonies can differ from ceremonies of the past, since Aboriginal stories and practices allow for change — and Aboriginal peoples do not worship ancestral beings, a common misconception that should be avoided in a strong response."
+},
+{
+ "id": "q11-practice-dp8a",
+ "year": "Practice",
+ "dpRef": "dp8a",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain the significance of the Mabo decision (1992) for the Land Rights movement.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "In *Mabo v Queensland (No 2)* (1992), the High Court ruled for Eddie Mabo and the Meriam people, overturning *terra nullius* and recognising — for the first time — that native title existed under Australian common law before colonisation.\n\nThe decision led directly to the *Native Title Act 1993*, establishing a legal process — and the National Native Title Tribunal — for Aboriginal and Torres Strait Islander peoples to claim native title, including land and water rights.\n\nMabo gave legal weight to the spiritual relationship between Aboriginal peoples and land central to the Dreaming, since 'continuous connection to Country' is often demonstrated through customary law, ceremony and ties to specific sites — turning a spiritual reality into a legally recognised one for the first time. Eddie Mabo pursued the case for ten years from 1982 with fellow Meriam plaintiffs, and died in January 1992, months before the June judgment.\n\nMabo is widely seen as the most significant legal turning point in the Land Rights movement, a precedent *Wik Peoples v Queensland* (1996) built on regarding native title's coexistence with pastoral leases — making it the foundation the entire modern native title framework rests on."
+},
+{
+ "id": "q11-practice-dp8b",
+ "year": "Practice",
+ "dpRef": "dp8b",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain the significance of the Wik decision (1996) for native title in Australia.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "In *Wik Peoples v Queensland* (1996), the High Court ruled native title could coexist with pastoral leases rather than being automatically extinguished by them — a major clarification of the framework established after Mabo.\n\nWik did not extinguish pastoralists' existing rights; instead it established that native title and pastoral leaseholder rights could exist simultaneously over the same land, with pastoral lease rights prevailing only in a genuine conflict between the two.\n\nWik prompted the *Native Title Amendment Act 1998*, formally establishing that native title could coexist with leaseholder rights, and empowering states and territories to legislate their own native title procedures. Following political controversy among the pastoral and mining industries, these 1998 amendments are often seen as narrowing native title's practical scope compared with the position immediately after Mabo, even though the coexistence principle itself favoured Aboriginal claimants.\n\nSequence matters for a strong response: Wik (1996) and its 1998 amendment came after Mabo (1992) and the Native Title Act (1993) — Wik answered a question Mabo had left open (land already leased for pastoral use), rather than overturning Mabo's core findings."
+},
+{
+ "id": "q11-practice-dp9a",
+ "year": "Practice",
+ "dpRef": "dp9a",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "question": "Explain how separation from land continues to affect Aboriginal spiritualities today.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "Dispossession physically separated many Aboriginal peoples from traditional Country through colonial land seizure and, later, forced relocation onto missions and reserves, breaking the everyday connection to land that Aboriginal spirituality depends on.\n\nBecause land is the basis of the Dreaming, separation from land is not just loss of property but loss of the primary source of spiritual identity, ancestral teachings and Law. Restricted or lost access to sacred sites has, in many cases, made it difficult or impossible to perform the ceremonies that maintain connection between the physical and spiritual worlds.\n\nNative title processes since Mabo (1992) and the Native Title Act (1993) have let some communities regain legal access to traditional land, though many remain separated from Country where a claim cannot be established — showing the effect is only partly remedied by the modern legal framework.\n\nSeparation from land continues to affect spiritual practice wherever Country now falls under freehold or leasehold title incompatible with cultural access: this is a genuinely continuing effect of 19th- and 20th-century dispossession, not simply a historical one."
+},
+{
+ "id": "q11-practice-dp9c",
+ "year": "Practice",
+ "dpRef": "dp9c",
+ "source": "Self-authored practice question (Claude) — this DP has not appeared in any real past NESA/CSSA Q11 found in the harvested archive; written to NESA-style band criteria, grounded only in this bank's own content for this DP.",
+ "marks": 5,
+ "stimulus": "“They stole my speech and family.” (Survivor testimony)",
+ "question": "With reference to the stimulus, explain the continuing effect of the Stolen Generations on Aboriginal spiritualities.",
+ "criteria": [
+  "5 — Makes a judgement/explains with detailed and accurate knowledge; integrates relevant and accurate terminology; addresses the question directly throughout.",
+  "3–4 — Attempts a judgement/explanation with generally accurate knowledge and understanding; uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may not fully address the question.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official NESA sample answer exists for this DP — this is a self-authored practice question (see the source note above), not a real past exam question. The criteria above are Claude's own band descriptors styled on NESA's format, not an official NESA document.",
+ "modelAnswer": "The Stolen Generations refers to the forced removal of Aboriginal and Torres Strait Islander children from their families under government assimilation policy, with the main stated reason after 1945 being to force children to adopt European culture.\n\nThe stimulus captures this directly: as one survivor's testimony put it, 'They stole my speech and family' — removal took not just physical connection to family but language, culture and ancestral teachings too. Members of the Stolen Generations have often struggled to reconnect with Aboriginal spirituality because removal from family disrupted kinship groups, cutting off the relationships through which spiritual knowledge, Country and ceremony are normally transmitted.\n\nBecause assimilation policy targeted children specifically, its effects are intergenerational: removed individuals often could not pass on cultural and spiritual knowledge to their own children and grandchildren, compounding the loss across generations rather than affecting only those directly removed.\n\nNational Sorry Day (26 May) and the 2008 National Apology to the Stolen Generations, delivered by PM Kevin Rudd, are contemporary acknowledgements of this continuing effect — though acknowledgement alone doesn't restore the spiritual knowledge and relationships lost, which is why the effect is properly described as ongoing, not historical."
+},
+{
+ "id": "q11-cssa-2025",
+ "year": "CSSA 2025",
+ "dpRef": "dp2c",
+ "source": "CSSA 2025 Trial HSC, Studies of Religion I, Section I Q11",
+ "marks": 5,
+ "stimulus": "A bar graph, “Religious affiliation of recent migrants to Australia (2021)” (categories: Christianity, No Religious Affiliation, Other Religions, Not Stated) — Australian Bureau of Statistics (2022), Religious affiliation in Australia.",
+ "question": "With reference to the graph, account for the impact of immigration on the current religious landscape in Australia.",
+ "criteria": [
+  "5 — Provides a detailed and accurate account of the impact of immigration on the present Australian religious landscape; clearly refers to the stimulus; uses accurate and relevant evidence and terminology.",
+  "4 — Provides an accurate account; refers to the stimulus; uses clear and relevant evidence and terminology.",
+  "3 — Provides an account of the present Australian religious landscape in relation to immigration; uses relevant evidence and terminology.",
+  "1–2 — Makes general statement(s) about aspects of religion in Australia in relation to immigration; makes statement(s) about aspects of religion in Australia."
+ ],
+ "officialAnswer": "Immigration continues to have a significant impact on the current religious landscape in Australia. As the graph indicates, the 2021 census shows that recent migrants to Australia include those who indicated No Religious Affiliation, Christianity and Other Religions. The Other Religions category is the fastest increasing, as evidenced in the fact that Hinduism and Sikhism are the fastest growing (Hinduism at 2.7%, 2021 census). The reason for this is increasing immigration from India. Post abolition of the White Australia Policy has seen continuing immigration from Asia, in particular. The high percentage of immigrants with No Religious Affiliation is more difficult to link to specific countries but Chinese immigration could be a factor, also more secular migrants from countries like the UK and New Zealand. Australia continues to see global immigration impacting the religious landscape, such as the influx of migrants from countries including Sudan and Pakistan, contributing to the increase in Islam, now the second largest religious tradition in Australia (3.2%, 2021 census).",
+ "modelAnswer": "Immigration remains one of the two most significant factors reshaping Australia's religious landscape, and the graph's breakdown of recent migrants by religious affiliation shows this continuing into the 2020s.\n\nThe graph shows recent migrants split across Christianity, No Religious Affiliation and Other Religions — with Other Religions the fastest-growing category, driven substantially by Hindu and Sikh immigration from India (Hinduism reached 2.7% of the population at the 2021 Census). This continues a pattern beginning after the White Australia Policy's abolition in the early 1970s, when non-Christian immigration from Asia first became significant.\n\nMigrants reporting No Religious Affiliation are harder to trace to a single source country, but likely reflect both increasingly secular migration from countries like the UK and New Zealand and some Chinese immigration; either way, this shows immigration reinforcing secularism's growth alongside religious diversification, not working against it.\n\nGlobal conflict-driven migration also continues to shape the landscape: migrants from Sudan and Pakistan have contributed to Islam's growth to 3.2% of the population by 2021, now Australia's second-largest non-Christian tradition — confirming immigration's dual, ongoing role in both diversifying and secularising Australia's religious landscape."
+},
+{
+ "id": "q11-cssa-2021",
+ "year": "CSSA 2021",
+ "dpRef": "dp5",
+ "source": "CSSA 2021 Trial HSC, Studies of Religion II, Section I Part A Q11 (shared with Studies of Religion I)",
+ "marks": 5,
+ "stimulus": "“Authentic Reconciliation begins with an acknowledgement of past injustices and an acceptance of the ongoing impacts of these injustices. It results in actions that make sure these injustices are never repeated.”",
+ "question": "Demonstrate how accurate this statement is in reflecting how religious traditions contribute to achieving authentic Reconciliation in Australia.",
+ "criteria": [
+  "5 — Provides detailed examples demonstrating an accurate understanding of the work of religious traditions in support of Reconciliation in Australia; provides a clear judgement on the accuracy of the stimulus statement; integrates relevant and accurate terminology.",
+  "3–4 — Provides accurate examples of the work of religious traditions in support of Reconciliation in Australia; attempts to make a judgement about the accuracy of the stimulus statement; uses relevant terminology.",
+  "2 — Makes generally accurate statements about Reconciliation in Australia and its purpose; may refer to the stimulus statement.",
+  "1 — Makes statements about Reconciliation."
+ ],
+ "officialAnswer": "Religious traditions in Australia have been vocal supporters of Reconciliation over the past few decades. This support has come in the form of statements, publications, participation and apology. For example, Christian variants have made formal apologies for their participation in government policies which created the Stolen Generations, thus demonstrating an 'acknowledgement of past injustices'. The Board of Jewish Deputies in 2008 published a reconfirmed Statement of Reconciliation and the Australian Catholic Bishops' 2006 Social Justice Sunday Statement was titled 'The Heart of our Country: Dignity and justice for our Indigenous sisters and brothers'. In 2019, the Uniting Church published its full Reconciliation Action Plan, endorsed by Reconciliation Australia. Further, the major religious traditions in Australia actively support the annual Week of Prayer for Reconciliation, and Religions for Peace Australia have hosted webinars that help people to understand the Uluru Statement. These contributions all represent 'actions that (attempt to) make sure (past injustices) are never repeated'. While there have been disputes within some religious traditions regarding the role Reconciliation should take within their communities, most show some evidence that they are learning from Indigenous spiritualities about what it means to be religious in Australia.",
+ "modelAnswer": "The statement is largely accurate: genuine religious engagement with Reconciliation in Australia does follow this two-part pattern — acknowledging past injustice, then acting to prevent its repetition — though the strength of that action varies between traditions and individual organisations.\n\nAcknowledgement is well evidenced: several Christian denominations have formally apologised for their role in policies that created the Stolen Generations, and the NSW Jewish Board of Deputies hosted a Shabbat Service for Aboriginal community leaders at the Great Synagogue in December 2019, explicitly confronting religious traditions' own historical role in dispossession rather than treating Reconciliation as someone else's responsibility.\n\nThe 'actions to prevent repetition' half of the statement is also supported: the Uniting Church published a full Reconciliation Action Plan (endorsed by Reconciliation Australia), and religious leaders' 2022 public support for the Uluru Statement from the Heart shows institutional commitment translating into ongoing action, not just a one-off apology.\n\nHowever, the statement slightly overstates uniformity: disputes exist within some traditions about Reconciliation's proper role, meaning 'authentic Reconciliation' as the statement defines it is an aspiration many religious traditions are working toward, not a uniformly achieved standard — making the statement accurate as a description of intent and much genuine action, if not yet universal practice."
+},
+{
+ "id": "q11-cssa-2018",
+ "year": "CSSA 2018",
+ "dpRef": "dp4",
+ "source": "CSSA 2018 Trial, Studies of Religion 2 Unit, Section I Q11",
+ "marks": 5,
+ "stimulus": "The cover image of a 2009 book by Australian Anglican Bishop Tom Frame (title not fully legible in the available scan; used with permission of NewSouth Publishing).",
+ "question": "With reference to the book title in the stimulus above, evaluate the importance of interfaith dialogue as a response to secularisation in Australia.",
+ "criteria": [
+  "5 — Demonstrates comprehensive knowledge and understanding in judging the value of interfaith dialogue as a response to secularisation in Australia since 1945; makes specific reference to the title in the stimulus; integrates relevant and accurate terminology.",
+  "3–4 — Demonstrates knowledge and understanding of the value of interfaith dialogue as a response to secularisation in Australia since 1945; makes reference to the title in the stimulus; uses relevant examples and terminology.",
+  "2 — Makes general statements about interfaith dialogue and/or secularisation.",
+  "1 — Makes statements about interfaith dialogue."
+ ],
+ "officialAnswer": "Australia is a multifaith, multicultural society in which interfaith dialogue is important for social cohesion. The fact that more Australians are referring to themselves as non-religious — an increase from around 19% in 2006 to around 30% in 2016 — means that the different religious traditions should work together towards a common goal of overcoming disadvantage and presenting a united front on social issues. All religious traditions must be open to dialogue with secular, religious and Indigenous peoples to be able to work towards a harmonious Australia. All religions have the responsibility to promote dialogue and strategies to improve dignity of all Australians. By working together towards a common good, the traditions may make themselves more relevant in a society that is becoming rapidly more secular. All religious traditions working together at times of disaster, e.g. bushfires and floods.",
+ "modelAnswer": "Interfaith dialogue is an important, though not sufficient, response to secularisation in Australia — it strengthens religion's collective social relevance even as it cannot single-handedly reverse the underlying secular trend.\n\nSecularisation has grown steadily: those reporting no religion rose from around 19% in 2006 to around 30% by 2016, continuing to 38.9% by 2021. In response, interfaith dialogue — which had no organised, institutional form in Australia until the 1970s — lets traditions present a more unified, socially engaged face, for example through the Parliament of the World's Religions (held in Melbourne) and smaller ongoing initiatives like the Affinity Intercultural Foundation's work connecting young Muslim Australians with Christian and Jewish groups since 2001.\n\nWorking together on shared social concerns — disadvantage, disaster response, social cohesion — helps religious traditions remain relevant to an increasingly secular public that may not engage with any single tradition's specific theology but still values the shared ethical action interfaith cooperation makes visible.\n\nHowever, interfaith dialogue addresses secularisation's social consequences more than its underlying causes, since the causes — changing personal belief, not just institutional visibility — lie mostly outside what dialogue between traditions can directly influence. It is therefore a genuinely important, but partial, response."
+},
+{
+ "id": "q11-cssa-2015",
+ "year": "CSSA 2015",
+ "dpRef": "dp7",
+ "source": "CSSA 2015 Trial, Studies of Religion II, Section I Q11",
+ "marks": 5,
+ "question": "Analyse the importance of the Dreaming for the Land Rights movement.",
+ "criteria": [
+  "5 — Demonstrates a comprehensive knowledge of the significance of the components of the Dreaming for the Land Rights movement.",
+  "3–4 — Demonstrates some knowledge of the significance of the components of the Dreaming for the Land Rights movement.",
+  "1–2 — Makes some general statements about the Dreaming and/or the Land Rights movement."
+ ],
+ "officialAnswer": "The Dreaming is a source of the land, the people and the Law that binds them to each other. Dreaming-based Law is the source of people's knowledge of kinship connections to specific country. The Dreaming is therefore essential to the Land Rights movement, including Native Title. Effects of the Land Rights movement, including recognition of Native Title, on the Dreaming include examples of rebuilding within kinship groups, reactivation of family oral traditions and Dreaming-based ceremonies, and celebration of recognition of land rights through drama, dance, literature, visual arts and song. Aboriginal people have a way to return to the land that is supported by legislation.",
+ "modelAnswer": "The Dreaming is important for the Land Rights movement because it underpins Aboriginal peoples' connection to Country — Land Rights claims are fundamentally about restoring the ability to live out Dreaming-based spiritual obligations, not simply about land ownership.\n\nThe 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari, is the movement's landmark early example, driven by spiritual and cultural connection to Country as much as pay and conditions. This directly influenced the 1976 Aboriginal Land Rights (NT) Act, the first major legislation to give legal recognition to Aboriginal land claims based on traditional and spiritual connection to Country — linking the Dreaming to a legal framework for the first time.\n\nLater legal developments built on this foundation: Mabo (1992) overturned terra nullius and recognised native title existed under Australian common law, the Native Title Act (1993) created a claims process, and Wik (1996) clarified native title's coexistence with pastoral leases — each requiring claimants to demonstrate continuous connection to Country through Dreaming-based customary law and ceremony.\n\nThe Dreaming's importance is therefore not just historical: it remains the legal and spiritual basis on which land rights claims are argued and won, making it essential rather than incidental to the Land Rights movement's ongoing work."
+},
+{
+ "id": "q11-isa-2009",
+ "year": "ISA 2009",
+ "dpRef": "dp2c",
+ "source": "NSW Independent Trial Exams (ISA) 2009, Studies of Religion I, Section I Q11",
+ "marks": 5,
+ "question": "Discuss how immigration has affected the religious landscape in Australia since 1945.",
+ "criteria": [
+  "5 — Provides a detailed discussion about how immigration has affected the religious landscape in Australia.",
+  "3–4 — Provides a basic discussion about how immigration has affected the religious landscape in Australia.",
+  "1–2 — Provides some relevant points."
+ ],
+ "officialAnswer": "Post World War II European migration boosted Roman Catholic and Eastern Orthodox adherents in Australia. Relatively small influxes of Jews post-WWII — many emigrating from European countries as Holocaust refugees. A large Jewish immigration in the 1950s on account of the Hungarian revolution and the expulsion of Jews from Egypt after the 1956 Suez conflict. In the Vietnam War, approximately 120,000 Indo-Chinese people immigrated, many as boat people — this was the first significant representation of Buddhists. 50 percent of Buddhist immigrants arrived between 1986 and 1991. Significant numbers of Muslims did not immigrate until the late 1960s, which were Turkish. Lebanese Muslims fleeing civil war followed quickly. Mostly Muslim refugees are arriving today from Sudan, Afghanistan and Iraq.",
+ "modelAnswer": "Immigration since 1945 has been the single most significant factor turning Australia into a genuinely multifaith society, through several distinct, identifiable waves.\n\nThe earliest wave was post-war European migration, which boosted Roman Catholic and Eastern Orthodox numbers directly, alongside a smaller wave of Jewish immigration — including Holocaust refugees, and a further wave in the 1950s following the Hungarian Revolution and the expulsion of Jews from Egypt after the 1956 Suez conflict.\n\nThe Vietnam War produced Australia's first significant Buddhist population, as roughly 120,000 Indo-Chinese people, many arriving as refugees ('boat people'), settled from the mid-1970s; Buddhist immigration continued, with about half of all Buddhist immigrants arriving between 1986 and 1991 alone.\n\nMuslim immigration followed a similar staged pattern: Turkish immigration from the late 1960s was followed by Lebanese Muslims fleeing civil war, and today by refugees from Sudan, Afghanistan and Iraq — each wave adding to Islam's presence rather than a single origin explaining it.\n\nTogether, these distinct waves — Catholic and Orthodox Christian, Jewish, Buddhist, and Muslim — show immigration diversifying Australia's religious landscape in stages tied to specific historical events, not as one uniform process."
+},
+{
+ "id": "q11-cssa-2022",
+ "year": "CSSA 2022",
+ "dpRef": "dp7",
+ "source": "CSSA 2022 Trial HSC, Studies of Religion I, Section I Q11 (official marking guide not located in the archive)",
+ "marks": 5,
+ "stimulus": "“The land is my mother. Like a human mother, the land gives us protection, enjoyment, and provides our needs — economic, social, and religious. We have a human relationship with the land: Mother, daughter, son.” — Rev Dr Djinyini Gondarra, Yolngu Elder, Uniting Church Minister",
+ "question": "With reference to the statement above, explain the importance of the Dreaming for the Land Rights movement.",
+ "criteria": [
+  "5 — Provides a detailed and accurate response with clear reference to the stimulus (if any); integrates relevant and accurate terminology.",
+  "3–4 — Provides an accurate response with some reference to the stimulus (if any); uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may refer to the stimulus.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official marking guidelines or sample answer for this paper could be located in the source archive. No official marking guidelines or sample answer for this paper could be located in the source archive — the stimulus and question above are genuine and verbatim from the original trial paper; the band descriptors above are Claude's own, styled on NESA's format, not an official document.",
+ "modelAnswer": "Rev Dr Gondarra's description of land as 'mother' captures exactly why the Dreaming is central to the Land Rights movement: Land Rights claims are about restoring a living, familial relationship with Country, not simply securing property.\n\nThe Dreaming explains how the world was formed and continues to be sustained, and determines Aboriginal peoples' obligations to land and people — obligations the stimulus frames as reciprocal care, 'like a human mother', rather than one-directional use of a resource.\n\nThe 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari, shows this spiritual relationship driving the Land Rights movement from its earliest days, leading to the 1976 Aboriginal Land Rights (NT) Act — the first legislation to recognise land claims based on traditional and spiritual connection to Country.\n\nLater legal developments — Mabo (1992) overturning terra nullius, the Native Title Act (1993), and Wik (1996) — required claimants to demonstrate exactly the kind of continuous relationship to Country the stimulus describes, through customary law and ceremony, confirming the Dreaming as the movement's ongoing spiritual and legal foundation."
+},
+{
+ "id": "q11-cssa-2023",
+ "year": "CSSA 2023",
+ "dpRef": "dp2",
+ "source": "CSSA 2023 Trial, Studies of Religion I, Section I Q11 (official marking guide not located in the archive)",
+ "marks": 5,
+ "stimulus": "“Increased multiculturalism has changed the religious landscape of Australia, post-1945.”",
+ "question": "With reference to the stimulus above and Australian census data, account for the present religious landscape of Australia.",
+ "criteria": [
+  "5 — Provides a detailed and accurate response with clear reference to the stimulus (if any); integrates relevant and accurate terminology.",
+  "3–4 — Provides an accurate response with some reference to the stimulus (if any); uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may refer to the stimulus.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official marking guidelines or sample answer for this paper could be located in the source archive. No official marking guidelines or sample answer for this paper could be located in the source archive — the stimulus and question above are genuine and verbatim from the original trial paper; the band descriptors above are Claude's own, styled on NESA's format, not an official document.",
+ "modelAnswer": "The present religious landscape is explained by five interacting factors — secularism, Christianity's continued dominance, immigration, denominational switching and New Age religions — with multiculturalism (via immigration) and secularism the two most significant.\n\nAccording to the 2021 Census, 61% of Australians identified with a religion, with Christianity remaining the largest tradition at 43.9%, followed by Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%) — directly confirming the stimulus's claim that multiculturalism has diversified the landscape since 1945, particularly after the White Australia Policy's abolition in the early 1970s enabled non-Christian immigration.\n\nHowever, multiculturalism is not the only force at work: secularism explains 'no religion' rising from 30.1% in 2016 to 38.9% by 2021, a trend independent of immigration and strongest among Australians aged 34 and under.\n\nDenominational switching and New Age religions are usually secondary factors reshaping Christianity internally or adding smaller alternative spiritualities, rather than changing the overall balance as dramatically as immigration or secularism. Accounting for the present landscape therefore requires balancing the stimulus's accurate claim about multiculturalism against the equally significant, independent rise of secularism."
+},
+{
+ "id": "q11-cssa-2024",
+ "year": "CSSA 2024",
+ "dpRef": "dp9b",
+ "source": "CSSA 2024 Trial, Studies of Religion I, Section I Q11 (official marking guide not located in the archive)",
+ "marks": 5,
+ "stimulus": "“When you look at a family tree, every person that is within that family tree is born into a spiritual inheritance. And when that person isn't there, there's a void.” — Kevin Booter, NSW Aboriginal Mental Health Worker, evidence 527 in Bringing Them Home, 1997",
+ "question": "With reference to the statement above, discuss the continuing effects of dispossession on Aboriginal spiritualities.",
+ "criteria": [
+  "5 — Provides a detailed and accurate response with clear reference to the stimulus (if any); integrates relevant and accurate terminology.",
+  "3–4 — Provides an accurate response with some reference to the stimulus (if any); uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may refer to the stimulus.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official marking guidelines or sample answer for this paper could be located in the source archive. No official marking guidelines or sample answer for this paper could be located in the source archive — the stimulus and question above are genuine and verbatim from the original trial paper; the band descriptors above are Claude's own, styled on NESA's format, not an official document.",
+ "modelAnswer": "Kevin Booter's description of a 'void' left when a person is missing from the family tree captures precisely how dispossession disrupted kinship — the system through which spiritual inheritance, in his words, is transmitted — and this disruption continues to affect Aboriginal spiritualities today.\n\nBecause kinship is inherited by birth and regulates the transmission of sacred knowledge through elders, forced removal — culminating in the Stolen Generations, whose post-1945 removals aimed to force children to adopt European culture — broke this chain, creating exactly the intergenerational 'void' the stimulus describes.\n\nThe effects compound across generations: because assimilation-era policy targeted land, family and cultural practice together, removed individuals often could not pass spiritual knowledge on to their own children and grandchildren, meaning the 'void' Booter describes is not a single loss but one that widens over time without intervention.\n\nNational Sorry Day and the 2008 National Apology to the Stolen Generations are contemporary acknowledgements of this continuing harm, but acknowledgement alone doesn't restore the spiritual knowledge and relationships lost — confirming dispossession's effects on Aboriginal spiritualities as ongoing, not historical."
+},
+{
+ "id": "q11-cssa-2013",
+ "year": "CSSA 2013",
+ "dpRef": "dp2c",
+ "source": "CSSA 2013 Trial, Studies of Religion I, Section I Q11",
+ "marks": 5,
+ "question": "Account for the effect of immigration on the changing pattern of religious adherence in Australia from 1945 to the present.",
+ "criteria": [
+  "5 — Provides clear, detailed and accurate reasons for the effect of immigration on the changing pattern of religious adherence in Australia from 1945 to the present; integrates relevant examples.",
+  "3–4 — Provides accurate reasons for the effect of immigration on the changing pattern of religious adherence in Australia from 1945 to the present; may make reference to examples.",
+  "1–2 — Makes general statements about the effect of immigration on the changing pattern of religious adherence in Australia from 1945 to the present; may refer to examples."
+ ],
+ "officialAnswer": "No official sample answer (‘answers may include’ list) was provided in the located marking guidelines for this paper — only the band criteria above.",
+ "modelAnswer": "Post-1945 immigration is the factor most often credited with turning Australia into 'a nation of many faiths', first through large-scale Christian immigration, then, after the White Australia Policy's abolition in the early 1970s, through immigration from largely non-Christian countries.\n\nThe Policy's end directly enabled growth in Islam, Hinduism and Buddhism from 1990 onward, each appearing as its own Census category within a decade of the others: Islam in 1976, Buddhism in 1981, Hinduism in 1986 — showing immigration's effect arriving in identifiable stages rather than all at once.\n\nImmigration produced proportionally larger growth in non-Christian religions than in Christian denominations, though Christian immigration also increased ethnic diversity within Christianity itself since the 1960s — post-war English immigration, for example, specifically boosted Anglican numbers.\n\nBy the 2021 Census, this cumulative effect was clear: Christianity had fallen to 43.9% of the population while Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%) had each become established, non-trivial parts of Australia's religious landscape — a change immigration, more than any other single factor, accounts for."
+},
+{
+ "id": "q11-isa-2011",
+ "year": "ISA 2011",
+ "dpRef": "dp8",
+ "source": "ISA 2011 Trial, Studies of Religion 2 Unit, Section I Q11 (official marking guide not located in the archive)",
+ "marks": 5,
+ "question": "Outline the importance of TWO major decisions, laws or policies regarding Aboriginal land rights.",
+ "criteria": [
+  "5 — Provides a detailed and accurate response with clear reference to the stimulus (if any); integrates relevant and accurate terminology.",
+  "3–4 — Provides an accurate response with some reference to the stimulus (if any); uses relevant terminology.",
+  "2 — Makes generally accurate statements relevant to the topic; may refer to the stimulus.",
+  "1 — Makes general statements about the topic."
+ ],
+ "officialAnswer": "No official marking guidelines or sample answer for this paper could be located in the source archive. No official marking guidelines or sample answer for this paper could be located in the source archive — the stimulus and question above are genuine and verbatim from the original trial paper; the band descriptors above are Claude's own, styled on NESA's format, not an official document.",
+ "modelAnswer": "Two major legal developments stand out for their importance to Aboriginal land rights: the Mabo decision (1992) and the Native Title Act (1993).\n\nIn *Mabo v Queensland (No 2)* (1992), the High Court ruled for Eddie Mabo and the Meriam people, overturning *terra nullius* and recognising, for the first time, that native title existed under Australian common law before colonisation — the single most significant legal turning point in the Land Rights movement.\n\nThe *Native Title Act 1993* was Parliament's response, converting Mabo's common-law recognition into a workable legal process — including the National Native Title Tribunal — through which Aboriginal and Torres Strait Islander peoples could formally claim land and water rights by demonstrating continuous traditional connection to Country.\n\nTogether, these two developments matter because they gave legal weight to a spiritual relationship to land already central to the Dreaming: establishing native title requires demonstrating connection to Country through Dreaming-based customary law and ceremony, meaning the legal process now directly depends on, and validates, Aboriginal spiritual practice."
+},
+{
+ "id": "q11-pem-2014",
+ "year": "PEM 2014",
+ "dpRef": "dp2c",
+ "source": "PEM 2014 Trial, Studies of Religion I, Section I Q11",
+ "marks": 5,
+ "stimulus": "A graph/timeline of “3 Waves of Migration”: 1. Post-War Migration (1945–1960s); 2. Asian Migration (1965–1979); 3. Global Conflict (1985–present).",
+ "question": "Describe how the 3 waves of migration have affected the current religious landscape in Australia.",
+ "criteria": [
+  "5 — Correctly describes two trends in the graph; gives clear reasons for BOTH the trends described in the graph; integrates specific and appropriate terminology.",
+  "3–4 — Correctly describes two trends in the graph; gives clear reasons for ONE of the trends described in the graph; uses correct terminology.",
+  "1–2 — Describes the graph; uses basic terminology; provides a generalised response."
+ ],
+ "officialAnswer": "No official sample answer (‘answers may include’ list) was provided in the located marking guidelines for this paper — only the criteria table above, which refers to ‘the graph’ (the three waves of migration shown in the stimulus).",
+ "modelAnswer": "The three waves in the stimulus map closely onto how Australia's religious landscape has actually changed since 1945, each wave adding a different kind of diversity.\n\nThe first wave, post-war migration (1945–1960s), was mainly European and Christian, increasing Catholic and Orthodox numbers and diversifying Christianity internally — English immigration, for instance, specifically boosted Anglican numbers.\n\nThe second wave, Asian migration (1965–1979), followed the White Australia Policy's abolition in the early 1970s, and directly enabled the growth of non-Christian traditions: Islam, Buddhism and Hinduism each appeared as their own Census category within a decade of each other (1976, 1981 and 1986 respectively).\n\nThe third wave, driven by global conflict (1985–present), continued this diversification through refugee and humanitarian migration — for example Indo-Chinese Buddhist refugees from the Vietnam War, and more recent arrivals from the Middle East and Africa — meaning each of the three waves added a genuinely new layer to Australia's religious landscape rather than simply repeating the last."
+}
+];
+</script>
+<script>
+(function(){
+  var AREA_LABEL = {landscape:"Religious Landscape", dialogue:"Religious Dialogue", aboriginal:"Aboriginal Spiritualities"};
+  var tabsEl = document.getElementById("tabs");
+  tabsEl.addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-tab]");
+    if(!btn) return;
+    document.querySelectorAll("nav.tabs button").forEach(function(b){ b.classList.toggle("active", b===btn); });
+    document.querySelectorAll(".panel").forEach(function(p){ p.classList.toggle("active", p.id === btn.getAttribute("data-tab")); });
+  });
+
+  // ---- Core content bank ----
+  var revFilter = "all";
+  var filtersEl = document.getElementById("revFilters");
+  var filterDefs = [["all","All 24"],["landscape","Landscape"],["dialogue","Dialogue"],["aboriginal","Aboriginal"]];
+  filtersEl.innerHTML = filterDefs.map(function(f){
+    return '<button data-f="'+f[0]+'" class="'+(f[0]==="all"?"active":"")+'">'+f[1]+'</button>';
+  }).join("");
+  filtersEl.addEventListener("click", function(e){
+    var b = e.target.closest("button[data-f]");
+    if(!b) return;
+    revFilter = b.getAttribute("data-f");
+    filtersEl.querySelectorAll("button").forEach(function(x){ x.classList.toggle("active", x===b); });
+    renderRev();
+  });
+
+  function renderRev(){
+    var list = REVISION_BANK.filter(function(it){ return revFilter==="all" || it.area===revFilter; });
+    document.getElementById("revList").innerHTML = list.map(function(it){
+      return '<div class="card">'+
+        '<span class="dp-tag '+it.area+'">'+it.dp+'</span>'+
+        '<span style="font-size:.78rem;color:var(--muted);">'+AREA_LABEL[it.area]+'</span>'+
+        '<div class="rev-title">'+it.title+'</div>'+
+        (it.sequence ? '<div class="seq-note">Sequence: '+it.sequence+'</div>' : '')+
+        '<ol class="ideas">'+it.ideas.map(function(s){ return '<li>'+s+'</li>'; }).join("")+'</ol>'+
+      '</div>';
+    }).join("");
+  }
+  renderRev();
+
+  // ---- Past paper Q11s ----
+  function dpTitle(dpRef){
+    var it = REVISION_BANK.find(function(r){ return r.id === dpRef; });
+    return it ? (it.dp + " — " + it.title) : dpRef;
+  }
+
+  function buildPrompt(q, studentAnswer){
+    var lines = [];
+    lines.push("You are an HSC NSW Studies of Religion I marker. Mark the student answer below out of "+q.marks+" using the official NESA criteria given, then suggest specific improvements.");
+    lines.push("");
+    lines.push("QUESTION ("+q.marks+" marks): "+q.question);
+    if(q.stimulus) lines.push("STIMULUS: "+q.stimulus);
+    lines.push("");
+    lines.push("MARKING CRITERIA:");
+    q.criteria.forEach(function(c){ lines.push("- "+c); });
+    lines.push("");
+    lines.push("STUDENT ANSWER:");
+    lines.push(studentAnswer && studentAnswer.trim() ? studentAnswer.trim() : "[paste your answer here before copying]");
+    lines.push("");
+    lines.push("Please give: (1) a mark out of "+q.marks+", (2) what the answer does well, (3) what's missing to reach full marks, (4) an improved version that blends the student's own language with the missing content, written to a genuine 5/5 standard.");
+    return lines.join("\n");
+  }
+
+  function doCopy(qid, answerText, statusEl){
+    var q = Q11_BANK.find(function(x){ return x.id === qid; });
+    var prompt = buildPrompt(q, answerText);
+    function done(ok){
+      statusEl.textContent = ok ? "Copied — paste into Copilot/Claude/ChatGPT." : "Couldn't copy automatically — select the text below and copy manually.";
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(prompt).then(function(){ done(true); }).catch(function(){ done(false); });
+    } else {
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = prompt; ta.style.position="fixed"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        done(ok);
+      }catch(err){ done(false); }
+    }
+  }
+
+  // ---- Q11 mastery/archive state (mirrors the MC bank's mastery/archive mechanic) ----
+  var Q11_STATS_KEY = "sorQ11Stats_v1";
+  var q11Stats = {};
+  (function(){
+    try{ q11Stats = JSON.parse(localStorage.getItem(Q11_STATS_KEY)) || {}; }catch(e){ q11Stats = {}; }
+  })();
+  function saveQ11Stats(){ try{ localStorage.setItem(Q11_STATS_KEY, JSON.stringify(q11Stats)); }catch(e){} }
+  function statFor(id){
+    if(!q11Stats[id]) q11Stats[id] = { attempts: 0, best: 0, archived: false };
+    return q11Stats[id];
+  }
+  function activeQ11s(){ return Q11_BANK.filter(function(q){ return !statFor(q.id).archived; }); }
+  function archivedQ11s(){ return Q11_BANK.filter(function(q){ return statFor(q.id).archived; }); }
+
+  function renderStatsBar(){
+    var activeN = activeQ11s().length, archivedN = archivedQ11s().length;
+    document.getElementById("q11StatsBar").innerHTML =
+      '<span>'+activeN+' in rotation &middot; '+archivedN+' archived (5/5 mastered) &middot; '+Q11_BANK.length+' total years, 2007–2025</span>'+
+      '<button type="button" class="linklike" id="q11ResetProgress">Reset all Q11 progress</button>';
+  }
+
+  // ---- 10-minute countdown timer ----
+  var timerState = { remaining: 600, running: false, intervalId: null };
+  function resetTimer(){
+    clearInterval(timerState.intervalId);
+    timerState.remaining = 600; timerState.running = false; timerState.intervalId = null;
+    drawTimer();
+  }
+  function drawTimer(){
+    var el = document.getElementById("q11TimerDisplay");
+    if(!el) return;
+    var m = Math.floor(timerState.remaining/60).toString().padStart(2,"0");
+    var s = (timerState.remaining%60).toString().padStart(2,"0");
+    el.textContent = m+":"+s;
+    el.classList.toggle("warn", timerState.remaining <= 60);
+  }
+  function startTimer(){
+    if(timerState.running) return;
+    timerState.running = true;
+    timerState.intervalId = setInterval(function(){
+      timerState.remaining = Math.max(0, timerState.remaining-1);
+      drawTimer();
+      if(timerState.remaining === 0){ clearInterval(timerState.intervalId); timerState.running = false; }
+    }, 1000);
+  }
+  function pauseTimer(){ clearInterval(timerState.intervalId); timerState.running = false; }
+
+  // ---- Practice: one random active question at a time ----
+  var currentQ11 = null;
+  function pickNextQ11(excludeId){
+    var pool = activeQ11s();
+    if(!pool.length) return null;
+    var choices = excludeId ? pool.filter(function(q){ return q.id !== excludeId; }) : pool;
+    if(!choices.length) choices = pool;
+    return choices[Math.floor(Math.random()*choices.length)];
+  }
+
+  function isSelfAuthored(q){ return /^Self-authored/.test(q.source); }
+  function critLabel(q){
+    if(isSelfAuthored(q)) return "Marking criteria (Claude, styled on NESA bands — not an official NESA document)";
+    if(/NESA/.test(q.source)) return "Official NESA marking criteria";
+    return "Marking criteria (from the original exam paper, styled on NESA's format — not a NESA document)";
+  }
+  function answerLabel(q){
+    if(isSelfAuthored(q)) return "Sample answer (Claude, not NESA)";
+    if(/NESA/.test(q.source)) return "NESA’s own sample answer";
+    return "Sample answer (from the original exam's own marking guidelines, where available)";
+  }
+
+  function renderPractice(){
+    renderStatsBar();
+    var host = document.getElementById("q11Practice");
+    if(!activeQ11s().length){
+      host.innerHTML = '<div class="card"><p>Every past Q11 is archived at 5/5 — amazing work! Open the Archive tab to review any of them again, or reset progress above to bring them back into rotation.</p></div>';
+      return;
+    }
+    if(!currentQ11 || statFor(currentQ11.id).archived){ currentQ11 = pickNextQ11(); }
+    var q = currentQ11;
+    var st = statFor(q.id);
+    host.innerHTML =
+      '<div class="card" data-qid="'+q.id+'">'+
+        (q.stimulus ? '<div class="stimulus">'+q.stimulus+'</div>' : '')+
+        '<div class="question-text">'+q.question+'</div>'+
+        '<div class="q11-head"><span class="q11-year">'+q.year+'</span><span class="q11-source">'+q.source+' · '+q.marks+' marks · '+dpTitle(q.dpRef)+'</span></div>'+
+        (st.attempts ? '<div class="archived-note">Attempted '+st.attempts+' time(s) before &middot; best self-score so far: '+st.best+'/'+q.marks+'</div>' : '')+
+        '<div class="timer-box">'+
+          '<span class="timer-display" id="q11TimerDisplay">10:00</span>'+
+          '<span class="timer-label">10-minute exam timer</span>'+
+          '<button type="button" data-role="timer-start" class="primary">Start</button>'+
+          '<button type="button" data-role="timer-pause">Pause</button>'+
+          '<button type="button" data-role="timer-reset">Reset</button>'+
+        '</div>'+
+        '<textarea class="answer-box" placeholder="Write your own answer here first — no peeking at the model answer yet." data-role="answer"></textarea>'+
+        '<div class="mark-actions">'+
+          '<button data-role="copy">Copy AI-marking prompt</button>'+
+          '<button type="button" data-role="print-answer">Print this question + my answer</button>'+
+          '<span class="copy-status" data-role="status"></span>'+
+        '</div>'+
+        '<details><summary>'+critLabel(q)+'</summary><div class="detail-body"><ul class="crit-list">'+
+          q.criteria.map(function(c){ return '<li>'+c+'</li>'; }).join("")+
+        '</ul></div></details>'+
+        '<details><summary>'+answerLabel(q)+'</summary><div class="detail-body"><p>'+q.officialAnswer+'</p></div></details>'+
+        '<details><summary>Extended model answer (excellent, not just “just enough”)</summary><div class="detail-body">'+
+          q.modelAnswer.split("\n\n").map(function(p){ return '<p>'+p+'</p>'; }).join("")+
+        '</div></details>'+
+        '<div class="self-score">'+
+          '<p>Either from an AI, a buddy, or yourself, rate your answer above against the criteria/model answer provided (out of '+q.marks+'). Score '+q.marks+'/'+q.marks+' and this question archives itself:</p>'+
+          '<div class="score-row" data-role="score-row">'+
+            Array.from({length:q.marks}, function(_,i){ return i+1; }).map(function(n){
+              return '<button type="button" data-score="'+n+'">'+n+'</button>';
+            }).join("")+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="next-row"><button type="button" id="q11NextBtn">Next random question →</button></div>';
+    resetTimer();
+  }
+
+  document.getElementById("q11Practice").addEventListener("click", function(e){
+    var timerBtn = e.target.closest("button[data-role^='timer-']");
+    if(timerBtn){
+      var role = timerBtn.getAttribute("data-role");
+      if(role === "timer-start") startTimer();
+      else if(role === "timer-pause") pauseTimer();
+      else if(role === "timer-reset") resetTimer();
+      return;
+    }
+    var copyBtn = e.target.closest('button[data-role="copy"]');
+    if(copyBtn){
+      var card = copyBtn.closest(".card");
+      var qid = card.getAttribute("data-qid");
+      var answerText = card.querySelector('[data-role="answer"]').value;
+      doCopy(qid, answerText, card.querySelector('[data-role="status"]'));
+      return;
+    }
+    var printBtn = e.target.closest('button[data-role="print-answer"]');
+    if(printBtn){
+      var pCard = printBtn.closest(".card");
+      var pStimulus = pCard.querySelector(".stimulus");
+      var pQuestion = pCard.querySelector(".question-text");
+      var pAnswer = pCard.querySelector('[data-role="answer"]').value;
+      var printArea = document.getElementById("printArea");
+      printArea.innerHTML = '<div class="print-set-title">SOR1 Q11 Practice — my answer</div>'
+        + (pStimulus ? '<div class="print-stimulus">'+pStimulus.innerHTML+'</div>' : '')
+        + '<div class="print-question">'+(pQuestion?pQuestion.innerHTML:"")+'</div>'
+        + '<div class="print-answer-box">'+(pAnswer ? pAnswer.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}).replace(/\n/g,"<br>") : '<i>(no answer written yet)</i>')+'</div>';
+      document.body.classList.add("printing-single");
+      window.print();
+      return;
+    }
+    var scoreBtn = e.target.closest("button[data-score]");
+    if(scoreBtn){
+      var card2 = scoreBtn.closest(".card");
+      var qid2 = card2.getAttribute("data-qid");
+      var score = parseInt(scoreBtn.getAttribute("data-score"), 10);
+      var st2 = statFor(qid2);
+      st2.attempts += 1;
+      st2.best = Math.max(st2.best, score);
+      var q2 = Q11_BANK.find(function(x){ return x.id === qid2; });
+      var justArchived = false;
+      if(score >= q2.marks){ st2.archived = true; justArchived = true; }
+      saveQ11Stats();
+      card2.querySelectorAll("[data-score]").forEach(function(b){ b.classList.toggle("chosen", parseInt(b.getAttribute("data-score"),10)===score); });
+      if(justArchived){
+        var note = document.createElement("div");
+        note.className = "archived-note";
+        note.textContent = "Archived — full marks! It won't come up again in random rotation. Find it any time in the Archive tab.";
+        scoreBtn.closest(".self-score").appendChild(note);
+        renderStatsBar();
+      }
+      return;
+    }
+  });
+  document.getElementById("q11Practice").addEventListener("click", function(e){
+    if(e.target && e.target.id === "q11NextBtn"){
+      currentQ11 = pickNextQ11(currentQ11 ? currentQ11.id : null);
+      renderPractice();
+    }
+  });
+  document.getElementById("q11StatsBar").addEventListener("click", function(e){
+    if(e.target && e.target.id === "q11ResetProgress"){
+      if(confirm("Reset all Q11 progress? This un-archives every question and clears attempt history.")){
+        q11Stats = {}; saveQ11Stats(); currentQ11 = null; renderPractice(); renderArchive();
+      }
+    }
+  });
+
+  // ---- Archive view (read-only cards + restore) ----
+  function renderArchive(){
+    var host = document.getElementById("q11Archive");
+    var list = archivedQ11s();
+    if(!list.length){
+      host.innerHTML = '<div class="card"><p>No archived questions yet — score yourself '+'a genuine full mark on a Q11 in the Practice tab and it will appear here.</p></div>';
+      return;
+    }
+    host.innerHTML = list.map(function(q){
+      var st = statFor(q.id);
+      return '<div class="card" data-qid="'+q.id+'">'+
+        (q.stimulus ? '<div class="stimulus">'+q.stimulus+'</div>' : '')+
+        '<div class="question-text">'+q.question+'</div>'+
+        '<div class="q11-head"><span class="q11-year">'+q.year+'</span><span class="q11-source">'+q.source+' · '+q.marks+' marks · '+dpTitle(q.dpRef)+'</span></div>'+
+        '<div class="archived-note">Mastered at '+st.best+'/'+q.marks+' after '+st.attempts+' attempt(s).</div>'+
+        '<details><summary>'+critLabel(q)+'</summary><div class="detail-body"><ul class="crit-list">'+
+          q.criteria.map(function(c){ return '<li>'+c+'</li>'; }).join("")+
+        '</ul></div></details>'+
+        '<details><summary>'+answerLabel(q)+'</summary><div class="detail-body"><p>'+q.officialAnswer+'</p></div></details>'+
+        '<details><summary>Extended model answer</summary><div class="detail-body">'+
+          q.modelAnswer.split("\n\n").map(function(p){ return '<p>'+p+'</p>'; }).join("")+
+        '</div></details>'+
+        '<button type="button" class="restore-btn" data-role="restore">Move back into rotation</button>'+
+      '</div>';
+    }).join("");
+  }
+  document.getElementById("q11Archive").addEventListener("click", function(e){
+    var btn = e.target.closest('button[data-role="restore"]');
+    if(!btn) return;
+    var qid = btn.closest(".card").getAttribute("data-qid");
+    statFor(qid).archived = false;
+    saveQ11Stats();
+    renderArchive(); renderStatsBar();
+  });
+
+  // ---- Practice/Archive sub-tabs ----
+  document.getElementById("q11SubTabs").addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-sub]");
+    if(!btn) return;
+    document.querySelectorAll("#q11SubTabs button").forEach(function(b){ b.classList.toggle("active", b===btn); });
+    var sub = btn.getAttribute("data-sub");
+    document.getElementById("q11Practice").style.display = sub === "practice" ? "" : "none";
+    document.getElementById("q11Archive").style.display = sub === "archive" ? "" : "none";
+    if(sub === "archive") renderArchive();
+  });
+
+  renderPractice();
+  renderArchive();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script>window.addEventListener("afterprint", function(){ document.body.classList.remove("printing-single"); });</script>
+</body>
+</html>

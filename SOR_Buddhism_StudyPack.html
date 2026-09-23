@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR1 Buddhism Study Pack</title>
+<style>
+  :root{
+    --green:#2f4d3a; --green-dark:#22362a; --gold:#efd99a; --gold-dark:#c9a24a;
+    --bg:#f7f5ef; --card:#ffffff; --ink:#20241f; --muted:#5b6259; --line:#e2ddd0;
+    --puja:#3b6ea5; --ethics:#8a4b8a; --dalai:#a3541f; --shadow:0 6px 18px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  header{background:var(--green);color:#fff;padding:22px 18px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;color:#d8e3da;font-size:.92rem;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px;}
+  nav.tabs{background:var(--green-dark);padding:8px 16px;position:sticky;top:0;z-index:10;}
+  .tabs-inner{display:flex;gap:8px;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+  nav.tabs button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.88rem;}
+  nav.tabs button.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold);font-weight:700;}
+  .site-nav{padding:10px 16px;margin:0;background:var(--bg);border-bottom:1px solid var(--line);}
+  .site-nav-inner{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;}
+  .site-nav a,.site-nav span{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;border-radius:14px;font-weight:800;white-space:nowrap;text-decoration:none;font-size:.8rem;display:inline-block;}
+  .site-nav a:hover{background:var(--gold);border-color:var(--gold-dark);}
+  .site-nav span.current{background:var(--green);color:#fff;border-color:var(--green);}
+  .site-nav span.soon{color:var(--muted);cursor:not-allowed;background:#f5f5f2;}
+  main{max-width:960px;margin:0 auto;padding:18px 16px 60px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;}
+  .start-here-card{background:#eef4ec;border:1px solid #cfe0c8;border-radius:14px;padding:14px 18px;margin:14px 0;font-size:.9rem;}
+  .start-here-card h2{margin:0 0 6px;font-size:1rem;color:var(--green-dark);}
+  .start-here-card p{margin:0 0 8px;}
+  .start-here-card a.action-link{display:inline-block;background:var(--green);color:#fff;padding:7px 14px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;}
+  .start-here-card a.action-link:hover{opacity:.9;}
+  @media print{ .site-nav,.start-here-card{display:none!important;} }
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .filters button{border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:999px;cursor:pointer;font-size:.82rem;}
+  .filters button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .dp-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.03em;padding:2px 8px;border-radius:999px;color:#fff;margin-right:8px;}
+  .dp-tag.puja{background:var(--puja);}
+  .dp-tag.ethics{background:var(--ethics);}
+  .dp-tag.dalai{background:var(--dalai);}
+  .rev-title{font-size:1.05rem;font-weight:800;margin:4px 0 8px;}
+  ol.ideas{margin:0;padding-left:22px;}
+  ol.ideas li{margin-bottom:8px;line-height:1.5;font-size:.94rem;}
+  ol.ideas li::marker{font-weight:800;color:var(--gold-dark);}
+  .howto{background:#eef4ec;border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;margin-bottom:14px;}
+  .howto b{color:var(--green-dark);}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  .hub-link{display:inline-flex;align-items:center;gap:6px;color:#d8e3da;text-decoration:none;font-size:.82rem;font-weight:700;margin-bottom:8px;}
+  .hub-link:hover{color:#fff;text-decoration:underline;}
+  /* flashcards */
+  .flip-card{perspective:1200px;min-height:260px;margin-top:14px;}
+  .flip-inner{position:relative;width:100%;min-height:260px;transition:transform .5s ease;transform-style:preserve-3d;}
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-face{position:absolute;inset:0;backface-visibility:hidden;border:2px dashed var(--gold-dark);border-radius:18px;padding:22px;background:linear-gradient(180deg,#fff,#f6f2e4);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;overflow:auto;}
+  .flip-back{transform:rotateY(180deg);border-style:solid;background:linear-gradient(180deg,#eef4ec,#fff);}
+  .flash-meta{text-transform:uppercase;letter-spacing:.12em;color:var(--green);font-weight:900;font-size:.72rem;margin-bottom:8px;}
+  .flash-term{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--green-dark);margin:.2rem 0;line-height:1.25;}
+  .flash-answer{font-size:.9rem;line-height:1.5;color:var(--ink);}
+  .fc-progress{height:8px;background:#e5e0d0;border-radius:999px;overflow:hidden;margin-top:14px;}
+  .fc-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold-dark));transition:.2s;}
+  .action-btn{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:700;}
+  .action-btn.secondary{background:#fff;color:var(--green);border:1px solid var(--green);}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .controls select{padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:.85rem;}
+  /* named evidence + extension */
+  .evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0;}
+  .evidence-cat{background:#f4f1e6;border:1px solid var(--gold-dark);border-radius:10px;padding:10px 14px;}
+  .evidence-cat h4{margin:0 0 6px;font-size:.86rem;color:var(--green-dark);}
+  .evidence-cat ul{margin:0;padding-left:18px;font-size:.85rem;}
+  .evidence-cat li{margin-bottom:3px;}
+  .precept-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86rem;}
+  .precept-table th,.precept-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  .precept-table th{background:#eef4ec;color:var(--green-dark);}
+  .precept-table td.loose{color:#a33;}
+  .precept-table td.precise{color:var(--green-dark);font-weight:600;}
+  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
+  .ba-box{border-radius:10px;padding:10px 14px;font-size:.86rem;line-height:1.45;}
+  .ba-box.generic{background:#f7f1e9;border:1px solid #d9c6a8;}
+  .ba-box.named{background:#eef4ec;border:1px solid #cfe0c8;}
+  .ba-box .ba-label{font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px;}
+  .ba-note{font-size:.78rem;color:var(--muted);margin-top:6px;font-style:italic;}
+  .selfcheck{margin:0;padding-left:0;list-style:none;font-size:.88rem;}
+  .selfcheck li{margin-bottom:6px;padding-left:24px;position:relative;}
+  .selfcheck li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-weight:900;}
+  .ext-box{background:#f4eef7;border:1px solid #d3bfe0;border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+  .ext-box .ext-tag{display:inline-block;background:#8a4b8a;color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-bottom:8px;}
+  .ext-box h4{margin:4px 0 6px;font-size:.98rem;color:#5c3468;}
+  .ext-box p{margin:0;font-size:.88rem;line-height:1.5;}
+  .ext-source{font-size:.74rem;color:var(--muted);margin-top:6px;}
+  /* past questions */
+  .pq-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px;}
+  .pq-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .pq-year{font-size:1.1rem;font-weight:900;color:var(--green);}
+  .pq-marks{font-size:.8rem;color:var(--muted);}
+  .pq-topic{font-size:.85rem;color:var(--green-dark);font-weight:700;margin-bottom:8px;}
+  .verified-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.04em;padding:2px 8px;border-radius:999px;margin-left:6px;text-transform:uppercase;}
+  .verified-badge.full{background:#dcecd8;color:#2f4d3a;}
+  .verified-badge.partial{background:#f7e6c8;color:#7a5a15;}
+  .stimulus{background:#f4f1e6;border:1px dashed var(--gold-dark);border-radius:10px;padding:10px 14px;font-style:italic;margin:8px 0;}
+  .question-text{font-weight:700;margin:8px 0 12px;font-size:.98rem;white-space:pre-line;}
+  .source-note{font-size:.78rem;color:var(--muted);background:#f7f5ef;border-left:3px solid var(--gold-dark);padding:6px 10px;border-radius:4px;margin:6px 0 12px;}
+  details{border:1px solid var(--line);border-radius:10px;margin-top:10px;overflow:hidden;}
+  details summary{cursor:pointer;padding:10px 14px;background:#f8f8f4;font-weight:700;font-size:.9rem;list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details[open] summary::before{content:'\25BE ';}
+  .detail-body{padding:12px 14px;font-size:.9rem;line-height:1.55;}
+  .detail-body p{margin:0 0 10px;white-space:pre-line;}
+  .answer-bullets{margin:0 0 10px;padding-left:20px;}
+  .answer-bullets li{margin:0 0 8px;line-height:1.5;}
+  .crit-table{width:100%;border-collapse:collapse;margin:8px 0 0;font-size:.84rem;}
+  .crit-table th,.crit-table td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  .crit-table th{background:#eef4ec;color:var(--green-dark);width:110px;}
+  .crit-table ul{margin:0;padding-left:16px;}
+  .ans-label{font-weight:800;font-size:.8rem;color:var(--green-dark);margin:4px 0 4px;}
+  .teacher-note{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:6px;}
+  /* practice-writing process (mirrors Q11 Practice) */
+  .sub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .sub-tabs button{border:1px solid var(--line);background:#fff;padding:7px 14px;border-radius:999px;cursor:pointer;font-size:.84rem;font-weight:700;color:var(--green-dark);}
+  .sub-tabs button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .pq-stats-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#eef4ec;border-radius:10px;padding:10px 14px;font-size:.85rem;margin-bottom:14px;color:var(--green-dark);}
+  .pq-stats-bar button.linklike{background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.8rem;padding:0;}
+  .timer-box{display:flex;align-items:center;gap:10px;background:#f4f1e6;border:1px solid var(--gold-dark);border-radius:10px;padding:8px 14px;margin:10px 0;flex-wrap:wrap;}
+  .timer-display{font-size:1.5rem;font-weight:900;color:var(--green-dark);min-width:74px;font-variant-numeric:tabular-nums;}
+  .timer-display.warn{color:#a33;}
+  .timer-box button{border:1px solid var(--green);background:#fff;color:var(--green);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.82rem;font-weight:700;}
+  .timer-box button.primary{background:var(--green);color:#fff;}
+  .timer-label{font-size:.78rem;color:var(--muted);}
+  textarea.answer-box{width:100%;min-height:140px;padding:10px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:.92rem;resize:vertical;box-sizing:border-box;}
+  .mark-actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;align-items:center;}
+  .mark-actions button{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:700;}
+  .copy-status{font-size:.82rem;color:var(--muted);}
+  .self-score{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .self-score p{margin:0 0 8px;font-size:.88rem;font-weight:700;color:var(--green-dark);}
+  .score-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .score-row button{border:1px solid var(--green);background:#fff;color:var(--green);width:38px;height:38px;border-radius:50%;cursor:pointer;font-weight:800;}
+  .score-row button:hover{background:#eef4ec;}
+  .score-row button.chosen{background:var(--green);color:#fff;}
+  .archived-note{background:#eef4ec;border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--green-dark);margin-top:10px;}
+  .next-row{display:flex;justify-content:center;margin:18px 0;}
+  .next-row button{background:var(--gold-dark);color:#3a2c08;border:none;padding:12px 22px;border-radius:10px;cursor:pointer;font-size:.95rem;font-weight:800;}
+  .restore-btn{background:#fff;color:var(--green);border:1px solid var(--green);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:700;}
+  @media (max-width:700px){ .evidence-grid,.before-after{grid-template-columns:1fr;} }
+  @media print{ nav.tabs, .filters, .hub-link, .controls, .sub-tabs, .timer-box, .self-score, .next-row, .mark-actions{display:none!important;} .panel{display:block!important;} details{border:none;} }
+  #printArea{display:none;}
+  .print-set-title{font-size:1.2rem;font-weight:800;margin-bottom:10px;}
+  .print-stimulus{font-style:italic;border-left:3px solid #ccc;padding-left:10px;margin-bottom:10px;}
+  .print-question{font-weight:700;margin-bottom:14px;}
+  .print-answer-box{border:1px solid #999;border-radius:6px;padding:12px;min-height:200px;white-space:pre-wrap;line-height:1.6;}
+  @media print{
+    body.printing-single *{visibility:hidden;}
+    body.printing-single #printArea, body.printing-single #printArea *{visibility:visible;}
+    body.printing-single #printArea{display:block;position:absolute;left:0;top:0;width:100%;}
+  }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+    <h1>SOR1 Buddhism Study Pack</h1>
+    <p>Content bank, flashcards, a named-evidence bank and real past HSC questions (2014&ndash;2024) with marking criteria and model answers &mdash; pack 1, built from Dr Batten's Buddhism depth-study material. More source files will expand this over time.</p>
+    <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+  </div>
+</header>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="SOR_Revision_Hub.html#start">Start Here</a>
+    <a href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html">6-Week Planner</a>
+    <a href="SOR_Revision_Hub.html#brain">Brain Dump</a>
+    <a href="SOR_Revision_Hub.html#quiz">Quick Quiz</a>
+    <a href="SOR_MC_Revision_Bank.html">Multiple Choice</a>
+    <a href="SOR_Q11_Practice.html">Q11</a>
+    <span class="current">Buddhism</span>
+    <a href="SOR_Judaism_StudyPack.html">Judaism</a>
+    <a href="SOR_Content_Flashcards.html">Flashcards</a>
+    <a href="SOR_Terminology.html">Terminology</a>
+    <a href="SOR_Detail_Bank.html">SLV</a>
+    <a href="SOR_Exam_Builder.html">Build an Exam</a>
+  </div>
+</nav>
+<nav class="tabs" id="tabs">
+  <div class="tabs-inner">
+    <button data-tab="content" class="active">Content Bank</button>
+    <button data-tab="flash">Flashcards</button>
+    <button data-tab="evidence">Named Evidence &amp; Extension</button>
+    <button data-tab="past">Questions to Practise</button>
+  </div>
+</nav>
+<main>
+
+<div class="start-here-card">
+  <h2>New here?</h2>
+  <p>This is pack 1 of the Buddhism material: 7 content-bank items (Temple Puja, Ethics, the Dalai Lama), 39 flashcards, a named-evidence bank for lifting generic answers, and 7 real HSC questions (2014&ndash;2024) with genuine marking criteria and answers where the source captured them &mdash; clearly flagged wherever a model answer had to be written to match a real question because no source sample existed.</p>
+  <a class="action-link" href="SOR_Revision_Hub.html#start">Go to Start Here &rarr;</a>
+</div>
+
+<section id="content" class="panel active">
+  <div class="howto"><b>How to use this:</b> each item gives 5&ndash;7 exam-ready sentence ideas (&le;320 words total, ranked with the most important first) &mdash; Buddhism's Section III essay is worth 20 marks, so these carry more depth and named examples than a short-answer bank. Aim to know at least 3 sentences per item cold, including the ones with real dates, organisations and quotes.</div>
+  <div class="filters" id="bdFilters"></div>
+  <div id="bdList"></div>
+</section>
+
+<section id="flash" class="panel">
+  <div class="howto"><b>How to use this:</b> flip through the deck, filter by category, or shuffle. The <b>Named Evidence Bank</b> and <b>Extension</b> categories are separate from the core content &mdash; extension cards are optional depth, not required HSC content.</div>
+  <div class="card soft">
+    <div class="controls">
+      <select id="flashFilter" aria-label="Flashcard filter"></select>
+      <button class="action-btn secondary" id="shuffleCards" type="button">Shuffle</button>
+      <button class="action-btn secondary" id="prevCard" type="button">Previous</button>
+      <button class="action-btn" id="flipCard" type="button">Flip</button>
+      <button class="action-btn secondary" id="nextCard" type="button">Next card</button>
+    </div>
+    <div class="fc-progress"><span id="flashProgress"></span></div>
+    <p class="small" id="flashCount" style="color:var(--muted);font-size:.82rem;"></p>
+    <div class="flip-card" id="flashCard" tabindex="0" role="button" aria-label="Flip flashcard">
+      <div class="flip-inner">
+        <div class="flip-face">
+          <div class="flash-meta" id="flashCat"></div>
+          <h3 class="flash-term" id="flashFront"></h3>
+          <p class="small" style="color:var(--muted);">Click to reveal the answer.</p>
+        </div>
+        <div class="flip-face flip-back">
+          <div class="flash-meta">Answer</div>
+          <div class="flash-answer" id="flashBack"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence" class="panel">
+  <div class="howto"><b>Why this tab exists:</b> the single most repeated marker note on Buddhism responses this year was to include more named organisations, temples and leaders &mdash; not to fix wrong content, but vague content. Use this bank to turn accurate-but-generic answers into ones a marker can underline. The <b>Extension</b> boxes below are optional depth from a guest lecture &mdash; useful for reach, not required for the syllabus.</div>
+
+  <div class="card">
+    <h3 class="rev-title">Say it precisely: the Five Precepts</h3>
+    <table class="precept-table">
+      <tr><th>Loose</th><th>Precise</th></tr>
+      <tr id="preceptRows"></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 class="rev-title" id="beforeAfterTitle"></h3>
+    <div class="before-after">
+      <div class="ba-box generic">
+        <div class="ba-label">Generic</div>
+        <div id="baGeneric"></div>
+        <div class="ba-note" id="baGenericNote"></div>
+      </div>
+      <div class="ba-box named">
+        <div class="ba-label">Named</div>
+        <div id="baNamed"></div>
+        <div class="ba-note" id="baNamedNote"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="rev-title">The Named Evidence Bank</h3>
+    <div class="evidence-grid" id="evidenceGrid"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="rev-title">Before you submit &mdash; evidence audit</h3>
+    <ul class="selfcheck" id="selfCheckList"></ul>
+  </div>
+
+  <div id="extensionList"></div>
+</section>
+
+<section id="past" class="panel">
+  <div class="howto" data-personalize><b>How to use this:</b> you'll get ONE past Buddhism question at a time, picked at random &mdash; read it and attempt it for real, using the timer. Then check it against the criteria and answer(s) below (each labelled genuine or self-authored &mdash; see the note on each card) and rate your own answer. Score full marks and it moves to your Archive, just like Q11 Practice. Use "Copy AI-marking prompt" to get feedback on your own draft from Copilot or another AI tool your school provides &mdash; nothing is sent anywhere automatically, you paste it yourself.</div>
+  <div class="sub-tabs" id="pqSubTabs">
+    <button data-sub="practice" class="active">Practice (random)</button>
+    <button data-sub="archive">Archive (mastered)</button>
+  </div>
+  <div class="pq-stats-bar" id="pqStatsBar"></div>
+  <div id="pqPractice"></div>
+  <div id="pqArchive" style="display:none;"></div>
+</section>
+
+<div id="printArea"></div>
+</main>
+<footer>Wenona SOR1 revision suite &middot; built for offline / SharePoint use &middot; not affiliated with NESA</footer>
+
+<script>
+// ===== Buddhism content bank =====
+// Item sets are <320 words (not <170 — Buddhism has 8-mark items in the real papers, so these
+// carry more depth/examples than the Nature of Religion & Belief bank).
+var BUDDHISM_BANK = [
+  {
+    id: "bd10", dp: "DP10", area: "puja",
+    title: "Describe ONE significant practice: Temple Puja (OBO)",
+    ideas: [
+      "Temple Puja is a devotional practice where Buddhists gather to honour the Buddha, deepen commitment to the Dharma, and connect with the Sangha through offerings, bowing and other rituals (Dr Batten's acronym: OBO). It is described as “inner transformation” rather than worship.",
+      "It can happen at home or in a temple — daily for around 30 minutes, or on festivals such as Bodhi Day (8 December, commemorating the Buddha's Enlightenment) for 90+ minutes; it is a personal and community celebration, “alone, together”.",
+      "Offerings — flowers, food (especially fruit), incense and lit candles — are placed before the Buddharupa as the Buddha's “guest of honour”, expressing gratitude and “internal cultivation”; the multisensory items also show anicca (impermanence).",
+      "Bowing shows humility and “non-ego” (Anatta) towards the Buddharupa or a senior monk/lay person; worshippers also dress modestly, remove shoes and, at times, sit on the floor.",
+      "“Other” rituals include chanting — e.g. the Mahayana mantra ‘Om Mani Padme Hum’ (‘hail to the lotus in the jewel’), or monks chanting extracts from the Tripitaka (all schools) or the Lotus of the Good Law (Mahayana), sometimes accompanied by instruments such as bells, drums, gongs and cymbals — and meditation, which can involve stilling the mind or concentrating on breathing.",
+      "Temples reflect their surrounding culture: Theravada temples in Thailand are ornately gold-decorated, Mahayana temples in Japan favour minimalist timber architecture, and Vajrayana temples in Tibet use bright iconography and prayer flags. Most include a Buddharupa shrine, calm gardens (often with a Bodhi tree, symbolising the Buddha's enlightenment) and sometimes a library, e.g. the Nan Tien Temple, NSW.",
+      "Puja has adapted over time (SLV: Living/dynamic) — Dharma talks are now often livestreamed (e.g. from Nan Tien Temple), which was especially valuable during the 2020–2022 Covid years."
+    ]
+  },
+  {
+    id: "bd10b", dp: "DP10b", area: "puja",
+    title: "Demonstrate how Temple Puja expresses the beliefs of Buddhism (Three Jewels + Eightfold Path)",
+    ideas: [
+      "Temple Puja expresses the Three Jewels — the Buddha, Dharma and Sangha — through offerings, bowing and chanting; images (buddharupas), including Bodhisattvas in Mahayana/Vajrayana (e.g. Quan Yin at Nan Tien Temple), are focal points for reverence.",
+      "Offerings express gratitude for the Buddha's awakening and the Sangha's guidance; lighting incense/candles symbolises moral “fragrance” and wisdom spreading — summed up in the hymn: “I take refuge in the Buddha… the Dharma… the Sangha…” (Khuddakapāṭha 1).",
+      "Puja also expresses the Eightfold Path: lighting candles encourages ‘Right Understanding’; reflection develops ‘Right Speech’ and ‘Right Mindfulness’; meditation (common to all 3 schools) supports ‘Right Concentration’.",
+      "‘Right Action’ is evident at Nan Tien Temple's vegan restaurant, letting adherents practise ahimsa (non-violence) and work toward the cessation of dukkha.",
+      "Worshippers also circle objects of devotion (e.g. Buddharupas or Bodhi trees) three times, commemorating the centrality of the Three Jewels, and often chant the Threefold Refuge hymn together during prayer.",
+      "Variants differ in emphasis: Theravada chanting focuses on early Pali texts such as the Metta Sutta and Refuge Chant, directed mainly toward the historical Buddha; Mahayana chanting includes sutras like the Heart Sutra and devotional chants to Bodhisattvas (e.g. Avalokiteshvara), expressing the vow to help all beings reach enlightenment; Vajrayana devotion extends to gurus (lamas) through mantras, mudras and visualisations — but all three share the same underlying aim of honouring the Three Jewels."
+    ]
+  },
+  {
+    id: "bd10c", dp: "DP10c", area: "puja",
+    title: "Analyse the significance of Temple Puja for the individual and the community",
+    ideas: [
+      "For the individual, Temple Puja nurtures the personal quest for enlightenment: offerings cultivate generosity and positive karma supporting liberation from samsara toward nirvana, while mindfulness loosens attachment to the self (anatta-awareness).",
+      "Emphasis differs by variant (Theravada: merit-making and meditation; Mahayana: compassion and devotion; Vajrayana: ritual and visualisation), but as the Buddha taught, “not by rituals alone does one become pure, but also by disciplining the mind” (Dhammapada). Mudras (symbolic hand gestures), especially in Vajrayana, help adherents experience clarity of mind and compassion during Puja.",
+      "For the community, Temple Puja gathers adherents in a shared commitment to wisdom and compassion, creating collective unity — a lived expression of being “alone, together”.",
+      "Temples such as Nan Tien function as hubs connecting monastics, laypeople and visitors from across NSW and beyond, reinforcing the broader Sangha through festivals (e.g. the Bodhi Festival, 8 December) and shared rituals; they attract different cultures and backgrounds to practise together, promoting tolerance, peace and respect.",
+      "The wider community demonstrates respect and gratitude to the monastic Sangha specifically by giving offerings and listening to sermons, validating the Sangha as the backbone of the community.",
+      "The Lord Buddha's teaching to the Sangha — “stand together, assist one another, and strengthen one another's efforts” — captures how the community embodies mutual spiritual growth through Puja, while the meditative, communal nature of the practice also builds each individual's spiritual resilience, discipline and inner calm."
+    ]
+  },
+  {
+    id: "bd11a", dp: "DP11a", area: "ethics",
+    title: "Describe the Five Precepts, and explain how they guide daily living (STIFS + 3As)",
+    ideas: [
+      "The Five Precepts are the foundational guidelines for Buddhist moral conduct: abstain from harming Sentient beings, Taking what is not given, Intoxicants, False speech, and misusing the Senses (STIFS) — “abstain from all kinds of evil… to purify the mind” (Dhammapada 14:183).",
+      "Applied to environmental ethics: not harming sentient beings grounds ahimsa (non-violence) and karuna (compassion) toward all life, supporting biodiversity and (for many Mahayana Buddhists) vegetarian/vegan diets; not taking what is not given reframes ecological ‘theft’ as unsustainable extraction (over-fishing, illegal logging) that steals from future generations.",
+      "Not speaking falsehoods means rejecting ‘greenwashing’ and demanding honest climate reporting, transparent supply chains and ethical investing — “with your thoughts you make your world” (Dhammapada 1:1).",
+      "Beyond alcohol and drugs, many modern Buddhists extend the Third Precept to intoxicating habits that dull ethical awareness, such as addiction to high-emission lifestyles or profiting from polluting industries — linking the precept to Right Mindfulness and Right Livelihood.",
+      "The Fifth Precept (misusing the senses), traditionally about sexual consent and responsibility, is sometimes extended in contemporary ‘eco-dharma’ to resisting consumerist over-indulgence that drives resource depletion, e.g. avoiding cosmetics tested on animals or sourced through deforestation.",
+      "Daily living expresses these teachings through the Three Noble Deeds: Awareness (mindful consumption, walking meditation), Advocacy (challenging greenwashing, science-based climate goals) and Action (plant-based diets, renewable energy, habitat restoration) — the 3As.",
+      "Real examples: Thai Theravada monks ‘ordaining’ trees to prevent logging, and organisations such as Earth Sangha and the Buddhist Peace Fellowship restoring habitats and promoting renewable energy, car-pollution standards and greater government subsidies for conservation."
+    ]
+  },
+  {
+    id: "bd11b", dp: "DP11b", area: "ethics",
+    title: "Explain (further) Buddhist ethical teachings on environmental ethics — balance, interdependence, karma (BDK)",
+    ideas: [
+      "Buddhist environmental ethics centre on maintaining Balance through the Middle Way — avoiding extremes — from the Buddha's First Sermon: “avoiding both extremes… the Middle Way… gives rise to vision, knowledge, and leads to peace, to direct insight, and to enlightenment.”",
+      "Trees are especially significant: the Buddha found enlightenment under the bodhi tree, early sanghas were founded in forests, and Thai monks have ‘ordained’ trees to prevent logging. Sacred sites reflect this care for nature — elaborate temples such as Borobudur (Indonesia) and Angkor Wat (Cambodia) are set in peaceful natural surroundings, and the Nan Tien Temple, NSW has award-winning gardens.",
+      "Dependent arising (interdependence) underpins a shared fate: “because all living beings are subject to illness, I am ill, as well” (Vimalakīrti Sūtra); the Dalai Lama calls this a “universal responsibility”, criticising toxic dumping in Tibet.",
+      "Thich Nhat Hanh (a Zen Bodhisattva) advocates ‘deep listening’ to the environment through walking meditations at Plum Village, teaching “we are here to awaken from the illusion of our separateness.” The Buddhist Declaration on Climate Change echoes this: “the Earth is our mother as well as our home; when the Earth becomes sick, we become sick.”",
+      "Karma links individual and collective consequences: abusing nature creates imbalance, so groups such as the Dharma Gaia Trust, Earth Sangha and the Buddhist Peace Fellowship advocate for renewable energy; the Buddhist Declaration on Climate Change endorses a 350ppm CO2 safe limit, a target also endorsed by the Dalai Lama.",
+      "This is lived out through the Three Noble Deeds: Awareness (meditation, mindful consumption), Advocacy (challenging greenwashing, supporting science-based climate goals, e.g. Tibetan protests against toxic dumping) and Action (plant-based diets, solar energy, and habitat restoration by groups such as Earth Sangha) — showing Buddhism as a living tradition responding compassionately to modern environmental crises."
+    ]
+  },
+  {
+    id: "bd12a", dp: "DP12a", area: "dalai",
+    title: "Analyse the impact of the XIVth Dalai Lama on the development of Buddhism (REP: Rebirth, Ethics, Peace)",
+    ideas: [
+      "Tibetan Buddhists believe the XIV Dalai Lama is the rebirth of the Bodhisattva of Compassion (karuna), giving doctrinal continuity through the 1959 Tibetan exile, while reframing rebirth as continuity of consciousness (aligning with anatta) for modern contexts.",
+      "He has reframed Buddhism as a secular ethical system aligned with science: in Beyond Religion (2011) he argues “ethics is more important than religion”, and in The Universe in a Single Atom (2005) states Buddhism must change if science disproves a belief, even rejecting traditional cosmology such as the Mount Meru universe described in Abhidharma texts.",
+      "He co-founded the Mind & Life Institute (1987) for dialogue between scientists and Buddhists, and reinterpreted karma (behavioural causation), rebirth (continuity of consciousness) and the Six Realms (psychological states), presenting tantric deities symbolically rather than literally.",
+      "He has also reformed monastic education by integrating modern science — part of a broader shift from a cosmological system to a psychological-ethical practice focused on reducing suffering, making Buddhism far more accessible to secular and Western audiences.",
+      "His ethical leadership — grounded in ahimsa, compassion and dependent arising — contributed to his 1989 Nobel Peace Prize; his ‘Middle Way’ approach embodies “hatred does not cease by hatred, but only by love” (Dhammapada 1:5).",
+      "Through interfaith relationships, e.g. with Archbishop Desmond Tutu, he has modelled ‘spiritual friendship’, extending Buddhist ethics beyond Buddhism itself and positioning Buddhist ethics as relevant to interfaith dialogue and cooperation more broadly."
+    ]
+  },
+  {
+    id: "bd12b", dp: "DP12b", area: "dalai",
+    title: "Analyse the contribution of the XIVth Dalai Lama to the expression of Buddhism (PPV: Public face, Peace-grounded, non-Violence)",
+    ideas: [
+      "Though head of only one school (Vajrayana Tibetan Buddhism), the Dalai Lama is the public face of Buddhism worldwide through teachings, media and books such as The Seed of Compassion (2020), encouraging adherents — especially in Western countries — toward compassion, mindfulness and non-violence. In a 2013 poll across the US and six major European countries, he was found to be the joint most popular world leader (tied with Barack Obama).",
+      "His teaching that inner peace leads to outer peace, reflecting the bodhisattva ideal of working for others' liberation, presents Buddhism as a path of peace grounded in universal human values, encouraging adherents to develop patience, forgiveness and emotional resilience when responding to conflict and hardship.",
+      "He has urged Buddhists to apply the Five Precepts and ahimsa in daily life, proposing Tibet as a ‘Zone of Ahimsa’ and pursuing peaceful negotiation over conflict since the 1959 exile.",
+      "Before 1959, Tibet functioned as a Buddhist theocracy; since then, Tibetan Buddhism has survived in exile under his leadership from Dharamsala, India, while he has travelled extensively — including via digital platforms during Covid — to advocate for human rights, religious freedom and cultural preservation.",
+      "Echoing the Tibetan Book of the Dead — “clarity of mind dispels fear in all realms” — he links moral clarity and non-violence to political dialogue, as in his 1987 Five Point Peace Plan for Tibet.",
+      "Many Buddhists express faith through kindness, community service and interfaith dialogue as a result of his example, extending Buddhism's reach and encouraging new adherents toward meditation and self-reflection."
+    ]
+  }
+];
+
+// ===== Named Evidence Bank + Extension =====
+var NAMED_EVIDENCE = {
+  person: { label: "Significant person", items: ["Dalai Lama XIV", "Five Point Peace Plan (1987)", "Nobel Peace Prize (1989)", "concept of ‘universal responsibility’"] },
+  orgs: { label: "Organisations & initiatives", items: ["Earth Sangha", "Trees for Dharma (tree ordination)", "Green Sangha", "Buddhist Peace Fellowship"] },
+  temples: { label: "Temples & significant practice", items: ["Nan Tien Temple, NSW (vegetarian-only kitchen)", "Temple Puja & the Three Jewels", "Bodhi Day festival (8 December)"] },
+  scripture: { label: "Scripture & precise terminology", items: ["Dhammapada citations by verse (e.g. 14:183, 1:5)", "precise precept phrasing: ‘abstain from…’, never ‘do not…’"] }
+};
+var PRECEPT_PRECISION = [
+  { loose: "“Do not kill.”", precise: "“Abstain from harming sentient beings.”" },
+  { loose: "“Do not steal.”", precise: "“Abstain from taking what is not given.”" },
+  { loose: "“Do not lie.”", precise: "“Abstain from false and harmful speech.”" },
+  { loose: "“Buddhists believe in kindness.”", precise: "“Karuna (universal compassion) guides adherents to minimise dukkha in others.”" }
+];
+var NAMED_EVIDENCE_EXAMPLE = {
+  question: "Environmental ethics — the same underlying belief, two very different answers.",
+  generic: "Buddhists believe in caring for the environment because of compassion and the precepts, which guide them to act rightly.",
+  genericNote: "Accurate. But this sentence could sit in almost any student's essay on almost any ethical area — nothing to underline.",
+  named: "The Green Sangha's tree-ordination initiative in Thailand, and Nan Tien Temple's vegetarian-only kitchen, embody karuna by extending the First Precept — abstaining from harm — to the natural world.",
+  namedNote: "Same belief. Now there's a named organisation, a named temple and precise precept language — three underlinable details."
+};
+var EVIDENCE_SELFCHECK = [
+  "Have I named a specific organisation, temple or leader-led initiative, rather than just describing a concept?",
+  "Have I phrased the precepts precisely — ‘abstain from…’ rather than ‘do not…’?",
+  "Have I stayed tied to the specific ethical area the question named, rather than drifting into general precepts?",
+  "Could a marker underline three named, specific details in my response right now?"
+];
+var EXTENSION_CONTENT = [
+  {
+    title: "Extension: environmental ethics looks different across the three schools",
+    source: "Dr Toby Mendelson guest lecture (2026)",
+    body: "“Which Buddhism?” matters: Theravada's orientation is ascetic — nature is impermanent and not necessarily a source of peace or beauty in itself, though a natural setting may be valued for the quietude it offers the mind. East Asian Mahayana, shaped by buddha-nature and Taoist ideas of harmony (and, in Japan, Shinto animism), sees nature as imbued with sentience and life force, with humans and environment co-emerging — awakening happens through harmonising with nature, not detaching from it. Tibetan Vajrayana is shaped by the Himalayan landscape itself: the environment is understood as populated by unseen beings (local gods, spirits), so the ethic is animistic, expressed through rituals such as sang (smoke offering)."
+  },
+  {
+    title: "Extension: the Dalai Lama's lineage and philosophical emphasis",
+    source: "Dr Toby Mendelson guest lecture (2026)",
+    body: "The current Dalai Lama belongs to the Gelugpa lineage of Tibetan Buddhism — one of four major lineages alongside Nyingma, Kagyu and Sakya — a scholastic, monastic tradition. As political leader of Tibet at the time of the 1959 Chinese annexation, he escaped to India and has lived in exile in Dharamsala ever since. His teaching emphasises a rigorous, rationalistic approach to ‘emptiness’ (śūnyatā) — not nothingness, but freedom from independent existence: nothing (including a person) exists independently of what it depends on, only interdependently. Understanding this directly, alongside developing compassion, is central to his account of awakening."
+  }
+];
+
+// ===== Flashcards =====
+var BUDDHISM_FLASHCARDS = [
+  {cat:"Temple Puja", front:"What does Dr Batten's OBO acronym stand for?",
+    back:"Offering, Bowing, Other — the three parts of Temple Puja. Offerings (flowers, food, incense, candles) are placed before the Buddharupa; Bowing shows humility (Anatta) to the Buddha image or senior monk/lay person; Other covers chanting and meditation."},
+  {cat:"Temple Puja", front:"Why is Bodhi Day (8 December) significant for Temple Puja?",
+    back:"Bodhi Day commemorates the Buddha's Enlightenment (Bodhi) and is when Temple Puja can extend to 90+ minutes rather than the daily ~30 minutes, e.g. at Nan Tien Temple, NSW."},
+  {cat:"Temple Puja", front:"What does the Mahayana mantra ‘Om Mani Padme Hum’ translate to, and what does it represent?",
+    back:"‘Hail to the lotus in the jewel’ — the union of wisdom (lotus) and compassion (jewel); chanting it is believed to purify negative qualities such as jealousy, anger and ignorance."},
+  {cat:"Temple Puja", front:"How does Temple Puja express the Three Jewels?",
+    back:"Through offerings, bowing and chanting directed at images (buddharupas) of the Buddha, the Dharma (revered through offerings of light/candles, and through reading sacred texts) and the Sangha (honoured through offerings to monks and nuns, and through communal gathering)."},
+  {cat:"Temple Puja", front:"Complete the quote: ‘I take refuge in the Buddha…’",
+    back:"“I take refuge in the Buddha, the incomparably honoured one; I take refuge in the Dharma, honourable for its purity; I take refuge in the Sangha, honourable for its harmonious life” — the Threefold Refuge, Khuddakapāṭha 1."},
+  {cat:"Temple Puja", front:"How does Temple Puja express the Eightfold Path?",
+    back:"Lighting candles encourages ‘Right Understanding’; reflection develops ‘Right Speech’ and ‘Right Mindfulness’; meditation (common to all 3 schools) supports ‘Right Concentration’; Nan Tien Temple's vegan restaurant lets adherents practise ‘Right Action’ (ahimsa)."},
+  {cat:"Temple Puja", front:"How do the three main schools differ in their emphasis during Puja?",
+    back:"Theravada: Pali texts and personal discipline/insight. Mahayana: sutras and Bodhisattva devotion (e.g. bodhisattvas incorporated into Puja). Vajrayana: mantras, mudras and gurus."},
+  {cat:"Temple Puja", front:"Why is Temple Puja significant for the individual?",
+    back:"It nurtures the personal quest for enlightenment: offerings cultivate generosity and positive karma supporting liberation from samsara toward nirvana, while mindfulness loosens attachment to the self (anatta-awareness)."},
+  {cat:"Temple Puja", front:"Why is Temple Puja significant for the Buddhist community?",
+    back:"It creates collective unity — “alone, together” — with temples like Nan Tien functioning as hubs connecting monastics, laypeople and visitors, reinforced by festivals (Bodhi Day) and the teaching: “stand together, assist one another, and strengthen one another's efforts.”"},
+  {cat:"Temple Puja", front:"What Dhammapada quote captures that ritual alone isn't enough in Buddhism?",
+    back:"“Not by rituals alone does one become pure, but also by disciplining the mind” (Dhammapada) — a reminder that Temple Puja's significance lies in genuine inner cultivation, not just the actions themselves."},
+  {cat:"Ethics & Precepts", front:"What does Dr Batten's STIFS acronym stand for?",
+    back:"The Five Precepts: abstain from harming Sentient beings, Taking what is not given, Intoxicants, False speech, and misusing the Senses."},
+  {cat:"Ethics & Precepts", front:"What does the Buddhist ‘Three Noble Deeds’ (3As) framework cover?",
+    back:"Awareness (mindful consumption, walking meditation), Advocacy (challenging greenwashing, science-based climate goals) and Action (plant-based diets, renewable energy, habitat restoration) — how the Five Precepts guide daily environmental living."},
+  {cat:"Ethics & Precepts", front:"Give one real-world example of Buddhists applying the First Precept environmentally.",
+    back:"Thai Theravada monks ‘ordaining’ trees (wrapping them in saffron robes) to prevent logging — extending the precept against harming sentient beings to protecting an ecosystem."},
+  {cat:"Ethics & Precepts", front:"How does the Second Precept (not taking what is not given) apply to environmental ethics?",
+    back:"Ecological ‘theft’ is reframed as unsustainable extraction — over-fishing, illegal logging, soil depletion — that effectively steals resources from future generations."},
+  {cat:"Ethics & Precepts", front:"How does the Fourth Precept (false speech) apply to environmental ethics?",
+    back:"It means promoting truth-telling about pollution, emissions and climate risk, and rejecting ‘greenwashing’ — honest reporting, transparent supply chains, ethical investing."},
+  {cat:"Ethics & Precepts", front:"What does the Buddha's teaching on the Middle Way say about extremes?",
+    back:"“Avoiding both extremes… the Middle Way… gives rise to vision, knowledge, and leads to peace, to direct insight, and to enlightenment” (the Buddha's First Sermon) — applied to environmental ethics as avoiding the extremes of exploiting or entirely rejecting use of the natural world."},
+  {cat:"Ethics & Precepts", front:"Why are trees particularly significant in Buddhist environmental ethics?",
+    back:"The Buddha found enlightenment under the bodhi tree, early sanghas were founded in forests, and Thai monks have ‘ordained’ trees to prevent logging — trees connect the tradition's own origin story to a living ecological practice."},
+  {cat:"Ethics & Precepts", front:"What is the Vimalakīrti Sūtra quote used to express Buddhist interdependence?",
+    back:"“Because all living beings are subject to illness, I am ill, as well” — dependent arising means one being's suffering (including the Earth's) is shared, not separate."},
+  {cat:"Ethics & Precepts", front:"What does Thich Nhat Hanh mean by ‘deep listening’ to the environment?",
+    back:"A meditative practice (e.g. his Plum Village walking meditations) of attentively connecting with the needs of the natural world, teaching “we are here to awaken from the illusion of our separateness.”"},
+  {cat:"Ethics & Precepts", front:"Name two Buddhist organisations actively engaged in environmental advocacy.",
+    back:"Earth Sangha and the Buddhist Peace Fellowship (BPF) — promoting renewable energy, biodiversity and community environmental restoration; also Green Sangha and Trees for Dharma (tree ordination)."},
+  {cat:"Ethics & Precepts", front:"What CO2 target does the Buddhist Declaration on Climate Change endorse, and who backs it?",
+    back:"No more than 350 parts per million — endorsed by the Dalai Lama, along with other Nobel laureates and distinguished scientists."},
+  {cat:"Dalai Lama", front:"What does Dr Batten's REP acronym cover (impact on development)?",
+    back:"Rebirth (of the Bodhisattva of Compassion), Ethics (reformulated as compatible with science), Peace (as a Buddhist ideal) — the Dalai Lama's three main impacts on Buddhism's development."},
+  {cat:"Dalai Lama", front:"What does Dr Batten's PPV acronym cover (contribution to expression)?",
+    back:"Public face (of Buddhism worldwide), Peace-grounded (universal human values), non-Violence (advocacy) — how the Dalai Lama has shaped how Buddhism is expressed and understood."},
+  {cat:"Dalai Lama", front:"Why do Tibetan Buddhists regard the XIV Dalai Lama as significant to Buddhism's development?",
+    back:"He is believed to be the rebirth of the Bodhisattva of Compassion (karuna), providing doctrinal continuity and legitimacy through the 1959 Tibetan exile, while reframing rebirth as continuity of consciousness to keep the doctrine meaningful in modern contexts."},
+  {cat:"Dalai Lama", front:"How has the Dalai Lama reframed Buddhism in relation to science?",
+    back:"In Beyond Religion (2011) he argues “ethics is more important than religion”; in The Universe in a Single Atom (2005) he states Buddhism must change if science disproves a belief; he co-founded the Mind & Life Institute (1987) for scientist-Buddhist dialogue."},
+  {cat:"Dalai Lama", front:"What three traditional Buddhist doctrines has the Dalai Lama reinterpreted, and how?",
+    back:"Karma (as behavioural causation), rebirth (as continuity of consciousness) and the Six Realms (as psychological states) — shifting Buddhism from a cosmological system toward a psychological-ethical one."},
+  {cat:"Dalai Lama", front:"What did the Dalai Lama win in 1989, and why?",
+    back:"The Nobel Peace Prize, for ethical leadership grounded in ahimsa (non-violence), compassion and dependent arising, and his advocacy for a peaceful ‘Middle Way’ resolution to the Tibetan struggle."},
+  {cat:"Dalai Lama", front:"What was the Dalai Lama's 1987 Five Point Peace Plan?",
+    back:"A proposal for the restoration of peace and human rights in Tibet, reflecting his non-violent approach to political conflict; it was rejected by the Chinese government."},
+  {cat:"Dalai Lama", front:"How has the Dalai Lama modelled interfaith ‘spiritual friendship’?",
+    back:"Through relationships such as with Archbishop Desmond Tutu, extending Buddhist ethics (compassion, non-violence) into interfaith dialogue beyond Buddhism itself."},
+  {cat:"Dalai Lama", front:"What Tibetan Book of the Dead quote does the Dalai Lama echo in his advocacy for non-violence?",
+    back:"“Clarity of mind dispels fear in all realms” — used to link moral clarity and non-violence to reshaping political dialogue."},
+  {cat:"Dalai Lama", front:"Why is the Dalai Lama sometimes called ‘the public face of Buddhism’ despite heading only one school?",
+    back:"He heads only Vajrayana Tibetan Buddhism, but through teachings, media engagement and books (e.g. The Seed of Compassion, 2020) he has become the most globally recognised representative of Buddhism as a whole, especially encouraging new adherents in Western countries."},
+  {cat:"Named Evidence Bank", front:"What was the single most repeated marker note across Buddhism responses this year?",
+    back:"“Include more organisations and initiatives — a significant leader, a named temple, a specific contemporary example.” Accurate answers were still losing marks for being too generic — not wrong, just not named."},
+  {cat:"Named Evidence Bank", front:"Rephrase precisely: ‘Buddhists believe in kindness.’",
+    back:"“Karuna (universal compassion) guides adherents to minimise dukkha in others.” Precise precept/terminology language turns a vague claim into an underlinable detail."},
+  {cat:"Named Evidence Bank", front:"What are the four categories in the Named Evidence Bank?",
+    back:"Significant person (Dalai Lama XIV — Five Point Peace Plan, Nobel 1989), Organisations & initiatives (Earth Sangha, Trees for Dharma, Green Sangha), Temples & practice (Nan Tien Temple's vegetarian kitchen, Temple Puja), Scripture & terminology (Dhammapada citations by verse)."},
+  {cat:"Named Evidence Bank", front:"Before you submit a Buddhism response, what should you check for (the evidence audit)?",
+    back:"A named organisation/temple/leader-led initiative (not just a concept), precise precept phrasing (‘abstain from…’ not ‘do not…’), staying tied to the exact ethical area named in the question, and at least three underlinable named details."},
+  {cat:"Extension", front:"Extension: how does Theravada Buddhism's orientation to nature differ from Mahayana's?",
+    back:"Theravada is more ascetic — nature is impermanent, not necessarily a source of peace/beauty in itself, valued mainly for the quietude it offers the mind. Mahayana (esp. East Asian) sees nature as imbued with sentience and life force, human and environment co-emerging — awakening happens through harmonising with nature, not detaching from it."},
+  {cat:"Extension", front:"Extension: how is Vajrayana Buddhism's environmental ethic shaped by the Himalayan landscape?",
+    back:"It is deeply animistic — the environment is understood as populated by unseen beings (local gods, spirits), so rituals such as sang (smoke offering) aim to bring harmony and compassion into relationship with them."},
+  {cat:"Extension", front:"Extension: what lineage of Tibetan Buddhism does the Dalai Lama belong to?",
+    back:"The Gelugpa lineage — one of four major lineages alongside Nyingma, Kagyu and Sakya — a scholastic, monastic tradition."},
+  {cat:"Extension", front:"Extension: what does ‘emptiness’ (śūnyatā) mean in the Dalai Lama's teaching?",
+    back:"Not nothingness, but freedom from independent existence: nothing (including a person) exists independently of what it depends on — only interdependently. Understanding this directly, alongside compassion, is central to his account of awakening."}
+];
+
+// ===== Past questions =====
+var BUDDHISM_PAST_QUESTIONS = [
+  {
+    id: "bd2014-1b", year: "2014 HSC", marksLabel: "8 marks", marks: 8, topic: "Temple Puja — significance for the community",
+    verified: "partial",
+    question: "Explain how the statement ‘By walking the middle way, Buddhists avoid attachment to life’ is reflected in the significance of Temple Puja for the Buddhist community, including reference to similarities and/or differences between two Buddhist variants.",
+    questionNote: "The 8-mark marking criteria table (captured verbatim below) is from a real 2014 HSC-style Question 1(b) in Dr Batten's slides. The exact stimulus box/question wording wasn't itself captured as an image — this wording is reconstructed from what the genuine sample answer below is clearly responding to (it opens by directly engaging with this quote).",
+    criteria: [
+      { marks: "7–8", desc: ["Clearly and accurately articulates how the statement helps to demonstrate the significance of the chosen practice for the Buddhist community", "Applies thorough knowledge of the significance of the chosen practice", "Uses clear and relevant evidence to support the response"] },
+      { marks: "4–6", desc: ["Identifies relevant points on how the statement helps to demonstrate the significance of the chosen practice for the Buddhist community", "Applies sound knowledge of the significance of the chosen practice", "Makes an accurate and largely descriptive response"] },
+      { marks: "1–3", desc: ["Makes general statements about the chosen practice’s significance for the Buddhist community"] }
+    ],
+    criteriaNote: "Captured verbatim from the marking-criteria table image in Dr Batten's slides (genuine, real source).",
+    sampleAnswer: {
+      label: "Genuine ~8-mark sample answer (from source slides)",
+      text: "The statement “By walking the middle way, Buddhists avoid attachment to life” is reflected deeply in the significance of Temple Puja for the Buddhist community. Temple Puja provides a communal space where Buddhists practise the Middle Way together, balancing everyday responsibilities with spiritual reflection. By coming together regularly, the community learns to moderate desires, reminding themselves that, as the quote suggests, avoiding attachment is a shared goal rather than an individual struggle.\n\nDuring Temple Puja, offerings of candles, incense, and flowers symbolise the temporary nature of all things. These communal offerings help the community collectively recognise impermanence and let go of attachment. This joint practice reinforces the idea expressed in the quote — that Buddhists walk a balanced path by neither clinging to material life nor rejecting it entirely. Meditation and chanting performed as a group strengthen harmony and mutual support, making the Middle Way a lived communal experience. Thus, Temple Puja is significant because it binds the community through shared ethical values, modelling how a Buddhist society can function with restraint, mindfulness, and compassion.\n\nA key similarity between Theravada and Mahayana Buddhism is that both communities use Temple Puja to preserve the teachings of the Buddha and uphold the Middle Way. In both traditions, chanting, meditation, and offering rituals serve to reduce attachment and guide practitioners toward wisdom.\n\nHowever, a notable difference lies in the focus of the ritual. Theravada communities typically emphasise honouring the historical Buddha and cultivating personal discipline, using Puja to support individual insight and detachment. Mahayana communities, on the other hand, often incorporate bodhisattvas into Puja, using the ritual to express compassion and the vow to help all beings — another way of practising the principle in the quote: avoiding attachment not only to material things but also to one’s own self-interest.\n\nOverall, Temple Puja allows the community to embody the message of “walking the middle way” together, strengthening collective identity and spiritual purpose.",
+      teacherNote: "Dr Batten's own annotation: about 320 words = 40 words per mark; 4 lines per mark for the final tri-part question; use of paragraphs for a mini-essay on an 8-marker."
+    },
+    exemplarAnswer: {
+      label: "Shorter SLV exemplar (same source slides)",
+      text: "Temple Puja strengthens the Buddhist community by gathering adherents in a shared commitment to cultivate wisdom and compassion. While individuals arrive with personal intentions, Puja creates collective unity — a lived expression of being “alone, together.” Temples such as Nan Tien function as hubs where monastics, laypeople, and visitors from across NSW and beyond connect, reinforcing the broader Sangha. Community services, festivals (like the Bodhi Festival, Dec 8), and shared rituals (e.g. offering, chanting) foster cohesion and mutual care. Across Buddhist variants — Theravada, Mahayana, and Vajrayana — Puja practices differ in style yet consistently emphasise communal harmony and collective support. In coming together to support one another’s spiritual growth, the community embodies the Lord Buddha’s teaching: “Stand together, assist one another, and strengthen one another’s efforts.”",
+      teacherNote: "Labelled in the slides as “an exemplar 4mk answer — with SLV” (a shorter, SLV-technique version of the same content, not a full 8-mark response)."
+    }
+  },
+  {
+    id: "bd2020-10b", year: "2020 HSC", marksLabel: "marks not confirmed", marks: 4, marksNote: "Not stated in the source slides — inferred from the annotation “3.5 / 4” on the sample answer below, so treat this out-of-4 as an estimate, not a confirmed NESA value.", topic: "Temple Puja — how it expresses the beliefs of Buddhism",
+    verified: "partial",
+    question: "Explain how the significant practice of Temple Puja expresses the beliefs of Buddhism.",
+    questionNote: "This question's exact wording and mark value were not captured as an image in the source slides — only the two genuine answers below (a marked sample and a teacher exemplar) were. This reconstruction of the question matches what both answers are clearly responding to, and the learning intention stated elsewhere in the same deck (“how Temple Puja expresses the beliefs of Buddhism”).",
+    criteria: null,
+    criteriaNote: "No marking-criteria table was captured for this one — not presented here to avoid implying an official NESA table that wasn't actually sourced.",
+    sampleAnswer: {
+      label: "Genuine sample answer (source slides label this “3.5 / 4 — not an exemplary answer”)",
+      text: "The significant practice of Temple Puja expresses the Buddhist belief in the Three Jewels — the Buddha, the Dharma, and the Sangha. During Puja, Buddhists make offerings such as flowers, candles, and incense to honour the Buddha as the enlightened teacher. These offerings symbolise key teachings: flowers represent impermanence, reminding practitioners of the transient nature of life, while lighted candles symbolise wisdom dispelling ignorance. Chanting scriptures during Puja expresses devotion to the Dharma, reinforcing the importance of following the Buddha’s teachings as a path to liberation. The communal aspect of Temple Puja also highlights the Sangha, as gathering together strengthens unity and mutual support among practitioners. Meditation within Puja encourages mindfulness and insight, helping individuals embody core beliefs such as compassion and the pursuit of enlightenment. Through its symbols, actions, and shared participation, Temple Puja becomes a practical expression of fundamental Buddhist beliefs.",
+      teacherNote: "Dr Batten's own annotation: “Remember, this is written as a 3.5/4 answer, not an exemplary answer.”"
+    },
+    exemplarAnswer: {
+      label: "‘An exemplar answer — with SLV’ (same source slides)",
+      text: "Temple Puja expresses the Buddhist belief in the Three Jewels through offerings, bowing and chanting, which direct devotion toward the Buddha, the Dharma and the Sangha. Temples contain multiple images (buddharūpas), including Bodhisattvas in Mahayana and Vajrayana (eg. Quan Yin at Nan Tien Temple, NSW), which are focal points that help adherents cultivate reverence and draw closer to the Dharma. Offerings express gratitude for the Buddha’s awakening and the Sangha’s guidance in preserving and teaching the Dharma. Lighting incense and candles symbolises moral “fragrance” and wisdom spreading, like the Dharma’s influence. Variants differ in emphasis (Theravada: Pali texts; Mahayana: sutras and Bodhisattva devotion; Vajrayana: mantras, mudras, gurus) but share these aims. This is summed up in the hymn: “I take refuge in the Buddha… the Dharma… the Sangha…” (Khuddakapāṭha 1)."
+    }
+  },
+  {
+    id: "bd2021-12a", year: "2021 HSC", marksLabel: "3 marks", marks: 3, topic: "Temple Puja — outline one action or ritual",
+    verified: "partial",
+    question: "Outline ONE action or ritual in Buddhism that is drawn from ONE of the following significant practices: Pilgrimage / Temple Puja / Wesak.",
+    questionNote: "Captured verbatim from the real 2021 HSC exam paper screenshot in Dr Batten's slides (“Question 12 — Buddhism, 15 marks”, part (a), worth 3 marks).",
+    criteria: null,
+    criteriaNote: "The marking criteria / sample answer for this specific item weren't captured as images in the source — the next slide's header names them but the content wasn't visible. The model answer below is written by Claude to match this real question and a typical 3-mark ‘outline’ band (as seen in the verified 3-mark tables elsewhere in this deck: full marks for a detailed, accurate, well-termed outline; partial marks for a general statement).",
+    modelAnswer: {
+      label: "Model answer (written by Claude to match this real question — not sourced from the school's own answer)",
+      text: "One ritual drawn from Temple Puja is the making of offerings (dana) before the Buddharupa. Buddhists present flowers, fruit, incense and lit candles as signs of respect and gratitude toward the Buddha, the ‘guest of honour’. The offerings are multisensory and symbolic: flowers wilting represent anicca (impermanence), and lit candles represent wisdom dispelling ignorance. This act expresses ‘internal cultivation’ rather than mere ritual, and can occur daily at home or during temple visits such as on Bodhi Day (8 December)."
+    }
+  },
+  {
+    id: "bd2023-practice", year: "2023 HSC-style practice question", marksLabel: "5 marks", marks: 5, topic: "Precepts — ‘doing good’",
+    verified: "partial",
+    stimulus: "“Set your heart on doing good.” — Gautama Buddha",
+    question: "With reference to the stimulus, explain how ONE ethical teaching in Buddhism is applied in order to encourage adherents to do good. In your answer, refer to ONE of the following: bioethics / environmental ethics / sexual ethics.",
+    questionNote: "Captured verbatim from the real practice-question screenshot in Dr Batten's slides (labelled ‘2023 HSC Practice Question’).",
+    criteria: [
+      { marks: "5", desc: ["Provides an accurate and detailed explanation about how ONE ethical teaching in Buddhism encourages adherents to ‘do good’, with reference to ONE of: bioethics OR environmental ethics OR sexual ethics", "Integrates the idea(s) presented in the stimulus, supported with clear and relevant examples", "Integrates clear, accurate and relevant terminology"] },
+      { marks: "4", desc: ["Provides an accurate explanation about how ONE ethical teaching encourages adherents to ‘do good’, with reference to ONE of the three areas", "Uses the idea(s) presented in the stimulus, supported with relevant examples", "Uses clear and relevant terminology"] },
+      { marks: "3", desc: ["Provides an explanation about how ONE ethical teaching encourages adherents to ‘do good’, with reference to ONE of the three areas", "May refer to stimulus or use some evidence to support response", "Uses relevant terminology"] },
+      { marks: "2", desc: ["Makes general statements about an ethical teaching in Buddhism", "Uses some terminology"] },
+      { marks: "1", desc: ["Makes general statement(s) about Buddhism"] }
+    ],
+    criteriaNote: "Captured verbatim from the marking-criteria table image in Dr Batten's slides (genuine, real source).",
+    modelAnswer: {
+      label: "Model answer written to this real criteria (no sample answer was captured in the source — written by Claude)",
+      text: "The First Precept — to abstain from harming sentient beings — directly reflects the Buddha's call to “set your heart on doing good” by grounding environmental ethics in ahimsa (non-violence) and karuna (compassion) toward all life. Rather than a blunt ‘do not kill’, the precept is a positive orientation toward reducing harm, which many Buddhists extend from individual conduct to ecological action. The Green Sangha's tree-ordination initiative in Thailand — wrapping trees in saffron robes to prevent logging — and Nan Tien Temple's vegetarian-only kitchen both embody this: doing good is expressed as actively protecting ecosystems and reducing suffering, not merely avoiding individual wrongdoing. This links to the Three Noble Deeds of Awareness, Advocacy and Action, through which Buddhists such as members of Earth Sangha turn the precept into concrete environmental advocacy — living out the Buddha's instruction in a specific, named way."
+    }
+  },
+  {
+    id: "bd2024-12a", year: "2024 HSC", marksLabel: "2 + 5 marks (two-part)", marks: 7, marksNote: "Combined total of part (i) 2 marks + part (ii) 5 marks, self-scored as one 7-mark response.", topic: "Ethical teaching — outline, then explain in a chosen area",
+    verified: "full",
+    question: "(i) Outline ONE ethical teaching in Buddhism. (2 marks)\n(ii) Explain how the teaching outlined in part (a)(i) is reflected in ONE of the following areas within the religious tradition of Buddhism: Bioethics / Environmental ethics / Sexual ethics. (5 marks)",
+    questionNote: "Captured verbatim from the real 2024 HSC exam paper screenshot in Dr Batten's slides (“Question 12 — Buddhism, 15 marks”).",
+    criteria: [
+      { marks: "Part (i) — 2", desc: ["Outlines ONE ethical teaching in Buddhism"] },
+      { marks: "Part (i) — 1", desc: ["Provides some relevant information about Buddhism"] },
+      { marks: "Part (ii) — 5", desc: ["Provides a detailed and accurate explanation of how the ethical teaching outlined in part (a)(i) is reflected within the religious tradition of Buddhism in the chosen ethical area", "Integrates relevant and accurate terminology"] },
+      { marks: "Part (ii) — 4", desc: ["Provides an accurate explanation of how the ethical teaching is reflected in the chosen ethical area", "Integrates relevant terminology"] },
+      { marks: "Part (ii) — 3", desc: ["Provides some explanation of how the ethical teaching is reflected in the chosen ethical area", "Uses some terminology"] },
+      { marks: "Part (ii) — 2", desc: ["Makes general statements about ethical teachings in Buddhism"] },
+      { marks: "Part (ii) — 1", desc: ["Makes statements about Buddhism"] }
+    ],
+    criteriaNote: "Captured verbatim from the marking-criteria table images in Dr Batten's slides (genuine, real 2024 HSC source).",
+    sampleAnswer: {
+      label: "Genuine sample answer, part (i) (from source slides)",
+      text: "The Five Precepts are an ethical teaching in Buddhism. These are the five fundamental ethical guidelines that help Buddhists behave in a moral and ethical way, leading to a life lived with compassion."
+    },
+    exemplarAnswer: {
+      label: "Genuine sample answer, part (ii) — bioethics (from source slides)",
+      text: "Buddhists apply the Five Precepts, specifically the first precept, to refrain from taking a life, to the bioethical issue of voluntary assisted dying. Theravada Buddhists recognise death as ‘part of the human condition’ (Pinit Ratanakul, ‘To Save or Let Go: Thai Buddhist Perspectives on Euthanasia’, p. 172). Therefore, they do not partake in voluntary assisted dying to enable the cycle of Samsara. Buddhist would perceive this action as applying the first of the Five Precepts to bioethics, placing adherents further along the path to Nirvana and rendering Buddhism as a lived religion tradition."
+    }
+  },
+  {
+    id: "bd2023-12b", year: "2023 HSC", marksLabel: "5 marks", marks: 5, topic: "Two ethical teachings — bioethics",
+    verified: "full",
+    question: "Explain TWO ethical teachings relevant to ONE of the following areas: Bioethics / Environmental ethics / Sexual ethics.",
+    questionNote: "Captured verbatim from the real 2023 HSC exam paper screenshot in Dr Batten's slides (part (b) following the Question 12 — Buddhism set).",
+    criteria: [
+      { marks: "5", desc: ["Provides a thorough explanation of TWO ethical teachings relevant to the chosen ethical area", "Integrates relevant and accurate terminology"] },
+      { marks: "4", desc: ["Provides a sound explanation of TWO ethical teachings relevant to the chosen ethical area", "Integrates relevant terminology"] },
+      { marks: "3", desc: ["Provides an explanation of TWO ethical teachings relevant to the chosen ethical area", "Uses relevant terminology"] },
+      { marks: "2", desc: ["Provides a description of at least ONE ethical teaching relevant to the chosen ethical area", "Uses some terminology"] },
+      { marks: "1", desc: ["Makes statements about Buddhism"] }
+    ],
+    criteriaNote: "Captured verbatim from the marking-criteria table image in Dr Batten's slides (genuine, real 2023 HSC source).",
+    sampleAnswer: {
+      label: "Genuine sample answer (from source slides)",
+      text: "Two key ethical teachings relevant to bioethics are ahimsa (non-violence) and compassion (karuna). Ahimsa emphasises avoiding harm to all living beings, which influences Buddhist views on issues like euthanasia and abortion. Buddhists are generally opposed to actions that cause unnecessary suffering, advocating for life preservation and mindful decision-making. Furthermore, compassion (karuna) encourages caring for others’ well-being. It also calls for empathy, where the focus is on alleviating suffering rather than prolonging life at all costs."
+    }
+  },
+  {
+    id: "bd2014-1ai-dalai", year: "2014 HSC", marksLabel: "3 marks", marks: 3, topic: "Significant person — Dalai Lama (other than the Buddha)",
+    verified: "partial",
+    question: "Outline the key features of the contribution to Buddhism made by ONE significant person or school of thought, other than the Buddha.",
+    questionNote: "This exact wording is taken from the genuine marking-criteria table itself (captured as an image, appearing identically in both the Dalai Lama Expression and Dalai Lama Development decks, both labelled ‘2014 HSC’) — the original question/stimulus slide beyond this criteria wording was not captured.",
+    criteria: [
+      { marks: "3", desc: ["Accurately indicates the key features of the contribution to Buddhism made by ONE significant person or school of thought, other than the Buddha"] },
+      { marks: "2", desc: ["Provides some of the key features of the contribution to Buddhism made by ONE significant person or school of thought, other than the Buddha"] },
+      { marks: "1", desc: ["Makes a general statement about ONE significant person or school of thought, other than the Buddha"] }
+    ],
+    criteriaNote: "Captured verbatim from the marking-criteria table image in Dr Batten's slides (genuine, real 2014 HSC source).",
+    modelAnswer: {
+      label: "Model answer written to this real criteria (no sample answer was captured in the source — written by Claude)",
+      text: "The XIVth Dalai Lama has made a significant contribution to Buddhism. Tibetan Buddhists believe he is the rebirth of the Bodhisattva of Compassion, giving Tibetan Buddhism continuity through the 1959 exile. He has reframed Buddhism as compatible with science, co-founding the Mind & Life Institute (1987) and arguing in Beyond Religion (2011) that “ethics is more important than religion”. His advocacy for non-violence and peaceful negotiation in the Tibetan struggle earned him the 1989 Nobel Peace Prize."
+    }
+  }
+  ,
+  {
+    id: "bd-cssa2025-12a", year: "2025 CSSA Trial", marksLabel: "4 marks", marks: 4, topic: "Ethical teaching — environmental ethics",
+    verified: "full",
+    question: "Illustrate how ONE ethical teaching in Buddhism is practised. In your answer, refer to ONE of the following: bioethics / environmental ethics / sexual ethics.",
+    questionNote: "Captured from the genuine 2025 CSSA (Catholic Schools Secondary Association) Trial HSC exam paper (Question 12(a), Section II, 4 marks) and its official CSSA marking guidelines, including the genuine 'answers could include' content below. CSSA Trials are written independently of NESA, by CSSA, as trial/practice exams — not official NESA exam papers — but are a standard, widely-used contemporary resource.",
+    criteria: [
+      { marks: "4", desc: ["Accurately illustrates how ONE ethical teaching in Buddhism, from one of the prescribed ethical areas, is practised", "Includes relevant and accurate examples and terminology"] },
+      { marks: "3", desc: ["Illustrates how ONE ethical teaching in Buddhism, from one of the prescribed ethical areas, is practised", "Includes examples and terminology"] },
+      { marks: "2", desc: ["Includes some relevant information about an ethical teaching or prescribed ethical area in Buddhism"] },
+      { marks: "1", desc: ["Makes statements about Buddhism"] }
+    ],
+    criteriaNote: "Captured verbatim from the genuine 2025 CSSA Trial HSC Studies of Religion Marking Guidelines.",
+    sampleAnswer: {
+      label: "Genuine CSSA 'answers could include' (2025 CSSA Trial)",
+      bullets: [
+        "One ethical teaching in Buddhism is the Five Precepts. The first precept to abstain from harming sentient beings relates to environmental ethics. Most Buddhists try to practise a plant-based lifestyle to relate to this precept. Ecology monks in Cambodia aim to prevent the destruction of trees by ordaining them as monks.",
+        "The precept to abstain from taking what is not given relates to the environmental issues of overfishing, poaching, and causing a reduction in biodiversity.",
+        "Significant leaders like Dalai Lama XIV and Thich Nhat Hanh have signed the Buddhist Declaration on Climate Change and have called on adherents to be mindful of the negative karmic consequences realised through unskilful practices like overfishing, poaching and pollution."
+      ]
+    }
+  },
+  {
+    id: "bd-cssa2025-12c", year: "2025 CSSA Trial", marksLabel: "7 marks", marks: 7, topic: "Significant person — Dalai Lama XIV (other than the Buddha)",
+    verified: "full",
+    stimulus: "The significance of a person or school of thought is best measured by continued relevance long after they started.",
+    question: "Analyse the effect of ONE significant person or school of thought, other than the Buddha, on Buddhism.",
+    questionNote: "Captured from the genuine 2025 CSSA Trial HSC exam paper (Question 12(c), Section II, 7 marks) and its official CSSA marking guidelines, including the genuine 'answers could include' content below.",
+    criteria: [
+      { marks: "7", desc: ["Provides an accurate and detailed analysis of the effect of ONE significant person or school of thought, other than the Buddha, on Buddhism", "Effectively integrates the statement throughout the response", "Uses relevant and accurate evidence and terminology"] },
+      { marks: "5–6", desc: ["Provides an accurate analysis of the effect of ONE significant person or school of thought, other than the Buddha, on Buddhism", "Integrates the statement throughout the response", "Uses relevant evidence and terminology"] },
+      { marks: "3–4", desc: ["Provides some analysis of the effect of ONE significant person OR school of thought other than the Buddha, on Buddhism", "May refer to the statement", "Uses evidence and some terminology"] },
+      { marks: "1–2", desc: ["Makes general statements about aspects of Buddhism"] }
+    ],
+    criteriaNote: "Captured verbatim from the genuine 2025 CSSA Trial HSC Studies of Religion Marking Guidelines.",
+    sampleAnswer: {
+      label: "Genuine CSSA 'answers could include' (2025 CSSA Trial)",
+      bullets: [
+        "Dalai Lama XIV, as the Bodhisattva of Compassion, remains relevant especially to Vajrayana adherents today. Guiding followers to skilful ethical practices, His Holiness is also relevant in preserving the Tibetan culture in exile in India.",
+        "His Five Point Peace Plan for Tibet demonstrates the relevance of applying the Buddhist dharma of ahimsa in a political context.",
+        "Gaining the Nobel Peace prize in 1989, he is regarded as a global leader in peace teachings. His travels, books and engagement in interfaith dialogue further contribute to maintaining his relevance long after he started his spiritual leadership.",
+        "Additionally, he remains relevant by giving hope to his community, particularly the Tibetan sangha in continued exile."
+      ],
+      teacherNote: "This pairs well with the shorter bd2014-1ai-dalai question above — that one is a 3-mark 'outline' of the Dalai Lama's contribution; this is the fuller 7-mark 'analyse... effect... relevance' version, genuinely testing the same significant person at a higher band."
+    }
+  },
+  {
+    id: "bd-cssa2025-17adapted", year: "Adapted from 2025 CSSA Trial", marksLabel: "8 marks", marks: 8, topic: "Living religious tradition — significant practices and ethical teachings together",
+    verified: "partial",
+    stimulus: "Not the one who recites the teachings, but the one who acts according to them, is the one who truly honours them. — Dhammapada 19",
+    question: "With reference to the stimulus, explain how significant practices and ethical teachings guide adherents to an understanding of Buddhism as a living religious tradition.",
+    questionNote: "This is NOT a genuine 8-mark NESA/CSSA question — it is Claude's downward adaptation of the real 2025 CSSA Trial Question 17 (Section III, 20 marks), matching Buddhism's Section-II-only pattern in this pack (per Dr Batten's instruction that 'past paper essay questions for Buddhism can be adapted for 8-mark questions'). The stimulus (Dhammapada 19) and question wording are genuine CSSA content, reused unchanged; the 8-mark criteria bands and sample answer below are self-authored by Claude, condensing the genuine 20-mark 'answers could include' content (Temple Puja, the Four Noble Truths/Eightfold Path, bioethics, Nan Tien Temple) into a shorter response matching this pack's normal 2-minutes-per-mark, ~15-minute practice length.",
+    criteria: [
+      { marks: "7–8", desc: ["Presents a well-reasoned explanation of how significant practices and ethical teachings guide adherents to an understanding of Buddhism as a living religious tradition", "Effectively integrates the stimulus", "Supports the response with detailed, relevant and accurate information and accurate terminology"] },
+      { marks: "5–6", desc: ["Presents a sound explanation of how significant practices and ethical teachings guide adherents to an understanding of Buddhism as a living religious tradition", "Integrates the stimulus", "Supports the response with relevant and accurate information and terminology"] },
+      { marks: "3–4", desc: ["Presents some detail about how significant practices and/or ethical teachings guide adherents to an understanding of Buddhism as a living religious tradition", "May refer to the stimulus", "Uses some relevant terminology"] },
+      { marks: "1–2", desc: ["Makes general statements about Buddhism and/or significant practices and/or ethical teachings"] }
+    ],
+    criteriaNote: "Self-authored by Claude, condensing the genuine 20-mark CSSA Section III bands (17–20 / 13–16 / 9–12 / 5–8 / 1–4) into a proportional 8-mark scale (7–8 / 5–6 / 3–4 / 1–2) — not verbatim CSSA criteria, since CSSA did not itself set this as an 8-mark question.",
+    modelAnswer: {
+      label: "Model answer, condensed to 8-mark length (written by Claude, adapting genuine CSSA content — not an official CSSA answer)",
+      text: "Buddhism remains dynamic and relevant as adherents act on its teachings, not merely recite them, exactly as the Dhammapada stimulus describes. Adherents engage with core beliefs such as the Four Noble Truths and Eightfold Path in daily life, including through bioethical teachings: ahimsa and the karmic consequences of action shape Buddhist responses to modern issues like voluntary assisted dying, guided by the ethical teachings of compassion (karuna) and wisdom (prajna).\n\nTemple Puja is a significant practice that keeps this dharma alive in action rather than words alone. Through meditation and offerings to the Buddha, adherents affirm beliefs such as anicca (impermanence) and nirvana, connect with the Sangha, and build community. Devotion at temples such as Nan Tien Temple, Wollongong — with its images of the Buddha and Bodhisattvas — expresses Mahayana culture and shows adherents truly honouring the teachings, as the stimulus urges, by acting them out communally rather than reciting them alone."
+    }
+  }
+];
+
+(function(){
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return s; }
+
+  // ---- Content bank ----
+  var AREA_LABEL = { puja: "Temple Puja", ethics: "Ethics", dalai: "Dalai Lama" };
+  var bdActiveArea = "all";
+  function renderBdFilters(){
+    var areas = ["all"].concat(Object.keys(AREA_LABEL));
+    $("bdFilters").innerHTML = areas.map(function(a){
+      return '<button data-area="'+a+'" class="'+(a===bdActiveArea?"active":"")+'">'+(a==="all"?"All":AREA_LABEL[a])+'</button>';
+    }).join("");
+    Array.prototype.forEach.call($("bdFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){
+        bdActiveArea = btn.getAttribute("data-area");
+        renderBdFilters(); renderBdList();
+      });
+    });
+  }
+  function renderBdList(){
+    var items = BUDDHISM_BANK.filter(function(it){ return bdActiveArea==="all" || it.area===bdActiveArea; });
+    $("bdList").innerHTML = items.map(function(it){
+      return '<div class="card">'+
+        '<span class="dp-tag '+it.area+'">'+it.dp+'</span>'+
+        '<div class="rev-title">'+it.title+'</div>'+
+        '<ol class="ideas">'+it.ideas.map(function(s){ return '<li>'+s+'</li>'; }).join("")+'</ol>'+
+        '</div>';
+    }).join("");
+  }
+
+  // ---- Flashcards ----
+  var currentCards = BUDDHISM_FLASHCARDS.slice();
+  var cardIndex = 0;
+  function categories(cards){
+    var seen = {}; var out = ["All"];
+    cards.forEach(function(c){ if(!seen[c.cat]){ seen[c.cat]=true; out.push(c.cat); } });
+    return out;
+  }
+  function setCards(){
+    var cat = $("flashFilter").value;
+    currentCards = (cat==="All") ? BUDDHISM_FLASHCARDS.slice() : BUDDHISM_FLASHCARDS.filter(function(c){ return c.cat===cat; });
+    cardIndex = 0;
+    renderCard();
+  }
+  function renderCard(){
+    $("flashCard").classList.remove("flipped");
+    if(currentCards.length===0){
+      $("flashCat").textContent = ""; $("flashFront").textContent = "No cards"; $("flashBack").innerHTML=""; $("flashCount").textContent="0 of 0";
+      $("flashProgress").style.width = "0%";
+      return;
+    }
+    var c = currentCards[cardIndex];
+    $("flashCat").textContent = c.cat;
+    $("flashFront").textContent = c.front;
+    $("flashBack").innerHTML = "<p>"+c.back+"</p>";
+    $("flashCount").textContent = (cardIndex+1)+" of "+currentCards.length;
+    $("flashProgress").style.width = Math.round(((cardIndex+1)/currentCards.length)*100)+"%";
+  }
+  function initFlash(){
+    $("flashFilter").innerHTML = categories(BUDDHISM_FLASHCARDS).map(function(c){ return '<option value="'+c+'">'+c+'</option>'; }).join("");
+    $("flashFilter").addEventListener("change", function(){ setCards(); });
+    $("flipCard").addEventListener("click", function(){ $("flashCard").classList.toggle("flipped"); });
+    $("flashCard").addEventListener("click", function(){ $("flashCard").classList.toggle("flipped"); });
+    $("nextCard").addEventListener("click", function(){ cardIndex = (cardIndex+1) % currentCards.length; renderCard(); });
+    $("prevCard").addEventListener("click", function(){ cardIndex = (cardIndex-1+currentCards.length) % currentCards.length; renderCard(); });
+    $("shuffleCards").addEventListener("click", function(){ currentCards.sort(function(){ return Math.random()-.5; }); cardIndex = 0; renderCard(); });
+    renderCard();
+  }
+
+  // ---- Named Evidence & Extension ----
+  function renderEvidence(){
+    $("preceptRows").parentNode.innerHTML = '<tr><th>Loose</th><th>Precise</th></tr>' + PRECEPT_PRECISION.map(function(p){
+      return '<tr><td class="loose">'+p.loose+'</td><td class="precise">'+p.precise+'</td></tr>';
+    }).join("");
+    $("beforeAfterTitle").textContent = NAMED_EVIDENCE_EXAMPLE.question;
+    $("baGeneric").textContent = NAMED_EVIDENCE_EXAMPLE.generic;
+    $("baGenericNote").textContent = NAMED_EVIDENCE_EXAMPLE.genericNote;
+    $("baNamed").textContent = NAMED_EVIDENCE_EXAMPLE.named;
+    $("baNamedNote").textContent = NAMED_EVIDENCE_EXAMPLE.namedNote;
+    $("evidenceGrid").innerHTML = Object.keys(NAMED_EVIDENCE).map(function(k){
+      var cat = NAMED_EVIDENCE[k];
+      return '<div class="evidence-cat"><h4>'+cat.label+'</h4><ul>'+cat.items.map(function(i){ return '<li>'+i+'</li>'; }).join("")+'</ul></div>';
+    }).join("");
+    $("selfCheckList").innerHTML = EVIDENCE_SELFCHECK.map(function(s){ return '<li>'+s+'</li>'; }).join("");
+    $("extensionList").innerHTML = EXTENSION_CONTENT.map(function(e){
+      return '<div class="ext-box"><span class="ext-tag">Extension</span><h4>'+e.title+'</h4><p>'+e.body+'</p><div class="ext-source">Source: '+e.source+'</div></div>';
+    }).join("");
+  }
+
+  // ---- Past questions ----
+  function renderCriteria(criteria){
+    if(!criteria) return "";
+    return '<table class="crit-table">'+criteria.map(function(row){
+      return '<tr><th>'+row.marks+'</th><td><ul>'+row.desc.map(function(d){ return '<li>'+d+'</li>'; }).join("")+'</ul></td></tr>';
+    }).join("")+'</table>';
+  }
+  function pqAnswerDetails(q){
+    var out = "";
+    if(q.criteria){
+      out += '<details><summary>Marking criteria</summary><div class="detail-body">'+renderCriteria(q.criteria)+
+        '<div class="source-note">'+q.criteriaNote+'</div></div></details>';
+    } else if(q.criteriaNote){
+      out += '<details><summary>Note on marking criteria</summary><div class="detail-body"><div class="source-note">'+q.criteriaNote+'</div></div></details>';
+    }
+    ["sampleAnswer","exemplarAnswer","modelAnswer"].forEach(function(key){
+      var a = q[key];
+      if(!a) return;
+      var body = a.bullets ? ('<ul class="answer-bullets">'+a.bullets.map(function(b){ return '<li>'+b+'</li>'; }).join("")+'</ul>') : ('<p>'+a.text+'</p>');
+      out += '<details><summary>'+a.label+'</summary><div class="detail-body">'+body+
+        (a.teacherNote ? '<p class="teacher-note">'+a.teacherNote+'</p>' : '')+
+        '</div></details>';
+    });
+    return out;
+  }
+
+  // ---- Past questions: practice-writing process (mirrors Q11 Practice) ----
+  var PQ_STATS_KEY = "sorBuddhismQStats_v1";
+  var pqStats = {};
+  (function(){
+    try{ pqStats = JSON.parse(localStorage.getItem(PQ_STATS_KEY)) || {}; }catch(e){ pqStats = {}; }
+  })();
+  function savePQStats(){ try{ localStorage.setItem(PQ_STATS_KEY, JSON.stringify(pqStats)); }catch(e){} }
+  function pqStatFor(id){
+    if(!pqStats[id]) pqStats[id] = { attempts: 0, best: 0, archived: false };
+    return pqStats[id];
+  }
+  function activePQs(){ return BUDDHISM_PAST_QUESTIONS.filter(function(q){ return !pqStatFor(q.id).archived; }); }
+  function archivedPQs(){ return BUDDHISM_PAST_QUESTIONS.filter(function(q){ return pqStatFor(q.id).archived; }); }
+
+  function renderPQStatsBar(){
+    var activeN = activePQs().length, archivedN = archivedPQs().length;
+    $("pqStatsBar").innerHTML =
+      '<span>'+activeN+' in rotation &middot; '+archivedN+' archived (full marks) &middot; '+BUDDHISM_PAST_QUESTIONS.length+' total questions (2014–2025 HSC + 2025 CSSA)</span>'+
+      '<button type="button" class="linklike" id="pqResetProgress">Reset all Buddhism progress</button>';
+  }
+
+  // ---- dynamic countdown timer, 2 minutes per mark (own state, independent of Q11's) ----
+  var pqTimerState = { remaining: 600, total: 600, running: false, intervalId: null };
+  function pqResetTimer(seconds){
+    clearInterval(pqTimerState.intervalId);
+    var secs = (typeof seconds === "number" && seconds > 0) ? seconds : (pqTimerState.total || 600);
+    pqTimerState.remaining = secs; pqTimerState.total = secs; pqTimerState.running = false; pqTimerState.intervalId = null;
+    pqDrawTimer();
+    var labelEl = document.querySelector('#pqPractice .timer-label');
+    if(labelEl) labelEl.textContent = Math.round(secs/60)+"-minute exam timer";
+  }
+  function pqDrawTimer(){
+    var el = $("pqTimerDisplay");
+    if(!el) return;
+    var m = Math.floor(pqTimerState.remaining/60).toString().padStart(2,"0");
+    var s = (pqTimerState.remaining%60).toString().padStart(2,"0");
+    el.textContent = m+":"+s;
+    el.classList.toggle("warn", pqTimerState.remaining <= 60);
+  }
+  function pqStartTimer(){
+    if(pqTimerState.running) return;
+    pqTimerState.running = true;
+    pqTimerState.intervalId = setInterval(function(){
+      pqTimerState.remaining = Math.max(0, pqTimerState.remaining-1);
+      pqDrawTimer();
+      if(pqTimerState.remaining === 0){ clearInterval(pqTimerState.intervalId); pqTimerState.running = false; }
+    }, 1000);
+  }
+  function pqPauseTimer(){ clearInterval(pqTimerState.intervalId); pqTimerState.running = false; }
+
+  function buildPQPrompt(q, studentAnswer){
+    var lines = [];
+    lines.push("You are an HSC NSW Studies of Religion I marker. Mark the student answer below out of "+q.marks+" using the marking guidance given, then suggest specific improvements.");
+    lines.push("");
+    lines.push("QUESTION ("+q.marksLabel+"): "+q.question);
+    if(q.stimulus) lines.push("STIMULUS: "+q.stimulus);
+    lines.push("");
+    if(q.criteria){
+      lines.push("MARKING CRITERIA:");
+      q.criteria.forEach(function(c){ lines.push("- ("+c.marks+") "+c.desc.join("; ")); });
+    } else {
+      lines.push("MARKING CRITERIA: not captured from the original source for this question — mark against typical HSC SOR1 conventions for a "+q.marks+"-mark response (detail, accuracy and relevant terminology scale with the mark value).");
+    }
+    lines.push("");
+    ["sampleAnswer","exemplarAnswer","modelAnswer"].forEach(function(key){
+      var a = q[key];
+      if(!a) return;
+      lines.push("REFERENCE ANSWER ("+a.label+"):");
+      lines.push(a.text);
+      lines.push("");
+    });
+    lines.push("STUDENT ANSWER:");
+    lines.push(studentAnswer && studentAnswer.trim() ? studentAnswer.trim() : "[paste your answer here before copying]");
+    lines.push("");
+    lines.push("Please give: (1) a mark out of "+q.marks+", (2) what the answer does well, (3) what's missing to reach full marks, (4) an improved version that blends the student's own language with the missing content, written to a genuine full-mark standard.");
+    return lines.join("\n");
+  }
+  function doPQCopy(qid, answerText, statusEl){
+    var q = BUDDHISM_PAST_QUESTIONS.find(function(x){ return x.id === qid; });
+    var prompt = buildPQPrompt(q, answerText);
+    function done(ok){
+      statusEl.textContent = ok ? "Copied — paste into Copilot/Claude/ChatGPT." : "Couldn't copy automatically — select the text below and copy manually.";
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(prompt).then(function(){ done(true); }).catch(function(){ done(false); });
+    } else {
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = prompt; ta.style.position="fixed"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        done(ok);
+      }catch(err){ done(false); }
+    }
+  }
+
+  var currentPQ = null;
+  function pickNextPQ(excludeId){
+    var pool = activePQs();
+    if(!pool.length) return null;
+    var choices = excludeId ? pool.filter(function(q){ return q.id !== excludeId; }) : pool;
+    if(!choices.length) choices = pool;
+    return choices[Math.floor(Math.random()*choices.length)];
+  }
+
+  function renderPQPractice(){
+    renderPQStatsBar();
+    var host = $("pqPractice");
+    if(!activePQs().length){
+      host.innerHTML = '<div class="pq-card"><p>Every past Buddhism question is archived at full marks — amazing work! Open the Archive tab to review any of them again, or reset progress above to bring them back into rotation.</p></div>';
+      return;
+    }
+    if(!currentPQ || pqStatFor(currentPQ.id).archived){ currentPQ = pickNextPQ(); }
+    var q = currentPQ;
+    var st = pqStatFor(q.id);
+    host.innerHTML =
+      '<div class="pq-card" data-qid="'+q.id+'">'+
+        (q.stimulus ? '<div class="stimulus">'+q.stimulus+'</div>' : '')+
+        '<div class="question-text">'+q.question+'</div>'+
+        '<div class="pq-head"><span class="pq-year">'+q.year+'<span class="verified-badge '+q.verified+'">'+(q.verified==="full"?"Fully verified":"Partially verified")+'</span></span><span class="pq-marks">'+q.marksLabel+'</span></div>'+
+        '<div class="pq-topic">'+q.topic+'</div>'+
+        (q.marksNote ? '<div class="source-note">'+q.marksNote+'</div>' : '')+
+        '<div class="source-note">'+q.questionNote+'</div>'+
+        (st.attempts ? '<div class="archived-note">Attempted '+st.attempts+' time(s) before &middot; best self-score so far: '+st.best+'/'+q.marks+'</div>' : '')+
+        '<div class="timer-box">'+
+          '<span class="timer-display" id="pqTimerDisplay">'+String(q.marks*2).padStart(2,"0")+':00</span>'+
+          '<span class="timer-label">'+(q.marks*2)+'-minute exam timer</span>'+
+          '<button type="button" data-role="timer-start" class="primary">Start</button>'+
+          '<button type="button" data-role="timer-pause">Pause</button>'+
+          '<button type="button" data-role="timer-reset">Reset</button>'+
+        '</div>'+
+        '<textarea class="answer-box" placeholder="Write your own answer here first — no peeking at the criteria or sample/model answers yet." data-role="answer"></textarea>'+
+        '<div class="mark-actions">'+
+          '<button data-role="copy">Copy AI-marking prompt</button>'+
+          '<button type="button" data-role="print-answer">Print this question + my answer</button>'+
+          '<span class="copy-status" data-role="status"></span>'+
+        '</div>'+
+        pqAnswerDetails(q)+
+        '<div class="self-score">'+
+          '<p>Either from an AI, a buddy, or yourself, rate your answer above against the criteria/answer(s) provided (out of '+q.marks+'). Score '+q.marks+'/'+q.marks+' and this question archives itself:</p>'+
+          '<div class="score-row" data-role="score-row">'+
+            Array.from({length:q.marks}, function(_,i){ return i+1; }).map(function(n){
+              return '<button type="button" data-score="'+n+'">'+n+'</button>';
+            }).join("")+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="next-row"><button type="button" id="pqNextBtn">Next random question →</button></div>';
+    pqResetTimer(q.marks*120);
+  }
+
+  $("pqPractice").addEventListener("click", function(e){
+    var timerBtn = e.target.closest("button[data-role^='timer-']");
+    if(timerBtn){
+      var role = timerBtn.getAttribute("data-role");
+      if(role === "timer-start") pqStartTimer();
+      else if(role === "timer-pause") pqPauseTimer();
+      else if(role === "timer-reset") pqResetTimer(currentPQ ? currentPQ.marks*120 : undefined);
+      return;
+    }
+    var copyBtn = e.target.closest('button[data-role="copy"]');
+    if(copyBtn){
+      var card = copyBtn.closest(".pq-card");
+      var qid = card.getAttribute("data-qid");
+      var answerText = card.querySelector('[data-role="answer"]').value;
+      doPQCopy(qid, answerText, card.querySelector('[data-role="status"]'));
+      return;
+    }
+    var printBtn = e.target.closest('button[data-role="print-answer"]');
+    if(printBtn){
+      var pCard = printBtn.closest(".pq-card");
+      var pStimulus = pCard.querySelector(".stimulus");
+      var pQuestion = pCard.querySelector(".question-text");
+      var pAnswer = pCard.querySelector('[data-role="answer"]').value;
+      var printArea = document.getElementById("printArea");
+      printArea.innerHTML = '<div class="print-set-title">SOR1 Buddhism Study Pack \u2014 my answer</div>'
+        + (pStimulus ? '<div class="print-stimulus">'+pStimulus.innerHTML+'</div>' : '')
+        + '<div class="print-question">'+(pQuestion?pQuestion.innerHTML:"")+'</div>'
+        + '<div class="print-answer-box">'+(pAnswer ? pAnswer.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}).replace(/\n/g,"<br>") : '<i>(no answer written yet)</i>')+'</div>';
+      document.body.classList.add("printing-single");
+      window.print();
+      return;
+    }
+    var scoreBtn = e.target.closest("button[data-score]");
+    if(scoreBtn){
+      var card2 = scoreBtn.closest(".pq-card");
+      var qid2 = card2.getAttribute("data-qid");
+      var score = parseInt(scoreBtn.getAttribute("data-score"), 10);
+      var st2 = pqStatFor(qid2);
+      st2.attempts += 1;
+      st2.best = Math.max(st2.best, score);
+      var q2 = BUDDHISM_PAST_QUESTIONS.find(function(x){ return x.id === qid2; });
+      var justArchived = false;
+      if(score >= q2.marks){ st2.archived = true; justArchived = true; }
+      savePQStats();
+      card2.querySelectorAll("[data-score]").forEach(function(b){ b.classList.toggle("chosen", parseInt(b.getAttribute("data-score"),10)===score); });
+      if(justArchived){
+        var note = document.createElement("div");
+        note.className = "archived-note";
+        note.textContent = "Archived — full marks! It won't come up again in random rotation. Find it any time in the Archive tab.";
+        scoreBtn.closest(".self-score").appendChild(note);
+        renderPQStatsBar();
+      }
+      return;
+    }
+    if(e.target && e.target.id === "pqNextBtn"){
+      currentPQ = pickNextPQ(currentPQ ? currentPQ.id : null);
+      renderPQPractice();
+    }
+  });
+  $("pqStatsBar").addEventListener("click", function(e){
+    if(e.target && e.target.id === "pqResetProgress"){
+      if(confirm("Reset all Buddhism past-question progress? This un-archives every question and clears attempt history.")){
+        pqStats = {}; savePQStats(); currentPQ = null; renderPQPractice(); renderPQArchive();
+      }
+    }
+  });
+
+  function renderPQArchive(){
+    var host = $("pqArchive");
+    var list = archivedPQs();
+    if(!list.length){
+      host.innerHTML = '<div class="pq-card"><p>No archived questions yet — score yourself a genuine full mark on a question in the Practice tab and it will appear here.</p></div>';
+      return;
+    }
+    host.innerHTML = list.map(function(q){
+      var st = pqStatFor(q.id);
+      return '<div class="pq-card" data-qid="'+q.id+'">'+
+        (q.stimulus ? '<div class="stimulus">'+q.stimulus+'</div>' : '')+
+        '<div class="question-text">'+q.question+'</div>'+
+        '<div class="pq-head"><span class="pq-year">'+q.year+'<span class="verified-badge '+q.verified+'">'+(q.verified==="full"?"Fully verified":"Partially verified")+'</span></span><span class="pq-marks">'+q.marksLabel+'</span></div>'+
+        '<div class="pq-topic">'+q.topic+'</div>'+
+        '<div class="archived-note">Mastered at '+st.best+'/'+q.marks+' after '+st.attempts+' attempt(s).</div>'+
+        pqAnswerDetails(q)+
+        '<button type="button" class="restore-btn" data-role="restore">Move back into rotation</button>'+
+      '</div>';
+    }).join("");
+  }
+  $("pqArchive").addEventListener("click", function(e){
+    var btn = e.target.closest('button[data-role="restore"]');
+    if(!btn) return;
+    var qid = btn.closest(".pq-card").getAttribute("data-qid");
+    pqStatFor(qid).archived = false;
+    savePQStats();
+    renderPQArchive(); renderPQStatsBar();
+  });
+
+  $("pqSubTabs").addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-sub]");
+    if(!btn) return;
+    Array.prototype.forEach.call($("pqSubTabs").querySelectorAll("button"), function(b){ b.classList.toggle("active", b===btn); });
+    var sub = btn.getAttribute("data-sub");
+    $("pqPractice").style.display = sub === "practice" ? "" : "none";
+    $("pqArchive").style.display = sub === "archive" ? "" : "none";
+    if(sub === "archive") renderPQArchive();
+  });
+
+  // ---- Tabs ----
+  // Supports plain tab hashes (#content, #flash, #evidence, #past) plus compound hashes
+  // #content-puja / #content-ethics / #content-dalai that also pre-set the Content Bank filter
+  // (used by the hub's "How am I feeling" links into Buddhism's 3 significant areas).
+  function initTabs(){
+    var btns = document.querySelectorAll("nav.tabs button");
+    function activate(tabKey){
+      Array.prototype.forEach.call(btns, function(b){ b.classList.toggle("active", b.getAttribute("data-tab")===tabKey); });
+      Array.prototype.forEach.call(document.querySelectorAll(".panel"), function(p){ p.classList.toggle("active", p.id===tabKey); });
+    }
+    Array.prototype.forEach.call(btns, function(btn){
+      btn.addEventListener("click", function(){
+        activate(btn.getAttribute("data-tab"));
+        if(location.hash !== "#"+btn.getAttribute("data-tab")){ history.replaceState(null, "", "#"+btn.getAttribute("data-tab")); }
+      });
+    });
+    var validKeys = Array.prototype.map.call(btns, function(b){ return b.getAttribute("data-tab"); });
+    var AREA_HASHES = { "content-puja": "puja", "content-ethics": "ethics", "content-dalai": "dalai" };
+    var h = (location.hash||"").replace("#","");
+    if(AREA_HASHES.hasOwnProperty(h)){
+      bdActiveArea = AREA_HASHES[h];
+      renderBdFilters(); renderBdList();
+      activate("content");
+    } else if(h && validKeys.indexOf(h) !== -1){
+      activate(h);
+    }
+  }
+
+  renderBdFilters();
+  renderBdList();
+  initFlash();
+  renderEvidence();
+  renderPQPractice();
+  renderPQArchive();
+  initTabs();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script>window.addEventListener("afterprint", function(){ document.body.classList.remove("printing-single"); });</script>
+</body>
+</html>

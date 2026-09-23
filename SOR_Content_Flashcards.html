@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR1 Flashcards</title>
+<style>
+  :root{
+    --green:#2f4d3a; --green-dark:#22362a; --gold:#efd99a; --gold-dark:#c9a24a;
+    --bg:#f7f5ef; --card:#ffffff; --ink:#20241f; --muted:#5b6259; --line:#e2ddd0;
+    --core:#3b6ea5; --buddhism:#b5651d; --judaism:#8a4b8a; --shadow:0 6px 18px rgba(0,0,0,.06);
+    --glossary:#4a7a63; --quotes:#c9a24a; --living:#3f8f8f; --variant:#a3541f;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  header{background:var(--green);color:#fff;padding:22px 18px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;color:#d8e3da;font-size:.92rem;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px;}
+  .site-nav{padding:10px 16px;margin:0;background:var(--bg);border-bottom:1px solid var(--line);}
+  .site-nav-inner{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;}
+  .site-nav a,.site-nav span{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;border-radius:14px;font-weight:800;white-space:nowrap;text-decoration:none;font-size:.8rem;display:inline-block;}
+  .site-nav a:hover{background:var(--gold);border-color:var(--gold-dark);}
+  .site-nav span.current{background:var(--green);color:#fff;border-color:var(--green);}
+  main{max-width:960px;margin:0 auto;padding:18px 16px 60px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;}
+  .howto{background:#eef4ec;border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;margin-bottom:14px;}
+  .howto b{color:var(--green-dark);}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  .hub-link{display:inline-flex;align-items:center;gap:6px;color:#d8e3da;text-decoration:none;font-size:.82rem;font-weight:700;margin-bottom:8px;}
+  .hub-link:hover{color:#fff;text-decoration:underline;}
+  .pack-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .pack-filters button{border:2px solid var(--line);background:#fff;padding:8px 16px;border-radius:999px;cursor:pointer;font-size:.86rem;font-weight:800;}
+  .pack-filters button[data-pack="all"].active{background:var(--green);color:#fff;border-color:var(--green);}
+  .pack-filters button[data-pack="Core"].active{background:var(--core);color:#fff;border-color:var(--core);}
+  .pack-filters button[data-pack="Buddhism"].active{background:var(--buddhism);color:#fff;border-color:var(--buddhism);}
+  .pack-filters button[data-pack="Judaism"].active{background:var(--judaism);color:#fff;border-color:var(--judaism);}
+  .pack-filters button[data-pack="Glossary"].active{background:var(--glossary);color:#fff;border-color:var(--glossary);}
+  .pack-filters button[data-pack="Quotes"].active{background:var(--quotes);color:#3a2c0c;border-color:var(--quotes);}
+  .pack-filters button[data-pack="LivingDynamic"].active{background:var(--living);color:#fff;border-color:var(--living);}
+  .pack-filters button[data-pack="Variant"].active{background:var(--variant);color:#fff;border-color:var(--variant);}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .controls select{padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:.85rem;}
+  .action-btn{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:700;}
+  .action-btn.secondary{background:#fff;color:var(--green);border:1px solid var(--green);}
+  .flip-card{perspective:1200px;min-height:260px;margin-top:14px;}
+  .flip-inner{position:relative;width:100%;min-height:260px;transition:transform .5s ease;transform-style:preserve-3d;}
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-face{position:absolute;inset:0;backface-visibility:hidden;border:2px dashed var(--gold-dark);border-radius:18px;padding:22px;background:linear-gradient(180deg,#fff,#f6f2e4);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;overflow:auto;}
+  .flip-back{transform:rotateY(180deg);border-style:solid;background:linear-gradient(180deg,#eef4ec,#fff);}
+  .flash-meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap;}
+  .pack-tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;color:#fff;}
+  .pack-tag.Core{background:var(--core);}
+  .pack-tag.Buddhism{background:var(--buddhism);}
+  .pack-tag.Judaism{background:var(--judaism);}
+  .pack-tag.Glossary{background:var(--glossary);}
+  .pack-tag.Quotes{background:var(--quotes);color:#3a2c0c;}
+  .pack-tag.LivingDynamic{background:var(--living);}
+  .pack-tag.Variant{background:var(--variant);}
+  .flash-cat{text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:900;font-size:.72rem;}
+  .flash-term{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--green-dark);margin:.2rem 0;line-height:1.25;}
+  .flash-answer{font-size:.9rem;line-height:1.5;color:var(--ink);}
+  .fc-progress{height:8px;background:#e5e0d0;border-radius:999px;overflow:hidden;margin-top:14px;}
+  .fc-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold-dark));transition:.2s;}
+  .stats-line{font-size:.82rem;color:var(--muted);margin-top:6px;}
+  .print-only{display:none;}
+  .print-set-title{font-size:1.2rem;font-weight:800;color:var(--green-dark);margin-bottom:4px;}
+  .print-set-meta{font-size:.82rem;color:var(--muted);margin-bottom:14px;}
+  .print-card-row{border:1px solid #ccc;border-radius:8px;padding:10px 14px;margin-bottom:10px;break-inside:avoid;}
+  .print-card-row .pf{font-weight:800;margin-bottom:4px;}
+  .print-card-row .pc{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
+  .print-card-row .pb{font-size:.9rem;color:#333;}
+  @media print{
+    .site-nav,.hub-link,.controls,.pack-filters,.howto,.searchbox,.filters,nav.tabs{display:none!important;}
+    body *{visibility:hidden;}
+    #printArea, #printArea *{visibility:visible;}
+    #printArea{display:block;position:absolute;left:0;top:0;width:100%;}
+    .card{border:none;box-shadow:none;padding:0;}
+    .flip-card,.fc-progress,.stats-line{display:none!important;}
+  }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+    <h1>SOR1 Flashcards</h1>
+    <p>Every quick-flip card in the suite, in one place &mdash; Religion in Australia, exam technique, the Buddhism and Judaism depth studies, plus dedicated Terminology, Quotes, Living/Dynamic and Variant packs.</p>
+    <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="SOR_Revision_Hub.html#start">Start Here</a>
+    <a href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html">6-Week Planner</a>
+    <a href="SOR_Revision_Hub.html#brain">Brain Dump</a>
+    <a href="SOR_Revision_Hub.html#quiz">Quick Quiz</a>
+    <a href="SOR_MC_Revision_Bank.html">Multiple Choice</a>
+    <a href="SOR_Q11_Practice.html">Q11</a>
+    <a href="SOR_Buddhism_StudyPack.html">Buddhism</a>
+    <a href="SOR_Judaism_StudyPack.html">Judaism</a>
+    <a href="SOR_Terminology.html">Terminology</a>
+    <a href="SOR_Detail_Bank.html">SLV</a>
+    <a href="SOR_Exam_Builder.html">Build an Exam</a>
+    <span class="current">Flashcards</span>
+  </div>
+</nav>
+
+<main>
+<div class="howto" data-personalize><b>How to use this:</b> pick a pack (or "All"), narrow by category if you like, click the card to flip it, and check your recall before reading the answer. "Shuffle" randomises order within your current filter.</div>
+
+<div class="card">
+  <div class="pack-filters" id="packFilters"></div>
+  <div class="controls">
+    <select id="flashFilter" aria-label="Flashcard category filter"></select>
+    <button class="action-btn secondary" id="shuffleCards" type="button">Shuffle</button>
+    <button class="action-btn secondary" id="prevCard" type="button">Previous</button>
+    <button class="action-btn" id="flipCard" type="button">Flip</button>
+    <button class="action-btn secondary" id="nextCard" type="button">Next card</button>
+    <button class="action-btn secondary" id="printCards" type="button">Print this set</button>
+  </div>
+  <div class="fc-progress"><span id="flashProgress"></span></div>
+  <p class="stats-line" id="flashCount"></p>
+  <div class="flip-card" id="flashCard" tabindex="0" role="button" aria-label="Flip flashcard">
+    <div class="flip-inner">
+      <div class="flip-face">
+        <div class="flash-meta"><span class="pack-tag" id="flashPackTag"></span><span class="flash-cat" id="flashCat"></span></div>
+        <h3 class="flash-term" id="flashFront"></h3>
+        <p class="small" style="color:var(--muted);">Click to reveal the answer.</p>
+      </div>
+      <div class="flip-face flip-back">
+        <div class="flash-meta"><span class="pack-tag" id="flashPackTag2"></span><span class="flash-cat">Answer</span></div>
+        <div class="flash-answer" id="flashBack"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="printArea" class="print-only"></div>
+</main>
+<footer>Wenona SOR1 revision suite &middot; built for offline / SharePoint use &middot; not affiliated with NESA</footer>
+
+<script>
+var ALL_FLASHCARDS = [
+  {pack:"Core", cat:"Religious Landscape", front:"According to the 2021 Census, what percentage of Australians identified with a religion overall?", back:"According to the 2021 Census, 61% of Australians identified with a religion, with Christianity remaining the largest tradition at 43.9%, followed by Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%) — confirming Australia's shift from religious homogeneity to a genuinely multifaith society."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which religious tradition was the fastest-growing in total numbers at the 2021 Census?", back:"Hinduism was the fastest-growing religious tradition in total numbers at the 2021 Census, continuing a longer-term trend in which Buddhist, Hindu and Pentecostal adherence all grew between 1996 and 2011."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which Australian state records the highest percentage of people reporting a religious affiliation?", back:"NSW records the highest percentage of people reporting a religious affiliation of any Australian state, meaning changing patterns of adherence are not uniform across the country."},
+  {pack:"Core", cat:"Religious Landscape", front:"Since 1945, what has been the overall trend for religions other than Christianity across successive censuses?", back:"Religions other than Christianity have grown steadily across successive censuses since 1945, reflecting both post-war immigration and the diversification of Australia's religious landscape."},
+  {pack:"Core", cat:"Religious Landscape", front:"Have growth in non-Christian traditions and growth in 'no religion' happened as alternatives to each other, or at the same time?", back:"These changing patterns of adherence need to be read alongside the parallel rise of secularism, since growth in non-Christian traditions and growth in 'no religion' have occurred simultaneously rather than one replacing the other."},
+  {pack:"Core", cat:"Religious Landscape", front:"How many interacting factors best explain the present religious landscape, according to the fact-file?", back:"The present religious landscape is explained by five interacting factors — secularism, Christianity's continued dominance, immigration, denominational switching and New Age religions — not any single cause."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which two factors are generally the most significant in accounting for the present religious landscape?", back:"Secularism and immigration are the two most significant factors: secularism explains 'no religion' rising from 30.1% in 2016 to 38.9% in 2021, while immigration explains both Christianity's persistence and growth in Islam, Hinduism and Buddhism."},
+  {pack:"Core", cat:"Religious Landscape", front:"Are denominational switching and New Age religions usually primary or secondary factors in reshaping the religious landscape?", back:"Denominational switching and New Age religions are usually secondary factors — e.g. Pentecostal movements more than doubled between 1981 and 1991 through switching — reshaping Christianity internally without changing the overall balance as dramatically as secularism or immigration."},
+  {pack:"Core", cat:"Religious Landscape", front:"What year did the Uniting Church form, often cited as a specific example when answering an 'account for' question?", back:"A strong 'account for' response cites a specific statistic or organisation for each factor, e.g. the Uniting Church's 1977 formation, or the 38.9% 'no religion' figure."},
+  {pack:"Core", cat:"Religious Landscape", front:"What do examiners reward beyond simply listing all five 'account for' factors with equal weight?", back:"Examiners reward explicit judgements of relative significance — ranking secularism and immigration above switching and New Age religions — rather than an equal-weight list."},
+  {pack:"Core", cat:"Religious Landscape", front:"In which Census year did 'no religion' become the single largest response category for the first time?", back:"Secularism is the separation of government and public affairs from religion; its growth is clearest in the Census — 'no religion' became the largest response category for the first time in 2016 (30.1%), rising to 38.9% by 2021."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which age group is significantly more likely to identify as having no religion — under 34, or 35 and over?", back:"Secularism is strongest among younger Australians: those aged 34 and under are significantly more likely to report no religion than those 35 and over, suggesting the trend will keep strengthening generationally."},
+  {pack:"Core", cat:"Religious Landscape", front:"What is a key driver of rising secularism, according to the fact-file?", back:"A key driver of rising secularism is the perception that the traditional responses of religious traditions to life's enduring questions feel outdated to many Australians."},
+  {pack:"Core", cat:"Religious Landscape", front:"Name an everyday example of secularisation involving how marriages are conducted.", back:"Everyday examples of secularisation include declining religious-celebrant marriages (with civil celebrants rising), seven-day shop trading, and state schools operating independently of religious control."},
+  {pack:"Core", cat:"Religious Landscape", front:"Does secularism necessarily eliminate personal belief, or mainly shift religion's public/institutional influence?", back:"Secularism reduces religion's overall social influence without necessarily eliminating personal belief — a shift in public/institutional influence more than a decline in private belief."},
+  {pack:"Core", cat:"Religious Landscape", front:"How did Christianity's share of the population change between 2011 and 2021?", back:"Christianity remains Australia's largest tradition, though its share fell sharply — from 61.1% in 2011 to 43.9% in 2021 — reflecting secularism and an ageing Christian population."},
+  {pack:"Core", cat:"Religious Landscape", front:"What were the three largest Christian denominations by 2021 Census share?", back:"The three largest Christian denominations by 2021 were Catholic (20.0%), Anglican (9.8%) and Uniting Church (2.6%); Catholicism overtook Anglicanism as the largest during the 1980s, after Anglican numbers fell from a 1947 high of 39%."},
+  {pack:"Core", cat:"Religious Landscape", front:"According to 2016 Census data, which age group was disproportionately likely to identify as Christian?", back:"Older Australians are far more likely to identify as Christian: 2016 Census data shows those aged 65+ were disproportionately Christian, reflecting the tradition's ageing adherent base."},
+  {pack:"Core", cat:"Religious Landscape", front:"Between 1996 and 2011, which major denominations recorded numerical declines in adherents?", back:"Several major denominations — Anglican, Uniting Church, Presbyterian — recorded numerical declines between 1996 and 2011, even as Christian denominations grew more ethnically diverse through immigration."},
+  {pack:"Core", cat:"Religious Landscape", front:"Has the proportion of Catholics attending Mass regularly risen or fallen over time?", back:"Practising Christianity has changed qualitatively too: falling regular Mass attendance among Catholics shows nominal affiliation and active practice don't always move together."},
+  {pack:"Core", cat:"Religious Landscape", front:"What biblical event do Pentecostal movements trace their roots to?", back:"Pentecostal movements trace their roots to the first Pentecost in Acts and emphasise the Holy Spirit's gifts, such as speaking in tongues; Pentecostalism is not one denomination but many distinct movements under a shared label."},
+  {pack:"Core", cat:"Religious Landscape", front:"Roughly what share of the Australian population did Pentecostal adherence reach by 2016?", back:"Pentecostal adherence roughly doubled 1981–1991 and kept growing, reaching about 1.1% of the population by 2016 — then reversed by 2021, with the sharpest decline (13%) among 15–34-year-olds, the age group that had driven its growth."},
+  {pack:"Core", cat:"Religious Landscape", front:"How is a Pentecostal 'mega-church' commonly defined?", back:"'Mega-churches' — congregations attracting more than 2,000 people weekly — are a distinctive, mainly urban feature of Pentecostalism, drawing more young adherents than traditional denominations."},
+  {pack:"Core", cat:"Religious Landscape", front:"Do Pentecostal mega-churches grow through a stronger focus on female leadership than traditional churches?", back:"A common misconception is that mega-churches grow through stronger female leadership than traditional churches — this is NOT the case; growth is better explained by worship style, urban location and youth appeal."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which dot point does Pentecostal growth and its 2016–2021 decline connect directly to?", back:"Pentecostal growth and its 2016–2021 decline connect to denominational switching: switching drove growth up to 2016, and adherents leaving today more often switch to another Pentecostal church (e.g. one with a smaller tithe) than leave Pentecostalism altogether."},
+  {pack:"Core", cat:"Religious Landscape", front:"What is the single factor most often credited with turning Australia into 'a nation of many faiths'?", back:"Post-1945 immigration is the factor most often credited with turning Australia into 'a nation of many faiths' — first through large-scale Christian immigration (England, New Zealand, the Philippines), then, after the White Australia Policy's abolition in the early 1970s, through immigration from largely non-Christian countries."},
+  {pack:"Core", cat:"Religious Landscape", front:"In what years did Islam, Buddhism and Hinduism each first appear as their own Census category?", back:"The Policy's end directly enabled growth in Islam, Hinduism and Buddhism from 1990 onward, each appearing as its own Census category within a decade of the others: Islam in 1976, Buddhism in 1981, Hinduism in 1986."},
+  {pack:"Core", cat:"Religious Landscape", front:"Has immigration produced proportionally larger growth in Christian or non-Christian religions?", back:"Immigration produced proportionally larger growth in non-Christian religions than in Christian denominations, though Christian immigration also increased ethnic diversity within Christianity itself since the 1960s."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which denomination specifically grew through post-war English immigration?", back:"Post-war English immigration specifically boosted Anglican numbers, showing immigration diversified Christianity internally as well as introducing new traditions."},
+  {pack:"Core", cat:"Religious Landscape", front:"Beyond demographics, what other dimension of immigration have religious traditions become increasingly engaged with?", back:"Religious traditions have become increasingly engaged with immigration's humanitarian dimensions — an ongoing focus of religious social action, not just a demographic driver of change."},
+  {pack:"Core", cat:"Religious Landscape", front:"What is denominational switching?", back:"Denominational switching is moving from one Christian denomination to another, usually motivated by finding a form of practice that better aligns with personal values."},
+  {pack:"Core", cat:"Religious Landscape", front:"Until what year was switching the main driver of Pentecostal growth?", back:"Switching was the main driver of Pentecostal growth up to 2016, and is self-reinforcing: those switching into a Pentecostal denomination are more likely to have come from another Pentecostal denomination than from outside it."},
+  {pack:"Core", cat:"Religious Landscape", front:"Which denomination is least likely to lose members to switching, and why?", back:"Orthodox Christianity is least likely to lose members to switching, due to its strong link to national and cultural identity, followed by Catholicism, whose retention is often linked to Catholic education."},
+  {pack:"Core", cat:"Religious Landscape", front:"What leadership feature attracts some switching adherents to certain Pentecostal churches?", back:"Some Pentecostal churches attract switching adherents through both male and female leadership, seen as more inclusive than traditional denominations — though not true of every Pentecostal mega-church."},
+  {pack:"Core", cat:"Religious Landscape", front:"What negative publicity has driven a secondary pattern of switching between Pentecostal churches?", back:"Negative publicity around tithing has itself driven switching within Pentecostalism, with members moving to a church requiring a smaller tithe rather than leaving Pentecostalism altogether."},
+  {pack:"Core", cat:"Religious Landscape", front:"What do New Age religions emphasise?", back:"New Age religions are a loosely connected set of spiritualities emphasising individualism, personal transformation and individual morality, part of a wider search for enlightenment outside institutional religion."},
+  {pack:"Core", cat:"Religious Landscape", front:"What phrase would a typical New Age adherent use to describe themselves in a survey?", back:"A defining feature is rejecting materialistic values for self-awareness and individual fulfilment — many adherents would say 'I'm more spiritual than religious' rather than name an organised tradition."},
+  {pack:"Core", cat:"Religious Landscape", front:"Name an internationally associated site or event linked to New Age spirituality.", back:"New Age spirituality includes neo-pagan belief systems and supernatural spirituality, associated internationally with sites like Stonehenge in England and the Festival of Body, Mind and Spirit in Oslo."},
+  {pack:"Core", cat:"Religious Landscape", front:"On what do New Age adherents and Christians sharply disagree, despite both valuing spirituality?", back:"New Age adherents and Christians generally agree spirituality matters and believers' needs are central, but disagree sharply on life after death, the human soul, and whether sacred texts should ground belief."},
+  {pack:"Core", cat:"Religious Landscape", front:"Why is New Age spirituality's true scale in Australia harder to measure than mainstream traditions?", back:"Because New Age spirituality is individualised rather than institutionally organised, it's harder to measure through Census data than mainstream traditions, so its true scale may be understated."},
+  {pack:"Core", cat:"Religious Dialogue", front:"What do Christian ecumenical movements aim to increase among Christians?", back:"Christian ecumenical movements build Christians' shared commitment to Gospel values and mutual understanding between denominations, promoting religious harmony while respecting genuine diversity."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In what year was the Uniting Church formed, and from which three groups?", back:"The ecumenical movement's biggest outcome was the Uniting Church's 1977 formation, merging the Methodist Church, the Congregational Union, and most — not all — Presbyterian congregations."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In what year was the NSW Ecumenical Council formed?", back:"The NCCA promotes shared worship (the World Day of Prayer, Week of Prayer for Christian Unity) and social justice campaigns like 'Everybody's Home' against homelessness; the NSW Ecumenical Council (1984) addresses division among NSW churches and voices a common Christian position on state issues."},
+  {pack:"Core", cat:"Religious Dialogue", front:"Name a smaller, ongoing initiative through which ecumenism is expressed.", back:"Ecumenism also runs through smaller initiatives: 'Interdenominational Praise' events, resource-sharing among declining rural churches, and the National Church Life Survey, which gathers cross-denominational data."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In the 2024 HSC Q11, how many ecumenical organisations (NCCA or NSW Ecumenical Council) were students asked to write about?", back:"A strong answer covers both formal outcomes (the Uniting Church) and informal ones (shared worship, campaigns, resource-sharing) — and since the 2024 HSC Q11 asked about only ONE of the NCCA or NSW Ecumenical Council, know three solid facts about each."},
+  {pack:"Core", cat:"Religious Dialogue", front:"What does interfaith dialogue promote between different religious traditions?", back:"Interfaith dialogue promotes tolerance, mutual understanding and peaceful coexistence between traditions, helping religions become less competitive and more cooperative in an increasingly multifaith Australia."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In what decade did interfaith dialogue first exist in an organised, institutional form in Australia?", back:"Interfaith dialogue had no organised, institutional form in Australia until the 1970s — a comparatively recent development next to the traditions' much longer history."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In which Australian city is the landmark 'Parliament of the World's Religions' held?", back:"The Parliament of the World's Religions, held in Melbourne, is a landmark example of large-scale interfaith dialogue, bringing adherents of many traditions into one high-profile forum."},
+  {pack:"Core", cat:"Religious Dialogue", front:"Since what year has the Affinity Intercultural Foundation fostered dialogue between young Muslim Australians and Christian/Jewish groups?", back:"Smaller, ongoing initiatives matter just as much: the Affinity Intercultural Foundation has fostered dialogue between young Muslim Australians and Christian and Jewish groups since 2001, and ISRA's Iftar dinners invite non-Muslims to share in breaking the Ramadan fast."},
+  {pack:"Core", cat:"Religious Dialogue", front:"At what two levels is interfaith dialogue important — societal and what else?", back:"Interfaith dialogue builds both social cohesion and individual religious identity, encouraging adherents to see shared values like tolerance and social justice as part of their own tradition, not just practised in isolation."},
+  {pack:"Core", cat:"Religious Dialogue", front:"What does Aboriginal reconciliation involve non-Aboriginal Australians doing?", back:"Aboriginal reconciliation involves non-Aboriginal Australians recognising past wrongs and building respectful relationships with Aboriginal peoples; religious traditions have engaged by confronting their own historical role in dispossession and committing members to reconciliation."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In what month and year did a significant number of Australian religious leaders publicly support the Uluru Statement from the Heart?", back:"In May 2022, a significant number of Australian religious leaders publicly supported the Uluru Statement from the Heart, demonstrating institutional religious commitment to constitutional reform and reconciliation."},
+  {pack:"Core", cat:"Religious Dialogue", front:"What has grown within Christianity as part of religious engagement with reconciliation?", back:"Religious engagement has included growing Christian acceptance of Aboriginal ritual and ceremony, and stronger recognition across traditions of land's centrality to Aboriginal spirituality."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In December 2019, which organisation hosted a Shabbat Service for Aboriginal community leaders at the Great Synagogue?", back:"Concrete examples: the NSW Jewish Board of Deputies hosted a Shabbat Service for Aboriginal community leaders at the Great Synagogue in December 2019, and the Columban Centre for Christian–Muslim Relations supports reconciliation on shared spiritual, moral and humanitarian grounds."},
+  {pack:"Core", cat:"Religious Dialogue", front:"In what year was the Uluru Statement from the Heart first issued?", back:"The Uluru Statement from the Heart (2017) is understood to contribute to national unity — religious leaders' 2022 endorsement placed institutional weight behind a reform already five years underway."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What three core aspects of spiritual life does the Dreaming determine?", back:"The Dreaming is the foundation of Aboriginal spirituality — it explains how the world was formed and sustained, and determines kinship, ceremonial life, and obligations to land and people."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Is land understood as the basis of the Dreaming, or simply the setting in which it takes place?", back:"Land represents a sacred link embracing Aboriginal identity, since land is understood as the basis of the Dreaming, not just its setting."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Does Aboriginal spirituality separate the spiritual from the secular?", back:"Aboriginal spirituality recognises no separation between the spiritual and the secular — as one elder said, 'We cultivated our land, but in a way different from the white man... they seemed to live off it' — obligation to Country is woven into everyday life, not just ceremony."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Which ancestral being's creation story is linked to the Blue Mountains?", back:"Creation stories are central to how the Dreaming informs cultural identity — e.g. the ancestral being Baiame creating the Blue Mountains links a specific landscape directly to spiritual meaning for the people connected to that Country."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Should a strong response treat 'the Dreaming' as one undifferentiated concept, or address its three elements explicitly?", back:"The Dreaming determines three distinct but connected elements — kinship, ceremonial life, obligations to land and people — so a strong response addresses all three explicitly rather than treating 'the Dreaming' as one concept."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Is kinship determined by an individual's personal totem, or by being born into a kinship group?", back:"Kinship defines where an individual fits within their family and the wider Aboriginal community, and is determined by being born into a particular kinship group rather than by an individual's personal totem."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Does kinship regulate who may marry whom in traditional Aboriginal society?", back:"Kinship regulates social relationships within traditional Aboriginal society, including who may marry whom, making it a structural as well as spiritual system."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What does totemism express?", back:"Totemism expresses a system of kinship within the natural world: a totem — typically a fish, plant or animal representing a spirit ancestor associated with a particular region — provides individuals with a direct spiritual link to ancestral beings."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Why do elders hold significant status and respect within Aboriginal communities?", back:"Elders hold significant status and respect within Aboriginal communities because they possess and safeguard valued sacred knowledge about kinship and spirituality, passing it on according to kinship-based responsibilities."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Is kinship inherited by birth or chosen by the individual?", back:"Because kinship is inherited by birth rather than chosen, it provides a stable, lifelong framework for both spiritual identity and practical social obligation within the community."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What is the primary way Aboriginal people express their spirituality?", back:"Ceremonial life is the primary way Aboriginal people express their spirituality, maintaining connection between the physical and spiritual worlds through enactment ceremonies, myths and legends that merge past, present and future."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What do initiation ceremonies specifically teach young Aboriginal people?", back:"Initiation ceremonies specifically teach young Aboriginal people their responsibilities, prepare them to undertake adult responsibilities within the community, and ensure the continuation of Law across generations."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Why is burial in one's own 'Country' spiritually significant?", back:"Burial in one's own 'Country' is spiritually significant because it allows the deceased's spirit to return to its ancestors, linking ceremonial practice directly to the Dreaming's understanding of land."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What traditional role do elders play regarding Aboriginal ritual and ceremony?", back:"Elders play the traditional role of preserving and transmitting the most sacred meaning of Aboriginal ritual and ceremony, ensuring continuity of spiritual knowledge across generations."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Do Aboriginal peoples worship ancestral beings? (True/false — explain)", back:"An important clarification for exam responses: contemporary Aboriginal ceremonies can differ from ceremonies of the past, since Aboriginal stories and practices allow for change — and Aboriginal peoples do not worship ancestral beings, a common misconception."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What contemporary practice publicly acknowledges Traditional Owners as custodians of their Country?", back:"Obligations to land and people are central to Aboriginal spirituality, publicly acknowledged today through Welcome to Country, which recognises Traditional Owners as ongoing custodians of Country."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"In what year did Uluru close to climbers, and why was this significant to the Anangu traditional owners?", back:"Uluru's 2019 closure to climbers is a significant contemporary example, recognised by the Anangu traditional owners as honouring obligations to land and people, and traditional Aboriginal law and Australian law working together."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What primarily establishes responsibility for a particular area of Country — kinship, or individual choice?", back:"Territorial boundaries form the basis of ritual estates; responsibility for an area of Country is established primarily through the kinship system, not individual choice or Western-style ownership."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Are obligations to land and people best understood as purely cultural custom, or as legal and spiritual responsibility together?", back:"Law is central to the Dreaming: obligations to land and people are a legal and spiritual responsibility simultaneously, not simply cultural custom."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Complete the elder's quote: 'We cultivated our land, but in a way different from the white man...'", back:"As one elder put it: 'We cultivated our land, but in a way different from the white man... they seemed to live off it' — obligation to Country shapes a relationship with land fundamentally different from Western land-use."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Are Land Rights claims fundamentally about spiritual obligation, or land ownership in an economic sense?", back:"The Dreaming is important for Land Rights because it underpins Aboriginal peoples' connection to Country — claims are fundamentally about restoring the ability to live out Dreaming-based spiritual obligations, not simply land ownership."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What best expresses the basis of Aboriginal Land Rights claims — an economic claim, or a spiritual relationship to Country?", back:"A spiritual relationship to Country — not an economic or historical claim alone — is the basis of Aboriginal Land Rights claims, distinguishing them from other land claims."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Who led the 1966 Wave Hill Walk-Off?", back:"The 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari, is a landmark early example of Land Rights driven by spiritual and cultural connection to Country, not only pay and conditions."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"In what year was the Aboriginal Land Rights (Northern Territory) Act passed?", back:"The 1976 Aboriginal Land Rights (NT) Act, partly a response to Wave Hill, was the first major legislation giving legal recognition to Aboriginal land claims based on traditional and spiritual connection to Country — linking the Dreaming to a legal framework for the first time."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Which two later legal developments gave the Dreaming's concept of connection to Country legal standing for the first time?", back:"The Dreaming's importance for Land Rights connects to later developments — Mabo (1992) and Wik (1996) — which gave connection to Country legal standing for the first time."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What do Native Title, Mabo and Wik collectively contribute to, according to the syllabus?", back:"Native Title, Mabo and Wik together transformed Australian law's recognition of Aboriginal and Torres Strait Islander peoples' relationship to land, contributing to the revitalisation of Aboriginal traditions more broadly."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What is the correct chronological order: Mabo, the Native Title Act, Wik, and the Native Title Amendment Act?", back:"Sequence matters: Mabo (1992) came first, leading to the Native Title Act 1993, later tested and clarified by Wik (1996) and the Native Title Amendment Act 1998."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What did the Native Title Act 1993 require, particularly over Commonwealth-held land?", back:"The Native Title Act 1993 (Cwlth) required formal recognition of Aboriginal and Torres Strait Islander land rights claims, particularly over Commonwealth-held land, converting Mabo's common-law recognition into a workable legislative process."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What does establishing native title typically require demonstrating?", back:"Establishing native title typically requires demonstrating continuous connection to Country through Dreaming-based customary law and ceremony, legally validating spiritual practice as evidence."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What distinction should a strong response draw between Mabo/Wik and the Native Title Act?", back:"A strong response distinguishes the legal/judicial developments (Mabo, Wik — High Court decisions) from the legislative response (the Native Title Act 1993 and its 1998 amendment), since students often conflate court decisions with the Acts that followed."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What tribunal did the Native Title Act 1993 establish to administer claims?", back:"The Native Title Act 1993 (Cwlth) was Parliament's response to Mabo, formally requiring recognition of Aboriginal and Torres Strait Islander native title claims — particularly over Commonwealth land — and establishing the National Native Title Tribunal to administer claims."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Does native title confirm a pre-existing right, or create a brand-new one (unlike the 1976 NT Land Rights Act)?", back:"Native title differs from the 1976 Aboriginal Land Rights (NT) Act: it's a common-law right Parliament recognised a process for, rather than a government land grant — confirming a pre-existing right, not creating a new one."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What must native title claimants demonstrate, linking the legislation to the Dreaming?", back:"Establishing native title requires claimants to show continuous connection to Country through traditional law and custom, linking the process directly to the Dreaming-based obligations in DP6."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What did the Native Title Amendment Act 1998 clarify, following the Wik decision?", back:"After Wik (1996), the Native Title Amendment Act 1998 let native title coexist with pastoral leases and let states/territories legislate their own procedures — narrowing claims' scope compared with the position right after Mabo."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Which two items are the court decisions, and which two are the Acts of Parliament, in the Native Title story?", back:"A strong response keeps the legal decisions (Mabo, Wik — High Court cases) distinct from the legislative response (the 1993 Act and its 1998 amendment): the Native Title Act is the legislation itself, while Mabo and Wik are the two court decisions that triggered and reshaped it."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"In what year did the High Court hand down the Mabo decision?", back:"In Mabo v Queensland (No 2) (1992), the High Court ruled for Eddie Mabo and the Meriam people, overturning terra nullius and recognising — for the first time — that native title existed under Australian common law before colonisation."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What tribunal did the Native Title Act 1993 establish following the Mabo decision?", back:"The decision led directly to the Native Title Act 1993, establishing a legal process — and the National Native Title Tribunal — for Aboriginal and Torres Strait Islander peoples to claim native title, including land and water rights."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"How is a native title claim's 'continuous connection to country' typically evidenced?", back:"Mabo gave legal weight to the spiritual relationship between Aboriginal peoples and land in the Dreaming, since 'continuous connection to country' is often shown through customary law, ceremony and ties to specific sites."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"For how many years did Eddie Mabo pursue his case, and when did he die relative to the judgment?", back:"Eddie Mabo pursued the case for ten years from 1982 with fellow Meriam plaintiffs, and died in January 1992 — months before the June judgment."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Which later case did Mabo set the precedent that would build on native title's coexistence with pastoral leases?", back:"Mabo is widely seen as the most significant legal turning point in the land rights movement, a precedent Wik Peoples v Queensland (1996) built on regarding native title's coexistence with pastoral leases."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"In what year did the High Court hand down the Wik decision?", back:"In Wik Peoples v Queensland (1996), the High Court ruled native title could coexist with pastoral leases rather than being automatically extinguished by them — a major clarification of the framework established after Mabo."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Did the Wik decision extinguish pastoralists' existing rights?", back:"Wik did not extinguish pastoralists' existing rights; it established native title and pastoral leaseholder rights could exist simultaneously over the same land, with pastoral lease rights prevailing in a genuine conflict."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What Act did the Wik decision prompt in 1998?", back:"Wik prompted the Native Title Amendment Act 1998, formally establishing native title could coexist with leaseholder rights, and empowering states and territories to legislate their own native title procedures."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Did the 1998 amendments broaden or narrow the practical scope of native title compared with the position right after Mabo?", back:"Following political controversy among the pastoral and mining industries, the 1998 amendments are often seen as narrowing native title's practical scope compared with the position right after Mabo, though the coexistence principle itself favoured Aboriginal claimants."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Did Wik overturn Mabo's core findings, or answer a question Mabo had left open?", back:"Sequence matters: Wik (1996) and its 1998 amendment came after Mabo (1992) and the Native Title Act (1993) — Wik answered a question Mabo left open (land already leased for pastoral use), not overturning Mabo's core findings."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What connection does dispossession primarily disrupt, according to the overview?", back:"Dispossession continues to affect Aboriginal spiritualities today primarily by disrupting the connection between land and kinship, since both are needed together to practise and transmit Aboriginal spirituality."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Does dispossession disrupt just one element of Aboriginal cultural practice, or several together?", back:"Dispossession disrupts Aboriginal cultural practices broadly, not just one element — ceremonial life, kinship and connection to land are all affected together, not in isolation."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What three continuing effects does the syllabus name for dispossession?", back:"The syllabus names three continuing effects — separation from land, separation from kinship groups, and the Stolen Generations — connected but distinct strands, each disrupting spirituality through a different mechanism."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Roughly what period did assimilation-era policy target land, family structure and cultural practice simultaneously?", back:"Because assimilation-era policy (roughly 1910s–1970s) targeted land, family and cultural practice together, its effects compound: losing land made maintaining kinship harder, and losing kinship made passing on land-based knowledge harder."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Are dispossession's effects on Aboriginal spirituality only historical, or continuing today?", back:"A strong response makes clear these are continuing effects, not just historical: native title gaps, disrupted family knowledge and intergenerational trauma from the Stolen Generations still shape Aboriginal spirituality today."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"How did dispossession physically separate Aboriginal peoples from their traditional Country?", back:"Dispossession physically separated many Aboriginal peoples from traditional Country through colonial land seizure and, later, forced relocation onto missions and reserves, breaking the everyday connection to land Aboriginal spirituality depends on."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Is separation from land simply a loss of property, or something deeper?", back:"Because land is the basis of the Dreaming, separation from land is not just loss of property but loss of the primary source of spiritual identity, ancestral teachings and Law."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What has restricted or lost access to sacred sites made difficult or impossible to perform?", back:"Restricted or lost access to sacred sites has, in many cases, made it difficult or impossible to perform the ceremonies that maintain connection between the physical and spiritual worlds."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Since which case and Act have some communities regained legal access to traditional land?", back:"Native title processes since Mabo (1992) and the Native Title Act (1993) let some communities regain legal access to traditional land, though many remain separated from Country where a claim can't be established."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Are the effects of 19th- and 20th-century dispossession on land access purely historical?", back:"Separation from land continues to affect spiritual practice wherever Country now falls under freehold or leasehold title incompatible with cultural access — 19th- and 20th-century dispossession's effects are not simply historical."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Through what two mechanisms did dispossession physically separate people from their kinship groups?", back:"Dispossession disrupted Aboriginal kinship structures by physically separating people from their kinship groups — through forced removal to missions and reserves, later through Stolen Generations policies — breaking the system through which spiritual identity and sacred knowledge are transmitted."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What did separation from kinship also disrupt, beyond just family relationships?", back:"Because kinship is inherited by birth and regulates relationships including marriage, separation from one's kinship group disrupted the transmission of Law, totemic knowledge and ceremonial roles to the next generation."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Why couldn't elders pass on sacred knowledge to family members forcibly separated from them?", back:"Elders, who hold and transmit sacred knowledge through kinship-based responsibility, could not pass it on to family members forcibly separated from them, creating gaps in spiritual knowledge across generations."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What did individuals lose when their kinship groups were dispersed across different missions or regions?", back:"Where kinship groups were dispersed across missions, reserves or adoptive families, often in different regions, individuals lost not only immediate family but the people who held knowledge of their own Country and totem."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What initiatives today help descendants of the Stolen Generations reconnect with kinship groups?", back:"Reconnecting with kinship groups today, through family tracing and community reunion programs, is a necessary step in restoring fuller participation in Aboriginal spirituality for many descendants of the Stolen Generations."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"What was the main stated reason for child removals after 1945?", back:"The Stolen Generations refers to the forced removal of Aboriginal and Torres Strait Islander children from their families under government assimilation policy, with the main stated reason after 1945 being to force children to adopt European culture."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Complete the survivor testimony: 'They stole my speech and ___'", back:"As one survivor's testimony put it, 'They stole my speech and family' — removal took not just physical connection to family but language, culture and ancestral teachings too."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Why have members of the Stolen Generations often struggled to reconnect with their Aboriginal spirituality?", back:"Members of the Stolen Generations have often struggled to reconnect with Aboriginal spirituality because removal from family disrupted kinship groups, cutting off the relationships through which spiritual knowledge, Country and ceremony are normally transmitted."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Why are the effects of assimilation policy on spirituality described as intergenerational?", back:"Because assimilation policy targeted children specifically, its effects are intergenerational: removed individuals often could not pass on cultural and spiritual knowledge to their own children and grandchildren, compounding the loss."},
+  {pack:"Core", cat:"Aboriginal Spiritualities", front:"Who delivered the National Apology to the Stolen Generations, and in what year?", back:"National Sorry Day (26 May) and the 2008 National Apology to the Stolen Generations, delivered by PM Kevin Rudd, are contemporary acknowledgements of this continuing effect — though acknowledgement alone doesn't restore the spiritual knowledge and relationships lost."},
+  {pack:"Core", cat:"Exam Technique", front:"What does the SLV–BRE writing framework stand for?", back:"<p><b>S</b>acred texts, <b>L</b>iving/dynamic, <b>V</b>ariants — the three ‘must haves’ in every response.</p><p><b>B</b>eliefs, <b>R</b>ituals, <b>E</b>thics — bonus items to weave in when writing about a different primary topic.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"How many sacred-text quotes should a strong response use, by mark value?", back:"<ul><li>2–3 marker — 0–1 quotes</li><li>4–5 marker — 1–2 quotes</li><li>6+ marker — 2–3 quotes</li></ul><p class=\"small\">A full essay: roughly 1 quote in the intro, 2–3 per body paragraph.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"How long should a strong Q11 (5-mark) response be?", back:"<p>About <b>150 words</b> in one tightly packed paragraph — roughly 5 middle sentences full of detail and short examples, with intro and wrap up sentences.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"How many times should you engage with a Q11 stimulus?", back:"<p>At least <b>3 times</b> across the response, using different techniques each time — a short quoted phrase, a paraphrase of an idea from it, or naming its author — rather than fully quoting anything longer than about 10 words.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"What should you do if a Multiple Choice question looks easy?", back:"<p><b>Trust it</b> — don’t overthink it. Easy-looking questions are usually genuinely easy (often early in the paper). Read → choose the most correct answer → check by eliminating the other three options.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"How should you approach ‘Statement 1 / Statement 2’ Multiple Choice questions?", back:"<p>Assess each statement <b>separately and completely</b> before comparing them — don’t jump straight to the combined answer. These are usually the harder questions.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"If an essay question is holistic (not about just one aspect), how many significant aspects should you use?", back:"<p>Exactly <b>TWO</b> significant aspects — not one, and not three or more spread too thin.</p>"},
+  {pack:"Core", cat:"Exam Technique", front:"How much should you write for a short-answer question, by mark value?", back:"<p>Roughly <b>marks × 3 lines</b> — e.g. 3 marks ≈ 10 lines, 5 marks ≈ 16 lines, 7 marks ≈ 22 lines. Write ‘just enough’ plus one line — bullet points are fine if you’re running out of time.</p>"},
+  {pack:"Buddhism", cat:"Temple Puja", front:"What does Dr Batten's OBO acronym stand for?", back:"Offering, Bowing, Other — the three parts of Temple Puja. Offerings (flowers, food, incense, candles) are placed before the Buddharupa; Bowing shows humility (Anatta) to the Buddha image or senior monk/lay person; Other covers chanting and meditation."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"Why is Bodhi Day (8 December) significant for Temple Puja?", back:"Bodhi Day commemorates the Buddha's Enlightenment (Bodhi) and is when Temple Puja can extend to 90+ minutes rather than the daily ~30 minutes, e.g. at Nan Tien Temple, NSW."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"What does the Mahayana mantra ‘Om Mani Padme Hum’ translate to, and what does it represent?", back:"‘Hail to the lotus in the jewel’ — the union of wisdom (lotus) and compassion (jewel); chanting it is believed to purify negative qualities such as jealousy, anger and ignorance."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"How does Temple Puja express the Three Jewels?", back:"Through offerings, bowing and chanting directed at images (buddharupas) of the Buddha, the Dharma (revered through offerings of light/candles, and through reading sacred texts) and the Sangha (honoured through offerings to monks and nuns, and through communal gathering)."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"Complete the quote: ‘I take refuge in the Buddha…’", back:"“I take refuge in the Buddha, the incomparably honoured one; I take refuge in the Dharma, honourable for its purity; I take refuge in the Sangha, honourable for its harmonious life” — the Threefold Refuge, Khuddakapāṭha 1."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"How does Temple Puja express the Eightfold Path?", back:"Lighting candles encourages ‘Right Understanding’; reflection develops ‘Right Speech’ and ‘Right Mindfulness’; meditation (common to all 3 schools) supports ‘Right Concentration’; Nan Tien Temple's vegan restaurant lets adherents practise ‘Right Action’ (ahimsa)."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"How do the three main schools differ in their emphasis during Puja?", back:"Theravada: Pali texts and personal discipline/insight. Mahayana: sutras and Bodhisattva devotion (e.g. bodhisattvas incorporated into Puja). Vajrayana: mantras, mudras and gurus."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"Why is Temple Puja significant for the individual?", back:"It nurtures the personal quest for enlightenment: offerings cultivate generosity and positive karma supporting liberation from samsara toward nirvana, while mindfulness loosens attachment to the self (anatta-awareness)."},
+  {pack:"Buddhism", cat:"Temple Puja", front:"Why is Temple Puja significant for the Buddhist community?", back:"It creates collective unity — “alone, together” — with temples like Nan Tien functioning as hubs connecting monastics, laypeople and visitors, reinforced by festivals (Bodhi Day) and the teaching: “stand together, assist one another, and strengthen one another's efforts.”"},
+  {pack:"Buddhism", cat:"Temple Puja", front:"What Dhammapada quote captures that ritual alone isn't enough in Buddhism?", back:"“Not by rituals alone does one become pure, but also by disciplining the mind” (Dhammapada) — a reminder that Temple Puja's significance lies in genuine inner cultivation, not just the actions themselves."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"What does Dr Batten's STIFS acronym stand for?", back:"The Five Precepts: abstain from harming Sentient beings, Taking what is not given, Intoxicants, False speech, and misusing the Senses."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"What does the Buddhist ‘Three Noble Deeds’ (3As) framework cover?", back:"Awareness (mindful consumption, walking meditation), Advocacy (challenging greenwashing, science-based climate goals) and Action (plant-based diets, renewable energy, habitat restoration) — how the Five Precepts guide daily environmental living."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"Give one real-world example of Buddhists applying the First Precept environmentally.", back:"Thai Theravada monks ‘ordaining’ trees (wrapping them in saffron robes) to prevent logging — extending the precept against harming sentient beings to protecting an ecosystem."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"How does the Second Precept (not taking what is not given) apply to environmental ethics?", back:"Ecological ‘theft’ is reframed as unsustainable extraction — over-fishing, illegal logging, soil depletion — that effectively steals resources from future generations."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"How does the Fourth Precept (false speech) apply to environmental ethics?", back:"It means promoting truth-telling about pollution, emissions and climate risk, and rejecting ‘greenwashing’ — honest reporting, transparent supply chains, ethical investing."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"What does the Buddha's teaching on the Middle Way say about extremes?", back:"“Avoiding both extremes… the Middle Way… gives rise to vision, knowledge, and leads to peace, to direct insight, and to enlightenment” (the Buddha's First Sermon) — applied to environmental ethics as avoiding the extremes of exploiting or entirely rejecting use of the natural world."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"Why are trees particularly significant in Buddhist environmental ethics?", back:"The Buddha found enlightenment under the bodhi tree, early sanghas were founded in forests, and Thai monks have ‘ordained’ trees to prevent logging — trees connect the tradition's own origin story to a living ecological practice."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"What is the Vimalakīrti Sūtra quote used to express Buddhist interdependence?", back:"“Because all living beings are subject to illness, I am ill, as well” — dependent arising means one being's suffering (including the Earth's) is shared, not separate."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"What does Thich Nhat Hanh mean by ‘deep listening’ to the environment?", back:"A meditative practice (e.g. his Plum Village walking meditations) of attentively connecting with the needs of the natural world, teaching “we are here to awaken from the illusion of our separateness.”"},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"Name two Buddhist organisations actively engaged in environmental advocacy.", back:"Earth Sangha and the Buddhist Peace Fellowship (BPF) — promoting renewable energy, biodiversity and community environmental restoration; also Green Sangha and Trees for Dharma (tree ordination)."},
+  {pack:"Buddhism", cat:"Ethics & Precepts", front:"What CO2 target does the Buddhist Declaration on Climate Change endorse, and who backs it?", back:"No more than 350 parts per million — endorsed by the Dalai Lama, along with other Nobel laureates and distinguished scientists."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"What does Dr Batten's REP acronym cover (impact on development)?", back:"Rebirth (of the Bodhisattva of Compassion), Ethics (reformulated as compatible with science), Peace (as a Buddhist ideal) — the Dalai Lama's three main impacts on Buddhism's development."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"What does Dr Batten's PPV acronym cover (contribution to expression)?", back:"Public face (of Buddhism worldwide), Peace-grounded (universal human values), non-Violence (advocacy) — how the Dalai Lama has shaped how Buddhism is expressed and understood."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"Why do Tibetan Buddhists regard the XIV Dalai Lama as significant to Buddhism's development?", back:"He is believed to be the rebirth of the Bodhisattva of Compassion (karuna), providing doctrinal continuity and legitimacy through the 1959 Tibetan exile, while reframing rebirth as continuity of consciousness to keep the doctrine meaningful in modern contexts."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"How has the Dalai Lama reframed Buddhism in relation to science?", back:"In Beyond Religion (2011) he argues “ethics is more important than religion”; in The Universe in a Single Atom (2005) he states Buddhism must change if science disproves a belief; he co-founded the Mind & Life Institute (1987) for scientist-Buddhist dialogue."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"What three traditional Buddhist doctrines has the Dalai Lama reinterpreted, and how?", back:"Karma (as behavioural causation), rebirth (as continuity of consciousness) and the Six Realms (as psychological states) — shifting Buddhism from a cosmological system toward a psychological-ethical one."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"What did the Dalai Lama win in 1989, and why?", back:"The Nobel Peace Prize, for ethical leadership grounded in ahimsa (non-violence), compassion and dependent arising, and his advocacy for a peaceful ‘Middle Way’ resolution to the Tibetan struggle."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"What was the Dalai Lama's 1987 Five Point Peace Plan?", back:"A proposal for the restoration of peace and human rights in Tibet, reflecting his non-violent approach to political conflict; it was rejected by the Chinese government."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"How has the Dalai Lama modelled interfaith ‘spiritual friendship’?", back:"Through relationships such as with Archbishop Desmond Tutu, extending Buddhist ethics (compassion, non-violence) into interfaith dialogue beyond Buddhism itself."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"What Tibetan Book of the Dead quote does the Dalai Lama echo in his advocacy for non-violence?", back:"“Clarity of mind dispels fear in all realms” — used to link moral clarity and non-violence to reshaping political dialogue."},
+  {pack:"Buddhism", cat:"Dalai Lama", front:"Why is the Dalai Lama sometimes called ‘the public face of Buddhism’ despite heading only one school?", back:"He heads only Vajrayana Tibetan Buddhism, but through teachings, media engagement and books (e.g. The Seed of Compassion, 2020) he has become the most globally recognised representative of Buddhism as a whole, especially encouraging new adherents in Western countries."},
+  {pack:"Buddhism", cat:"Named Evidence Bank", front:"What was the single most repeated marker note across Buddhism responses this year?", back:"“Include more organisations and initiatives — a significant leader, a named temple, a specific contemporary example.” Accurate answers were still losing marks for being too generic — not wrong, just not named."},
+  {pack:"Buddhism", cat:"Named Evidence Bank", front:"Rephrase precisely: ‘Buddhists believe in kindness.’", back:"“Karuna (universal compassion) guides adherents to minimise dukkha in others.” Precise precept/terminology language turns a vague claim into an underlinable detail."},
+  {pack:"Buddhism", cat:"Named Evidence Bank", front:"What are the four categories in the Named Evidence Bank?", back:"Significant person (Dalai Lama XIV — Five Point Peace Plan, Nobel 1989), Organisations & initiatives (Earth Sangha, Trees for Dharma, Green Sangha), Temples & practice (Nan Tien Temple's vegetarian kitchen, Temple Puja), Scripture & terminology (Dhammapada citations by verse)."},
+  {pack:"Buddhism", cat:"Named Evidence Bank", front:"Before you submit a Buddhism response, what should you check for (the evidence audit)?", back:"A named organisation/temple/leader-led initiative (not just a concept), precise precept phrasing (‘abstain from…’ not ‘do not…’), staying tied to the exact ethical area named in the question, and at least three underlinable named details."},
+  {pack:"Buddhism", cat:"Extension", front:"Extension: how does Theravada Buddhism's orientation to nature differ from Mahayana's?", back:"Theravada is more ascetic — nature is impermanent, not necessarily a source of peace/beauty in itself, valued mainly for the quietude it offers the mind. Mahayana (esp. East Asian) sees nature as imbued with sentience and life force, human and environment co-emerging — awakening happens through harmonising with nature, not detaching from it."},
+  {pack:"Buddhism", cat:"Extension", front:"Extension: how is Vajrayana Buddhism's environmental ethic shaped by the Himalayan landscape?", back:"It is deeply animistic — the environment is understood as populated by unseen beings (local gods, spirits), so rituals such as sang (smoke offering) aim to bring harmony and compassion into relationship with them."},
+  {pack:"Buddhism", cat:"Extension", front:"Extension: what lineage of Tibetan Buddhism does the Dalai Lama belong to?", back:"The Gelugpa lineage — one of four major lineages alongside Nyingma, Kagyu and Sakya — a scholastic, monastic tradition."},
+  {pack:"Buddhism", cat:"Extension", front:"Extension: what does ‘emptiness’ (śūnyatā) mean in the Dalai Lama's teaching?", back:"Not nothingness, but freedom from independent existence: nothing (including a person) exists independently of what it depends on — only interdependently. Understanding this directly, alongside compassion, is central to his account of awakening."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What two mitzvot guide Jewish death and mourning practice?", back:"Kavod Hamet (honouring the dead) and Nichum Aveilim (comforting mourners) — both derived from halakhah, the collective body of Jewish law from the Written Torah (Tanakh) and Oral Torah (including the Talmud)."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What does the dying person (the gosses) recite, and what does it express?", back:"The Shema — “Hear O Israel, the Lord is our God, the Lord is One” (Deuteronomy 6:4) — the central Jewish declaration of belief in One God, recited as death approaches."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What is unusual about the Kaddish prayer, and why does that matter?", back:"It never mentions death — instead it proclaims God's greatness (“Magnified and sanctified be His great name…”). By reciting it, mourners affirm belief in One God even while their faith is tested by loss."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What does a Chevra Kadisha do, and under which mitzvah?", back:"A burial volunteer group that performs taharah (ritual purification) of the body, fulfilling the Kavod Hamet mitzvot, which is derived partly from “You shall not desecrate the dead” (Deuteronomy 21:23)."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What are the three main stages of Jewish mourning (Avelut), in order?", back:"Shiva (the first, strict 7 days), Shloshim (extends to 30 days — return to work, but no music/parties), and for the death of a parent, the wider Avelut period runs 12 months in total."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"Name three Shiva restrictions.", back:"Mourners do not leave home, work or engage in entertainment; they sit on low chairs; they wear keriah (torn clothing) — and mirrors are covered so the focus stays on the memory of the deceased, not the mourner."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"Why are round-shaped Condolence Meal foods (e.g. eggs, bagels) brought during Shiva?", back:"They symbolise the cycle of life, and new life continuing for the deceased through those left behind."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What is a minyan, and why does it matter for mourning?", back:"A minimum of 10 people required to recite the Kaddish (traditionally men in Orthodox and most Conservative synagogues; Progressive Judaism allows women). It ensures no mourner recites Kaddish, or grieves, alone."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"How do Orthodox/Conservative and Progressive streams differ on burial vs cremation?", back:"Orthodox and Conservative Judaism require burial, strictly the same simple service for everyone (no flowers, no individual booklet). Some Progressive synagogues now permit cremation or eco-burials as a matter of personal choice, citing autonomy and environmental concern, while still keeping meaningful rituals like reciting Kaddish."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"How did death and mourning practice adapt during COVID, while keeping its meaning?", back:"Many synagogues held “Zoom minyanim” for Kaddish, and burials in Israel were still completed within 24 hours but livestreamed — letting families abroad feel involved, showing the practice as living and dynamic."},
+  {pack:"Judaism", cat:"Death & Mourning", front:"What does burial within 24 hours anticipate, and how do streams differ in interpreting it?", back:"“Many who sleep in the dust will awake” (Daniel 12:2) — resurrection at the end of days. Orthodox and Conservative Judaism emphasise this literal messianic hope; Progressive Judaism often reads it metaphorically, as spiritual continuity."},
+  {pack:"Judaism", cat:"Bioethics", front:"What are the two foundational teachings behind Jewish bioethics?", back:"Pikuach Nefesh (preservation of life, Talmud Yoma 85b) and Tzelem Elohim (“made in the image of God”, Genesis 1:27) — a belief, not a mitzvah, so name it precisely."},
+  {pack:"Judaism", cat:"Bioethics", front:"Complete and source: “Whoever destroys one life…”", back:"“Whoever destroys one life is as if he destroyed a whole world, and whoever preserves a life is as if he preserved the whole world” — Mishnah Sanhedrin 4:5."},
+  {pack:"Judaism", cat:"Bioethics", front:"How does Jewish law treat abortion in the first 40 days vs after?", back:"In the first 40 days, rabbinical interpretation considers the foetus “mere water” (Yevamot 69b), permitting abortion for maternal health. After 40 days, Orthodox and Conservative Judaism restrict abortion except for severe maternal risk; Progressive Judaism allows broader consideration of mental health and autonomy."},
+  {pack:"Judaism", cat:"Bioethics", front:"What is a rodef, and why does the term matter for abortion ethics?", back:"A rodef is a genuine threat to the mother's life. Where the foetus is a rodef, abortion is not only allowed but required — across all streams. It's a precise legal term, not a loose description of risk."},
+  {pack:"Judaism", cat:"Bioethics", front:"Why is IVF widely permitted in Judaism?", back:"Embryonic wastage isn't considered an ethical obstacle, and IVF fulfils the mitzvah to “be fruitful and multiply” (Genesis 1:28) — a command post-Holocaust communities particularly emphasise; Israel's government funds IVF cycles until two live births."},
+  {pack:"Judaism", cat:"Bioethics", front:"How significant is Pikuach Nefesh compared to other mitzvot?", back:"It is considered so significant it overrides almost all other mitzvot (Talmud Yoma 85b) — for example, Sabbath law may be broken if a life is genuinely at stake."},
+  {pack:"Judaism", cat:"Bioethics", front:"How do streams differ on organ donation?", back:"Progressive and Conservative Judaism generally encourage donation (even live kidney donation), citing Pikuach Nefesh. Orthodox Judaism has traditionally discouraged bodily defilement, looking to bodily resurrection, though some Orthodox rabbis now permit post-mortem donation once death is halachically confirmed."},
+  {pack:"Judaism", cat:"Bioethics", front:"What is the Orthodox position on withdrawing life support, and how does it differ from Progressive Judaism?", back:"Orthodox rabbis often allow passive withdrawal (not starting new treatment) but forbid actively hastening death. Progressive Judaism permits broader personal autonomy, emphasising dignity and compassion."},
+  {pack:"Judaism", cat:"Bioethics", front:"Is voluntary euthanasia permitted in Judaism? What's the alternative focus?", back:"No — suicide and voluntary euthanasia are prohibited (“You shall not kill”, Exodus 20:13). The focus instead is on the dying person (Gosses) being supported to die with dignity, reflecting Tzelem Elohim."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What does Dr Batten's ELPCO acronym stand for?", back:"Education, Leadership, Progressive, Conservative, Orthodox — tracking Jewish Feminism's impact on the development and expression of Judaism across those three streams."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"Who was Regina Jonas, and why does she matter for Jewish Feminism?", back:"The world's first ordained female rabbi — ordained in Berlin in 1935, serving the city's liberal Jewish community through the Nazi era, before being murdered in Auschwitz. She predates Sally Priesand (1972, first ordained in the US) by 37 years."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What was Ezrat Nashim, and what did it produce?", back:"A group of ten Jewish feminists formed in 1972, who produced “The Call for Change”, seeking spiritual, ritual, intellectual and political opportunities for women."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"Name the first ordained woman rabbi in Progressive and in Conservative Judaism, with dates.", back:"Progressive: Rabbi Sally Priesand, ordained 1972 (Cincinnati) — the first ordained in the US (Regina Jonas, 1935 Berlin, was the world's first). Conservative: Rabbi Amy Eilberg, ordained 1985 (New York), after Conservative Judaism's 1983 decision to allow women's ordination."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What is JOFA, and how does it position its advocacy?", back:"The Jewish Orthodox Feminist Alliance, founded 1997 by Blu Greenburg — advocates for women's meaningful participation “within the framework of halachah”, working for change from inside Orthodoxy rather than outside it."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What is a rabbanit, and what can she do (and not do) in Orthodox Judaism?", back:"A female Orthodox religious leader — Rabbi Phil Kaplan of Sydney's Great Synagogue confirms that, since Rabbanit Sara Hurwitz (2009) and Rabbanit Ellyse Borghi (2019, Melbourne), rabbanits can read Torah publicly and preach, but remain halakhically limited, e.g. excluded from mixed services and minyanim."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What exactly is a minyan, precisely defined?", back:"The quorum of ten Jewish adults (traditionally men over 13) required to perform specific communal prayers and rituals, such as Kaddish and wedding blessings — from the Hebrew for “to count” or “number”."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What does a feminist reading of Numbers 15:37–41 argue?", back:"That the commandment to wear tzitzit (tassels) — reminders of God's laws — was likely intended for all Israelites, not only men, defying traditional male-centric interpretation and grounding Progressive/Conservative women's choice to wear a tallit."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What's the precise status of Tikkun Olam? (a real nuance to check)", back:"Not one of the 613 mitzvot itself — a guiding ethical principle grounded in real mitzvot including Tzedakah (charity), Pikuach Nefesh (saving life), Gemilut Chasadim (acts of kindness) and Bal Tashchit (prohibition against waste)."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What scriptural precedent does Jewish Feminism cite for women influencing halakhah?", back:"Numbers 27:1–7 — the daughters of Zelophehad successfully petition Moses for inheritance rights, and God affirms: “The daughters of Zelophehad speak rightly.”"},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"How does ritual participation differ across streams for women today?", back:"Progressive Judaism: full equality, Bat Mitzvahs since 1922 (USA), women in a minyan. Conservative: women in a minyan permitted, Bat Mitzvahs more common from the 1960s–70s. Orthodox: still halakhically limited, though tallit-wearing and women's prayer groups/Torah education are growing."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What is an Agunah (plural Agunot), and what has JOFA done about it?", back:"A woman “chained” in marriage because her husband won't grant a divorce (a get). JOFA has campaigned against this — notably succeeding after 9/11, when some widowed Agunot were permitted to remarry despite bodies never being recovered."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What does kiddushin traditionally mean for Jewish marriage law, and how has Conservative Judaism reformed it?", back:"Kiddushin frames marriage as the man “acquiring” the woman, with only the husband able to grant a get. Conservative Judaism has introduced egalitarian rituals (e.g. both partners exchanging rings) while the husband remains legally obligated to give a get."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What are kol isha and Jewish feminist hermeneutics? (2026 extension)", back:"Kol isha (“a woman's voice”) — historically a restriction on a woman's public voice in some Orthodox contexts, now reclaimed by Jewish feminists. Jewish feminist hermeneutics is re-reading sacred texts through a gender-inclusive lens. Named by this cohort's real 2026 Trial marker as an extension worth building in for the top band."},
+  {pack:"Judaism", cat:"Jewish Feminism", front:"What Genesis verse grounds Jewish Feminism's claim to equal dignity, and what does it say?", back:"Genesis 1:27: “So God created mankind in His image, male and female He created them” — cited to argue that Tzelem Elohim (being made in God's image) applies equally to both genders."},
+  {pack:"Judaism", cat:"Named Evidence Bank", front:"What was the single most repeated marker note on Judaism essays this year, and across what mark range did it appear?", back:"“Include the exact source of scripture — not just the reference.” It appeared on essays scoring anywhere from 14/20 to 18/20 — Judaism is already this cohort's strongest section, so the gap is precision, not knowledge."},
+  {pack:"Judaism", cat:"Named Evidence Bank", front:"Turn this into an exact source: “The Torah says we are made in God's image.”", back:"“Made in the image of God” — Genesis 1:27. Book, chapter and verse, every time."},
+  {pack:"Judaism", cat:"Named Evidence Bank", front:"What are the four categories in the Judaism Evidence Bank?", back:"Scripture (precisely sourced, e.g. Genesis 1:27), Bioethics (Pikuach Nefesh, rodef — nuance to check), Jewish Feminism (JOFA, named ordained rabbis, kol isha), Death & Mourning (Chevra Kadisha, Shiva/Shloshim/Avelut, the Gosses)."},
+  {pack:"Judaism", cat:"Named Evidence Bank", front:"Before you submit a Judaism response, what four questions make up the evidence audit?", back:"Have I identified the pairing this question is actually asking for? Does every quotation have an exact source (book, chapter, verse)? Have I checked contested terms (rodef, Tzelem Elohim) precisely? Is the stimulus visible throughout, not just in the introduction?"},
+  {pack:"Judaism", cat:"Extension", front:"Extension: what is Jewish feminist hermeneutics?", back:"The practice of re-reading and reinterpreting sacred texts through a gender-inclusive lens, recovering women's presence and voice within halakhic and scriptural tradition rather than treating it as fixed."},
+  {pack:"Judaism", cat:"Extension", front:"Extension: what is kol isha, and how has its meaning shifted?", back:"Literally “a woman's voice” — historically used in some Orthodox contexts to restrict a woman's public voice, especially in prayer. Jewish feminists have increasingly reclaimed it as a symbol of restoring women's voice, especially through more inclusive scriptural language in the Progressive stream."},
+  {pack:"Judaism", cat:"Extension", front:"Extension: who is Rabbi Abraham Joshua Heschel, and what does NESA's own guidance say about him?", back:"A real, alternative answer to the ‘significant person or school of thought’ question (NESA 2025 marking guidelines): Heschel emphasised spirituality, ethics, awe and wonder at the divine, a personal/experiential relationship with God, and ‘Tikkun Olam’ as the path to a meaningful, ethically engaged life."},
+  {pack:"Judaism", cat:"Extension", front:"Extension: who is Susanna Heschel, and how does she relate to Abraham Joshua Heschel?", back:"A leading Jewish feminist theologian and historian of Jewish Studies (Dartmouth College) — daughter of Rabbi Abraham Joshua Heschel, and editor of “On Being a Jewish Feminist: A Reader”. Naming both Heschels precisely, and being clear which is meant, is a top-band level of detail."},
+  {pack:"Judaism", cat:"Extension", front:"Extension: what did NESA's real 2025 sample answer use as an example of ONE significant practice expressing ONE belief?", back:"Jewish marriage expressing the belief in the Covenant — through the wedding vows and the Ketubah, the couple form a divine partnership symbolising the Covenantal relationship between Yahweh and His people."}
+,
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Buddha?", "back": "<b>Enlightened one.</b> A key Buddha was Siddhartha Gautama (480–400 BCE)."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Dharma?", "back": "<b>Buddhist teachings.</b> Temple Puja AND environmental ethics AND the Dalai Lama."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Sangha?", "back": "<b>Buddhist community.</b> Temple Puja community."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Three Jewels?", "back": "<b>Buddha, Dharma, Sangha.</b> Temple Puja beliefs."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Four Noble Truths?", "back": "<b>Dukkha, craving, cessation is possible, the Eightfold Path.</b> The practical ‘Middle Way’ taught by the Buddha, Siddhartha Gautama, around 528 BCE."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Dukkha?", "back": "<b>Suffering.</b> Avoiding it is central to environmental ethics."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Eightfold Path?", "back": "<b>Right behaviour (eight factors).</b> Temple Puja beliefs."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Karma?", "back": "<b>Merit / moral cause-and-effect.</b> Significance for the individual in Temple Puja."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Samsara?", "back": "<b>The painful cycle of rebirth.</b> The goal of practice is avoiding endless samsara."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Nirvana?", "back": "<b>Final enlightenment, release from samsara.</b> The goal of improving karma."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Anicca?", "back": "<b>Impermanence.</b> Shown by offerings that decay during Temple Puja."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Anatta?", "back": "<b>Non-self.</b> Significance for the individual in Temple Puja."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Prajna?", "back": "<b>Wisdom.</b> Temple Puja AND environmental ethics AND the Dalai Lama’s contribution."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Bhikkhuni?", "back": "<b>Buddhist nuns.</b> Interacting with them at Nan Tien Temple."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Vinaya?", "back": "<b>Rules governing the Sangha.</b> Relevant to monks/nuns and environmental ethics."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Karuna?", "back": "<b>Compassion.</b> Environmental ethics AND the Dalai Lama’s contribution."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Ahimsa?", "back": "<b>Non-violence / peace.</b> Environmental ethics (e.g. veganism) AND the Dalai Lama’s impact."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Dependent origination (dependent arising)?", "back": "<b>The shared fate of all beings.</b> Leads to universal responsibility, including for the environment."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Sanchita karma?", "back": "<b>Total accumulated past karma.</b> Used to explain environmental ethics."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Five Precepts?", "back": "<b>Core ethical teachings.</b> Applied to environmental ethics."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Mahayana?", "back": "<b>A school of Buddhism.</b> e.g. Nan Tien Temple, with its images of Bodhisattvas."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Theravada?", "back": "<b>A school of Buddhism.</b> e.g. pilgrimage to the Temple of the Tooth, Sri Lanka."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Vajrayana?", "back": "<b>A school of Buddhism.</b> Tibetan Buddhism is part of this school."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Bodhisattva?", "back": "<b>An enlightened being who chooses to help others reach enlightenment.</b> e.g. the Dalai Lama is regarded as a Bodhisattva of Compassion."},
+  {"pack": "Glossary", "cat": "Buddhism", "front": "Terminology: what is Dharamshala?", "back": "<b>A city in North India.</b> Where around 100,000 Tibetan Buddhists fled to."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Covenant?", "back": "<b>Agreement with God.</b> Relevant to Bioethics AND Death & Mourning."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Mitzvah / Mitzvot?", "back": "<b>Commandment / commandments (613 in total).</b> Relevant to Death & Mourning AND Bioethics."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Halakhah?", "back": "<b>The body of Jewish law.</b> Death & Mourning is strongly guided by it; JOFA aims to work within it."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Progressive Judaism?", "back": "<b>A stream of Judaism.</b> Relevant to Death & Mourning AND Jewish Feminism AND ethics."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Conservative Judaism?", "back": "<b>A stream of Judaism.</b> Relevant to Death & Mourning AND Jewish Feminism AND ethics."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Orthodox Judaism?", "back": "<b>A stream of Judaism.</b> Relevant to Death & Mourning AND Jewish Feminism AND ethics."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Tikkun Olam?", "back": "<b>Repair of the world.</b> Relevant to Death & Mourning AND Jewish Feminism AND ethics."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Kavod HaMet?", "back": "<b>Honouring the dead.</b> A mitzvah for Death & Mourning."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Nichum Aveilim?", "back": "<b>Comforting mourners.</b> A mitzvah for Death & Mourning."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Gosses?", "back": "<b>A dying person.</b> Relevant to Bioethics AND Death & Mourning."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Shiva?", "back": "<b>The first, most intense 7 days of mourning.</b> Mourners stay at home."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Shloshim?", "back": "<b>The 30-day (month) period of mourning.</b> Mourners gradually resume normal life but avoid entertainment."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Avelut?", "back": "<b>The year of mourning (for a parent).</b> Marked with Kaddish, avoiding celebrations."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Shema?", "back": "<b>“Hear, O Israel…” — central prayer affirming one God.</b> Recited by the Gosses."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Kaddish?", "back": "<b>A central Jewish prayer.</b> Recited through life and by mourners; mentions the Covenant."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Tallit?", "back": "<b>A prayer shawl with 613 knotted strings.</b> Cut at a funeral to symbolise the keeping of the mitzvot."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Chevra Kadisha?", "back": "<b>The burial society (volunteers).</b> Prepare a body for burial, usually within 24 hours."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Gemilut Chasidim?", "back": "<b>Acts of loving-kindness.</b> Supporting the Gosses and mourners."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Minyan?", "back": "<b>A quorum of 10 for communal prayer.</b> Relevant to mourning AND Jewish Feminism (who may count)."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Pikuach Nefesh?", "back": "<b>The preservation of life.</b> Overrides almost all other mitzvot in Bioethics."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Tzelem Elohim?", "back": "<b>Being made in the image of God.</b> Grounds the obligation to preserve life (Genesis 1:27)."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Rodef?", "back": "<b>A ‘pursuer’ / threat to the mother’s life.</b> Relevant to the Bioethics debate on abortion."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is JOFA?", "back": "<b>The Jewish Orthodox Feminist Alliance.</b> Founded by Blu Greenberg."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Rabbanit?", "back": "<b>A female synagogue leader.</b> Relevant to Jewish Feminism."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Bat Mitzvah?", "back": "<b>A coming-of-age ritual for girls.</b> Introduced as early as 1922 in Progressive Judaism."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Agunot?", "back": "<b>Women ‘chained’ in a marriage.</b> Jewish Feminism has campaigned to reform the divorce laws around this."},
+  {"pack": "Glossary", "cat": "Judaism", "front": "Terminology: what is Kol isha?", "back": "<b>Literally ‘a woman’s voice’.</b> Historically a restriction on a woman’s public voice in some Orthodox contexts; now also reclaimed by Jewish feminists, especially in the Progressive stream (flagged by this cohort’s Wenona 2026 Trial HSC marker as a genuine extension topic)."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is Secularism?", "back": "<b>The separation of government and public affairs from religion.</b> A key driver of the changing religious landscape — the social/institutional shift away from religious influence."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is Census (religious affiliation)?", "back": "<b>The national count that includes a religious-affiliation question.</b> Key evidence for DP1–DP2: 2021 figures were 61% religious, 43.9% Christian, ‘no religion’ 38.9%."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is Denominational switching?", "back": "<b>Moving from one Christian denomination to another.</b> Usually motivated by finding a form of practice that better aligns with personal values."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is Pentecostalism / Pentecostal movements?", "back": "<b>Christian movements emphasising the Holy Spirit’s gifts, e.g. speaking in tongues.</b> Not one denomination but many distinct movements under a shared label."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is Mega-church?", "back": "<b>A congregation attracting more than 2,000 people weekly.</b> A distinctive, mainly urban feature of Pentecostalism."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is New Age religions?", "back": "<b>A loosely connected set of spiritualities emphasising individualism and personal transformation.</b> Part of a wider search for enlightenment outside institutional religion."},
+  {"pack": "Glossary", "cat": "Religious Landscape", "front": "Terminology: what is White Australia Policy?", "back": "<b>An immigration-restriction policy, abolished in the early 1970s.</b> Its end enabled growth in Islam, Hinduism and Buddhism from 1990 onward."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is Ecumenism / the ecumenical movement?", "back": "<b>Building Christians’ shared commitment to Gospel values and mutual understanding between denominations.</b> Its biggest outcome was the Uniting Church’s 1977 formation."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is Uniting Church?", "back": "<b>A Christian denomination formed in 1977.</b> Merging the Methodist Church, the Congregational Union, and most — not all — Presbyterian congregations."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is NCCA (National Council of Churches in Australia)?", "back": "<b>A body promoting shared worship and social-justice campaigns.</b> e.g. the World Day of Prayer and the ‘Everybody’s Home’ campaign against homelessness."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is Interfaith dialogue?", "back": "<b>Dialogue between different religious traditions promoting tolerance and coexistence.</b> Had no organised, institutional form in Australia until the 1970s."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is Parliament of the World’s Religions?", "back": "<b>A landmark large-scale interfaith gathering.</b> Held in Melbourne, bringing adherents of many traditions into one high-profile forum."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is Reconciliation?", "back": "<b>Non-Aboriginal Australians recognising past wrongs and building respectful relationships with Aboriginal peoples.</b> Religious traditions have engaged by confronting their own historical role in dispossession."},
+  {"pack": "Glossary", "cat": "Religious Dialogue", "front": "Terminology: what is Uluru Statement from the Heart?", "back": "<b>A 2017 statement seeking constitutional reform.</b> Publicly supported by a significant number of Australian religious leaders in May 2022."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is The Dreaming?", "back": "<b>The foundation of Aboriginal spirituality.</b> Explains how the world was formed and sustained; determines kinship, ceremonial life and obligations to land and people."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Kinship?", "back": "<b>What defines an individual’s place within their family and the wider Aboriginal community.</b> Inherited by birth; regulates social relationships including who may marry whom."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Totemism?", "back": "<b>A system of kinship within the natural world.</b> A totem provides individuals with a direct spiritual link to ancestral beings."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Welcome to Country?", "back": "<b>A public acknowledgement recognising Traditional Owners as ongoing custodians of Country.</b> One expression today of obligations to land and people."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Terra nullius?", "back": "<b>The legal doctrine that the land belonged to no one before colonisation.</b> Overturned by the High Court in the Mabo decision (1992)."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Native title?", "back": "<b>Legal recognition of Aboriginal and Torres Strait Islander peoples’ rights to land.</b> Established through Mabo (1992) and the Native Title Act 1993."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Mabo decision?", "back": "<b>The 1992 High Court case Mabo v Queensland (No 2).</b> Overturned terra nullius and recognised, for the first time, that native title existed under Australian common law."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Wik decision?", "back": "<b>The 1996 High Court case Wik Peoples v Queensland.</b> Ruled native title could coexist with pastoral leases rather than being automatically extinguished by them."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Stolen Generations?", "back": "<b>The forced removal of Aboriginal and Torres Strait Islander children from their families under assimilation policy.</b> One of three named continuing effects of dispossession on Aboriginal spiritualities."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Dispossession?", "back": "<b>The ongoing loss of land, kinship connection and cultural transmission caused by colonisation.</b> Continues to affect Aboriginal spiritualities today, not just historically."},
+  {"pack": "Glossary", "cat": "Aboriginal Studies", "front": "Terminology: what is Land Rights movement?", "back": "<b>The movement for legal recognition of Aboriginal peoples’ rights to traditional land.</b> Began with the 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari."},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Mahayana Puja mantra", "back": "“Om Moni Padma Hum” — “Hail to the Lotus in the Jewel”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Khuddakapāṭha 1", "back": "“I take refuge in the Buddha… Dharma… Sangha…”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 19–20", "back": "“Not by rituals alone does one become pure, but also by disciplining the mind”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Sangha (attributed)", "back": "“Stand together, assist one another, and strengthen one another’s efforts.”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 14:183", "back": "“Abstain from all kinds of evil, to accumulate all that is good to purify the mind”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 10:131", "back": "“He who… kills beings who also long for happiness, will not find happiness after death”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Vimalakirti Sutra (Mahayana text)", "back": "“Because all living beings are subject to illness, I am ill, as well”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 14:183", "back": "“Learning to do good; ceasing to do evil; purifying the heart”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 1–2", "back": "“You are what you think… With your thoughts you make your world”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 8:100", "back": "“Better than a thousand hollow words is one word that brings peace”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Dhammapada 1:5", "back": "“Hatred does not cease by hatred, but only by love; this is the eternal rule”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Buddhism", "front": "Tibetan Book of the Dead", "back": "“Clarity of mind dispels fear in all realms”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Deuteronomy 6:4 (Shema prayer)", "back": "“Hear O Israel, the Lord is our God, the Lord is One”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Genesis 3:19", "back": "“For dust you are and to dust you shall return”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Kaddish prayer", "back": "“Magnified and sanctified be His great name…”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Genesis 1:27", "back": "“God created humankind in His image”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Deuteronomy 21:23", "back": "“You shall not desecrate the dead”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Isaiah 40:1", "back": "“Comfort, comfort my people, says your God.”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Genesis 15:18", "back": "“The Lord made a covenant with Abram, saying, ‘To your descendants I give this land’”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Kaddish prayer", "back": "“… may He establish His kingdom …”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Daniel 12:2", "back": "“Many who sleep in the dust will awake”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Job 1:21", "back": "“Naked I came from my mother’s womb, and naked I shall return there”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Mishnah Sanhedrin 4:5", "back": "“Whoever destroys one life is as if he destroyed a whole world, and whoever preserves a life is as if he preserved the whole world”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Genesis 1:27 (Tzelem Elohim)", "back": "“Made in the image of God”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Deuteronomy 30:19", "back": "“Choose life, so that you and your descendants may live”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Jeremiah 1:5", "back": "“Before I formed you in the womb, I knew you; before you came to birth I consecrated you”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Genesis 1:28", "back": "“Be fruitful and multiply”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Leviticus 19:16", "back": "“You shall not stand idly by the blood of your neighbor”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Ecclesiastes 3:2", "back": "“There is a time to be born and a time to die”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Exodus 20:13", "back": "“You shall not kill”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Talmud", "back": "“He who closes the eyes of a dying person while the soul is still departing is shedding blood”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Genesis 1:27", "back": "“Made in the image of G-d, male and female He created them”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Deuteronomy 6:7", "back": "“Teach them diligently to your children”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Numbers 27:1–7", "back": "“The daughters of Zelophehad speak rightly”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Deuteronomy 31:12", "back": "“Assemble the people—men, women, and children… so they may hear and learn and fear the Lord your G-d, and observe to do all the words of this law”"},
+  {"pack": "Quotes", "cat": "Sacred text quote — Judaism", "front": "Exodus 22:21", "back": "“You shall not oppress the stranger”"},
+  {"pack": "Quotes", "cat": "Aboriginal Spiritualities", "front": "Uluru Statement from the Heart (2017)", "back": "“We, gathered at the 2017 National Constitutional Convention, coming from all points of the southern sky, make this statement from the heart.”"},
+  {"pack": "Quotes", "cat": "Aboriginal Spiritualities", "front": "Uluru Statement from the Heart (2017)", "back": "“In 1967 we were counted, in 2017 we seek to be heard.”"},
+  {"pack": "Quotes", "cat": "Aboriginal Spiritualities", "front": "Bringing Them Home Report (1997) — summary, not a direct quote", "back": "The National Inquiry into the Separation of Aboriginal and Torres Strait Islander Children from Their Families found that the forced removal of children caused lasting, intergenerational trauma to Aboriginal families and communities. (Paraphrased — verify exact wording with your teacher before quoting it directly in an exam.)"},
+  {"pack": "Quotes", "cat": "Ecumenism & Reconciliation", "front": "John 17:21", "back": "“That all of them may be one, Father, just as you are in me and I am in you.”"},
+  {"pack": "Quotes", "cat": "Ecumenism & Reconciliation", "front": "Ephesians 4:3", "back": "“Make every effort to keep the unity of the Spirit through the bond of peace.”"},
+  {"pack": "Quotes", "cat": "Ecumenism & Reconciliation", "front": "Galatians 3:28", "back": "“There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus.”"},
+  {"pack": "Quotes", "cat": "Ecumenism & Reconciliation", "front": "Psalm 133:1", "back": "“How good and pleasant it is when God’s people live together in unity!”"},
+  {"pack": "Quotes", "cat": "Interfaith Dialogue", "front": "Declaration Toward a Global Ethic, 1993 Parliament of the World’s Religions", "back": "“We must treat others as we wish others to treat us.” (the interfaith ‘Golden Rule’)"},
+  {"pack": "Quotes", "cat": "Religious Landscape (Census/NCLS)", "front": "ABS Census, 2021", "back": "61% of Australians identified with a religion; Christianity remained the largest tradition at 43.9%, followed by Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%)."},
+  {"pack": "Quotes", "cat": "Religious Landscape (Census/NCLS)", "front": "ABS Census, 2016 & 2021", "back": "‘No religion’ became the largest single response category for the first time in 2016 (30.1%), rising to 38.9% by 2021."},
+  {"pack": "Quotes", "cat": "Religious Landscape (Census/NCLS)", "front": "ABS Census", "back": "NSW records the highest percentage of people reporting a religious affiliation of any Australian state."},
+  {"pack": "Quotes", "cat": "Religious Landscape (Census/NCLS)", "front": "NCLS (National Church Life Survey)", "back": "Gathers cross-denominational data across Australian churches — an example of ecumenism operating through shared research, not just shared worship."},
+  {"pack": "LivingDynamic", "cat": "Religious Landscape", "front": "Living / dynamic example for Religion in Australia?", "back": "The rise of Pentecostal mega-churches and their strong appeal to young adults shows Christianity adapting its style of worship to remain relevant — though this cohort's own data shows even that growth reversed by 2021, showing how quickly religious landscapes can keep changing. (ongoing (to 2021 data))"},
+  {"pack": "LivingDynamic", "cat": "Religious Dialogue", "front": "Living / dynamic example for Reconciliation?", "back": "The 2023 Voice to Parliament referendum (14 October 2023) saw many religious organisations and leaders across denominations — including the Uniting Church, Anglican and Catholic bodies, and combined multifaith groups — publicly engage with the national debate, continuing the religious sector's active role in reconciliation begun with the 2017 Uluru Statement from the Heart and its 2022 endorsement by religious leaders. (2023)"},
+  {"pack": "LivingDynamic", "cat": "Aboriginal Studies", "front": "Living / dynamic example for Aboriginal spirituality today?", "back": "Uluru's 2019 closure to climbers, agreed to by the Anangu traditional owners, shows Aboriginal spirituality actively shaping how a living sacred site is managed today — not simply a matter of historical record. (2019 (ongoing effect))"},
+  {"pack": "LivingDynamic", "cat": "Buddhism", "front": "Living / dynamic example for Dalai Lama?", "back": "2025 was declared a ‘Year of Peace’ to mark the Dalai Lama's 90th birthday — a contemporary, living expression of his ongoing role expressing Buddhist compassion and non-violence on the world stage. (2025)"},
+  {"pack": "LivingDynamic", "cat": "Buddhism", "front": "Living / dynamic example for Temple life?", "back": "Nan Tien Temple in Wollongong continues to run regular public programs (meditation retreats, cultural festivals, interfaith visits) that adapt traditional Mahayana practice to an Australian setting — showing Buddhism as a living, adapting tradition rather than a fixed historical one. (ongoing)"},
+  {"pack": "LivingDynamic", "cat": "Judaism", "front": "Living / dynamic example for Jewish Feminism?", "back": "Yeshivat Maharat (founded 2009) continues to train and ordain women as Orthodox clergy (maharats), and through the 2020s more Orthodox congregations have created formal leadership roles for women even without full ordination — a live, ongoing extension of Jewish Feminism's push for greater leadership access. (ongoing (2020s))"},
+  {"pack": "LivingDynamic", "cat": "Judaism", "front": "Living / dynamic example for Adapting ritual?", "back": "Many synagogues kept the practice of livestreaming services and offering online minyanim (prayer quorums) that began during COVID-19 lockdowns, showing Judaism adapting a millennia-old practice (the minyan) to a genuinely new circumstance while keeping its core requirement (10 people praying together) intact. (2020–present)"},
+  {"pack": "Variant", "cat": "Buddhism", "front": "Variant example for Schools of Buddhism — Mahayana?", "back": "Nan Tien Temple in Wollongong is Mahayana, featuring devotional images of Bodhisattvas such as Avalokiteshvara/Guanyin — Mahayana emphasises the Bodhisattva ideal of delaying one's own final Nirvana to help all beings reach enlightenment."},
+  {"pack": "Variant", "cat": "Buddhism", "front": "Variant example for Schools of Buddhism — Theravada?", "back": "Pilgrimage to the Temple of the Tooth in Kandy, Sri Lanka, reflects Theravada Buddhism's emphasis on the historical Buddha's relics and the Pali Canon as the earliest authoritative scripture."},
+  {"pack": "Variant", "cat": "Buddhism", "front": "Variant example for Schools of Buddhism — Vajrayana?", "back": "Tibetan Buddhism, the tradition of the Dalai Lama, is part of the Vajrayana school, which builds on Mahayana teaching with additional tantric ritual and meditation practices."},
+  {"pack": "Variant", "cat": "Buddhism", "front": "Variant example for Environmental ethics — variant emphasis?", "back": "Buddhist environmental ethics can be expressed differently across traditions: Mahayana's Vimalakirti Sutra teaching (‘because all living beings are subject to illness, I am ill, as well’) emphasises universal compassion, while Theravada's Vinaya (monastic rules) more directly regulates monks' and nuns' everyday conduct toward other living beings."},
+  {"pack": "Variant", "cat": "Judaism", "front": "Variant example for Marriage and divorce law?", "back": "On divorce, Orthodox Judaism upholds strict kiddushin (only the husband can grant a get); Conservative Judaism has introduced egalitarian rituals such as both partners exchanging rings, while the husband remains legally obligated to give a get; Progressive Judaism has moved furthest toward full legal equality in marriage."},
+  {"pack": "Variant", "cat": "Judaism", "front": "Variant example for Women's ritual participation?", "back": "Orthodox ritual participation for women remains halakhically limited (e.g. exclusion from mixed minyanim), while wearing a tallit is now a choice for Progressive and Conservative women — the same practice treated differently across the three streams."},
+  {"pack": "Variant", "cat": "Judaism", "front": "Variant example for Bat Mitzvah?", "back": "Progressive Judaism introduced the Bat Mitzvah as early as 1922; Orthodox communities have been slower and more varied in adopting an equivalent coming-of-age ritual for girls."},
+  {"pack": "Variant", "cat": "Judaism", "front": "Variant example for Mourning practice?", "back": "All three streams observe Shiva, Shloshim and Avelut, but the strictness of observance (e.g. how fully mourners withdraw from work and entertainment) is generally most stringent in Orthodox communities and more flexible in Progressive ones."}
+];
+(function(){
+  function $(id){ return document.getElementById(id); }
+
+  var PACK_LABEL = { all: "All packs", Core: "Core (Religion in Australia + technique)", Buddhism: "Buddhism", Judaism: "Judaism", Glossary: "Terminology", Quotes: "Quotes", LivingDynamic: "Living/Dynamic", Variant: "Variant" };
+  var activePack = "all";
+  var currentCards = ALL_FLASHCARDS.slice();
+  var cardIndex = 0;
+
+  function cardsForPack(pack){
+    return pack === "all" ? ALL_FLASHCARDS.slice() : ALL_FLASHCARDS.filter(function(c){ return c.pack === pack; });
+  }
+  function categoriesFor(pack){
+    var seen = {}; var out = ["All"];
+    cardsForPack(pack).forEach(function(c){ if(!seen[c.cat]){ seen[c.cat]=true; out.push(c.cat); } });
+    return out;
+  }
+  function renderPackFilters(){
+    var packs = ["all","Core","Buddhism","Judaism","Glossary","Quotes","LivingDynamic","Variant"];
+    $("packFilters").innerHTML = packs.map(function(p){
+      return '<button type="button" data-pack="'+p+'" class="'+(p===activePack?"active":"")+'">'+PACK_LABEL[p]+' ('+cardsForPack(p).length+')</button>';
+    }).join("");
+    Array.prototype.forEach.call($("packFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){
+        activePack = btn.getAttribute("data-pack");
+        renderPackFilters();
+        renderCategoryFilter();
+        setCards();
+      });
+    });
+  }
+  function renderCategoryFilter(){
+    $("flashFilter").innerHTML = categoriesFor(activePack).map(function(c){ return '<option value="'+c+'">'+c+'</option>'; }).join("");
+  }
+  function setCards(){
+    var cat = $("flashFilter").value || "All";
+    var pool = cardsForPack(activePack);
+    currentCards = (cat==="All") ? pool : pool.filter(function(c){ return c.cat===cat; });
+    cardIndex = 0;
+    renderCard();
+  }
+  function renderCard(){
+    $("flashCard").classList.remove("flipped");
+    if(currentCards.length===0){
+      $("flashPackTag").textContent = ""; $("flashPackTag2").textContent = "";
+      $("flashCat").textContent = ""; $("flashFront").textContent = "No cards"; $("flashBack").innerHTML=""; $("flashCount").textContent="0 of 0";
+      $("flashProgress").style.width = "0%";
+      return;
+    }
+    var c = currentCards[cardIndex];
+    $("flashPackTag").textContent = c.pack; $("flashPackTag").className = "pack-tag " + c.pack;
+    $("flashPackTag2").textContent = c.pack; $("flashPackTag2").className = "pack-tag " + c.pack;
+    $("flashCat").textContent = c.cat;
+    $("flashFront").textContent = c.front;
+    $("flashBack").innerHTML = "<p>"+c.back+"</p>";
+    $("flashCount").textContent = (cardIndex+1)+" of "+currentCards.length+" ("+ALL_FLASHCARDS.length+" total across the whole suite)";
+    $("flashProgress").style.width = Math.round(((cardIndex+1)/currentCards.length)*100)+"%";
+  }
+  function applyDeepLink(){
+    var h = (location.hash||"").replace("#","");
+    if(h.indexOf("cat=") !== 0) return false;
+    var cat = decodeURIComponent(h.slice(4));
+    var hit = ALL_FLASHCARDS.find(function(c){ return c.cat === cat; });
+    if(!hit) return false;
+    activePack = hit.pack;
+    renderPackFilters();
+    renderCategoryFilter();
+    $("flashFilter").value = cat;
+    return true;
+  }
+  function init(){
+    renderPackFilters();
+    renderCategoryFilter();
+    $("flashFilter").addEventListener("change", function(){ setCards(); });
+    $("flipCard").addEventListener("click", function(){ $("flashCard").classList.toggle("flipped"); });
+    $("flashCard").addEventListener("click", function(){ $("flashCard").classList.toggle("flipped"); });
+    $("flashCard").addEventListener("keydown", function(e){ if(e.key==="Enter" || e.key===" "){ e.preventDefault(); $("flashCard").classList.toggle("flipped"); } });
+    $("nextCard").addEventListener("click", function(){ if(!currentCards.length) return; cardIndex = (cardIndex+1) % currentCards.length; renderCard(); });
+    $("prevCard").addEventListener("click", function(){ if(!currentCards.length) return; cardIndex = (cardIndex-1+currentCards.length) % currentCards.length; renderCard(); });
+    $("shuffleCards").addEventListener("click", function(){ currentCards.sort(function(){ return Math.random()-.5; }); cardIndex = 0; renderCard(); });
+    $("printCards").addEventListener("click", function(){
+      var packLabel = PACK_LABEL[activePack] || activePack;
+      var catLabel = $("flashFilter").value || "All";
+      var html = '<div class="print-set-title">SOR1 Flashcards — '+packLabel+(catLabel!=="All" ? " — "+catLabel : "")+'</div>'
+        + '<div class="print-set-meta">'+currentCards.length+' card(s) — printed '+new Date().toLocaleDateString("en-AU")+'</div>'
+        + currentCards.map(function(c){
+            return '<div class="print-card-row"><div class="pc">'+c.pack+' &middot; '+c.cat+'</div><div class="pf">'+c.front+'</div><div class="pb">'+c.back+'</div></div>';
+          }).join("");
+      $("printArea").innerHTML = html;
+      window.print();
+    });
+    applyDeepLink();
+    setCards();
+  }
+  init();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

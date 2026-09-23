@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR1 Terminology</title>
+<style>
+  :root{
+    --green:#2f4d3a; --green-dark:#22362a; --gold:#efd99a; --gold-dark:#c9a24a;
+    --bg:#f7f5ef; --card:#ffffff; --ink:#20241f; --muted:#5b6259; --line:#e2ddd0;
+    --buddhism:#b5651d; --judaism:#8a4b8a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  header{background:var(--green);color:#fff;padding:22px 18px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;color:#d8e3da;font-size:.92rem;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px;}
+  .site-nav{padding:10px 16px;margin:0;background:var(--bg);border-bottom:1px solid var(--line);}
+  .site-nav-inner{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;}
+  .site-nav a,.site-nav span{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;border-radius:14px;font-weight:800;white-space:nowrap;text-decoration:none;font-size:.8rem;display:inline-block;}
+  .site-nav a:hover{background:var(--gold);border-color:var(--gold-dark);}
+  .site-nav span.current{background:var(--green);color:#fff;border-color:var(--green);}
+  main{max-width:960px;margin:0 auto;padding:18px 16px 60px;}
+  .howto{background:#eef4ec;border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;margin-bottom:14px;}
+  .howto b{color:var(--green-dark);}
+  .hub-link{display:inline-flex;align-items:center;gap:6px;color:#d8e3da;text-decoration:none;font-size:.82rem;font-weight:700;margin-bottom:8px;}
+  .hub-link:hover{color:#fff;text-decoration:underline;}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .filters button{border:2px solid var(--line);background:#fff;padding:7px 14px;border-radius:999px;cursor:pointer;font-size:.82rem;font-weight:800;}
+  .filters button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .searchbox{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;margin-bottom:12px;font-family:inherit;}
+  .ref-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:10px;}
+  .ref-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px;}
+  .area-tag{font-size:.68rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;color:#fff;background:var(--green);}
+  .area-tag.Buddhism{background:var(--buddhism);}
+  .area-tag.Judaism{background:var(--judaism);}
+  .term-title{font-size:1.05rem;font-weight:800;color:var(--green-dark);margin:2px 0 6px;}
+  .ref-card p{margin:.25rem 0;font-size:.9rem;line-height:1.5;}
+  .source-note{font-size:.76rem;color:var(--muted);margin-top:6px;}
+  .source-note.self{color:#8a5a1e;}
+  .empty-note{color:var(--muted);font-size:.88rem;padding:14px 0;}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  @media print{ .site-nav,.hub-link,.filters,.searchbox,.name-widget{display:none!important;} }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+    <h1>SOR1 Terminology</h1>
+    <p>Every key word across Religion in Australia, Buddhism and Judaism, in one searchable glossary.</p>
+    <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="SOR_Revision_Hub.html#start">Start Here</a>
+    <a href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html">6-Week Planner</a>
+    <a href="SOR_Revision_Hub.html#brain">Brain Dump</a>
+    <a href="SOR_Revision_Hub.html#quiz">Quick Quiz</a>
+    <a href="SOR_MC_Revision_Bank.html">Multiple Choice</a>
+    <a href="SOR_Q11_Practice.html">Q11</a>
+    <a href="SOR_Buddhism_StudyPack.html">Buddhism</a>
+    <a href="SOR_Judaism_StudyPack.html">Judaism</a>
+    <a href="SOR_Content_Flashcards.html">Flashcards</a>
+    <span class="current">Terminology</span>
+    <a href="SOR_Detail_Bank.html">SLV</a>
+    <a href="SOR_Exam_Builder.html">Build an Exam</a>
+  </div>
+</nav>
+
+<main>
+<div class="howto" data-personalize><b>How to use this:</b> every key word across Religion in Australia, Buddhism and Judaism, in one searchable list. Terms marked <b>Compiled by Claude</b> aren't from Dr Batten's source material directly &mdash; they're pulled together from the content bank so you have a full DP1&ndash;DP9 glossary too. Search or filter by area, then use the matching Terminology flashcards to test yourself.</div>
+<input type="text" class="searchbox" id="glossarySearch" placeholder="Search terms&hellip;">
+<div class="filters" id="glossaryFilters"></div>
+<div id="glossaryList"></div>
+</main>
+<footer>Wenona SOR1 revision suite &middot; built for offline / SharePoint use &middot; not affiliated with NESA</footer>
+
+<script>
+var GLOSSARY_DATA = [
+ {
+  "area": "Buddhism",
+  "term": "Buddha",
+  "meaning": "Enlightened one",
+  "application": "A key Buddha was Siddhartha Gautama (480–400 BCE)",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Dharma",
+  "meaning": "Buddhist teachings",
+  "application": "Temple Puja AND environmental ethics AND the Dalai Lama",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Sangha",
+  "meaning": "Buddhist community",
+  "application": "Temple Puja community",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Three Jewels",
+  "meaning": "Buddha, Dharma, Sangha",
+  "application": "Temple Puja beliefs",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Four Noble Truths",
+  "meaning": "Dukkha, craving, cessation is possible, the Eightfold Path",
+  "application": "The practical ‘Middle Way’ taught by the Buddha, Siddhartha Gautama, around 528 BCE",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Dukkha",
+  "meaning": "Suffering",
+  "application": "Avoiding it is central to environmental ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Eightfold Path",
+  "meaning": "Right behaviour (eight factors)",
+  "application": "Temple Puja beliefs",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Karma",
+  "meaning": "Merit / moral cause-and-effect",
+  "application": "Significance for the individual in Temple Puja",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Samsara",
+  "meaning": "The painful cycle of rebirth",
+  "application": "The goal of practice is avoiding endless samsara",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Nirvana",
+  "meaning": "Final enlightenment, release from samsara",
+  "application": "The goal of improving karma",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Anicca",
+  "meaning": "Impermanence",
+  "application": "Shown by offerings that decay during Temple Puja",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Anatta",
+  "meaning": "Non-self",
+  "application": "Significance for the individual in Temple Puja",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Prajna",
+  "meaning": "Wisdom",
+  "application": "Temple Puja AND environmental ethics AND the Dalai Lama’s contribution",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Bhikkhuni",
+  "meaning": "Buddhist nuns",
+  "application": "Interacting with them at Nan Tien Temple",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Vinaya",
+  "meaning": "Rules governing the Sangha",
+  "application": "Relevant to monks/nuns and environmental ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Karuna",
+  "meaning": "Compassion",
+  "application": "Environmental ethics AND the Dalai Lama’s contribution",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Ahimsa",
+  "meaning": "Non-violence / peace",
+  "application": "Environmental ethics (e.g. veganism) AND the Dalai Lama’s impact",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Dependent origination (dependent arising)",
+  "meaning": "The shared fate of all beings",
+  "application": "Leads to universal responsibility, including for the environment",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Sanchita karma",
+  "meaning": "Total accumulated past karma",
+  "application": "Used to explain environmental ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Five Precepts",
+  "meaning": "Core ethical teachings",
+  "application": "Applied to environmental ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Mahayana",
+  "meaning": "A school of Buddhism",
+  "application": "e.g. Nan Tien Temple, with its images of Bodhisattvas",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Theravada",
+  "meaning": "A school of Buddhism",
+  "application": "e.g. pilgrimage to the Temple of the Tooth, Sri Lanka",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Vajrayana",
+  "meaning": "A school of Buddhism",
+  "application": "Tibetan Buddhism is part of this school",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Bodhisattva",
+  "meaning": "An enlightened being who chooses to help others reach enlightenment",
+  "application": "e.g. the Dalai Lama is regarded as a Bodhisattva of Compassion",
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "term": "Dharamshala",
+  "meaning": "A city in North India",
+  "application": "Where around 100,000 Tibetan Buddhists fled to",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Covenant",
+  "meaning": "Agreement with God",
+  "application": "Relevant to Bioethics AND Death & Mourning",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Mitzvah / Mitzvot",
+  "meaning": "Commandment / commandments (613 in total)",
+  "application": "Relevant to Death & Mourning AND Bioethics",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Halakhah",
+  "meaning": "The body of Jewish law",
+  "application": "Death & Mourning is strongly guided by it; JOFA aims to work within it",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Progressive Judaism",
+  "meaning": "A stream of Judaism",
+  "application": "Relevant to Death & Mourning AND Jewish Feminism AND ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Conservative Judaism",
+  "meaning": "A stream of Judaism",
+  "application": "Relevant to Death & Mourning AND Jewish Feminism AND ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Orthodox Judaism",
+  "meaning": "A stream of Judaism",
+  "application": "Relevant to Death & Mourning AND Jewish Feminism AND ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Tikkun Olam",
+  "meaning": "Repair of the world",
+  "application": "Relevant to Death & Mourning AND Jewish Feminism AND ethics",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Kavod HaMet",
+  "meaning": "Honouring the dead",
+  "application": "A mitzvah for Death & Mourning",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Nichum Aveilim",
+  "meaning": "Comforting mourners",
+  "application": "A mitzvah for Death & Mourning",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Gosses",
+  "meaning": "A dying person",
+  "application": "Relevant to Bioethics AND Death & Mourning",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Shiva",
+  "meaning": "The first, most intense 7 days of mourning",
+  "application": "Mourners stay at home",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Shloshim",
+  "meaning": "The 30-day (month) period of mourning",
+  "application": "Mourners gradually resume normal life but avoid entertainment",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Avelut",
+  "meaning": "The year of mourning (for a parent)",
+  "application": "Marked with Kaddish, avoiding celebrations",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Shema",
+  "meaning": "“Hear, O Israel…” — central prayer affirming one God",
+  "application": "Recited by the Gosses",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Kaddish",
+  "meaning": "A central Jewish prayer",
+  "application": "Recited through life and by mourners; mentions the Covenant",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Tallit",
+  "meaning": "A prayer shawl with 613 knotted strings",
+  "application": "Cut at a funeral to symbolise the keeping of the mitzvot",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Chevra Kadisha",
+  "meaning": "The burial society (volunteers)",
+  "application": "Prepare a body for burial, usually within 24 hours",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Gemilut Chasidim",
+  "meaning": "Acts of loving-kindness",
+  "application": "Supporting the Gosses and mourners",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Minyan",
+  "meaning": "A quorum of 10 for communal prayer",
+  "application": "Relevant to mourning AND Jewish Feminism (who may count)",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Pikuach Nefesh",
+  "meaning": "The preservation of life",
+  "application": "Overrides almost all other mitzvot in Bioethics",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Tzelem Elohim",
+  "meaning": "Being made in the image of God",
+  "application": "Grounds the obligation to preserve life (Genesis 1:27)",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Rodef",
+  "meaning": "A ‘pursuer’ / threat to the mother’s life",
+  "application": "Relevant to the Bioethics debate on abortion",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "JOFA",
+  "meaning": "The Jewish Orthodox Feminist Alliance",
+  "application": "Founded by Blu Greenberg",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Rabbanit",
+  "meaning": "A female synagogue leader",
+  "application": "Relevant to Jewish Feminism",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Bat Mitzvah",
+  "meaning": "A coming-of-age ritual for girls",
+  "application": "Introduced as early as 1922 in Progressive Judaism",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Agunot",
+  "meaning": "Women ‘chained’ in a marriage",
+  "application": "Jewish Feminism has campaigned to reform the divorce laws around this",
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "term": "Kol isha",
+  "meaning": "Literally ‘a woman’s voice’",
+  "application": "Historically a restriction on a woman’s public voice in some Orthodox contexts; now also reclaimed by Jewish feminists, especially in the Progressive stream (flagged by this cohort’s Wenona 2026 Trial HSC marker as a genuine extension topic)",
+  "source": "batten"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "Secularism",
+  "meaning": "The separation of government and public affairs from religion",
+  "application": "A key driver of the changing religious landscape — the social/institutional shift away from religious influence",
+  "source": "claude",
+  "dpRef": "dp2a"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "Census (religious affiliation)",
+  "meaning": "The national count that includes a religious-affiliation question",
+  "application": "Key evidence for DP1–DP2: 2021 figures were 61% religious, 43.9% Christian, ‘no religion’ 38.9%",
+  "source": "claude",
+  "dpRef": "dp1"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "Denominational switching",
+  "meaning": "Moving from one Christian denomination to another",
+  "application": "Usually motivated by finding a form of practice that better aligns with personal values",
+  "source": "claude",
+  "dpRef": "dp2d"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "Pentecostalism / Pentecostal movements",
+  "meaning": "Christian movements emphasising the Holy Spirit’s gifts, e.g. speaking in tongues",
+  "application": "Not one denomination but many distinct movements under a shared label",
+  "source": "claude",
+  "dpRef": "dp2bp"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "Mega-church",
+  "meaning": "A congregation attracting more than 2,000 people weekly",
+  "application": "A distinctive, mainly urban feature of Pentecostalism",
+  "source": "claude",
+  "dpRef": "dp2bp"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "New Age religions",
+  "meaning": "A loosely connected set of spiritualities emphasising individualism and personal transformation",
+  "application": "Part of a wider search for enlightenment outside institutional religion",
+  "source": "claude",
+  "dpRef": "dp2e"
+ },
+ {
+  "area": "Religious Landscape",
+  "term": "White Australia Policy",
+  "meaning": "An immigration-restriction policy, abolished in the early 1970s",
+  "application": "Its end enabled growth in Islam, Hinduism and Buddhism from 1990 onward",
+  "source": "claude",
+  "dpRef": "dp2c"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "Ecumenism / the ecumenical movement",
+  "meaning": "Building Christians’ shared commitment to Gospel values and mutual understanding between denominations",
+  "application": "Its biggest outcome was the Uniting Church’s 1977 formation",
+  "source": "claude",
+  "dpRef": "dp3"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "Uniting Church",
+  "meaning": "A Christian denomination formed in 1977",
+  "application": "Merging the Methodist Church, the Congregational Union, and most — not all — Presbyterian congregations",
+  "source": "claude",
+  "dpRef": "dp3"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "NCCA (National Council of Churches in Australia)",
+  "meaning": "A body promoting shared worship and social-justice campaigns",
+  "application": "e.g. the World Day of Prayer and the ‘Everybody’s Home’ campaign against homelessness",
+  "source": "claude",
+  "dpRef": "dp3"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "Interfaith dialogue",
+  "meaning": "Dialogue between different religious traditions promoting tolerance and coexistence",
+  "application": "Had no organised, institutional form in Australia until the 1970s",
+  "source": "claude",
+  "dpRef": "dp4"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "Parliament of the World’s Religions",
+  "meaning": "A landmark large-scale interfaith gathering",
+  "application": "Held in Melbourne, bringing adherents of many traditions into one high-profile forum",
+  "source": "claude",
+  "dpRef": "dp4"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "Reconciliation",
+  "meaning": "Non-Aboriginal Australians recognising past wrongs and building respectful relationships with Aboriginal peoples",
+  "application": "Religious traditions have engaged by confronting their own historical role in dispossession",
+  "source": "claude",
+  "dpRef": "dp5"
+ },
+ {
+  "area": "Religious Dialogue",
+  "term": "Uluru Statement from the Heart",
+  "meaning": "A 2017 statement seeking constitutional reform",
+  "application": "Publicly supported by a significant number of Australian religious leaders in May 2022",
+  "source": "claude",
+  "dpRef": "dp5"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "The Dreaming",
+  "meaning": "The foundation of Aboriginal spirituality",
+  "application": "Explains how the world was formed and sustained; determines kinship, ceremonial life and obligations to land and people",
+  "source": "claude",
+  "dpRef": "dp6"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Kinship",
+  "meaning": "What defines an individual’s place within their family and the wider Aboriginal community",
+  "application": "Inherited by birth; regulates social relationships including who may marry whom",
+  "source": "claude",
+  "dpRef": "dp6a"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Totemism",
+  "meaning": "A system of kinship within the natural world",
+  "application": "A totem provides individuals with a direct spiritual link to ancestral beings",
+  "source": "claude",
+  "dpRef": "dp6a"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Welcome to Country",
+  "meaning": "A public acknowledgement recognising Traditional Owners as ongoing custodians of Country",
+  "application": "One expression today of obligations to land and people",
+  "source": "claude",
+  "dpRef": "dp6c"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Terra nullius",
+  "meaning": "The legal doctrine that the land belonged to no one before colonisation",
+  "application": "Overturned by the High Court in the Mabo decision (1992)",
+  "source": "claude",
+  "dpRef": "dp8a"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Native title",
+  "meaning": "Legal recognition of Aboriginal and Torres Strait Islander peoples’ rights to land",
+  "application": "Established through Mabo (1992) and the Native Title Act 1993",
+  "source": "claude",
+  "dpRef": "dp8"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Mabo decision",
+  "meaning": "The 1992 High Court case Mabo v Queensland (No 2)",
+  "application": "Overturned terra nullius and recognised, for the first time, that native title existed under Australian common law",
+  "source": "claude",
+  "dpRef": "dp8a"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Wik decision",
+  "meaning": "The 1996 High Court case Wik Peoples v Queensland",
+  "application": "Ruled native title could coexist with pastoral leases rather than being automatically extinguished by them",
+  "source": "claude",
+  "dpRef": "dp8b"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Stolen Generations",
+  "meaning": "The forced removal of Aboriginal and Torres Strait Islander children from their families under assimilation policy",
+  "application": "One of three named continuing effects of dispossession on Aboriginal spiritualities",
+  "source": "claude",
+  "dpRef": "dp9c"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Dispossession",
+  "meaning": "The ongoing loss of land, kinship connection and cultural transmission caused by colonisation",
+  "application": "Continues to affect Aboriginal spiritualities today, not just historically",
+  "source": "claude",
+  "dpRef": "dp9"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "term": "Land Rights movement",
+  "meaning": "The movement for legal recognition of Aboriginal peoples’ rights to traditional land",
+  "application": "Began with the 1966 Wave Hill Walk-Off, led by Gurindji stockman Vincent Lingiari",
+  "source": "claude",
+  "dpRef": "dp7"
+ }
+];
+
+(function(){
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+  var glossaryAreas = ["All","Religious Landscape","Religious Dialogue","Aboriginal Spiritualities","Buddhism","Judaism"];
+  var glossaryFilter = "All", glossaryQuery = "";
+  function renderGlossaryFilters(){
+    $("glossaryFilters").innerHTML = glossaryAreas.map(function(a){
+      return '<button type="button" data-area="'+esc(a)+'" class="'+(a===glossaryFilter?"active":"")+'">'+esc(a)+' ('+(a==="All"?GLOSSARY_DATA.length:GLOSSARY_DATA.filter(function(i){return i.area===a;}).length)+')</button>';
+    }).join("");
+    Array.prototype.forEach.call($("glossaryFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){ glossaryFilter = btn.getAttribute("data-area"); renderGlossaryFilters(); renderGlossaryList(); });
+    });
+  }
+  function renderGlossaryList(){
+    var q = glossaryQuery.trim().toLowerCase();
+    var items = GLOSSARY_DATA.filter(function(i){
+      if(glossaryFilter!=="All" && i.area!==glossaryFilter) return false;
+      if(!q) return true;
+      return (i.term+" "+i.meaning+" "+i.application).toLowerCase().indexOf(q) !== -1;
+    });
+    if(items.length===0){ $("glossaryList").innerHTML = '<p class="empty-note">No matching terms.</p>'; return; }
+    $("glossaryList").innerHTML = items.map(function(i){
+      var srcNote = i.source==="claude"
+        ? '<p class="source-note self">Compiled by Claude from the suite\'s own content bank (' + esc((i.dpRef||"").toUpperCase()) + ') &mdash; not a Dr Batten source document; double-check against your own notes.</p>'
+        : '<p class="source-note">From Dr Batten\'s depth-study glossary.</p>';
+      return '<div class="ref-card"><div class="ref-meta"><span class="area-tag '+esc(i.area==="Buddhism"||i.area==="Judaism"?i.area:"")+'">'+esc(i.area)+'</span></div>'
+        + '<div class="term-title">'+esc(i.term)+'</div>'
+        + '<p><b>Meaning:</b> '+esc(i.meaning)+'</p>'
+        + '<p><b>Application:</b> '+esc(i.application)+'</p>'
+        + srcNote + '</div>';
+    }).join("");
+  }
+
+  $("glossarySearch").addEventListener("input", function(){ glossaryQuery = this.value; renderGlossaryList(); });
+  renderGlossaryFilters(); renderGlossaryList();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

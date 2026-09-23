@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOR1 SLV: Quotes, Living/Dynamic &amp; Variant</title>
+<style>
+  :root{
+    --green:#2f4d3a; --green-dark:#22362a; --gold:#efd99a; --gold-dark:#c9a24a;
+    --bg:#f7f5ef; --card:#ffffff; --ink:#20241f; --muted:#5b6259; --line:#e2ddd0;
+    --landscape:#3b6ea5; --dialogue:#8a4b8a; --aboriginal:#a3541f; --buddhism:#b5651d; --judaism:#8a4b8a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+  header{background:var(--green);color:#fff;padding:22px 18px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;color:#d8e3da;font-size:.92rem;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px;}
+  nav.tabs{background:var(--green-dark);padding:8px 16px;position:sticky;top:0;z-index:10;}
+  .tabs-inner{display:flex;gap:8px;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+  nav.tabs button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.88rem;}
+  nav.tabs button.active{background:var(--gold);color:var(--green-dark);border-color:var(--gold);font-weight:700;}
+  .site-nav{padding:10px 16px;margin:0;background:var(--bg);border-bottom:1px solid var(--line);}
+  .site-nav-inner{display:flex;gap:8px;overflow-x:auto;max-width:960px;margin:0 auto;}
+  .site-nav a,.site-nav span{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;border-radius:14px;font-weight:800;white-space:nowrap;text-decoration:none;font-size:.8rem;display:inline-block;}
+  .site-nav a:hover{background:var(--gold);border-color:var(--gold-dark);}
+  .site-nav span.current{background:var(--green);color:#fff;border-color:var(--green);}
+  main{max-width:960px;margin:0 auto;padding:18px 16px 60px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .howto{background:#eef4ec;border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;margin-bottom:14px;}
+  .howto b{color:var(--green-dark);}
+  .hub-link{display:inline-flex;align-items:center;gap:6px;color:#d8e3da;text-decoration:none;font-size:.82rem;font-weight:700;margin-bottom:8px;}
+  .hub-link:hover{color:#fff;text-decoration:underline;}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .filters button{border:2px solid var(--line);background:#fff;padding:7px 14px;border-radius:999px;cursor:pointer;font-size:.82rem;font-weight:800;}
+  .filters button.active{background:var(--green);color:#fff;border-color:var(--green);}
+  .searchbox{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;margin-bottom:12px;font-family:inherit;}
+  .ref-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:10px;}
+  .ref-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px;}
+  .area-tag{font-size:.68rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;color:#fff;background:var(--green);}
+  .area-tag.Buddhism{background:var(--buddhism);}
+  .area-tag.Judaism{background:var(--judaism);}
+  .area-tag.sacred{background:var(--gold-dark);color:#3a2c0c;}
+  .term-title{font-size:1.05rem;font-weight:800;color:var(--green-dark);margin:2px 0 6px;}
+  .ref-card p{margin:.25rem 0;font-size:.9rem;line-height:1.5;}
+  .ref-card .quote-text{font-style:italic;font-size:1rem;color:var(--ink);}
+  .source-note{font-size:.76rem;color:var(--muted);margin-top:6px;}
+  .source-note.self{color:#8a5a1e;}
+  .empty-note{color:var(--muted);font-size:.88rem;padding:14px 0;}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  @media print{ nav.tabs,.site-nav,.hub-link,.filters,.searchbox,.name-widget{display:none!important;} .panel{display:block!important;} }
+
+  .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
+  .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
+  .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  @media print{ .name-widget{display:none!important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="hub-link" href="SOR_Revision_Hub.html">&larr; Back to Revision Hub</a>
+    <h1>SOR1 SLV: Quotes, Living/Dynamic &amp; Variant</h1>
+    <p>Sacred text quotes, living/dynamic examples and variant examples across Religion in Australia, Buddhism and Judaism, all in one place. (Looking for the glossary? That's moved to its own Terminology page.)</p>
+    <div class="name-widget" id="nameWidget">
+  <span class="name-greeting" id="nameGreeting" style="display:none;"></span>
+  <span id="nameInputWrap"><label for="studentNameInput2">Your name:</label> <input type="text" id="studentNameInput2" placeholder="e.g. Priya" autocomplete="off"></span>
+  <button type="button" class="name-edit-btn" id="nameEditBtn" style="display:none;">Edit</button>
+</div>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="SOR_Revision_Hub.html#start">Start Here</a>
+    <a href="SOR_SixWeek_HSCSuccessBluePrint_Planner.html">6-Week Planner</a>
+    <a href="SOR_Revision_Hub.html#brain">Brain Dump</a>
+    <a href="SOR_Revision_Hub.html#quiz">Quick Quiz</a>
+    <a href="SOR_MC_Revision_Bank.html">Multiple Choice</a>
+    <a href="SOR_Q11_Practice.html">Q11</a>
+    <a href="SOR_Buddhism_StudyPack.html">Buddhism</a>
+    <a href="SOR_Judaism_StudyPack.html">Judaism</a>
+    <a href="SOR_Content_Flashcards.html">Flashcards</a>
+    <a href="SOR_Terminology.html">Terminology</a>
+    <span class="current">SLV</span>
+    <a href="SOR_Exam_Builder.html">Build an Exam</a>
+  </div>
+</nav>
+
+<nav class="tabs" id="tabs">
+  <div class="tabs-inner">
+    <button data-tab="quotes" class="active">Quotes</button>
+    <button data-tab="living">Living/Dynamic</button>
+    <button data-tab="variant">Variant</button>
+  </div>
+</nav>
+
+<main>
+
+<section id="quotes" class="panel active">
+  <div class="howto" data-personalize><b>How to use this:</b> chapter and verse (or source) on top, the quote itself below &mdash; exactly how it should appear on your flashcards. Sacred text quotes are tagged separately from other genuine quotes (Uluru Statement, Bible verses on ecumenism, Census data). Aim to know at least one precise, correctly-sourced quote per topic.</div>
+  <input type="text" class="searchbox" id="quotesSearch" placeholder="Search quotes&hellip;">
+  <div class="filters" id="quotesFilters"></div>
+  <div id="quotesList"></div>
+</section>
+
+<section id="living" class="panel">
+  <div class="howto" data-personalize><b>How to use this:</b> "Living/dynamic" language shows a marker you understand a tradition is still active today, not just historical. At least one example here is from 2023&ndash;2025 &mdash; genuinely recent, not just "still practised."</div>
+  <div class="filters" id="livingFilters"></div>
+  <div id="livingList"></div>
+</section>
+
+<section id="variant" class="panel">
+  <div class="howto" data-personalize><b>How to use this:</b> variant examples show how the SAME belief, ritual or ethical issue plays out differently across streams or schools within Buddhism and Judaism &mdash; Orthodox/Conservative/Progressive, or Theravada/Mahayana/Vajrayana. Naming the variation explicitly is what separates a top-band response from a generic one.</div>
+  <div class="filters" id="variantFilters"></div>
+  <div id="variantList"></div>
+</section>
+
+</main>
+<footer>Wenona SOR1 revision suite &middot; built for offline / SharePoint use &middot; not affiliated with NESA</footer>
+
+<script>
+var QUOTES_DATA = [
+ {
+  "area": "Buddhism",
+  "ref": "Mahayana Puja mantra",
+  "quote": "“Om Moni Padma Hum” — “Hail to the Lotus in the Jewel”",
+  "sub": "Temple Puja",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Khuddakapāṭha 1",
+  "quote": "“I take refuge in the Buddha… Dharma… Sangha…”",
+  "sub": "Temple Puja",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 19–20",
+  "quote": "“Not by rituals alone does one become pure, but also by disciplining the mind”",
+  "sub": "Temple Puja",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Sangha (attributed)",
+  "quote": "“Stand together, assist one another, and strengthen one another’s efforts.”",
+  "sub": "Temple Puja",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 14:183",
+  "quote": "“Abstain from all kinds of evil, to accumulate all that is good to purify the mind”",
+  "sub": "Environmental Ethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 10:131",
+  "quote": "“He who… kills beings who also long for happiness, will not find happiness after death”",
+  "sub": "Environmental Ethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Vimalakirti Sutra (Mahayana text)",
+  "quote": "“Because all living beings are subject to illness, I am ill, as well”",
+  "sub": "Environmental Ethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 14:183",
+  "quote": "“Learning to do good; ceasing to do evil; purifying the heart”",
+  "sub": "Environmental Ethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 1–2",
+  "quote": "“You are what you think… With your thoughts you make your world”",
+  "sub": "Environmental Ethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 8:100",
+  "quote": "“Better than a thousand hollow words is one word that brings peace”",
+  "sub": "Dalai Lama",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Dhammapada 1:5",
+  "quote": "“Hatred does not cease by hatred, but only by love; this is the eternal rule”",
+  "sub": "Dalai Lama",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Buddhism",
+  "ref": "Tibetan Book of the Dead",
+  "quote": "“Clarity of mind dispels fear in all realms”",
+  "sub": "Dalai Lama",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Deuteronomy 6:4 (Shema prayer)",
+  "quote": "“Hear O Israel, the Lord is our God, the Lord is One”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Genesis 3:19",
+  "quote": "“For dust you are and to dust you shall return”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Kaddish prayer",
+  "quote": "“Magnified and sanctified be His great name…”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Genesis 1:27",
+  "quote": "“God created humankind in His image”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Deuteronomy 21:23",
+  "quote": "“You shall not desecrate the dead”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Isaiah 40:1",
+  "quote": "“Comfort, comfort my people, says your God.”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Genesis 15:18",
+  "quote": "“The Lord made a covenant with Abram, saying, ‘To your descendants I give this land’”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Kaddish prayer",
+  "quote": "“… may He establish His kingdom …”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Daniel 12:2",
+  "quote": "“Many who sleep in the dust will awake”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Job 1:21",
+  "quote": "“Naked I came from my mother’s womb, and naked I shall return there”",
+  "sub": "Death and Mourning",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Mishnah Sanhedrin 4:5",
+  "quote": "“Whoever destroys one life is as if he destroyed a whole world, and whoever preserves a life is as if he preserved the whole world”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Genesis 1:27 (Tzelem Elohim)",
+  "quote": "“Made in the image of God”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Deuteronomy 30:19",
+  "quote": "“Choose life, so that you and your descendants may live”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Jeremiah 1:5",
+  "quote": "“Before I formed you in the womb, I knew you; before you came to birth I consecrated you”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Genesis 1:28",
+  "quote": "“Be fruitful and multiply”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Leviticus 19:16",
+  "quote": "“You shall not stand idly by the blood of your neighbor”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Ecclesiastes 3:2",
+  "quote": "“There is a time to be born and a time to die”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Exodus 20:13",
+  "quote": "“You shall not kill”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Talmud",
+  "quote": "“He who closes the eyes of a dying person while the soul is still departing is shedding blood”",
+  "sub": "Bioethics",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Genesis 1:27",
+  "quote": "“Made in the image of G-d, male and female He created them”",
+  "sub": "Jewish Feminism",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Deuteronomy 6:7",
+  "quote": "“Teach them diligently to your children”",
+  "sub": "Jewish Feminism",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Numbers 27:1–7",
+  "quote": "“The daughters of Zelophehad speak rightly”",
+  "sub": "Jewish Feminism",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Deuteronomy 31:12",
+  "quote": "“Assemble the people—men, women, and children… so they may hear and learn and fear the Lord your G-d, and observe to do all the words of this law”",
+  "sub": "Jewish Feminism",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Judaism",
+  "ref": "Exodus 22:21",
+  "quote": "“You shall not oppress the stranger”",
+  "sub": "Jewish Feminism",
+  "sacred": true,
+  "source": "batten"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "ref": "Uluru Statement from the Heart (2017)",
+  "quote": "“We, gathered at the 2017 National Constitutional Convention, coming from all points of the southern sky, make this statement from the heart.”",
+  "sub": "Aboriginal Spiritualities / Reconciliation",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "ref": "Uluru Statement from the Heart (2017)",
+  "quote": "“In 1967 we were counted, in 2017 we seek to be heard.”",
+  "sub": "Aboriginal Spiritualities / Reconciliation",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "ref": "Bringing Them Home Report (1997) — summary, not a direct quote",
+  "quote": "The National Inquiry into the Separation of Aboriginal and Torres Strait Islander Children from Their Families found that the forced removal of children caused lasting, intergenerational trauma to Aboriginal families and communities. (Paraphrased — verify exact wording with your teacher before quoting it directly in an exam.)",
+  "sub": "Aboriginal Spiritualities / Stolen Generations",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Ecumenism",
+  "ref": "John 17:21",
+  "quote": "“That all of them may be one, Father, just as you are in me and I am in you.”",
+  "sub": "Ecumenism",
+  "sacred": true,
+  "source": "claude"
+ },
+ {
+  "area": "Ecumenism",
+  "ref": "Ephesians 4:3",
+  "quote": "“Make every effort to keep the unity of the Spirit through the bond of peace.”",
+  "sub": "Ecumenism",
+  "sacred": true,
+  "source": "claude"
+ },
+ {
+  "area": "Ecumenism",
+  "ref": "Galatians 3:28",
+  "quote": "“There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus.”",
+  "sub": "Ecumenism",
+  "sacred": true,
+  "source": "claude"
+ },
+ {
+  "area": "Ecumenism",
+  "ref": "Psalm 133:1",
+  "quote": "“How good and pleasant it is when God’s people live together in unity!”",
+  "sub": "Ecumenism / Reconciliation",
+  "sacred": true,
+  "source": "claude"
+ },
+ {
+  "area": "Interfaith Dialogue",
+  "ref": "Declaration Toward a Global Ethic, 1993 Parliament of the World’s Religions",
+  "quote": "“We must treat others as we wish others to treat us.” (the interfaith ‘Golden Rule’)",
+  "sub": "Interfaith Dialogue",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Religious Landscape",
+  "ref": "ABS Census, 2021",
+  "quote": "61% of Australians identified with a religion; Christianity remained the largest tradition at 43.9%, followed by Islam (3.2%), Hinduism (2.7%) and Buddhism (2.4%).",
+  "sub": "Religious Landscape (DP1–DP2)",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Religious Landscape",
+  "ref": "ABS Census, 2016 & 2021",
+  "quote": "‘No religion’ became the largest single response category for the first time in 2016 (30.1%), rising to 38.9% by 2021.",
+  "sub": "Religious Landscape (DP2a)",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Religious Landscape",
+  "ref": "ABS Census",
+  "quote": "NSW records the highest percentage of people reporting a religious affiliation of any Australian state.",
+  "sub": "Religious Landscape (DP1)",
+  "sacred": false,
+  "source": "claude"
+ },
+ {
+  "area": "Religious Landscape",
+  "ref": "NCLS (National Church Life Survey)",
+  "quote": "Gathers cross-denominational data across Australian churches — an example of ecumenism operating through shared research, not just shared worship.",
+  "sub": "Religious Dialogue (DP3)",
+  "sacred": false,
+  "source": "claude"
+ }
+];
+var LIVING_DATA = [
+ {
+  "area": "Religious Landscape",
+  "topic": "Religion in Australia",
+  "example": "The rise of Pentecostal mega-churches and their strong appeal to young adults shows Christianity adapting its style of worship to remain relevant — though this cohort's own data shows even that growth reversed by 2021, showing how quickly religious landscapes can keep changing.",
+  "year": "ongoing (to 2021 data)"
+ },
+ {
+  "area": "Religious Dialogue",
+  "topic": "Reconciliation",
+  "example": "The 2023 Voice to Parliament referendum (14 October 2023) saw many religious organisations and leaders across denominations — including the Uniting Church, Anglican and Catholic bodies, and combined multifaith groups — publicly engage with the national debate, continuing the religious sector's active role in reconciliation begun with the 2017 Uluru Statement from the Heart and its 2022 endorsement by religious leaders.",
+  "year": "2023"
+ },
+ {
+  "area": "Aboriginal Spiritualities",
+  "topic": "Aboriginal spirituality today",
+  "example": "Uluru's 2019 closure to climbers, agreed to by the Anangu traditional owners, shows Aboriginal spirituality actively shaping how a living sacred site is managed today — not simply a matter of historical record.",
+  "year": "2019 (ongoing effect)"
+ },
+ {
+  "area": "Buddhism",
+  "topic": "Dalai Lama",
+  "example": "2025 was declared a ‘Year of Peace’ to mark the Dalai Lama's 90th birthday — a contemporary, living expression of his ongoing role expressing Buddhist compassion and non-violence on the world stage.",
+  "year": "2025"
+ },
+ {
+  "area": "Buddhism",
+  "topic": "Temple life",
+  "example": "Nan Tien Temple in Wollongong continues to run regular public programs (meditation retreats, cultural festivals, interfaith visits) that adapt traditional Mahayana practice to an Australian setting — showing Buddhism as a living, adapting tradition rather than a fixed historical one.",
+  "year": "ongoing"
+ },
+ {
+  "area": "Judaism",
+  "topic": "Jewish Feminism",
+  "example": "Yeshivat Maharat (founded 2009) continues to train and ordain women as Orthodox clergy (maharats), and through the 2020s more Orthodox congregations have created formal leadership roles for women even without full ordination — a live, ongoing extension of Jewish Feminism's push for greater leadership access.",
+  "year": "ongoing (2020s)"
+ },
+ {
+  "area": "Judaism",
+  "topic": "Adapting ritual",
+  "example": "Many synagogues kept the practice of livestreaming services and offering online minyanim (prayer quorums) that began during COVID-19 lockdowns, showing Judaism adapting a millennia-old practice (the minyan) to a genuinely new circumstance while keeping its core requirement (10 people praying together) intact.",
+  "year": "2020–present"
+ }
+];
+var VARIANT_DATA = [
+ {
+  "area": "Buddhism",
+  "topic": "Schools of Buddhism — Mahayana",
+  "example": "Nan Tien Temple in Wollongong is Mahayana, featuring devotional images of Bodhisattvas such as Avalokiteshvara/Guanyin — Mahayana emphasises the Bodhisattva ideal of delaying one's own final Nirvana to help all beings reach enlightenment."
+ },
+ {
+  "area": "Buddhism",
+  "topic": "Schools of Buddhism — Theravada",
+  "example": "Pilgrimage to the Temple of the Tooth in Kandy, Sri Lanka, reflects Theravada Buddhism's emphasis on the historical Buddha's relics and the Pali Canon as the earliest authoritative scripture."
+ },
+ {
+  "area": "Buddhism",
+  "topic": "Schools of Buddhism — Vajrayana",
+  "example": "Tibetan Buddhism, the tradition of the Dalai Lama, is part of the Vajrayana school, which builds on Mahayana teaching with additional tantric ritual and meditation practices."
+ },
+ {
+  "area": "Buddhism",
+  "topic": "Environmental ethics — variant emphasis",
+  "example": "Buddhist environmental ethics can be expressed differently across traditions: Mahayana's Vimalakirti Sutra teaching (‘because all living beings are subject to illness, I am ill, as well’) emphasises universal compassion, while Theravada's Vinaya (monastic rules) more directly regulates monks' and nuns' everyday conduct toward other living beings."
+ },
+ {
+  "area": "Judaism",
+  "topic": "Marriage and divorce law",
+  "example": "On divorce, Orthodox Judaism upholds strict kiddushin (only the husband can grant a get); Conservative Judaism has introduced egalitarian rituals such as both partners exchanging rings, while the husband remains legally obligated to give a get; Progressive Judaism has moved furthest toward full legal equality in marriage."
+ },
+ {
+  "area": "Judaism",
+  "topic": "Women's ritual participation",
+  "example": "Orthodox ritual participation for women remains halakhically limited (e.g. exclusion from mixed minyanim), while wearing a tallit is now a choice for Progressive and Conservative women — the same practice treated differently across the three streams."
+ },
+ {
+  "area": "Judaism",
+  "topic": "Bat Mitzvah",
+  "example": "Progressive Judaism introduced the Bat Mitzvah as early as 1922; Orthodox communities have been slower and more varied in adopting an equivalent coming-of-age ritual for girls."
+ },
+ {
+  "area": "Judaism",
+  "topic": "Mourning practice",
+  "example": "All three streams observe Shiva, Shloshim and Avelut, but the strictness of observance (e.g. how fully mourners withdraw from work and entertainment) is generally most stringent in Orthodox communities and more flexible in Progressive ones."
+ }
+];
+
+(function(){
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+  var tabsEl = document.getElementById("tabs");
+  tabsEl.addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-tab]");
+    if(!btn) return;
+    document.querySelectorAll("nav.tabs button").forEach(function(b){ b.classList.toggle("active", b===btn); });
+    document.querySelectorAll(".panel").forEach(function(p){ p.classList.toggle("active", p.id === btn.getAttribute("data-tab")); });
+  });
+
+  // ---- Quotes ----
+  var quotesAreas = ["All","Sacred text quote","Aboriginal Spiritualities","Ecumenism","Interfaith Dialogue","Religious Landscape","Buddhism","Judaism"];
+  var quotesFilter = "All", quotesQuery = "";
+  function quotesForFilter(f){
+    if(f==="All") return QUOTES_DATA;
+    if(f==="Sacred text quote") return QUOTES_DATA.filter(function(i){ return i.sacred; });
+    return QUOTES_DATA.filter(function(i){ return i.area===f; });
+  }
+  function renderQuotesFilters(){
+    $("quotesFilters").innerHTML = quotesAreas.map(function(a){
+      return '<button type="button" data-area="'+esc(a)+'" class="'+(a===quotesFilter?"active":"")+'">'+esc(a)+' ('+quotesForFilter(a).length+')</button>';
+    }).join("");
+    Array.prototype.forEach.call($("quotesFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){ quotesFilter = btn.getAttribute("data-area"); renderQuotesFilters(); renderQuotesList(); });
+    });
+  }
+  function renderQuotesList(){
+    var q = quotesQuery.trim().toLowerCase();
+    var items = quotesForFilter(quotesFilter).filter(function(i){
+      if(!q) return true;
+      return (i.ref+" "+i.quote+" "+i.sub).toLowerCase().indexOf(q) !== -1;
+    });
+    if(items.length===0){ $("quotesList").innerHTML = '<p class="empty-note">No matching quotes.</p>'; return; }
+    $("quotesList").innerHTML = items.map(function(i){
+      var srcNote = i.source==="claude"
+        ? '<p class="source-note self">Sourced/compiled by Claude, not from Dr Batten\'s depth-study docx.</p>'
+        : '<p class="source-note">From Dr Batten\'s depth-study glossary (verbatim).</p>';
+      return '<div class="ref-card"><div class="ref-meta"><span class="area-tag '+esc(i.area==="Buddhism"||i.area==="Judaism"?i.area:"")+'">'+esc(i.area)+'</span>'
+        + (i.sacred?'<span class="area-tag sacred">Sacred text quote</span>':'')
+        + '<span class="area-tag" style="background:var(--muted);">'+esc(i.sub)+'</span></div>'
+        + '<div class="term-title">'+esc(i.ref)+'</div>'
+        + '<p class="quote-text">'+esc(i.quote)+'</p>'
+        + srcNote + '</div>';
+    }).join("");
+  }
+
+  // ---- Living/Dynamic ----
+  var livingAreas = ["All","Religious Landscape","Religious Dialogue","Aboriginal Spiritualities","Buddhism","Judaism"];
+  var livingFilter = "All";
+  function livingForFilter(f){ return f==="All" ? LIVING_DATA : LIVING_DATA.filter(function(i){ return i.area===f; }); }
+  function renderLivingFilters(){
+    $("livingFilters").innerHTML = livingAreas.map(function(a){
+      return '<button type="button" data-area="'+esc(a)+'" class="'+(a===livingFilter?"active":"")+'">'+esc(a)+' ('+livingForFilter(a).length+')</button>';
+    }).join("");
+    Array.prototype.forEach.call($("livingFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){ livingFilter = btn.getAttribute("data-area"); renderLivingFilters(); renderLivingList(); });
+    });
+  }
+  function renderLivingList(){
+    var items = livingForFilter(livingFilter);
+    if(items.length===0){ $("livingList").innerHTML = '<p class="empty-note">No matching examples.</p>'; return; }
+    $("livingList").innerHTML = items.map(function(i){
+      return '<div class="ref-card"><div class="ref-meta"><span class="area-tag '+esc(i.area==="Buddhism"||i.area==="Judaism"?i.area:"")+'">'+esc(i.area)+'</span><span class="area-tag" style="background:var(--gold-dark);color:#3a2c0c;">'+esc(i.year)+'</span></div>'
+        + '<div class="term-title">Living / dynamic example for '+esc(i.topic)+'</div>'
+        + '<p>'+esc(i.example)+'</p></div>';
+    }).join("");
+  }
+
+  // ---- Variant ----
+  var variantAreas = ["All","Buddhism","Judaism"];
+  var variantFilter = "All";
+  function variantForFilter(f){ return f==="All" ? VARIANT_DATA : VARIANT_DATA.filter(function(i){ return i.area===f; }); }
+  function renderVariantFilters(){
+    $("variantFilters").innerHTML = variantAreas.map(function(a){
+      return '<button type="button" data-area="'+esc(a)+'" class="'+(a===variantFilter?"active":"")+'">'+esc(a)+' ('+variantForFilter(a).length+')</button>';
+    }).join("");
+    Array.prototype.forEach.call($("variantFilters").querySelectorAll("button"), function(btn){
+      btn.addEventListener("click", function(){ variantFilter = btn.getAttribute("data-area"); renderVariantFilters(); renderVariantList(); });
+    });
+  }
+  function renderVariantList(){
+    var items = variantForFilter(variantFilter);
+    if(items.length===0){ $("variantList").innerHTML = '<p class="empty-note">No matching examples.</p>'; return; }
+    $("variantList").innerHTML = items.map(function(i){
+      return '<div class="ref-card"><div class="ref-meta"><span class="area-tag '+esc(i.area)+'">'+esc(i.area)+'</span></div>'
+        + '<div class="term-title">Variant example for '+esc(i.topic)+'</div>'
+        + '<p>'+esc(i.example)+'</p></div>';
+    }).join("");
+  }
+
+  $("quotesSearch").addEventListener("input", function(){ quotesQuery = this.value; renderQuotesList(); });
+
+  renderQuotesFilters(); renderQuotesList();
+  renderLivingFilters(); renderLivingList();
+  renderVariantFilters(); renderVariantList();
+})();
+</script>
+<script>
+(function(){
+  var NAME_KEY = "sorStudentName_v1", SINCE_KEY = "sorRevisingSince_v1";
+  function todayStr(){
+    var d = new Date();
+    return d.toLocaleDateString("en-AU", {day:"numeric", month:"short", year:"numeric"});
+  }
+  function getName(){ try{ return localStorage.getItem(NAME_KEY) || ""; }catch(e){ return ""; } }
+  function getSince(){ try{ return localStorage.getItem(SINCE_KEY) || ""; }catch(e){ return ""; } }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function setName(n){
+    try{
+      localStorage.setItem(NAME_KEY, n);
+      if(n && !getSince()) localStorage.setItem(SINCE_KEY, todayStr());
+    }catch(e){}
+  }
+  window.SOR_getStudentName = getName;
+  function renderWidget(){
+    var name = getName();
+    var greetEl = document.getElementById("nameGreeting");
+    var inputWrap = document.getElementById("nameInputWrap");
+    var editBtn = document.getElementById("nameEditBtn");
+    if(!greetEl) return;
+    if(name){
+      greetEl.textContent = "Hi, " + name + " \u2014 revising since " + getSince();
+      greetEl.style.display = "";
+      if(inputWrap) inputWrap.style.display = "none";
+      if(editBtn) editBtn.style.display = "";
+    } else {
+      greetEl.style.display = "none";
+      if(inputWrap) inputWrap.style.display = "";
+      if(editBtn) editBtn.style.display = "none";
+    }
+  }
+  function personalize(){
+    var name = getName();
+    document.querySelectorAll("[data-personalize]").forEach(function(el){
+      var already = el.getAttribute("data-personalized") === "1";
+      if(name){
+        if(already) return;
+        el.insertAdjacentHTML("afterbegin", "<b>Hi " + esc(name) + "!</b> ");
+        el.setAttribute("data-personalized", "1");
+      } else if(already){
+        var b = el.querySelector("b");
+        if(b && b.textContent.indexOf("Hi ") === 0) b.parentNode.removeChild(b);
+        el.removeAttribute("data-personalized");
+      }
+    });
+  }
+  function init(){
+    renderWidget();
+    personalize();
+    var input = document.getElementById("studentNameInput2");
+    if(input){
+      input.value = getName();
+      input.addEventListener("change", function(){
+        setName(input.value.trim());
+        renderWidget();
+        personalize();
+      });
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ input.blur(); }
+      });
+    }
+    var editBtn = document.getElementById("nameEditBtn");
+    if(editBtn){
+      editBtn.addEventListener("click", function(){
+        document.getElementById("nameGreeting").style.display = "none";
+        document.getElementById("nameInputWrap").style.display = "";
+        editBtn.style.display = "none";
+        document.getElementById("studentNameInput2").focus();
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
