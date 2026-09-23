@@ -13,7 +13,8 @@ Offline, self-contained HTML revision tools for Year 12 HSC Geography (NSW sylla
 | `Geo12_Topic3_RuralUrban.html` | Topic 3 notes, flashcards, questions to practise, real exemplar answers |
 | `Geo12_Q16_Skills.html` | Multiple-choice skills bank, Written Skills (Q16) bank, and construction guides (climate graphs, population pyramids, ternary graphs, cross sections, transects, précis maps) |
 | `Geo12_Q17_GeographicalInvestigation.html` | Evaluating fieldwork, vocations, Environmental Impact Studies |
-| `Geo12_ExamBuilder.html` | Generates a full practice exam (title page, MC, Q16, extended response with ruled writing lines) and prints it to PDF |
+| `Geo12_ExamBuilder.html` | Generates a full practice exam in the real HSC structure — Section I (15 MC), Section II (Q16, Q17, one question per unit, an integrated question), Section III (Question 22, tiered), Section IV (Question 23, essay) — with ruled writing lines, and prints it to PDF |
+| `index.html` | Redirects the bare site URL to `Geo12_Revision_Hub.html`, so `https://<username>.github.io/<repo>/` works without students needing the full Hub filename |
 
 ## How it works
 
@@ -29,4 +30,4 @@ Content lives as plain HTML/CSS/JS inside each file — open a file in any text 
 
 1. Push this repository to GitHub.
 2. In the repo's Settings → Pages, set the source to the `main` branch, root folder.
-3. Share the resulting `https://<username>.github.io/<repo>/Geo12_Revision_Hub.html` link with students.
+3. Share the resulting `https://<username>.github.io/<repo>/` link with students — `index.html` redirects it straight to the Hub.
