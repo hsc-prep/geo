@@ -1,4 +1,4 @@
-# Year 12 Geography Revision Suite
+# Year 12 Geography Revision Suite (Wenona)
 
 Offline, self-contained HTML revision tools for Year 12 HSC Geography (NSW syllabus, first HSC 2025). Each file is a standalone page — no build step, no server, no external dependencies. Open any `.html` file directly in a browser, or host the folder as a static site (e.g. GitHub Pages).
 
